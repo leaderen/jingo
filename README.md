@@ -9,22 +9,94 @@
 - **多协议支持**: 基于 Xray 核心，支持 VMess、VLESS、Trojan、Shadowsocks 等
 - **多语言**: 支持 8 种语言（中文、英文、越南语、高棉语、缅甸语、俄语、波斯语等）
 - **白标定制**: 支持品牌定制和多租户部署
-- **代码保护**: 核心逻辑编译为静态库（JinDoCore）
 
 ## 项目架构
 
 ```
-JinGo/                          # 主应用项目
-├── src/                        # 应用入口和平台特定代码
+JinGo/
+├── CMakeLists.txt              # 主 CMake 配置
+├── cmake/                      # CMake 模块
+│   ├── Platform-Android.cmake  # Android 平台配置
+│   ├── Platform-iOS.cmake      # iOS 平台配置
+│   ├── Platform-macOS.cmake    # macOS 平台配置
+│   ├── Platform-Linux.cmake    # Linux 平台配置
+│   └── Platform-Windows.cmake  # Windows 平台配置
+│
+├── src/                        # C++ 源代码
 │   ├── main.cpp               # 应用入口
-│   └── platform/              # 平台适配层
-├── qml/                        # QML 界面文件
-├── resources/                  # 资源文件（图标、翻译、GeoIP数据）
-├── platform/                   # 平台配置（Android/iOS）
+│   ├── platform/              # 平台适配层
+│   │   ├── android/           # Android 特定实现
+│   │   ├── linux/             # Linux 特定实现
+│   │   └── windows/           # Windows 特定实现
+│   ├── extensions/            # 系统扩展
+│   │   └── PacketTunnelProvider/  # iOS/macOS 网络扩展
+│   └── utils/                 # 工具类
+│
+├── resources/                  # 资源文件
+│   ├── qml/                   # QML 界面
+│   │   ├── Main.qml           # 主界面
+│   │   ├── pages/             # 页面组件
+│   │   ├── components/        # 通用组件
+│   │   └── dialogs/           # 对话框组件
+│   ├── translations/          # 多语言翻译文件 (*.ts)
+│   ├── icons/                 # 应用图标
+│   ├── images/                # 图片资源
+│   ├── fonts/                 # 字体文件
+│   ├── flags/                 # 国旗图标
+│   └── geoip/                 # GeoIP 数据库
+│
+├── platform/                   # 平台特定配置
+│   ├── android/               # Android 配置
+│   │   ├── AndroidManifest.xml
+│   │   ├── src/               # Java/Kotlin 代码
+│   │   ├── res/               # Android 资源
+│   │   └── keystore/          # 签名密钥
+│   ├── ios/                   # iOS 配置
+│   │   ├── Info.plist
+│   │   ├── Assets.xcassets/   # iOS 资源目录
+│   │   └── cert/              # 证书文件
+│   ├── macos/                 # macOS 配置
+│   │   └── cert/              # 证书文件
+│   ├── linux/                 # Linux 配置
+│   │   ├── debian/            # Debian 打包配置
+│   │   └── icons/             # 桌面图标
+│   └── windows/               # Windows 配置
+│
 ├── third_party/               # 第三方依赖
+│   ├── jindo/                 # JinDo 核心库
+│   │   ├── android/           # Android 静态库
+│   │   ├── apple/             # iOS/macOS xcframework
+│   │   ├── linux/             # Linux 静态库
+│   │   └── windows/           # Windows 静态库
 │   ├── superray/              # SuperRay (Xray 封装库)
-│   └── android_openssl/       # Android OpenSSL
-└── scripts/                   # 构建和部署脚本
+│   │   ├── android/
+│   │   ├── apple/
+│   │   ├── linux/
+│   │   └── windows/
+│   ├── android_openssl/       # Android OpenSSL 库
+│   ├── apple_openssl/         # iOS/macOS OpenSSL 库
+│   ├── linux_openssl/         # Linux OpenSSL 库
+│   ├── windows_openssl/       # Windows OpenSSL 库
+│   └── wintun/                # Windows TUN 驱动
+│
+├── scripts/                   # 脚本工具
+│   ├── build/                 # 构建脚本
+│   │   ├── build-android.sh
+│   │   ├── build-ios.sh
+│   │   ├── build-macos.sh
+│   │   ├── build-linux.sh
+│   │   └── build-windows.ps1
+│   └── signing/               # 签名脚本
+│
+├── white-labeling/            # 白标品牌配置
+│   ├── 1/                     # 品牌 1
+│   │   ├── bundle_config.json # 品牌配置
+│   │   └── icons/             # 品牌图标
+│   ├── 2/                     # 品牌 2
+│   └── .../
+│
+├── docs/                      # 文档
+└── release/                   # 构建输出目录
 ```
 
 ## 快速开始
@@ -143,52 +215,7 @@ cp -r white-labeling/1 white-labeling/YOUR_BRAND
 - [白标定制](docs/04_WHITE_LABELING.md)
 - [故障排除](docs/05_TROUBLESHOOTING.md)
 
-### 平台指南
-
-- [Linux](docs/06_LINUX.md)
-- [Android](docs/07_ANDROID.md)
-- [iOS](docs/08_IOS.md)
-- [macOS](docs/09_MACOS.md)
-- [Windows](docs/10_WINDOWS.md)
-
-## 目录结构
-
-```
-JinGo/
-├── CMakeLists.txt              # 主 CMake 配置
-├── cmake/                      # CMake 模块
-│   ├── Platform-Android.cmake
-│   ├── Platform-iOS.cmake
-│   ├── Platform-macOS.cmake
-│   └── ...
-├── src/
-│   ├── main.cpp               # 应用入口
-│   └── platform/              # 平台适配代码
-├── qml/                        # QML 界面
-│   ├── Main.qml
-│   ├── pages/
-│   └── components/
-├── resources/
-│   ├── icons/                 # 应用图标
-│   ├── translations/          # 翻译文件 (*.ts)
-│   └── geoip/                 # GeoIP 数据
-├── platform/
-│   ├── android/               # Android 配置
-│   ├── ios/                   # iOS 配置
-│   └── macos/                 # macOS 配置
-├── third_party/
-│   ├── superray/              # Xray 核心封装
-│   └── android_openssl/       # Android OpenSSL
-├── scripts/
-│   ├── build/                 # 构建脚本
-│   ├── deploy/                # 部署脚本
-│   └── signing/               # 签名脚本
-├── white-labeling/            # 白标资源
-│   ├── brand1/
-│   ├── brand2/
-│   └── ...
-└── release/                   # 构建输出
-```
+- [平台指南](docs/06_PLATFORMS.md) - Android、iOS、macOS、Windows、Linux 构建指南
 
 ## 多语言支持
 
@@ -265,12 +292,7 @@ adb logcat -s JinGo:V SuperRay-JNI:V
 
 ## 许可证
 
-私有软件，保留所有权利。
-
-## 联系方式
-
-- Telegram 频道: [@OpineWorkPublish](https://t.me/OpineWorkPublish)
-- Telegram 群组: [@OpineWorkOfficial](https://t.me/OpineWorkOfficial)
+MIT License
 
 ---
 
