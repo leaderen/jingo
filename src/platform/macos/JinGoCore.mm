@@ -25,7 +25,6 @@
 #include <unistd.h>
 #include <signal.h>
 
-#include "core/XrayCBridge.h"
 #include "superray.h"
 
 static bool g_running = true;
@@ -123,7 +122,8 @@ static void stopAll() {
     }
 
     if (g_xrayRunning) {
-        Xray_Stop();
+        char* result = SuperRay_StopAll();
+        if (result) SuperRay_Free(result);
         g_xrayRunning = false;
         g_instanceID.clear();
     }
@@ -210,11 +210,13 @@ static bool startCore(const std::string& xrayConfig, const std::string& serverAd
 
 int main(int argc, char* argv[]) {
     if (argc > 1 && strcmp(argv[1], "--version") == 0) {
-        char version[64];
-        if (Xray_GetVersion(version, sizeof(version)) == 0)
-            printf("JinGoCore 1.0 (Xray %s)\n", version);
-        else
+        char* ver = SuperRay_Version();
+        if (ver) {
+            printf("JinGoCore 1.0 (SuperRay %s)\n", ver);
+            SuperRay_Free(ver);
+        } else {
             printf("JinGoCore 1.0\n");
+        }
         return 0;
     }
 
@@ -263,10 +265,10 @@ int main(int argc, char* argv[]) {
                 g_tunRunning ? "true" : "false");
             respond(true, data);
         } else if (action == "version") {
-            char version[64] = "";
-            Xray_GetVersion(version, sizeof(version));
+            char* ver = SuperRay_Version();
             char data[128];
-            snprintf(data, sizeof(data), "{\"version\":\"%s\"}", version);
+            snprintf(data, sizeof(data), "{\"version\":\"%s\"}", ver ? ver : "unknown");
+            if (ver) SuperRay_Free(ver);
             respond(true, data);
         } else if (action == "stats") {
             @autoreleasepool {

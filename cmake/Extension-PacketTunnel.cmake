@@ -6,7 +6,7 @@
 # Architecture:
 #   - NEPacketTunnelProvider implementation (TUN mode)
 #   - SuperRay - 统一的Xray-core和TUN处理库
-#   - XrayCBridge - Extension-internal Xray management (使用SuperRay SuperRay兼容API)
+#   - XrayCBridge - Xray management via libJinDoCore.a (SuperRay兼容API)
 #   - Xray runs inside Extension process via SuperRay
 #
 # Usage:
@@ -39,7 +39,7 @@ message(STATUS "========================================")
 # Note: XrayCore runs inside Extension, not in main process
 # Extension includes:
 #   1. PacketTunnelProvider - NEPacketTunnelProvider implementation (TUN mode)
-#   2. XrayCBridge - Xray management inside Extension (uses SuperRay SuperRay API)
+#   2. XrayCBridge - provided by libJinDoCore.a (no need to compile separately)
 #
 # IMPORTANT: iOS App Extension uses _NSExtensionMain as entry point (no main.m needed)
 #            macOS System Extension uses startSystemExtensionMode (needs main.m)
@@ -251,10 +251,19 @@ endif()
 # Extension contains complete Xray instance listening on 127.0.0.1:10808
 # TUN mode: SuperRay handles TUN device creation and packet processing
 
-if(EXISTS ${JINDO_LIB_FILE})
-    message(STATUS "Linking JinDoCore (with SuperRay) to Extension: ${JINDO_LIB_FILE}")
+# Extension only needs SuperRay (not full JinDoCore which depends on Qt)
+# SuperRay standalone lib is located alongside JinDoCore in the xcframework
+set(SUPERRAY_XCFW_DIR "${CMAKE_SOURCE_DIR}/third_party/jindo/apple/SuperRay.xcframework")
+if(TARGET_IOS)
+    set(SUPERRAY_LIB "${SUPERRAY_XCFW_DIR}/ios-arm64/libsuperray.a")
+else()
+    set(SUPERRAY_LIB "${SUPERRAY_XCFW_DIR}/macos-arm64_x86_64/libsuperray.a")
+endif()
+
+if(EXISTS "${SUPERRAY_LIB}")
+    message(STATUS "Linking SuperRay to Extension: ${SUPERRAY_LIB}")
     target_link_libraries(PacketTunnelProvider PRIVATE
-        "${JINDO_LIB_FILE}"
+        "${SUPERRAY_LIB}"
         "-lresolv"
         "-lz"
     )
@@ -264,7 +273,7 @@ if(EXISTS ${JINDO_LIB_FILE})
         APPLE_XRAY_BRIDGE
     )
 else()
-    message(WARNING "JinDoCore not available for Extension")
+    message(WARNING "SuperRay not available for Extension: ${SUPERRAY_LIB}")
     target_compile_definitions(PacketTunnelProvider PRIVATE NO_SUPERRAY)
 endif()
 

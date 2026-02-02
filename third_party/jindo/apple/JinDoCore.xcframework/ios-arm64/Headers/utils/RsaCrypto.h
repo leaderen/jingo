@@ -50,10 +50,10 @@ public:
                        const QByteArray& publicKeyPem);
 
     /**
-     * @brief 获取嵌入的公钥
-     * @return PEM 格式的公钥
+     * @brief 从安装包目录读取公钥文件
+     * @return PEM 格式的公钥，读取失败返回空
      */
-    static QByteArray getEmbeddedPublicKey();
+    static QByteArray getPublicKey();
 
     /**
      * @brief 检查 RSA 功能是否可用
@@ -80,7 +80,6 @@ public:
 #endif
 
 private:
-    static const char* EMBEDDED_PUBLIC_KEY;
 };
 
 #endif // RSACRYPTO_H
