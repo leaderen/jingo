@@ -17,6 +17,7 @@ JinGo VPN supports white-labeling, allowing creation of independently branded VP
 white-labeling/
 ├── 1/                         # Brand 1 (default)
 │   ├── bundle_config.json     # Brand configuration
+│   ├── license_public_key.pem # RSA public key for license verification
 │   └── icons/                 # Icon resources
 │       ├── app.png            # Main icon (1024x1024)
 │       ├── app.icns           # macOS

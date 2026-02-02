@@ -15,6 +15,7 @@
 #include <QNetworkReply>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QStringList>
 #include <functional>
 
 // ============================================================================
@@ -27,11 +28,9 @@
  */
 namespace {
     /**
-     * @brief XBoard API 基础 URL
-     * @details 所有 API 请求的根地址，实际请求时会拼接具体的 endpoint
-     * @note 格式：https://domain/api/version（末尾不含斜杠）
+     * @brief XBoard API 基础 URL（默认为空，强制从 BundleConfig 读取）
      */
-    const QString API_BASE_URL = "https://cp.jingo.cfd/api/v1";
+    const QString API_BASE_URL = "";
 }
 
 // ============================================================================
@@ -160,6 +159,12 @@ public:
      * @see setAuthToken()
      */
     void clearAuthToken();
+
+    /**
+     * @brief 更新备用 URL 列表（从 API 响应中获取）
+     * @param urls 备用 URL 列表
+     */
+    void updateFallbackUrls(const QStringList& urls);
 
     /**
      * @brief 设置请求超时时间
@@ -523,6 +528,32 @@ private:
     QString m_baseUrl;                       ///< API 基础 URL
     QString m_authToken;                     ///< 身份验证 Token
     int m_timeout;                           ///< 请求超时时间（毫秒）
+
+    // Fallback URL 支持
+    QStringList m_allUrls;                   ///< 所有可用 URL（主 URL + 备用 URL）
+    int m_currentUrlIndex;                   ///< 当前使用的 URL 索引
+    int m_consecutiveFailures;               ///< 当前 URL 连续失败次数
+
+    /**
+     * @brief 网络连接错误时切换到下一个备用 URL
+     * @return true 如果成功切换到新 URL，false 如果已尝试所有 URL
+     */
+    bool switchToNextUrl();
+
+    /**
+     * @brief 从本地文件加载备用 URL 列表
+     */
+    void loadFallbackUrls();
+
+    /**
+     * @brief 保存备用 URL 列表到本地文件
+     */
+    void saveFallbackUrls();
+
+    /**
+     * @brief 获取备用 URL 本地存储路径
+     */
+    static QString fallbackUrlsFilePath();
 };
 
 #endif // APICLIENT_H

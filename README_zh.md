@@ -38,6 +38,8 @@
 - [技术栈](#技术栈)
 - [构建选项](#构建选项)
 - [开发](#开发)
+- [订阅格式](#订阅格式)
+- [授权验证](#授权验证)
 - [联系方式](#联系方式)
 - [许可证](#许可证)
 
@@ -216,6 +218,20 @@ QT_LOGGING_RULES="*.debug=true" ./JinGo
 adb logcat -s JinGo:V SuperRay-JNI:V
 ```
 
+## 订阅格式
+
+默认订阅格式为 **sing-box**（JSON）。应用在从面板获取订阅数据时使用 `flag=sing-box` 参数，返回标准 JSON 配置，在所有平台上解析更可靠。
+
+同时也兼容 Clash（YAML）格式，当服务端返回 YAML 内容时会自动回退使用 Clash 解析器。
+
+## 授权验证
+
+官方打包平台（CI/CD 构建）**开启了授权验证**（`JINDO_ENABLE_LICENSE_CHECK=ON`），运行时会校验应用授权，存在使用限制。
+
+开源版本请**自行本地编译打包**，本地构建默认**不启用**授权验证，无任何限制。
+
+> **注意**：不支持 GitHub Actions 自动构建。请使用本地构建脚本或项目自带的 OneDev CI/CD 进行自动化构建。
+
 ## 联系方式
 
 - Telegram 频道: [@OpineWorkPublish](https://t.me/OpineWorkPublish)
@@ -229,4 +245,4 @@ MIT License
 
 **版本**: 1.0.0
 **Qt 版本**: 6.10.0+
-**最后更新**: 2026-01
+**最后更新**: 2026-02

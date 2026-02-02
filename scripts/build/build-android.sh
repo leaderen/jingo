@@ -33,17 +33,8 @@ elif [[ -n "${Qt6_DIR:-}" ]]; then
     # Qt6_DIR 指向 android_arm64_v8a/lib/cmake/Qt6，取其父目录的父目录的父目录的父目录
     QT_BASE_PATH="$(dirname "$(dirname "$(dirname "$(dirname "$Qt6_DIR")")")")"
 else
-    QT_BASE_PATH="/Volumes/mindata/Applications/Qt/6.10.0"
-fi
-
-# --------------------- Android SDK/NDK 配置 ---------------------
-# Android SDK 路径 (优先使用环境变量)
-if [[ -z "${ANDROID_SDK_ROOT:-}" ]]; then
-    ANDROID_SDK_ROOT="/Volumes/mindata/Library/Android/aarch64/sdk"
-fi
-# Android NDK 版本 (优先使用环境变量)
-if [[ -z "${ANDROID_NDK_VERSION:-}" ]]; then
-    ANDROID_NDK_VERSION="27.2.12479018"
+    # 需要在后面调用 auto_detect_qt_base()，此处先不设置
+    QT_BASE_PATH=""
 fi
 
 # --------------------- 脚本初始化 ---------------------
@@ -53,9 +44,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [[ -f "$SCRIPT_DIR/copy-brand-assets.sh" ]]; then
     source "$SCRIPT_DIR/copy-brand-assets.sh"
 fi
-
-# --------------------- 派生配置 (一般不需要修改) ---------------------
-ANDROID_NDK="$ANDROID_SDK_ROOT/ndk/$ANDROID_NDK_VERSION"
 
 # 检测当前操作系统
 detect_os() {
@@ -67,6 +55,34 @@ detect_os() {
 }
 
 CURRENT_OS="$(detect_os)"
+
+# 自动检测 Qt 路径
+auto_detect_qt_base() {
+    # 常见路径（包括 macOS 和 Linux）
+    local COMMON_PATHS=(
+        "/mnt/dev/Qt"
+        "$HOME/Qt"
+        "/opt/Qt"
+        "/usr/local/Qt"
+        "$HOME/Applications/Qt"
+        "/Volumes/mindata/Applications/Qt"
+        "/Applications/Qt"
+    )
+
+    for base in "${COMMON_PATHS[@]}"; do
+        if [ -d "$base" ]; then
+            # 查找最新版本
+            local latest=$(ls -1 "$base" 2>/dev/null | grep -E '^[0-9]+\.' | sort -V | tail -1)
+            if [ -n "$latest" ] && [ -d "$base/$latest" ]; then
+                echo "$base/$latest"
+                return 0
+            fi
+        fi
+    done
+
+    # 回退到默认值
+    echo "/Volumes/mindata/Applications/Qt/6.10.0"
+}
 
 # 获取 Qt 版本号
 get_qt_version() {
@@ -205,13 +221,13 @@ BUILD_DATE=$(date +%Y%m%d)
 generate_output_name() {
     local version="${1:-1.0.0}"
     local ext="${2:-}"
-    local brand="${BRAND_NAME:-jingo}"
+    local brand="${BRAND_NAME:-${BRAND:-jingo}}"
     local platform="android"
 
     if [[ -n "$ext" ]]; then
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
     else
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}"
     fi
 }
 
@@ -351,7 +367,7 @@ parse_args() {
 # ============================================================================
 apply_brand_customization() {
     # Android 平台默认使用品牌 3
-    local brand_id="${BRAND_NAME:-3}"
+    local brand_id="${BRAND_NAME:-${BRAND:-3}}"
 
     print_step "复制白标资源 (品牌: $brand_id)"
 
@@ -535,6 +551,12 @@ configure_cmake() {
             -DQT_ANDROID_ABIS="$ANDROID_ABI;$EXTRA_ABIS"
         )
         print_info "  多ABI构建: $ANDROID_ABI;$EXTRA_ABIS"
+    fi
+
+    # 授权验证开关
+    if [[ "${JINDO_ENABLE_LICENSE_CHECK:-}" == "ON" ]]; then
+        CMAKE_ARGS+=(-DJINDO_ENABLE_LICENSE_CHECK=ON)
+        print_info "  启用授权验证 (JINDO_ENABLE_LICENSE_CHECK=ON)"
     fi
 
     cmake "${CMAKE_ARGS[@]}"

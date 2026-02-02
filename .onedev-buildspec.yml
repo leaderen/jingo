@@ -1,9 +1,13 @@
 version: 33
 # JinGo VPN Multi-Platform Build Configuration
-# Updated: 2026-01-06
+# Updated: 2026-02-02
 #
 # 所有任务均为手动触发，需要指定 brand 参数
-# brand 参数: 白标品牌名称 (如 jingo, mybrand 等)
+# brand 参数: 白标品牌 ID (数字，1=JinGo 默认品牌，2-100=自定义品牌)
+#
+# 白标目录结构: white-labeling/<brand_id>/
+#   - bundle_config.json: 品牌配置
+#   - icons/: 品牌图标资源
 #
 # 并行构建: 手动同时触发多个平台任务即可实现并行
 # - 不同 executor 的任务可以并行运行
@@ -24,66 +28,38 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
-        name: Setup Signing
+        name: Verify Dependencies
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # 设置环境
             export HOME="${HOME:-/var/root}"
             export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
-            echo "=== 检查 macOS 签名环境 ==="
+            echo "=== Verifying Dependencies ==="
+            echo "Brand ID: @param:brand@"
 
-            # 使用 build keychain (证书已手动导入)
-            KEYCHAIN="/opt/onedev-agent/keychain/build.keychain-db"
-            KEYCHAIN_PWD="${KEYCHAIN_PASSWORD:-123456}"
-
-            # 1. 解锁 keychain
-            security unlock-keychain -p "$KEYCHAIN_PWD" "$KEYCHAIN"
-
-            # 2. 设置 keychain 搜索列表 (build.keychain 必须在最前面)
-            security list-keychains -d user -s "$KEYCHAIN" /Library/Keychains/System.keychain
-
-            # 3. 设置 partition list 允许 codesign 访问私钥 (这是关键!)
-            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PWD" "$KEYCHAIN"
-
-            # 4. 设置超时防止 keychain 自动锁定
-            security set-keychain-settings -lut 21600 "$KEYCHAIN"
-
-            # 显示 keychain 搜索列表 (验证设置)
-            echo "=== Keychain 搜索列表 ==="
-            security list-keychains -d user
-
-            # 显示可用的签名身份 (指定 keychain)
-            echo "=== build.keychain 中的签名身份 ==="
-            security find-identity -v -p codesigning "$KEYCHAIN"
-
-            # 检查描述文件
-            echo "=== 已安装的描述文件 ==="
-            ls -la ~/Library/MobileDevice/Provisioning\ Profiles/*.provisionprofile 2>/dev/null || echo "无 macOS 描述文件"
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-
-      - !CommandStep
-        name: Apply White-Label
-        runInContainer: false
-        interpreter: !DefaultInterpreter
-          commands: |
-            # 设置 HOME 环境变量（brew 需要）
-            export HOME="${HOME:-/var/root}"
-            # 设置 PATH 包含常用工具路径和 Qt
-            export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-            # 确保 Xcode 路径正确
-            export DEVELOPER_DIR="/Volumes/mindata/Xcode.app/Contents/Developer"
-            # 添加 Qt 路径
-            export QT_MACOS_PATH="/Volumes/mindata/Qt/6.10.1/macos"
-            export PATH="$QT_MACOS_PATH/bin:$PATH"
-            echo "Qt macOS path: $QT_MACOS_PATH"
-            echo "Xcode: $DEVELOPER_DIR"
-            echo "=== macOS Build ==="
-            echo "Brand: @param:brand@"
-            if [ "@param:brand@" != "jingo" ]; then
-              ./scripts/customize.sh --brand "@param:brand@" --platform macos --skip-build
+            # 检查 JinDoCore XCFramework
+            XCFW="third_party/jindo/apple/JinDoCore.xcframework"
+            if [ -d "$XCFW" ]; then
+                echo "[OK] Found JinDoCore.xcframework"
+            else
+                echo "[ERROR] JinDoCore.xcframework not found: $XCFW"
+                exit 1
             fi
+
+            # 检查白标目录
+            BRAND_DIR="white-labeling/@param:brand@"
+            if [ -d "$BRAND_DIR" ]; then
+                echo "[OK] Found white-label directory: $BRAND_DIR"
+                [ -f "$BRAND_DIR/bundle_config.json" ] && echo "[OK] Found bundle_config.json" || echo "[WARNING] bundle_config.json not found"
+                [ -d "$BRAND_DIR/icons/" ] && echo "[OK] Found icons directory" || echo "[WARNING] icons directory not found"
+            else
+                echo "[ERROR] White-label directory not found: $BRAND_DIR"
+                exit 1
+            fi
+
+            echo ""
+            echo "Dependencies verified"
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
@@ -91,89 +67,26 @@ jobs:
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # 设置 HOME 环境变量（brew 需要）
             export HOME="${HOME:-/var/root}"
-            # 设置环境
             export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-
-            # 使用 build keychain (证书已手动导入)
-            KEYCHAIN="/opt/onedev-agent/keychain/build.keychain-db"
-            KEYCHAIN_PWD="${KEYCHAIN_PASSWORD:-123456}"
-            security unlock-keychain -p "$KEYCHAIN_PWD" "$KEYCHAIN"
-            security list-keychains -d user -s "$KEYCHAIN" /Library/Keychains/System.keychain
-            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PWD" "$KEYCHAIN"
-            security set-keychain-settings -lut 21600 "$KEYCHAIN"
-
-            # 显示可用签名身份 (指定 keychain)
-            echo "=== 可用签名身份 ==="
-            security find-identity -v -p codesigning "$KEYCHAIN"
-
-            # 确保 Xcode 路径正确
             export DEVELOPER_DIR="/Volumes/mindata/Xcode.app/Contents/Developer"
-            # 添加 Qt 路径
             export QT_MACOS_PATH="/Volumes/mindata/Qt/6.10.1/macos"
             export PATH="$QT_MACOS_PATH/bin:$PATH"
-            # macOS 使用 Developer ID Application 签名
-            export APPLE_CODE_SIGN_IDENTITY="Developer ID Application: Vi Ngo Tuong (P6H5GHKRFU)"
-            # 传递 keychain 路径给构建脚本
-            export BUILD_KEYCHAIN="$KEYCHAIN"
-            export BUILD_KEYCHAIN_PASSWORD="$KEYCHAIN_PWD"
-            export BRAND_NAME="@param:brand@"
-            # 从 bundle_config.json 读取 Bundle ID (使用 Python 替代 jq)
+            export BRAND="@param:brand@"
+            export JINDO_ENABLE_LICENSE_CHECK=ON
+
+            # 从 bundle_config.json 读取 Bundle ID
             BRAND_JSON="white-labeling/@param:brand@/bundle_config.json"
             if [ -f "$BRAND_JSON" ]; then
               BUNDLE_ID=$(python3 -c "import json; d=json.load(open('$BRAND_JSON')); c=d.get('config',d); print(c.get('bundleId',{}).get('macos','') or c.get('bundleId',''))" 2>/dev/null || echo "")
             fi
-            # 构建 (不创建 DMG，先公证再创建 DMG)
+
             if [ -n "$BUNDLE_ID" ]; then
               echo "Bundle ID: $BUNDLE_ID"
-              ./scripts/build/build-macos.sh --release --bundle-id "$BUNDLE_ID"
+              ./scripts/build/build-macos.sh --clean --release --dmg --skip-sign --bundle-id "$BUNDLE_ID"
             else
-              ./scripts/build/build-macos.sh --release
+              ./scripts/build/build-macos.sh --clean --release --dmg --skip-sign
             fi
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-
-      - !CommandStep
-        name: Notarize App
-        runInContainer: false
-        interpreter: !DefaultInterpreter
-          commands: |
-            # 设置环境
-            export HOME="${HOME:-/var/root}"
-            export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-            export DEVELOPER_DIR="/Volumes/mindata/Xcode.app/Contents/Developer"
-
-            echo "=== macOS 应用公证 ==="
-
-            # 运行公证脚本 (凭据已内置)
-            ./scripts/build/notarize-macos.sh "build-macos/bin/Release/JinGo.app"
-
-            echo "=== 公证完成 ==="
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-
-      - !CommandStep
-        name: Create DMG
-        runInContainer: false
-        interpreter: !DefaultInterpreter
-          commands: |
-            # 设置环境
-            export HOME="${HOME:-/var/root}"
-            export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-            export BRAND_NAME="@param:brand@"
-
-            echo "=== 创建 DMG 安装镜像 ==="
-
-            # 查找构建的应用
-            APP_PATH="build-macos/bin/Release/JinGo.app"
-            if [ ! -d "$APP_PATH" ]; then
-              echo "[ERROR] 应用不存在: $APP_PATH"
-              exit 1
-            fi
-
-            # 创建 DMG (应用已经过公证和 staple)
-            ./scripts/build/create-dmg.sh "$APP_PATH" "release"
-
-            echo "=== DMG 创建完成 ==="
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !PublishArtifactStep
@@ -182,10 +95,12 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !TextParam
+      - !NumericParam
         name: brand
-        description: White-label brand name (e.g. jingo, mybrand)
-        allowEmpty: false
+        description: White-label brand ID (1=JinGo, 2-100=custom brands)
+        defaultValue: 1
+        minValue: 1
+        maxValue: 100
 
     retryCondition: never
     maxRetries: 0
@@ -205,67 +120,38 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
-        name: Setup Signing
+        name: Verify Dependencies
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # 设置环境
             export HOME="${HOME:-/var/root}"
             export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
-            echo "=== 设置 iOS 签名环境 ==="
+            echo "=== Verifying Dependencies ==="
+            echo "Brand ID: @param:brand@"
 
-            # 使用预先创建的 build.keychain（证书已导入）
-            KEYCHAIN="/Users/opine/Library/Keychains/build.keychain-db"
-            KEYCHAIN_PWD="${KEYCHAIN_PASSWORD:-123456}"
+            # 检查 JinDoCore XCFramework
+            XCFW="third_party/jindo/apple/JinDoCore.xcframework"
+            if [ -d "$XCFW" ]; then
+                echo "[OK] Found JinDoCore.xcframework"
+            else
+                echo "[ERROR] JinDoCore.xcframework not found: $XCFW"
+                exit 1
+            fi
 
-            # 解锁 keychain
-            security unlock-keychain -p "$KEYCHAIN_PWD" "$KEYCHAIN"
-            security list-keychains -d user -s "$KEYCHAIN" /Library/Keychains/System.keychain
-            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PWD" "$KEYCHAIN" 2>/dev/null || true
-
-            # 显示可用的签名身份
-            echo "可用签名身份:"
-            security find-identity -v -p codesigning "$KEYCHAIN"
-
-            # 安装描述文件
-            PROFILE_DIR="/Users/opine/Library/MobileDevice/Provisioning Profiles"
-            mkdir -p "$PROFILE_DIR"
-            CERT_DIR="platform/ios/cert"
-
-            for profile in "$CERT_DIR"/*.mobileprovision; do
-              if [ -f "$profile" ]; then
-                # 获取 UUID
-                UUID=$(/usr/libexec/PlistBuddy -c "Print UUID" /dev/stdin <<< $(security cms -D -i "$profile" 2>/dev/null) 2>/dev/null)
-                if [ -n "$UUID" ]; then
-                  cp "$profile" "$PROFILE_DIR/$UUID.mobileprovision"
-                  echo "已安装描述文件: $(basename "$profile") -> $UUID.mobileprovision"
-                else
-                  cp "$profile" "$PROFILE_DIR/"
-                  echo "已复制描述文件: $(basename "$profile")"
-                fi
-              fi
-            done
+            # 检查白标目录
+            BRAND_DIR="white-labeling/@param:brand@"
+            if [ -d "$BRAND_DIR" ]; then
+                echo "[OK] Found white-label directory: $BRAND_DIR"
+                [ -f "$BRAND_DIR/bundle_config.json" ] && echo "[OK] Found bundle_config.json" || echo "[WARNING] bundle_config.json not found"
+                [ -d "$BRAND_DIR/icons/" ] && echo "[OK] Found icons directory" || echo "[WARNING] icons directory not found"
+            else
+                echo "[ERROR] White-label directory not found: $BRAND_DIR"
+                exit 1
+            fi
 
             echo ""
-            echo "已安装的描述文件:"
-            ls -la "$PROFILE_DIR"/*.mobileprovision 2>/dev/null || echo "无描述文件"
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-
-      - !CommandStep
-        name: Apply White-Label
-        runInContainer: false
-        interpreter: !DefaultInterpreter
-          commands: |
-            export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-            # 添加 Qt 路径
-            export QT_IOS_PATH="/Volumes/mindata/Qt/6.10.1/ios"
-            echo "Qt iOS path: $QT_IOS_PATH"
-            echo "=== iOS Build ==="
-            echo "Brand: @param:brand@"
-            if [ "@param:brand@" != "jingo" ]; then
-              ./scripts/customize.sh --brand "@param:brand@" --platform ios --skip-build
-            fi
+            echo "Dependencies verified"
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
@@ -273,64 +159,24 @@ jobs:
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
+            export HOME="${HOME:-/var/root}"
             export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-
-            # 使用预先创建的 build.keychain
-            KEYCHAIN="/Users/opine/Library/Keychains/build.keychain-db"
-            KEYCHAIN_PWD="${KEYCHAIN_PASSWORD:-123456}"
-
-            # 解锁 keychain
-            security unlock-keychain -p "$KEYCHAIN_PWD" "$KEYCHAIN"
-            security list-keychains -d user -s "$KEYCHAIN" /Library/Keychains/System.keychain
-            security set-keychain-settings -lut 21600 "$KEYCHAIN"
-            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PWD" "$KEYCHAIN" 2>/dev/null || true
-
-            # 显示 keychain 列表
-            echo "=== Keychain 搜索列表 ==="
-            security list-keychains -d user
-
-            # 显示可用的签名身份
-            echo "=== 可用签名身份 ==="
-            security find-identity -v -p codesigning "$KEYCHAIN"
-
-            # 添加 Qt 路径
+            export DEVELOPER_DIR="/Volumes/mindata/Xcode.app/Contents/Developer"
             export QT_IOS_PATH="/Volumes/mindata/Qt/6.10.1/ios"
-            # CI 发布使用 Distribution 证书
-            export APPLE_CODE_SIGN_IDENTITY="Apple Distribution: Vi Ngo Tuong (P6H5GHKRFU)"
-            # 传递 keychain 路径和密码给构建脚本
-            export BUILD_KEYCHAIN="$KEYCHAIN"
-            export BUILD_KEYCHAIN_PASSWORD="$KEYCHAIN_PWD"
-            echo "=== 签名配置 ==="
-            echo "APPLE_CODE_SIGN_IDENTITY: $APPLE_CODE_SIGN_IDENTITY"
-            export BRAND_NAME="@param:brand@"
-            # 从 bundle_config.json 读取配置 (使用 Python 替代 jq)
+            export BRAND="@param:brand@"
+            export JINDO_ENABLE_LICENSE_CHECK=ON
+
+            # 从 bundle_config.json 读取 Bundle ID
             BRAND_JSON="white-labeling/@param:brand@/bundle_config.json"
-            BUILD_ARGS="--release"
+            BUILD_ARGS="--clean --release --skip-sign"
             if [ -f "$BRAND_JSON" ]; then
-              # Bundle ID
               BUNDLE_ID=$(python3 -c "import json; d=json.load(open('$BRAND_JSON')); c=d.get('config',d); print(c.get('bundleId',{}).get('ios','') or c.get('bundleId',''))" 2>/dev/null || echo "")
               if [ -n "$BUNDLE_ID" ]; then
                 echo "Bundle ID: $BUNDLE_ID"
                 BUILD_ARGS="$BUILD_ARGS --bundle-id $BUNDLE_ID"
               fi
-              # Provisioning Profiles
-              PROFILE_MAIN=$(python3 -c "import json; d=json.load(open('$BRAND_JSON')); c=d.get('config',d); print(c.get('signing',{}).get('ios',{}).get('profileMain',''))" 2>/dev/null || echo "")
-              PROFILE_TUNNEL=$(python3 -c "import json; d=json.load(open('$BRAND_JSON')); c=d.get('config',d); print(c.get('signing',{}).get('ios',{}).get('profilePacketTunnel',''))" 2>/dev/null || echo "")
-              PROFILE_PROXY=$(python3 -c "import json; d=json.load(open('$BRAND_JSON')); c=d.get('config',d); print(c.get('signing',{}).get('ios',{}).get('profileAppProxy',''))" 2>/dev/null || echo "")
-              if [ -n "$PROFILE_MAIN" ]; then
-                echo "Profile Main: $PROFILE_MAIN"
-                BUILD_ARGS="$BUILD_ARGS --profile-main \"$PROFILE_MAIN\""
-              fi
-              if [ -n "$PROFILE_TUNNEL" ]; then
-                BUILD_ARGS="$BUILD_ARGS --profile-tunnel \"$PROFILE_TUNNEL\""
-              fi
-              if [ -n "$PROFILE_PROXY" ]; then
-                BUILD_ARGS="$BUILD_ARGS --profile-proxy \"$PROFILE_PROXY\""
-              fi
             fi
-            # 清理旧构建目录（确保 CMake 重新生成 Xcode 项目）
-            rm -rf build-ios
-            # 构建
+
             eval ./scripts/build/build-ios.sh $BUILD_ARGS
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
@@ -340,10 +186,12 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !TextParam
+      - !NumericParam
         name: brand
-        description: White-label brand name (e.g. jingo, mybrand)
-        allowEmpty: false
+        description: White-label brand ID (1=JinGo, 2-100=custom brands)
+        defaultValue: 1
+        minValue: 1
+        maxValue: 100
 
     retryCondition: never
     maxRetries: 0
@@ -363,18 +211,55 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
-        name: Apply White-Label
+        name: Verify Dependencies
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # 添加 Qt Android 路径 (设置 QT_BASE_PATH，脚本会自动计算各架构路径)
-            export QT_BASE_PATH="/mnt/dev/Qt/6.10.1"
-            echo "Qt Android base: $QT_BASE_PATH"
-            echo "=== Android Build ==="
-            echo "Brand: @param:brand@"
-            if [ "@param:brand@" != "jingo" ]; then
-              ./scripts/customize.sh --brand "@param:brand@" --platform android --skip-build
+            echo "=== Verifying Dependencies ==="
+            echo "Brand ID: @param:brand@"
+
+            HAS_ERROR=false
+
+            # 检查默认 ABI (arm64-v8a) 的 JinDoCore 和 SuperRay
+            ABI="arm64-v8a"
+            LIB="third_party/jindo/android/${ABI}/libJinDoCore.a"
+            if [ -f "$LIB" ]; then
+                echo "[OK] Found libJinDoCore.a for ${ABI}"
+            else
+                echo "[ERROR] libJinDoCore.a not found for ${ABI}"
+                HAS_ERROR=true
             fi
+
+            SO="third_party/jindo/android/${ABI}/libsuperray.so"
+            if [ -f "$SO" ]; then
+                echo "[OK] Found libsuperray.so for ${ABI}"
+            else
+                echo "[ERROR] libsuperray.so not found for ${ABI}"
+                HAS_ERROR=true
+            fi
+
+            # 检查头文件和 JNI 源文件
+            [ -f "third_party/jindo/android/include/superray.h" ] && echo "[OK] Found superray.h" || echo "[WARNING] superray.h not found"
+            [ -f "third_party/jindo/android/jni/tun2socks_jni.cpp" ] && echo "[OK] Found JNI source files" || echo "[WARNING] JNI source files not found"
+
+            # 检查白标目录
+            BRAND_DIR="white-labeling/@param:brand@"
+            if [ -d "$BRAND_DIR" ]; then
+                echo "[OK] Found white-label directory: $BRAND_DIR"
+                [ -f "$BRAND_DIR/bundle_config.json" ] && echo "[OK] Found bundle_config.json" || echo "[WARNING] bundle_config.json not found"
+            else
+                echo "[ERROR] White-label directory not found: $BRAND_DIR"
+                HAS_ERROR=true
+            fi
+
+            if [ "$HAS_ERROR" = true ]; then
+                echo ""
+                echo "[FAILED] Missing required dependencies"
+                exit 1
+            fi
+
+            echo ""
+            echo "Dependencies verified"
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
@@ -382,30 +267,16 @@ jobs:
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # Qt Android 路径
             export QT_BASE_PATH="/mnt/dev/Qt/6.10.1"
             export QT_HOST_PATH="/mnt/dev/Qt/6.10.1/gcc_64"
-
-            # Android SDK/NDK 路径
             export ANDROID_SDK_ROOT="/mnt/dev/Android/Sdk"
             export ANDROID_NDK="$ANDROID_SDK_ROOT/ndk/29.0.14206865"
-
-            # Java 环境
             export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-amd64"
             export PATH="$JAVA_HOME/bin:$PATH"
+            export BRAND="@param:brand@"
+            export JINDO_ENABLE_LICENSE_CHECK=ON
 
-            # 白标名称
-            export BRAND_NAME="@param:brand@"
-
-            echo "=== Environment ==="
-            echo "QT_BASE_PATH: $QT_BASE_PATH"
-            echo "QT_HOST_PATH: $QT_HOST_PATH"
-            echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
-            echo "ANDROID_NDK: $ANDROID_NDK"
-            echo "JAVA_HOME: $JAVA_HOME"
-            echo "==================="
-
-            ./scripts/build/build-android.sh --release
+            ./scripts/build/build-android.sh --clean --release
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !PublishArtifactStep
@@ -414,10 +285,12 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !TextParam
+      - !NumericParam
         name: brand
-        description: White-label brand name (e.g. jingo, mybrand)
-        allowEmpty: false
+        description: White-label brand ID (1=JinGo, 2-100=custom brands)
+        defaultValue: 1
+        minValue: 1
+        maxValue: 100
 
     retryCondition: never
     maxRetries: 0
@@ -437,19 +310,35 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
-        name: Apply White-Label
+        name: Verify Dependencies
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # 添加 Qt 路径
-            export Qt6_DIR="/mnt/dev/Qt/6.10.1/gcc_64"
-            export PATH="$Qt6_DIR/bin:$PATH"
-            echo "Qt Linux path: $Qt6_DIR"
-            echo "=== Linux Build ==="
-            echo "Brand: @param:brand@"
-            if [ "@param:brand@" != "jingo" ]; then
-              ./scripts/customize.sh --brand "@param:brand@" --platform linux --skip-build
+            echo "=== Verifying Dependencies ==="
+            echo "Brand ID: @param:brand@"
+
+            # 检查 JinDoCore 静态库
+            if [ -f "third_party/jindo/linux/x64/libJinDoCore.a" ]; then
+                echo "[OK] Found libJinDoCore.a"
+            else
+                echo "[ERROR] libJinDoCore.a not found in third_party/jindo/linux/x64/"
+                exit 1
             fi
+
+            [ -f "third_party/jindo/linux/x64/include/superray.h" ] && echo "[OK] Found superray.h" || echo "[WARNING] superray.h not found"
+
+            # 检查白标目录
+            BRAND_DIR="white-labeling/@param:brand@"
+            if [ -d "$BRAND_DIR" ]; then
+                echo "[OK] Found white-label directory: $BRAND_DIR"
+                [ -f "$BRAND_DIR/bundle_config.json" ] && echo "[OK] Found bundle_config.json" || echo "[WARNING] bundle_config.json not found"
+            else
+                echo "[ERROR] White-label directory not found: $BRAND_DIR"
+                exit 1
+            fi
+
+            echo ""
+            echo "Dependencies verified"
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
@@ -457,11 +346,12 @@ jobs:
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            # 添加 Qt 路径
             export Qt6_DIR="/mnt/dev/Qt/6.10.1/gcc_64"
             export PATH="$Qt6_DIR/bin:$PATH"
-            export BRAND_NAME="@param:brand@"
-            ./scripts/build/build-linux.sh --release --package
+            export BRAND="@param:brand@"
+            export JINDO_ENABLE_LICENSE_CHECK=ON
+
+            ./scripts/build/build-linux.sh --clean --release --deploy --package
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !PublishArtifactStep
@@ -470,10 +360,12 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !TextParam
+      - !NumericParam
         name: brand
-        description: White-label brand name (e.g. jingo, mybrand)
-        allowEmpty: false
+        description: White-label brand ID (1=JinGo, 2-100=custom brands)
+        defaultValue: 1
+        minValue: 1
+        maxValue: 100
 
     retryCondition: never
     maxRetries: 0
@@ -493,76 +385,79 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !CommandStep
+        name: Verify Dependencies
+        runInContainer: false
+        interpreter: !DefaultInterpreter
+          commands: |
+            echo === Verifying Dependencies ===
+            echo Brand ID: @param:brand@
+
+            REM 检查 JinDoCore 静态库
+            if exist "third_party\jindo\windows\mingw64\libJinDoCore.a" (
+                echo [OK] Found libJinDoCore.a
+            ) else (
+                echo [ERROR] libJinDoCore.a not found
+                exit /b 1
+            )
+
+            REM 检查 superray.h
+            if exist "third_party\jindo\windows\mingw64\include\superray.h" (
+                echo [OK] Found superray.h
+            ) else (
+                echo [WARNING] superray.h not found
+            )
+
+            REM 检查白标目录
+            set BRAND_DIR=white-labeling\@param:brand@
+            if exist "%BRAND_DIR%" (
+                echo [OK] Found white-label directory: %BRAND_DIR%
+                if exist "%BRAND_DIR%\bundle_config.json" (
+                    echo [OK] Found bundle_config.json
+                ) else (
+                    echo [WARNING] bundle_config.json not found
+                )
+            ) else (
+                echo [ERROR] White-label directory not found: %BRAND_DIR%
+                exit /b 1
+            )
+
+            echo.
+            echo Dependencies verified
+        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+
+      - !CommandStep
         name: Build Release
         runInContainer: false
         interpreter: !DefaultInterpreter
           commands: |
-            echo "=== Windows Build ==="
-            echo "Brand: @param:brand@"
+            set MSYS2_ROOT=D:\msys64
+            set BASH_EXE=%MSYS2_ROOT%\usr\bin\bash.exe
 
-            REM Qt 和 MinGW 路径
-            set QT_DIR=D:\Qt\6.10.1\mingw_64
-            set MINGW_DIR=D:\Qt\Tools\mingw1310_64
-            set CMAKE_DIR=D:\Qt\Tools\CMake_64
-
-            REM 设置 PATH
-            set PATH=%CMAKE_DIR%\bin;%MINGW_DIR%\bin;%QT_DIR%\bin;%PATH%
-
-            echo Qt: %QT_DIR%
-            echo MinGW: %MINGW_DIR%
-            echo CMake: %CMAKE_DIR%
-
-            REM 验证工具
-            cmake --version
-            where cmake
-
-            set BRAND_NAME=@param:brand@
-            powershell -ExecutionPolicy Bypass -File .\scripts\build\build-windows.ps1 -Brand "@param:brand@"
-        condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
-
-      - !CommandStep
-        name: Prepare Artifacts
-        runInContainer: false
-        interpreter: !DefaultInterpreter
-          commands: |
-            echo === Preparing artifacts for OneDev ===
-
-            REM 确保 artifacts 目录存在
-            if not exist "artifacts" mkdir artifacts
-
-            REM 复制 release 目录中的文件到 artifacts
-            echo Copying from release directory...
-            if exist "release" (
-                for /f "delims=" %%f in ('dir /b release\*.zip release\*.msi 2^>nul') do (
-                    echo   Copying: release\%%f
-                    copy "release\%%f" "artifacts\" /Y
-                )
+            if not exist "%BASH_EXE%" (
+                echo [ERROR] MSYS2 bash not found: %BASH_EXE%
+                exit /b 1
             )
 
-            REM 复制 pkg 目录中的文件到 artifacts
-            echo Copying from pkg directory...
-            if exist "pkg" (
-                for /f "delims=" %%f in ('dir /b pkg\*.zip pkg\*.msi 2^>nul') do (
-                    echo   Copying: pkg\%%f
-                    copy "pkg\%%f" "artifacts\" /Y
-                )
-            )
+            "%BASH_EXE%" --login -c "cd '%CD%' && export BRAND=@param:brand@ && export JINDO_ENABLE_LICENSE_CHECK=ON && bash scripts/build/build-windows.sh clean"
 
-            echo.
-            echo === Artifacts ready for publishing ===
-            dir artifacts
+            if errorlevel 1 (
+                echo [ERROR] JinGo build failed
+                exit /b 1
+            )
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
       - !PublishArtifactStep
         name: Publish Artifacts
-        artifacts: artifacts/**
+        artifacts: release/**
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !TextParam
+      - !NumericParam
         name: brand
-        description: White-label brand name (e.g. jingo, mybrand)
-        allowEmpty: false
+        description: White-label brand ID (1=JinGo, 2-100=custom brands)
+        defaultValue: 1
+        minValue: 1
+        maxValue: 100
 
     retryCondition: never
     maxRetries: 0

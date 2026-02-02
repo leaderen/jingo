@@ -15,6 +15,7 @@ JinGo VPN 支持白标定制，允许创建独立品牌的 VPN 应用：
 white-labeling/
 ├── 1/                         # 品牌 1 (默认)
 │   ├── bundle_config.json     # 品牌配置
+│   ├── license_public_key.pem # RSA 公钥（授权验证）
 │   └── icons/                 # 图标资源
 │       ├── app.png            # 主图标 (1024x1024)
 │       ├── app.icns           # macOS

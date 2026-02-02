@@ -95,36 +95,9 @@ message(STATUS "  Team ID: ${MACOS_TEAM_ID}")
 # macOS Source Files
 # ============================================================================
 
-set(PLATFORM_SOURCES
-    src/platform/PlatformInterface.cpp
-    src/platform/MacOSPlatform.mm
-    src/utils/DeviceIdentifier_ios.mm
-    src/utils/RsaCrypto_ios.mm
-)
-
-# Configure Objective-C++ source files with ARC
-set_source_files_properties(src/platform/MacOSPlatform.mm
-    PROPERTIES
-    LANGUAGE OBJCXX
-    COMPILE_FLAGS "-x objective-c++ -fobjc-arc -Wno-objc-method-access"
-)
-
-set_source_files_properties(src/utils/DeviceIdentifier_ios.mm
-    PROPERTIES
-    LANGUAGE OBJCXX
-    COMPILE_FLAGS "-x objective-c++ -fobjc-arc"
-)
-
-set_source_files_properties(src/utils/RsaCrypto_ios.mm
-    PROPERTIES
-    LANGUAGE OBJCXX
-    COMPILE_FLAGS "-x objective-c++ -fobjc-arc"
-)
-
-message(STATUS "macOS source files configured:")
-foreach(source ${PLATFORM_SOURCES})
-    message(STATUS "  - ${source}")
-endforeach()
+# 平台源文件已编译在 libJinDoCore.a 中，无需重复编译
+set(PLATFORM_SOURCES "")
+message(STATUS "macOS platform sources: provided by JinDoCore static library")
 
 # ============================================================================
 # macOS Frameworks
@@ -206,21 +179,6 @@ endif()
 # Note: Objective-C modules (-fmodules) are configured in main CMakeLists.txt
 # using target_compile_options() for JinGo target (line ~1041)
 
-# ============================================================================
-# Verification
-# ============================================================================
-
-message(STATUS "Verifying macOS platform source files:")
-foreach(platform_source ${PLATFORM_SOURCES})
-    set(full_path ${CMAKE_CURRENT_SOURCE_DIR}/${platform_source})
-    if(NOT EXISTS ${full_path})
-        message(WARNING "  macOS source file not found: ${platform_source}")
-        list(REMOVE_ITEM PLATFORM_SOURCES ${platform_source})
-    else()
-        message(STATUS "   ${platform_source}")
-    endif()
-endforeach()
-
-message(STATUS "macOS platform configured successfully with Objective-C++ support")
+message(STATUS "macOS platform configured successfully")
 message(STATUS "========================================")
 message(STATUS "")

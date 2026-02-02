@@ -46,8 +46,8 @@ message(STATUS "========================================")
 #
 # Note: TUN processing is now handled by SuperRay library directly
 
-# 当使用 JinDoCore 库时，从 JinDo 目录获取源文件
-if(USE_JINDO_LIB AND JINDO_ROOT)
+# 从 JinDo 目录获取源文件（优先），否则使用本地 src/
+if(JINDO_ROOT AND EXISTS "${JINDO_ROOT}/src/extensions/PacketTunnelProvider")
     set(EXT_SRC_DIR "${JINDO_ROOT}/src")
 else()
     set(EXT_SRC_DIR "${CMAKE_SOURCE_DIR}/src")
@@ -106,7 +106,7 @@ if(TARGET_IOS)
     if(BUILD_KEYCHAIN_PATH)
         set_target_properties(PacketTunnelProvider PROPERTIES
             MACOSX_BUNDLE TRUE
-            MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider/Info-iOS.plist
+            MACOSX_BUNDLE_INFO_PLIST ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info-iOS.plist
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${PACKET_TUNNEL_BUNDLE_ID}"
             XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "-"
             XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED NO
@@ -120,7 +120,7 @@ if(TARGET_IOS)
         # 本地开发环境
         set_target_properties(PacketTunnelProvider PROPERTIES
             MACOSX_BUNDLE TRUE
-            MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider/Info-iOS.plist
+            MACOSX_BUNDLE_INFO_PLIST ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info-iOS.plist
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${PACKET_TUNNEL_BUNDLE_ID}"
             XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_CURRENT_SOURCE_DIR}/platform/ios/PacketTunnelProvider.entitlements"
             XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "${APPLE_CODE_SIGN_IDENTITY}"
@@ -146,7 +146,7 @@ else()
     if(BUILD_KEYCHAIN_PATH)
         set_target_properties(PacketTunnelProvider PROPERTIES
             MACOSX_BUNDLE TRUE
-            MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider/Info.plist
+            MACOSX_BUNDLE_INFO_PLIST ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info.plist
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${PACKET_TUNNEL_BUNDLE_ID}"
             XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "-"
             XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED NO
@@ -159,7 +159,7 @@ else()
         # 本地开发环境
         set_target_properties(PacketTunnelProvider PROPERTIES
             MACOSX_BUNDLE TRUE
-            MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider/Info.plist
+            MACOSX_BUNDLE_INFO_PLIST ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info.plist
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${PACKET_TUNNEL_BUNDLE_ID}"
             XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_CURRENT_SOURCE_DIR}/platform/macos/PacketTunnelProvider.entitlements"
             XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "Developer ID Application"
@@ -181,14 +181,14 @@ endif()
 # ============================================================================
 
 target_include_directories(PacketTunnelProvider PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/core
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider
+    ${EXT_SRC_DIR}
+    ${EXT_SRC_DIR}/core
+    ${EXT_SRC_DIR}/extensions/PacketTunnelProvider
 )
 
-# Add SuperRay include if available
-if(EXISTS ${SUPERRAY_INCLUDE_DIR})
-    target_include_directories(PacketTunnelProvider PRIVATE ${SUPERRAY_INCLUDE_DIR})
+# SuperRay headers are exported in JinDoCore include directory
+if(EXISTS ${JINDO_INCLUDE_DIR})
+    target_include_directories(PacketTunnelProvider PRIVATE ${JINDO_INCLUDE_DIR})
 endif()
 
 # ============================================================================
@@ -251,14 +251,12 @@ endif()
 # Extension contains complete Xray instance listening on 127.0.0.1:10808
 # TUN mode: SuperRay handles TUN device creation and packet processing
 
-if(USE_SUPERRAY AND EXISTS ${SUPERRAY_LIB})
-    message(STATUS "Linking SuperRay to Extension: ${SUPERRAY_LIB}")
-    target_link_directories(PacketTunnelProvider PRIVATE "${SUPERRAY_LIBRARY_DIR}")
-    target_link_options(PacketTunnelProvider PRIVATE "-F${SUPERRAY_LIBRARY_DIR}")
+if(EXISTS ${JINDO_LIB_FILE})
+    message(STATUS "Linking JinDoCore (with SuperRay) to Extension: ${JINDO_LIB_FILE}")
     target_link_libraries(PacketTunnelProvider PRIVATE
-        "${SUPERRAY_LIB}"
-        "-lz"
+        "${JINDO_LIB_FILE}"
         "-lresolv"
+        "-lz"
     )
     target_compile_definitions(PacketTunnelProvider PRIVATE
         HAVE_SUPERRAY
@@ -266,7 +264,7 @@ if(USE_SUPERRAY AND EXISTS ${SUPERRAY_LIB})
         APPLE_XRAY_BRIDGE
     )
 else()
-    message(WARNING "SuperRay not available for Extension")
+    message(WARNING "JinDoCore not available for Extension")
     target_compile_definitions(PacketTunnelProvider PRIVATE NO_SUPERRAY)
 endif()
 
@@ -284,9 +282,9 @@ endif()
 # 这里只添加文件依赖，确保 Info.plist 修改后触发重新构建
 
 if(TARGET_IOS)
-    set(EXTENSION_INFO_PLIST_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider/Info-iOS.plist")
+    set(EXTENSION_INFO_PLIST_SOURCE "${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info-iOS.plist")
 else()
-    set(EXTENSION_INFO_PLIST_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/src/extensions/PacketTunnelProvider/Info.plist")
+    set(EXTENSION_INFO_PLIST_SOURCE "${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info.plist")
 endif()
 
 # 添加 Info.plist 作为依赖

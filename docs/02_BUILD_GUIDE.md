@@ -20,8 +20,8 @@ All dependencies (JinDoCore, OpenSSL, SuperRay, etc.) are pre-compiled and inclu
 JinGo (Qt Application)
 ├── JinDoCore (Static Library)  → third_party/jindo/
 │   └── Core business logic, API client, VPN management
-├── SuperRay (Dynamic Library)  → third_party/superray/
-│   └── VPN core engine (Xray)
+│   └── SuperRay merged (VPN core engine/Xray)
+├── SuperRay (Dynamic Library)  → Android only, JNI dynamic linking
 ├── OpenSSL (Static Library)    → third_party/*_openssl/
 │   └── Encryption support
 └── WinTun (Windows)            → third_party/wintun/
@@ -37,10 +37,9 @@ JinGo/
 ├── third_party/
 │   ├── jindo/                    # JinDoCore static library (core)
 │   │   ├── android/              # Android architectures
-│   │   ├── apple/                # macOS/iOS
+│   │   ├── apple/                # macOS/iOS (XCFramework)
 │   │   ├── linux/
 │   │   └── windows/
-│   ├── superray/                 # VPN engine
 │   ├── android_openssl/
 │   ├── apple_openssl/
 │   ├── linux_openssl/
@@ -51,8 +50,12 @@ JinGo/
 │   ├── build-ios.sh
 │   ├── build-android.sh
 │   ├── build-linux.sh
-│   └── build-windows.ps1
-└── src/                          # Source code
+│   └── build-windows.sh          # MSYS2/MinGW bash script
+├── white-labeling/                # White-label brand resources
+│   ├── 1/                         # Default brand
+│   ├── 2/                         # Custom brand
+│   └── .../
+└── src/                           # Source code
 ```
 
 ## Application Configuration
@@ -94,18 +97,11 @@ Configuration file is located at `resources/bundle_config.json`, defining app in
 | `ipInfoUrl` | API for current IP info |
 | `speedTestBaseUrl` | Speed test download base URL |
 
-### License Verification (Disabled)
+### License Verification
 
-License verification has been removed in the current version. The following fields are preserved but not functional:
+License verification can be enabled via the `JINDO_ENABLE_LICENSE_CHECK` environment variable at build time. It is **disabled by default** in local development and **enabled in CI builds**.
 
-```json
-{
-    "license": { ... },        // License info (disabled)
-    "licenseServer": { ... }   // License server (disabled)
-}
-```
-
-The application starts without license checks, all features are available.
+The license public key (`license_public_key.pem`) is loaded at runtime from the application resources directory. It is automatically copied from `white-labeling/{brand}/` during the build process via CMake POST_BUILD rules, deployed alongside `bundle_config.json`.
 
 ---
 
@@ -137,16 +133,16 @@ The application starts without license checks, all features are available.
 | iOS | Xcode + Apple Developer Account |
 | Android | Android Studio (SDK + NDK) |
 | Linux | GCC: `sudo apt install build-essential cmake` |
-| Windows | None (Qt includes MinGW) |
+| Windows | MSYS2 (https://www.msys2.org) |
 
 ## macOS Build
 
 ### 1. Configure Qt Path
 
-Edit `scripts/build/build-macos.sh` line 28:
+Set environment variable or edit `scripts/build/build-macos.sh`:
 
 ```bash
-QT_MACOS_PATH="/your/path/to/Qt/6.10.0/macos"
+export QT_MACOS_PATH="/your/path/to/Qt/6.10.0/macos"
 ```
 
 ### 2. Build
@@ -161,11 +157,33 @@ QT_MACOS_PATH="/your/path/to/Qt/6.10.0/macos"
 # Release version
 ./scripts/build/build-macos.sh --release
 
+# Release with DMG
+./scripts/build/build-macos.sh --release --dmg
+
 # With code signing
 ./scripts/build/build-macos.sh --release --sign --team-id YOUR_TEAM_ID
 ```
 
-### 3. Run
+### 3. Build Options
+
+| Option | Description |
+|--------|-------------|
+| `-c, --clean` | Clean rebuild |
+| `-d, --debug` | Debug mode (default) |
+| `-r, --release` | Release mode |
+| `--sign` | Enable code signing (disabled by default) |
+| `--skip-sign` | Explicitly skip signing |
+| `--dmg` | Create DMG installer |
+| `--team-id ID` | Apple Development Team ID |
+| `--sign-identity ID` | Code signing identity |
+| `-b, --brand ID` | White-label brand ID (numeric) |
+| `--bundle-id ID` | Custom Bundle ID |
+| `-x, --xcode` | Generate Xcode project only |
+| `-o, --open` | Auto-open after build |
+| `-t, --translate` | Update translations |
+| `-v, --verbose` | Verbose output |
+
+### 4. Run
 
 ```bash
 # Run with root privileges (required for TUN device)
@@ -176,30 +194,46 @@ sudo open build-macos/bin/Debug/JinGo.app
 
 ### 1. Configure
 
-Edit `scripts/build/build-ios.sh`:
+Set environment variable or edit `scripts/build/build-ios.sh`:
 
 ```bash
-QT_IOS_PATH="/your/path/to/Qt/6.10.0/ios"
-```
-
-Or use command line option:
-
-```bash
-./scripts/build/build-ios.sh --team-id YOUR_TEAM_ID
+export QT_IOS_PATH="/your/path/to/Qt/6.10.0/ios"
 ```
 
 ### 2. Build
 
 ```bash
+# Skip signing (compile verification only)
+./scripts/build/build-ios.sh --skip-sign
+
 # Generate Xcode project and build in Xcode
 ./scripts/build/build-ios.sh --xcode --team-id YOUR_TEAM_ID
 open build-ios/JinGo.xcodeproj
 
-# Or command line build
+# Command line build with signing
 ./scripts/build/build-ios.sh --release --team-id YOUR_TEAM_ID
 ```
 
-> **Note**: iOS builds require Apple Developer Team ID for signing.
+### 3. Build Options
+
+| Option | Description |
+|--------|-------------|
+| `-c, --clean` | Clean rebuild |
+| `-d, --debug` | Debug mode (default) |
+| `-r, --release` | Release mode |
+| `-x, --xcode` | Generate Xcode project |
+| `--skip-sign` | Skip signing (no Team ID needed) |
+| `--team-id ID` | Apple Development Team ID |
+| `--sign-identity ID` | Code signing identity |
+| `--profile-main NAME` | Main app provisioning profile |
+| `--profile-tunnel NAME` | PacketTunnel provisioning profile |
+| `-b, --brand ID` | White-label brand ID (numeric) |
+| `--bundle-id ID` | Custom Bundle ID |
+| `-i, --install` | Install to device |
+| `-s, --simulator` | Simulator build |
+| `--device UDID` | Specify device UDID |
+
+> **Note**: iOS builds require Apple Developer Team ID for signing. Use `--skip-sign` for compile-only verification.
 
 ## Android Build
 
@@ -211,19 +245,42 @@ Install via Android Studio:
 
 ### 2. Configure
 
-Edit `scripts/build/build-android.sh`:
+Set environment variables or edit `scripts/build/build-android.sh`:
 
 ```bash
-QT_BASE_PATH="/your/path/to/Qt/6.10.0"
-ANDROID_SDK_ROOT="/path/to/Android/sdk"
-ANDROID_NDK_VERSION="27.2.12479018"
+export QT_BASE_PATH="/your/path/to/Qt/6.10.0"
+export ANDROID_SDK_ROOT="/path/to/Android/sdk"
 ```
 
 ### 3. Build
 
 ```bash
+# Default build (arm64-v8a, Debug)
+./scripts/build/build-android.sh
+
+# Release build
+./scripts/build/build-android.sh --release
+
+# Clean and rebuild
+./scripts/build/build-android.sh --clean --release
+
+# Specific ABI
 ./scripts/build/build-android.sh --abi arm64-v8a
+
+# Install to connected device
+./scripts/build/build-android.sh --install
 ```
+
+### 4. Build Options
+
+| Option | Description |
+|--------|-------------|
+| `-c, --clean` | Clean rebuild |
+| `-d, --debug` | Debug mode (default) |
+| `-r, --release` | Release mode |
+| `-a, --abi ABI` | Target ABI: `arm64-v8a` (default), `armeabi-v7a`, `x86`, `x86_64`, `all` |
+| `-i, --install` | Install APK to device |
+| `-s, --sign` | Sign APK (Release only) |
 
 ## Linux Build
 
@@ -248,7 +305,7 @@ export Qt6_DIR="/mnt/dev/Qt/6.10.0/gcc_64"
 
 #### Method 2: Edit Build Script
 
-Edit `scripts/build/build-linux.sh` line 35:
+Edit `scripts/build/build-linux.sh`:
 
 ```bash
 QT_DIR="/mnt/dev/Qt/6.10.0/gcc_64"
@@ -271,6 +328,9 @@ QT_DIR="/mnt/dev/Qt/6.10.0/gcc_64"
 
 # Create installation package (DEB/RPM/TGZ)
 ./scripts/build/build-linux.sh --release --package
+
+# Full release pipeline
+./scripts/build/build-linux.sh --clean --release --deploy --package
 ```
 
 ### 4. Build Options
@@ -283,12 +343,10 @@ QT_DIR="/mnt/dev/Qt/6.10.0/gcc_64"
 | `-p, --package` | Package DEB/RPM/TGZ |
 | `--deploy` | Deploy Qt dependencies and plugins |
 | `-t, --translate` | Update translations |
-| `-b, --brand NAME` | Apply white-label customization |
+| `-b, --brand ID` | White-label brand ID (numeric) |
 | `-v, --verbose` | Show detailed output |
 
 ### 5. Build Output
-
-After successful build, files are located at:
 
 ```
 build-linux/
@@ -304,7 +362,7 @@ Release mode generates:
 
 ```
 release/
-└── jingo-1.0.0-20260126-linux.tar.gz    # Release package
+└── jingo-{brand}-{version}-{date}-linux.tar.gz
 ```
 
 ### 6. Set TUN Permissions
@@ -323,15 +381,14 @@ sudo ./build-linux/bin/JinGo
 
 ### 1. Requirements
 
+- **MSYS2**: https://www.msys2.org (required)
 - **Qt**: 6.10.0 or higher (MinGW 64-bit)
 - **MinGW**: 13.1.0 or higher (usually installed with Qt)
 - **CMake**: 3.21+ (optional, script uses Qt's bundled CMake)
-- **PowerShell**: Windows PowerShell 5.1+ or PowerShell Core 7+
-- **WiX Toolset 6.0**: (optional, for MSI installer generation)
 
 ### 2. Auto Environment Detection
 
-Build script automatically detects these paths (by priority):
+The build script automatically detects these paths (by priority):
 
 **Qt Installation Path**:
 - `D:\Qt\6.10.1\mingw_64`
@@ -339,69 +396,89 @@ Build script automatically detects these paths (by priority):
 - `C:\Qt\6.10.1\mingw_64`
 - `C:\Qt\6.10.0\mingw_64`
 
-### 3. Build Methods
+**MinGW Compiler Path**:
+- `D:\Qt\Tools\mingw1310_64`
+- `D:\Qt\Tools\mingw1120_64`
+- `D:\msys64\mingw64`
 
-#### Method 1: PowerShell Script (Recommended)
+**CMake Path**:
+- `D:\Qt\Tools\CMake_64\bin`
+- `C:\Qt\Tools\CMake_64\bin`
 
-```powershell
-# Basic build (Release mode)
-.\scripts\build\build-windows.ps1
+### 3. Build
+
+The Windows build uses a MSYS2/MinGW bash script:
+
+```bash
+# In MSYS2 MinGW64 terminal:
+
+# Release build (default)
+./scripts/build/build-windows.sh
 
 # Clean and rebuild
-.\scripts\build\build-windows.ps1 -Clean
+./scripts/build/build-windows.sh clean
 
-# Debug mode
-.\scripts\build\build-windows.ps1 -DebugBuild
+# Debug build
+./scripts/build/build-windows.sh debug
+
+# Clean + debug
+./scripts/build/build-windows.sh clean debug
 ```
 
-#### Method 2: Batch Wrapper Script
+> **Note**: The script uses low-memory mode by default (`-O1` + single-threaded) to avoid memory overflow during QRC compilation.
 
-```batch
-scripts\build\build-windows-wrapper.bat
-scripts\build\build-windows-wrapper.bat --clean
-scripts\build\build-windows-wrapper.bat --debug
-```
-
-### 4. Output Files
+### 4. Build Output
 
 | Type | Path |
 |------|------|
 | Executable | `build-windows/bin/JinGo.exe` |
 | Deploy directory | `pkg/JinGo-1.0.0/` |
-| ZIP package | `pkg/jingo-1.0.0-{date}-windows.zip` |
-| MSI installer | `pkg/jingo-1.0.0-{date}-windows.msi` |
+| ZIP package | `pkg/jingo-{brand}-{version}-{date}-windows.zip` |
+| Release copy | `release/jingo-{brand}-{version}-{date}-windows.zip` |
 
 ## Build Options Quick Reference
 
-| Option | Description |
-|--------|-------------|
-| `--clean` / `-c` | Clean before rebuild |
-| `--release` / `-r` | Release mode |
-| `--debug` / `-d` | Debug mode (default) |
-| `--sign` | Enable code signing (macOS) |
-| `--team-id ID` | Apple Development Team ID |
-| `--xcode` / `-x` | Generate Xcode project |
-| `--abi <ABI>` | Android architecture |
+| Option | macOS | iOS | Android | Linux | Windows |
+|--------|-------|-----|---------|-------|---------|
+| Clean rebuild | `--clean` | `--clean` | `--clean` | `--clean` | `clean` |
+| Release mode | `--release` | `--release` | `--release` | `--release` | (default) |
+| Debug mode | `--debug` | `--debug` | `--debug` | `--debug` | `debug` |
+| Skip signing | `--skip-sign` | `--skip-sign` | - | - | - |
+| Code signing | `--sign` | `--team-id` | `--sign` | - | - |
+| Create package | `--dmg` | - | - | `--package` | (auto) |
+| Install | `--open` | `--install` | `--install` | - | - |
+| Xcode project | `--xcode` | `--xcode` | - | - | - |
+| Target arch | - | - | `--abi` | - | - |
+| Brand ID | `--brand` / env `BRAND` | `--brand` / env `BRAND` | env `BRAND` | `--brand` / env `BRAND` | env `BRAND` |
 
 ## Output Locations
 
-| Platform | Debug | Release |
-|----------|-------|---------|
-| macOS | `build-macos/bin/Debug/JinGo.app` | `build-macos/bin/Release/JinGo.app` |
-| iOS | `build-ios/bin/Debug-iphoneos/` | `build-ios/bin/Release-iphoneos/` |
-| Android | `build-android/android-build/` | Same |
-| Linux | `build-linux/bin/JinGo` | Same |
-| Windows | `build-windows/bin/JinGo.exe` | Same |
+| Platform | Debug | Release | Release Package |
+|----------|-------|---------|-----------------|
+| macOS | `build-macos/bin/Debug/JinGo.app` | `build-macos/bin/Release/JinGo.app` | `release/*.dmg` |
+| iOS | `build-ios/bin/Debug/JinGo.app` | `build-ios/bin/Release/JinGo.app` | `release/*.ipa` |
+| Android | `build-android/.../debug/*.apk` | `build-android/.../release/*.apk` | `release/*.apk` |
+| Linux | `build-linux/bin/JinGo` | Same | `release/*.tar.gz` |
+| Windows | `build-windows/bin/JinGo.exe` | Same | `release/*.zip` |
+
+All release artifacts are placed in the `release/` directory.
 
 ## FAQ
 
 ### Q: Qt not found?
 
-Ensure the Qt path in build script is correct and the directory exists.
+Ensure the Qt path in build script or environment variable is correct and the directory exists.
 
 ### Q: macOS app crashes on launch?
 
 Root privileges required: `sudo open build-macos/bin/Debug/JinGo.app`
+
+### Q: iOS build fails without Team ID?
+
+Use `--skip-sign` to skip signing for compile-only verification:
+```bash
+./scripts/build/build-ios.sh --skip-sign
+```
 
 ### Q: Linux network not working?
 
@@ -414,34 +491,88 @@ sudo setcap cap_net_admin+eip build-linux/bin/JinGo
 
 Ensure `ANDROID_NDK_VERSION` matches the actually installed NDK version.
 
+### Q: Windows build runs out of memory?
+
+The script already uses low-memory mode (`-O1` + single-threaded). Ensure at least 4GB RAM available.
+
 ---
 
-## GitHub Actions Auto Build
+## OneDev CI/CD Auto Build
 
-Project supports GitHub Actions for cross-platform automated builds without local environment setup.
+Project uses OneDev CI/CD for multi-platform automated builds. Config file: `.onedev-buildspec.yml`.
 
-### Trigger Build
+### Brand Parameter
 
-1. Open GitHub repository page
-2. Click **Actions** tab
-3. Select **Build All Platforms** workflow
-4. Click **Run workflow**
-5. Select parameters:
-   - **Brand ID**: Select white-label brand number (1-5)
-   - **Build Type**: Debug or Release
-   - **Platforms**: Select build platform (all/single platform)
+All CI jobs accept a `brand` parameter (numeric ID). Passed via `BRAND=<id>` environment variable. Build scripts automatically load resources from `white-labeling/<id>/`.
 
-### Download Artifacts
+Each platform has its own default brand ID in the build script:
 
-After build completion, download from **Artifacts** section:
+| Platform | Default Brand ID |
+|----------|-----------------|
+| Windows | 1 |
+| macOS | 2 |
+| Android | 3 |
+| Linux | 4 |
+| iOS | 5 |
 
-| Platform | File Type |
-|----------|-----------|
-| macOS | `.app` (zip) |
-| Windows | `.exe` + DLLs (zip) |
-| Linux | executable (tar.gz) |
-| Android | `.apk` |
-| iOS | `.ipa` (unsigned) |
+### JinDoCore Dependency
+
+JinGo depends on pre-compiled JinDoCore static libraries (not compiled in CI). SuperRay is merged into JinDoCore (except Android which needs libsuperray.so for JNI).
+
+### CI Build Flow
+
+All platforms follow a unified flow:
+
+1. **Checkout** - Clone repository with submodules
+2. **Verify Dependencies** - Check JinDoCore libraries and white-label resources exist
+3. **Build Release** - Clean build with `--clean --release` and platform-specific flags
+4. **Publish Artifacts** - Publish from `release/` directory
+
+Platform-specific build commands:
+
+| Platform | Executor | Build Command |
+|----------|----------|---------------|
+| macOS | macos-builder | `build-macos.sh --clean --release --dmg --skip-sign` |
+| iOS | macos-builder | `build-ios.sh --clean --release --skip-sign` |
+| Android | linux-builder | `build-android.sh --clean --release` |
+| Linux | linux-builder | `build-linux.sh --clean --release --deploy --package` |
+| Windows | windows-builder | `build-windows.sh clean` (via MSYS2) |
+
+> **Note**: macOS and iOS CI builds use `--skip-sign` to skip code signing. macOS defaults to no signing even without this flag, but CI specifies it explicitly for clarity.
+
+### CI Environment
+
+| Platform | Key Environment |
+|----------|----------------|
+| macOS/iOS | Xcode: `/Volumes/mindata/Xcode.app`, Qt: `/Volumes/mindata/Qt/6.10.1/{macos,ios}` |
+| Android | Qt: `/mnt/dev/Qt/6.10.1`, SDK: `/mnt/dev/Android/Sdk`, NDK: `29.0.14206865`, Java 21 |
+| Linux | Qt: `/mnt/dev/Qt/6.10.1/gcc_64` |
+| Windows | MSYS2: `D:\msys64` |
+
+All CI builds set `JINDO_ENABLE_LICENSE_CHECK=ON` to enable license verification in release artifacts.
+
+### Build Artifacts
+
+All platforms publish artifacts to the `release/` directory:
+
+| Platform | Output | Notes |
+|----------|--------|-------|
+| macOS | `release/*.dmg` | Self-signed, right-click to open |
+| iOS | `release/*.ipa` | Unsigned, use AltStore/Sideloadly |
+| Android | `release/*.apk` | Debug-signed |
+| Linux | `release/*.tar.gz` / `*.deb` | Needs setcap or sudo |
+| Windows | `release/*.zip` | May trigger SmartScreen |
+
+### CI Troubleshooting
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| `undefined reference: SuperRay_*` | libJinDoCore.a missing SuperRay symbols | Rebuild JinDo with ar/libtool merge step |
+| `superray.h: No such file` | JinDo build didn't export header | Check JinDo build script copy paths |
+| `cannot find -lsuperray` | Stale CMake dynamic library reference | Remove SuperRay DLL references from CMakeLists.txt |
+| CMake compiler not found | MSYS2/MinGW misconfigured | Check toolchain installation |
+| Windows out of memory | QRC compilation memory usage | Already configured: low-memory mode (O1 + single-threaded) |
+| iOS fails without Team ID | Missing `--skip-sign` | Add `--skip-sign` to CI build args |
 
 ---
 

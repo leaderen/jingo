@@ -82,13 +82,13 @@ BUILD_DATE=$(date +%Y%m%d)
 generate_output_name() {
     local version="${1:-1.0.0}"
     local ext="${2:-}"
-    local brand="${BRAND_NAME:-jingo}"
+    local brand="${BRAND_NAME:-${BRAND:-1}}"
     local platform="linux"
 
     if [[ -n "$ext" ]]; then
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
     else
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}"
     fi
 }
 
@@ -254,7 +254,7 @@ parse_args() {
 # ============================================================================
 apply_brand_customization() {
     # Linux 平台默认使用品牌 4
-    local brand_id="${BRAND_NAME:-4}"
+    local brand_id="${BRAND_NAME:-${BRAND:-4}}"
 
     print_step "复制白标资源 (品牌: $brand_id)"
 
@@ -500,6 +500,12 @@ configure_project() {
     # 如果需要打包，启用 CPack
     if [ "$CREATE_PACKAGE" = true ]; then
         CMAKE_ARGS+=(-DENABLE_PACKAGING=ON)
+    fi
+
+    # 授权验证开关
+    if [ "${JINDO_ENABLE_LICENSE_CHECK:-}" = "ON" ]; then
+        CMAKE_ARGS+=(-DJINDO_ENABLE_LICENSE_CHECK=ON)
+        print_info "CMake: 启用授权验证 (JINDO_ENABLE_LICENSE_CHECK=ON)"
     fi
 
     cmake "${CMAKE_ARGS[@]}"

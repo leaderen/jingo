@@ -82,8 +82,7 @@ endif()
 # Dependencies
 set(QT_NO_DISABLE_WARN_DUPLICATE_LIBRARIES ON)
 include(cmake/Dependencies-Qt.cmake)
-# SuperRay is statically merged into JinDoCore on all platforms except Windows
-# Windows: SuperRay DLL is shipped alongside JinDoCore in JINDO_LIB_DIR
+# SuperRay is statically merged into JinDoCore on all platforms
 
 # JinDoCore static library configuration
 set(JINDO_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../JinDo" CACHE PATH "Path to JinDo project")
@@ -538,6 +537,8 @@ endif()
 
 # Bundle config deployment
 set(BUNDLE_CONFIG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/resources/bundle_config.json")
+set(LICENSE_PUBLIC_KEY_FILE "${CMAKE_CURRENT_SOURCE_DIR}/resources/license_public_key.pem")
+
 if(EXISTS ${BUNDLE_CONFIG_FILE})
     if(TARGET_MACOS)
         add_custom_command(TARGET JinGo POST_BUILD
@@ -560,6 +561,35 @@ if(EXISTS ${BUNDLE_CONFIG_FILE})
             COMMAND ${CMAKE_COMMAND} -E copy_if_different ${BUNDLE_CONFIG_FILE}
                 "$<TARGET_FILE_DIR:JinGo>/bundle_config.json"
             COMMENT "Copying bundle_config.json"
+        )
+    endif()
+endif()
+
+# License public key deployment
+if(EXISTS ${LICENSE_PUBLIC_KEY_FILE})
+    if(TARGET_MACOS)
+        add_custom_command(TARGET JinGo POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LICENSE_PUBLIC_KEY_FILE}
+                "$<TARGET_BUNDLE_DIR:JinGo>/Contents/Resources/license_public_key.pem"
+            COMMENT "Copying license_public_key.pem"
+        )
+    elseif(TARGET_IOS)
+        add_custom_command(TARGET JinGo POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LICENSE_PUBLIC_KEY_FILE}
+                "$<TARGET_BUNDLE_DIR:JinGo>/license_public_key.pem"
+            COMMENT "Copying license_public_key.pem"
+        )
+    elseif(TARGET_ANDROID)
+        if(NOT ANDROID_CONFIG_ASSETS_DIR)
+            set(ANDROID_CONFIG_ASSETS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/platform/android/assets")
+        endif()
+        file(MAKE_DIRECTORY "${ANDROID_CONFIG_ASSETS_DIR}")
+        file(COPY ${LICENSE_PUBLIC_KEY_FILE} DESTINATION "${ANDROID_CONFIG_ASSETS_DIR}")
+    elseif(TARGET_WINDOWS OR TARGET_LINUX)
+        add_custom_command(TARGET JinGo POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LICENSE_PUBLIC_KEY_FILE}
+                "$<TARGET_FILE_DIR:JinGo>/license_public_key.pem"
+            COMMENT "Copying license_public_key.pem"
         )
     endif()
 endif()
@@ -613,7 +643,12 @@ target_link_libraries(JinGo PRIVATE
 
 # Link JinDoCore
 if(TARGET JinDoCore)
-    target_link_libraries(JinGo PRIVATE JinDoCore)
+    # Use --whole-archive to force linking all symbols from static library
+    if(WIN32 AND MINGW)
+        target_link_libraries(JinGo PRIVATE -Wl,--whole-archive JinDoCore -Wl,--no-whole-archive)
+    else()
+        target_link_libraries(JinGo PRIVATE JinDoCore)
+    endif()
     target_include_directories(JinGo PRIVATE
         ${JINDO_INCLUDE_DIR}
         ${JINDO_INCLUDE_DIR}/core
@@ -698,18 +733,18 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_definitions(JinGo PRIVATE QT_NO_DEBUG_OUTPUT NDEBUG QT_NO_WARNING_OUTPUT)
 endif()
 
-# SuperRay integration
-# SuperRay is statically merged into JinDoCore on all platforms except Windows
-target_compile_definitions(JinGo PRIVATE HAVE_SUPERRAY)
-
-if(TARGET_WINDOWS)
-    # Windows: SuperRay is a DLL, shipped alongside JinDoCore
-    set(SUPERRAY_DLL_DIR "${JINDO_LIB_DIR}")
-    if(EXISTS "${SUPERRAY_DLL_DIR}/superray.dll")
-        target_link_directories(JinGo PRIVATE "${SUPERRAY_DLL_DIR}")
-        target_link_libraries(JinGo PRIVATE superray)
-    endif()
+# License check (CI 构建时启用，本地开发默认关闭)
+option(JINDO_ENABLE_LICENSE_CHECK "Enable license verification at startup" OFF)
+if(JINDO_ENABLE_LICENSE_CHECK)
+    target_compile_definitions(JinGo PRIVATE JINDO_ENABLE_LICENSE_CHECK)
+    message(STATUS "License check: ENABLED")
+else()
+    message(STATUS "License check: DISABLED (development mode)")
 endif()
+
+# SuperRay integration
+# SuperRay is statically merged into JinDoCore on all platforms (including Windows)
+target_compile_definitions(JinGo PRIVATE HAVE_SUPERRAY)
 
 # RPATH configuration
 if(TARGET_LINUX)
@@ -737,15 +772,6 @@ if(WIN32)
         add_custom_command(TARGET JinGo POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different "${WINTUN_DLL}" "$<TARGET_FILE_DIR:JinGo>/wintun.dll"
             COMMENT "Copying wintun.dll"
-        )
-    endif()
-
-    # Copy SuperRay DLL (from JinDoCore output)
-    set(SUPERRAY_DLL "${JINDO_LIB_DIR}/superray.dll")
-    if(EXISTS ${SUPERRAY_DLL})
-        add_custom_command(TARGET JinGo POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different "${SUPERRAY_DLL}" "$<TARGET_FILE_DIR:JinGo>/superray.dll"
-            COMMENT "Copying superray.dll"
         )
     endif()
 

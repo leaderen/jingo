@@ -77,13 +77,13 @@ BUILD_DATE=$(date +%Y%m%d)
 generate_output_name() {
     local version="${1:-1.0.0}"
     local ext="${2:-}"
-    local brand="${BRAND_NAME:-jingo}"
+    local brand="${BRAND_NAME:-${BRAND:-jingo}}"
     local platform="macos"
 
     if [[ -n "$ext" ]]; then
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
     else
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}"
     fi
 }
 
@@ -331,7 +331,7 @@ parse_args() {
 # ============================================================================
 apply_brand_customization() {
     # macOS 平台默认使用品牌 2
-    local brand_id="${BRAND_NAME:-2}"
+    local brand_id="${BRAND_NAME:-${BRAND:-2}}"
 
     print_step "复制白标资源 (品牌: $brand_id)"
 
@@ -590,6 +590,12 @@ generate_xcode_project() {
     if [[ "$SKIP_SIGN" == true ]]; then
         cmake_args+=(-DSKIP_CODE_SIGNING=ON)
         print_info "CMake: 禁用代码签名 (SKIP_CODE_SIGNING=ON)"
+    fi
+
+    # 授权验证开关
+    if [[ "${JINDO_ENABLE_LICENSE_CHECK:-}" == "ON" ]]; then
+        cmake_args+=(-DJINDO_ENABLE_LICENSE_CHECK=ON)
+        print_info "CMake: 启用授权验证 (JINDO_ENABLE_LICENSE_CHECK=ON)"
     fi
 
     echo ""

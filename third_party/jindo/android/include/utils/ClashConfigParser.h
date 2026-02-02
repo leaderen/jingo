@@ -74,6 +74,8 @@ private:
     QJsonArray parseYamlArray(const QStringList& lines, int& index, int baseIndent);
     QJsonObject parseYamlObject(const QStringList& lines, int& index, int baseIndent);
     QJsonValue parseYamlValue(const QString& value);
+    QJsonObject parseFlowMapping(const QString& content);
+    QJsonArray parseFlowSequence(const QString& content);
     int getIndentLevel(const QString& line);
     QString trimComment(const QString& line);
 

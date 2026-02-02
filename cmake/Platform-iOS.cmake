@@ -3,10 +3,12 @@
 # ============================================================================
 # This module handles:
 # - iOS deployment target configuration
-# - iOS-specific source files
 # - iOS frameworks (UIKit, NetworkExtension, etc.)
 # - iOS Team ID for code signing
 # - iOS entitlements paths
+#
+# Note: Platform source files (PlatformInterface, IOSPlatform, etc.) are
+#       pre-compiled in libJinDoCore.a and do not need to be compiled again.
 #
 # Usage:
 #   if(TARGET_IOS)
@@ -15,7 +17,7 @@
 #
 # Variables set by this module:
 #   PLATFORM_NAME - "iOS"
-#   PLATFORM_SOURCES - iOS-specific source files
+#   PLATFORM_SOURCES - (empty, sources in JinDoCore)
 #   PLATFORM_LIBS - iOS frameworks
 #   CMAKE_OSX_DEPLOYMENT_TARGET - Minimum iOS version
 #   IOS_TEAM_ID - Development Team ID for code signing
@@ -83,37 +85,9 @@ endif()
 # iOS Source Files
 # ============================================================================
 
-set(PLATFORM_SOURCES
-    src/platform/PlatformInterface.cpp
-    src/platform/IOSPlatform.cpp
-    src/platform/IOSPlatformHelper.mm
-    src/utils/DeviceIdentifier_ios.mm
-    src/utils/RsaCrypto_ios.mm
-)
-
-# Configure Objective-C++ source files with ARC
-set_source_files_properties(src/platform/IOSPlatformHelper.mm
-    PROPERTIES
-    LANGUAGE OBJCXX
-    COMPILE_FLAGS "-x objective-c++ -fobjc-arc"
-)
-
-set_source_files_properties(src/utils/DeviceIdentifier_ios.mm
-    PROPERTIES
-    LANGUAGE OBJCXX
-    COMPILE_FLAGS "-x objective-c++ -fobjc-arc"
-)
-
-set_source_files_properties(src/utils/RsaCrypto_ios.mm
-    PROPERTIES
-    LANGUAGE OBJCXX
-    COMPILE_FLAGS "-x objective-c++ -fobjc-arc"
-)
-
-message(STATUS "iOS source files configured:")
-foreach(source ${PLATFORM_SOURCES})
-    message(STATUS "  - ${source}")
-endforeach()
+# 平台源文件已编译在 libJinDoCore.a 中，无需重复编译
+set(PLATFORM_SOURCES "")
+message(STATUS "iOS platform sources: provided by JinDoCore static library")
 
 # ============================================================================
 # iOS Frameworks
@@ -163,21 +137,6 @@ if(EXISTS "${IOS_EXTENSION_ENTITLEMENTS}")
 else()
     message(WARNING "iOS extension entitlements not found: ${IOS_EXTENSION_ENTITLEMENTS}")
 endif()
-
-# ============================================================================
-# Verification
-# ============================================================================
-
-message(STATUS "Verifying iOS platform source files:")
-foreach(platform_source ${PLATFORM_SOURCES})
-    set(full_path ${CMAKE_CURRENT_SOURCE_DIR}/${platform_source})
-    if(NOT EXISTS ${full_path})
-        message(WARNING "  iOS source file not found: ${platform_source}")
-        list(REMOVE_ITEM PLATFORM_SOURCES ${platform_source})
-    else()
-        message(STATUS "   ${platform_source}")
-    endif()
-endforeach()
 
 message(STATUS "iOS platform configured successfully")
 message(STATUS "========================================")

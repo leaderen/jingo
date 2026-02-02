@@ -85,6 +85,7 @@ XCODE_ONLY=false
 CLEAN_BUILD=false
 INSTALL_APP=false
 SIMULATOR_BUILD=false
+SKIP_SIGN=false
 DEVICE_UDID="$DEFAULT_DEVICE_UDID"
 BRAND_NAME=""
 
@@ -96,13 +97,13 @@ BUILD_DATE=$(date +%Y%m%d)
 generate_output_name() {
     local version="${1:-1.0.0}"
     local ext="${2:-}"
-    local brand="${BRAND_NAME:-jingo}"
+    local brand="${BRAND_NAME:-${BRAND:-jingo}}"
     local platform="ios"
 
     if [[ -n "$ext" ]]; then
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}.${ext}"
     else
-        echo "${brand}-${version}-${BUILD_DATE}-${platform}"
+        echo "jingo-${brand}-${version}-${BUILD_DATE}-${platform}"
     fi
 }
 
@@ -146,6 +147,7 @@ JinGoVPN iOS 构建脚本
     -r, --release        Release 模式
     -i, --install        安装到连接的 iOS 设备
     -s, --simulator      构建模拟器版本（x86_64 + arm64）
+    --skip-sign          跳过签名（仅编译，不需要 Team ID）
     --device UDID        指定设备 UDID
     -b, --brand NAME     应用白标定制（从 white-labeling/<NAME> 加载配置）
     --bundle-id ID       指定 Bundle ID (如 cfd.jingo.vpn)
@@ -212,6 +214,10 @@ parse_args() {
                 ;;
             -s|--simulator)
                 SIMULATOR_BUILD=true
+                shift
+                ;;
+            --skip-sign)
+                SKIP_SIGN=true
                 shift
                 ;;
             --device)
@@ -284,7 +290,7 @@ parse_args() {
 # ============================================================================
 apply_brand_customization() {
     # iOS 平台默认使用品牌 5
-    local brand_id="${BRAND_NAME:-5}"
+    local brand_id="${BRAND_NAME:-${BRAND:-5}}"
 
     print_info "应用白标定制: $brand_id"
 
@@ -311,8 +317,14 @@ check_requirements() {
         exit 1
     fi
 
-    # 检查 TEAM_ID 配置 (iOS 必须签名)
-    if [[ "$TEAM_ID" == "YOUR_TEAM_ID_HERE" ]] || [[ -z "$TEAM_ID" ]]; then
+    # 检查 TEAM_ID 配置 (跳过签名时不需要)
+    if [[ "$SKIP_SIGN" == true ]]; then
+        print_info "签名: 已禁用 (--skip-sign 模式)"
+        # 设置空 TEAM_ID 避免后续脚本出错
+        if [[ "$TEAM_ID" == "YOUR_TEAM_ID_HERE" ]]; then
+            TEAM_ID=""
+        fi
+    elif [[ "$TEAM_ID" == "YOUR_TEAM_ID_HERE" ]] || [[ -z "$TEAM_ID" ]]; then
         print_error "═══════════════════════════════════════════════════════════════"
         print_error "  iOS 构建需要配置 Apple 开发者团队 ID"
         print_error "═══════════════════════════════════════════════════════════════"
@@ -330,9 +342,12 @@ check_requirements() {
         print_error "    - 登录 https://developer.apple.com"
         print_error "    - 进入 Membership 页面查看 Team ID"
         print_error ""
+        print_error "  或使用 --skip-sign 跳过签名（仅编译验证）"
+        print_error ""
         exit 1
+    else
+        print_success "开发团队 ID: $TEAM_ID"
     fi
-    print_success "开发团队 ID: $TEAM_ID"
 
     # 检查 CMake
     if ! command -v cmake &> /dev/null; then
@@ -455,18 +470,30 @@ generate_xcode_project() {
         CMAKE_ARGS+=(-DCMAKE_OSX_SYSROOT=iphonesimulator)
     else
         CMAKE_ARGS+=(-DCMAKE_OSX_SYSROOT=iphoneos)
-        # 传递签名配置给CMake
-        CMAKE_ARGS+=(-DAPPLE_DEVELOPMENT_TEAM="$TEAM_ID")
-        CMAKE_ARGS+=(-DAPPLE_CODE_SIGN_IDENTITY="$CODE_SIGN_IDENTITY")
-        CMAKE_ARGS+=(-DCMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM="$TEAM_ID")
-        CMAKE_ARGS+=(-DCMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY="$CODE_SIGN_IDENTITY")
-        # 传递 Provisioning Profile 名称给 CMake
-        CMAKE_ARGS+=(-DIOS_PROFILE_MAIN="$PROFILE_MAIN")
-        CMAKE_ARGS+=(-DIOS_PROFILE_PACKET_TUNNEL="$PROFILE_PACKET_TUNNEL")
-        # CI 环境：传递 keychain 路径给 CMake（禁用 Xcode 内置签名）
-        if [[ -n "${BUILD_KEYCHAIN:-}" ]] && [[ -f "$BUILD_KEYCHAIN" ]]; then
-            CMAKE_ARGS+=(-DBUILD_KEYCHAIN_PATH="$BUILD_KEYCHAIN")
+        if [[ "$SKIP_SIGN" == true ]]; then
+            # 跳过签名模式：禁用 Xcode 签名要求
+            CMAKE_ARGS+=(-DSKIP_CODE_SIGNING=ON)
+            print_info "  CMake: 禁用代码签名 (SKIP_CODE_SIGNING=ON)"
+        else
+            # 传递签名配置给CMake
+            CMAKE_ARGS+=(-DAPPLE_DEVELOPMENT_TEAM="$TEAM_ID")
+            CMAKE_ARGS+=(-DAPPLE_CODE_SIGN_IDENTITY="$CODE_SIGN_IDENTITY")
+            CMAKE_ARGS+=(-DCMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM="$TEAM_ID")
+            CMAKE_ARGS+=(-DCMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY="$CODE_SIGN_IDENTITY")
+            # 传递 Provisioning Profile 名称给 CMake
+            CMAKE_ARGS+=(-DIOS_PROFILE_MAIN="$PROFILE_MAIN")
+            CMAKE_ARGS+=(-DIOS_PROFILE_PACKET_TUNNEL="$PROFILE_PACKET_TUNNEL")
+            # CI 环境：传递 keychain 路径给 CMake（禁用 Xcode 内置签名）
+            if [[ -n "${BUILD_KEYCHAIN:-}" ]] && [[ -f "$BUILD_KEYCHAIN" ]]; then
+                CMAKE_ARGS+=(-DBUILD_KEYCHAIN_PATH="$BUILD_KEYCHAIN")
+            fi
         fi
+    fi
+
+    # 授权验证开关
+    if [[ "${JINDO_ENABLE_LICENSE_CHECK:-}" == "ON" ]]; then
+        CMAKE_ARGS+=(-DJINDO_ENABLE_LICENSE_CHECK=ON)
+        print_info "CMake: 启用授权验证 (JINDO_ENABLE_LICENSE_CHECK=ON)"
     fi
 
     cmake "${CMAKE_ARGS[@]}"
@@ -479,38 +506,49 @@ generate_xcode_project() {
         # 备份原始文件
         cp "$PBXPROJ_FILE" "$PBXPROJ_FILE.bak"
 
-        # 1. 将所有 Automatic 签名改为 Manual
-        print_info "  - 设置手动签名..."
-        sed -i '' 's/CODE_SIGN_STYLE = Automatic;/CODE_SIGN_STYLE = Manual;/g' "$PBXPROJ_FILE"
+        if [[ "$SKIP_SIGN" == true ]]; then
+            # 跳过签名模式：完全禁用代码签名
+            print_info "  - 禁用代码签名 (CODE_SIGNING_ALLOWED=NO)..."
+            sed -i '' 's/CODE_SIGN_STYLE = Automatic;/CODE_SIGN_STYLE = Manual;/g' "$PBXPROJ_FILE"
+            # 设置签名身份为空
+            sed -i '' 's/CODE_SIGN_IDENTITY = "[^"]*";/CODE_SIGN_IDENTITY = "";/g' "$PBXPROJ_FILE"
+            # 在每个 buildSettings 块中添加 CODE_SIGNING_ALLOWED = NO
+            sed -i '' '/buildSettings = {/a\
+				CODE_SIGNING_ALLOWED = NO;
+' "$PBXPROJ_FILE"
+        else
+            # 1. 将所有 Automatic 签名改为 Manual
+            print_info "  - 设置手动签名..."
+            sed -i '' 's/CODE_SIGN_STYLE = Automatic;/CODE_SIGN_STYLE = Manual;/g' "$PBXPROJ_FILE"
 
-        # 2. 添加 DEVELOPMENT_TEAM 到所有 Manual 签名后面
-        sed -i '' 's/\(CODE_SIGN_STYLE = Manual;\)/\1\
+            # 2. 添加 DEVELOPMENT_TEAM 到所有 Manual 签名后面
+            sed -i '' 's/\(CODE_SIGN_STYLE = Manual;\)/\1\
 				DEVELOPMENT_TEAM = '"$TEAM_ID"';/g' "$PBXPROJ_FILE"
 
-        # 3. 修复空的 DEVELOPMENT_TEAM
-        sed -i '' 's/DEVELOPMENT_TEAM = "";/DEVELOPMENT_TEAM = '"$TEAM_ID"';/g' "$PBXPROJ_FILE"
+            # 3. 修复空的 DEVELOPMENT_TEAM
+            sed -i '' 's/DEVELOPMENT_TEAM = "";/DEVELOPMENT_TEAM = '"$TEAM_ID"';/g' "$PBXPROJ_FILE"
 
-        # 3.5 设置 CODE_SIGN_IDENTITY
-        print_info "  - 设置签名身份: $CODE_SIGN_IDENTITY"
-        # 替换任何现有的签名身份
-        sed -i '' 's/CODE_SIGN_IDENTITY = "[^"]*";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        # 替换 "iPhone Developer" 等旧名称
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            # 3.5 设置 CODE_SIGN_IDENTITY
+            print_info "  - 设置签名身份: $CODE_SIGN_IDENTITY"
+            # 替换任何现有的签名身份
+            sed -i '' 's/CODE_SIGN_IDENTITY = "[^"]*";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            # 替换 "iPhone Developer" 等旧名称
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
 
-        # 调试：显示 Xcode 项目中的签名配置
-        print_info "  - Xcode 项目签名配置:"
-        grep "CODE_SIGN_IDENTITY" "$PBXPROJ_FILE" | sort -u | head -5
+            # 调试：显示 Xcode 项目中的签名配置
+            print_info "  - Xcode 项目签名配置:"
+            grep "CODE_SIGN_IDENTITY" "$PBXPROJ_FILE" | sort -u | head -5
 
-        # 4. 修复主应用的 Bundle ID
-        print_info "  - 修复主应用 Bundle ID..."
-        sed -i '' 's/PRODUCT_BUNDLE_IDENTIFIER = "work\.opine\.\$(PRODUCT_NAME:rfc1034identifier)";/PRODUCT_BUNDLE_IDENTIFIER = cfd.jingo.acc;/g' "$PBXPROJ_FILE"
+            # 4. 修复主应用的 Bundle ID
+            print_info "  - 修复主应用 Bundle ID..."
+            sed -i '' 's/PRODUCT_BUNDLE_IDENTIFIER = "work\.opine\.\$(PRODUCT_NAME:rfc1034identifier)";/PRODUCT_BUNDLE_IDENTIFIER = cfd.jingo.acc;/g' "$PBXPROJ_FILE"
 
-        # 5. 为主应用添加 provisioning profile 和 entitlements
-        print_info "  - 配置主应用 provisioning profile: $PROFILE_MAIN"
-        awk -v pwd="$PROJECT_ROOT" -v profile="$PROFILE_MAIN" '
+            # 5. 为主应用添加 provisioning profile 和 entitlements
+            print_info "  - 配置主应用 provisioning profile: $PROFILE_MAIN"
+            awk -v pwd="$PROJECT_ROOT" -v profile="$PROFILE_MAIN" '
 /PRODUCT_NAME = JinGo;/ && in_build_settings && !has_provisioning {
     print "\t\t\t\tCODE_SIGN_ENTITLEMENTS = \"" pwd "/platform/ios/JinGo.entitlements\";"
     print "\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = \"" profile "\";"
@@ -526,9 +564,9 @@ generate_xcode_project() {
 { print }
 ' "$PBXPROJ_FILE" > "${PBXPROJ_FILE}.tmp" && mv "${PBXPROJ_FILE}.tmp" "$PBXPROJ_FILE"
 
-        # 6. 为 PacketTunnelProvider 添加 provisioning profile
-        print_info "  - 配置 PacketTunnelProvider provisioning profile: $PROFILE_PACKET_TUNNEL"
-        awk -v profile="$PROFILE_PACKET_TUNNEL" '
+            # 6. 为 PacketTunnelProvider 添加 provisioning profile
+            print_info "  - 配置 PacketTunnelProvider provisioning profile: $PROFILE_PACKET_TUNNEL"
+            awk -v profile="$PROFILE_PACKET_TUNNEL" '
 /PRODUCT_NAME = PacketTunnelProvider;/ && in_build_settings && !has_provisioning {
     print "\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = \"" profile "\";"
     has_provisioning = 1
@@ -542,6 +580,7 @@ generate_xcode_project() {
 }
 { print }
 ' "$PBXPROJ_FILE" > "${PBXPROJ_FILE}.tmp" && mv "${PBXPROJ_FILE}.tmp" "$PBXPROJ_FILE"
+        fi
 
         # 7. 移除不兼容的链接器标志 -no_warn_duplicate_libraries
         # CMake 4.0+ 会添加这个标志，但 Xcode 的 clang 不支持
@@ -601,25 +640,34 @@ build_project() {
         sed -i '' 's/-Xlinker -no_warn_duplicate_libraries//g' "$PBXPROJ_FILE"
 
         # 重新应用签名配置（cmake 会重置这些设置）
-        print_info "重新应用签名配置..."
-        sed -i '' 's/CODE_SIGN_STYLE = Automatic;/CODE_SIGN_STYLE = Manual;/g' "$PBXPROJ_FILE"
-        sed -i '' 's/DEVELOPMENT_TEAM = "";/DEVELOPMENT_TEAM = '"$TEAM_ID"';/g' "$PBXPROJ_FILE"
+        if [[ "$SKIP_SIGN" == true ]]; then
+            print_info "重新应用跳过签名配置..."
+            sed -i '' 's/CODE_SIGN_STYLE = Automatic;/CODE_SIGN_STYLE = Manual;/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "[^"]*";/CODE_SIGN_IDENTITY = "";/g' "$PBXPROJ_FILE"
+            sed -i '' '/buildSettings = {/a\
+				CODE_SIGNING_ALLOWED = NO;
+' "$PBXPROJ_FILE"
+        else
+            print_info "重新应用签名配置..."
+            sed -i '' 's/CODE_SIGN_STYLE = Automatic;/CODE_SIGN_STYLE = Manual;/g' "$PBXPROJ_FILE"
+            sed -i '' 's/DEVELOPMENT_TEAM = "";/DEVELOPMENT_TEAM = '"$TEAM_ID"';/g' "$PBXPROJ_FILE"
 
-        # 设置 CODE_SIGN_IDENTITY
-        sed -i '' 's/CODE_SIGN_IDENTITY = "[^"]*";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
-        sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            # 设置 CODE_SIGN_IDENTITY
+            sed -i '' 's/CODE_SIGN_IDENTITY = "[^"]*";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iPhone Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Developer";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
+            sed -i '' 's/CODE_SIGN_IDENTITY = "iOS Distribution";/CODE_SIGN_IDENTITY = "'"$CODE_SIGN_IDENTITY"'";/g' "$PBXPROJ_FILE"
 
-        # 验证配置
-        print_info "当前签名身份配置:"
-        grep "CODE_SIGN_IDENTITY" "$PBXPROJ_FILE" | sort -u | head -5
+            # 验证配置
+            print_info "当前签名身份配置:"
+            grep "CODE_SIGN_IDENTITY" "$PBXPROJ_FILE" | sort -u | head -5
 
-        # 检查是否还有 iOS Distribution 残留
-        if grep -q "iOS Distribution" "$PBXPROJ_FILE"; then
-            print_warning "警告: 仍有 'iOS Distribution' 残留!"
-            grep -n "iOS Distribution" "$PBXPROJ_FILE" | head -5
+            # 检查是否还有 iOS Distribution 残留
+            if grep -q "iOS Distribution" "$PBXPROJ_FILE"; then
+                print_warning "警告: 仍有 'iOS Distribution' 残留!"
+                grep -n "iOS Distribution" "$PBXPROJ_FILE" | head -5
+            fi
         fi
     fi
 
@@ -632,7 +680,12 @@ build_project() {
     local BUILD_LOG="$BUILD_DIR/build.log"
     print_info "开始编译 (日志: $BUILD_LOG)..."
 
-    if ! cmake --build . --config "$CONFIGURATION" -j$(sysctl -n hw.ncpu) 2>&1 | tee "$BUILD_LOG"; then
+    local BUILD_FLAGS=""
+    if [[ "$SKIP_SIGN" == true ]]; then
+        BUILD_FLAGS="-- CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO"
+    fi
+
+    if ! eval cmake --build . --config "$CONFIGURATION" -j$(sysctl -n hw.ncpu) $BUILD_FLAGS 2>&1 | tee "$BUILD_LOG"; then
         print_error "CMake 构建失败！"
         print_info "最后 50 行日志:"
         tail -50 "$BUILD_LOG"
@@ -1045,7 +1098,11 @@ main() {
 
     refresh_extension_plist
     build_project
-    resign_app
+    if [[ "$SKIP_SIGN" != true ]]; then
+        resign_app
+    else
+        print_info "跳过签名模式：跳过重签名步骤"
+    fi
     verify_app
     copy_to_release
     install_to_device

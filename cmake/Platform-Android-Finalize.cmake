@@ -64,6 +64,11 @@ endif()
 # Add SuperRay CORE library for Android (if not using AAR)
 # SuperRay provides both Xray-core and TUN processing in a unified library
 # Note: The core library is renamed to libsuperray_core.so to avoid conflict with JNI wrapper
+# 从 JinDoCore 目录查找 SuperRay 动态库
+if(NOT DEFINED SUPERRAY_LIB OR NOT EXISTS "${SUPERRAY_LIB}")
+    set(SUPERRAY_LIB "${JINDO_THIRD_PARTY}/android/${CMAKE_ANDROID_ARCH_ABI}/libsuperray.so")
+endif()
+
 if(TARGET superray_imported)
     # Using imported target from Dependencies-Xray.cmake
     get_target_property(SUPERRAY_SO_LOCATION superray_imported IMPORTED_LOCATION)
@@ -263,7 +268,7 @@ add_library(superray SHARED
 target_include_directories(superray PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/android/cpp
-    ${SUPERRAY_INCLUDE_DIR}
+    ${JINDO_INCLUDE_DIR}
 )
 
 # Link to SuperRay CORE library (renamed to avoid conflict)

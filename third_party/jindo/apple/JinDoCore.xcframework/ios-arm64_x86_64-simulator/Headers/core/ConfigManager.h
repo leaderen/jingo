@@ -1011,7 +1011,15 @@ private:
      * @return QJsonObject 日志配置 JSON 对象
      */
     QJsonObject generateLog() const;
-    
+
+    /**
+     * @brief 获取物理网卡的IP地址和接口名（非TUN/VPN接口）
+     * @param outIfaceName 可选输出参数：物理网卡名称（如 en0）
+     * @return QString 物理网卡IP地址，获取失败返回空字符串
+     * @details TUN模式下用于 freedom outbound 的 sendThrough + sockopt.interface
+     */
+    QString getPhysicalInterfaceIP(QString* outIfaceName = nullptr) const;
+
     /**
      * @brief 生成策略配置对象
      * @return QJsonObject 策略配置 JSON 对象

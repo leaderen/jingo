@@ -21,6 +21,9 @@
 #include "core/ConfigManager.h"
 #include "core/BundleConfig.h"
 #include "core/Logger.h"
+#ifdef JINDO_ENABLE_LICENSE_CHECK
+#include "core/LicenseManager.h"
+#endif
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS) || defined(Q_OS_MACOS) || defined(Q_OS_LINUX) || defined(Q_OS_WIN)
 #include "core/BackgroundDataUpdater.h"
 #endif
@@ -199,19 +202,41 @@ bool initializeCoreComponents() {
           LOG_INFO("Configuration loaded");
 
           // 从配置中设置日志级别
+          // ConfigManager::LogLevel: None=0, Error=1, Warning=2, Info=3, Debug=4
+          // Logger::LogLevel:        Debug=0, Info=1, Warning=2, Error=3, Critical=4
+          // 映射关系: Logger level = 4 - ConfigManager level
           ConfigManager::LogLevel configLogLevel = ConfigManager::instance().logLevel();
-          Logger::instance().setLogLevel(static_cast<Logger::LogLevel>(configLogLevel));
-          LOG_INFO(QString("Log level set to: %1").arg(static_cast<int>(configLogLevel)));
+          Logger::LogLevel loggerLevel = static_cast<Logger::LogLevel>(4 - static_cast<int>(configLogLevel));
+          Logger::instance().setLogLevel(loggerLevel);
+          LOG_INFO(QString("Log level set to: %1 (config=%2, logger=%3)")
+                   .arg(static_cast<int>(configLogLevel))
+                   .arg(static_cast<int>(configLogLevel))
+                   .arg(static_cast<int>(loggerLevel)));
 
           // 连接配置管理器的日志级别变化信号，确保设置页面更改后日志级别同步更新
           QObject::connect(&ConfigManager::instance(), &ConfigManager::logLevelChanged, []() {
               ConfigManager::LogLevel newLevel = ConfigManager::instance().logLevel();
-              Logger::instance().setLogLevel(static_cast<Logger::LogLevel>(newLevel));
+              Logger::instance().setLogLevel(static_cast<Logger::LogLevel>(4 - static_cast<int>(newLevel)));
               LOG_INFO(QString("Log level changed to: %1").arg(static_cast<int>(newLevel)));
           });
 
           // VPNCore 初始化已移至连接时，确保设置生效
           LOG_INFO("VPNCore will be initialized on first connection");
+
+#ifdef JINDO_ENABLE_LICENSE_CHECK
+          // 后台授权验证：连接 LicenseManager 信号
+          LicenseManager& lm = LicenseManager::instance();
+
+          // 授权过期或设备超限 → 弹窗提示并退出
+          QObject::connect(&lm, &LicenseManager::exitRequired, qApp,
+              [](const QString& title, const QString& message) {
+                  LOG_ERROR(QString("[License] Exit required: %1 - %2").arg(title, message));
+                  QMessageBox::critical(nullptr, title, message);
+                  QCoreApplication::quit();
+              });
+
+          LOG_INFO("[License] License check enabled, signals connected");
+#endif
 
           return true;
 }
@@ -636,6 +661,9 @@ int main(int argc, char *argv[])
         rootContext->setContextProperty("systemConfigManager", &SystemConfigManager::instance());
         rootContext->setContextProperty("configManager", &ConfigManager::instance());
         rootContext->setContextProperty("bundleConfig", &BundleConfig::instance());
+#ifdef JINDO_ENABLE_LICENSE_CHECK
+        rootContext->setContextProperty("licenseManager", &LicenseManager::instance());
+#endif
         rootContext->setContextProperty("languageManager", &LanguageManager::instance());
         rootContext->setContextProperty("clipboardHelper", clipboardHelper);
         rootContext->setContextProperty("logManager", &LogManager::instance());

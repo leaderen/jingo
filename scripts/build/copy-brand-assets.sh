@@ -157,52 +157,16 @@ copy_brand_assets() {
     fi
 
     # ========================================================================
-    # 6. 替换 RsaCrypto.cpp 中的公钥
+    # 6. 复制 license_public_key.pem 到 resources/ 目录
     # ========================================================================
     local src_pubkey="$brand_dir/license_public_key.pem"
-    local rsa_crypto_file="$COPY_BRAND_PROJECT_ROOT/src/utils/RsaCrypto.cpp"
+    local dst_pubkey="$RESOURCES_DIR/license_public_key.pem"
 
-    if [[ -f "$src_pubkey" ]] && [[ -f "$rsa_crypto_file" ]]; then
-        brand_log_info "替换公钥到 RsaCrypto.cpp..."
-
-        # 创建临时文件
-        local temp_file=$(mktemp)
-
-        # 使用 awk 替换公钥部分
-        # 查找 EMBEDDED_PUBLIC_KEY = R"( 到 )"; 之间的内容并替换
-        # 通过 PUBKEY_FILE 环境变量传递文件路径，避免多行字符串问题
-        PUBKEY_FILE="$src_pubkey" awk '
-        BEGIN {
-            pubkey_file = ENVIRON["PUBKEY_FILE"]
-            # 读取公钥文件内容
-            pubkey_content = ""
-            while ((getline line < pubkey_file) > 0) {
-                if (pubkey_content != "") pubkey_content = pubkey_content "\n"
-                pubkey_content = pubkey_content line
-            }
-            close(pubkey_file)
-        }
-        /^const char\* RsaCrypto::EMBEDDED_PUBLIC_KEY = R"\(/ {
-            print "const char* RsaCrypto::EMBEDDED_PUBLIC_KEY = R\"("
-            print pubkey_content
-            # 跳过直到找到 )";
-            while (getline && !/^\)";$/) {}
-            print ")\";"
-            next
-        }
-        { print }
-        ' "$rsa_crypto_file" > "$temp_file"
-
-        # 检查替换是否成功
-        if grep -q "BEGIN PUBLIC KEY" "$temp_file"; then
-            mv "$temp_file" "$rsa_crypto_file"
-            brand_log_success "license_public_key.pem -> src/utils/RsaCrypto.cpp"
-            copied_count=$((copied_count + 1))
-        else
-            rm -f "$temp_file"
-            brand_log_warning "公钥替换失败，保留原文件"
-        fi
-    elif [[ ! -f "$src_pubkey" ]]; then
+    if [[ -f "$src_pubkey" ]]; then
+        cp "$src_pubkey" "$dst_pubkey"
+        brand_log_success "license_public_key.pem -> resources/"
+        copied_count=$((copied_count + 1))
+    else
         brand_log_warning "未找到公钥文件: $src_pubkey"
     fi
 

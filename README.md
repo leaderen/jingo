@@ -38,6 +38,8 @@ Cross-platform VPN client built with Qt 6 and Xray core.
 - [Tech Stack](#tech-stack)
 - [Build Options](#build-options)
 - [Development](#development)
+- [Subscription Format](#subscription-format)
+- [License Verification](#license-verification)
 - [Contact](#contact)
 - [License](#license)
 
@@ -214,6 +216,20 @@ QT_LOGGING_RULES="*.debug=true" ./JinGo
 adb logcat -s JinGo:V SuperRay-JNI:V
 ```
 
+## Subscription Format
+
+The default subscription format is **sing-box** (JSON). The application requests `flag=sing-box` when fetching subscription data from the panel, which returns a standard JSON configuration that is more reliable to parse across all platforms.
+
+Clash (YAML) format is also supported as a fallback when the server returns YAML content.
+
+## License Verification
+
+Official release builds (from CI/CD) have **license verification enabled** (`JINDO_ENABLE_LICENSE_CHECK=ON`). These builds validate the application license at runtime with restrictions.
+
+For the open-source version, you should **build locally** using the build scripts. Local builds have license verification **disabled by default**.
+
+> **Note**: GitHub Actions CI is not supported. Please use local build scripts or the project's OneDev CI/CD for automated builds.
+
 ## Contact
 
 - Telegram Channel: [@OpineWorkPublish](https://t.me/OpineWorkPublish)
@@ -227,4 +243,4 @@ MIT License
 
 **Version**: 1.0.0
 **Qt Version**: 6.10.0+
-**Last Updated**: 2026-01
+**Last Updated**: 2026-02
