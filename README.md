@@ -41,6 +41,7 @@ Cross-platform VPN client built with Qt 6 and Xray core.
 - [Subscription Format](#subscription-format)
 - [License Verification](#license-verification)
 - [Contact](#contact)
+- [Compliance](#compliance)
 - [License](#license)
 
 ## Quick Start
@@ -234,6 +235,16 @@ For the open-source version, you should **build locally** using the build script
 
 - Telegram Channel: [@OpineWorkPublish](https://t.me/OpineWorkPublish)
 - Telegram Group: [@OpineWorkOfficial](https://t.me/OpineWorkOfficial)
+
+## Compliance
+
+This software is designed to protect user privacy and secure network communications. It is **strictly prohibited** to use this software for:
+
+- Circumventing government network regulations or censorship
+- Any activities that violate local laws and regulations
+- Unauthorized access to restricted networks or services
+
+Users must comply with all applicable laws and regulations of their country or region. The developers assume no liability for any misuse of this software.
 
 ## License
 

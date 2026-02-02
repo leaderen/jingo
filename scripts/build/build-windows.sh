@@ -320,8 +320,9 @@ print_success "All Qt DLLs, plugins, and QML modules copied"
 echo ""
 
 # ============================================================================
-# [4/4] Package
+# [4/4] Package (packaging failures are non-fatal)
 # ============================================================================
+set +e
 
 print_info "[4/4] Creating deployment package..."
 
@@ -352,20 +353,79 @@ EOF
 
 ZIP_PATH="$PKG_DIR/$PACKAGE_NAME"
 rm -f "$ZIP_PATH"
-cd "$PKG_TEMP_DIR" && zip -r "$ZIP_PATH" . > /dev/null 2>&1
+cd "$PKG_TEMP_DIR"
+if command -v zip &> /dev/null; then
+    zip -r "$ZIP_PATH" . > /dev/null 2>&1
+elif command -v 7z &> /dev/null; then
+    7z a -tzip "$ZIP_PATH" . > /dev/null 2>&1
+else
+    # Fallback to PowerShell
+    powershell.exe -NoProfile -Command "Compress-Archive -Path '$(cygpath -w "$PKG_TEMP_DIR")\\*' -DestinationPath '$(cygpath -w "$ZIP_PATH")' -Force" 2>/dev/null || true
+fi
 cd "$PROJECT_DIR"
 
 [ -f "$ZIP_PATH" ] && print_success "ZIP created: $PACKAGE_NAME"
 
 # ============================================================================
-# [5/5] Release copy
+# [5/5] Create NSIS installer
+# ============================================================================
+
+INSTALLER_NAME="jingo-${BRAND_ID}-${VERSION}-${BUILD_DATE}-windows-setup.exe"
+INSTALLER_PATH="$PKG_DIR/$INSTALLER_NAME"
+NSI_SCRIPT="$PROJECT_DIR/platform/windows/installer.nsi"
+
+if [ -f "$NSI_SCRIPT" ]; then
+    MAKENSIS=""
+    if command -v makensis &> /dev/null; then
+        MAKENSIS="makensis"
+    elif [ -f "/c/Program Files (x86)/NSIS/makensis.exe" ]; then
+        MAKENSIS="/c/Program Files (x86)/NSIS/makensis.exe"
+    elif [ -f "/c/Program Files/NSIS/makensis.exe" ]; then
+        MAKENSIS="/c/Program Files/NSIS/makensis.exe"
+    fi
+
+    if [ -n "$MAKENSIS" ]; then
+        print_info "[5/5] Creating NSIS installer..."
+        SOURCE_DIR_WIN=$(cygpath -w "$PKG_TEMP_DIR" 2>/dev/null || echo "$PKG_TEMP_DIR")
+        OUTFILE_WIN=$(cygpath -w "$INSTALLER_PATH" 2>/dev/null || echo "$INSTALLER_PATH")
+        NSI_WIN=$(cygpath -w "$NSI_SCRIPT" 2>/dev/null || echo "$NSI_SCRIPT")
+
+        NSIS_CMD=("$MAKENSIS" /V2)
+        NSIS_CMD+=("/DVERSION=$VERSION")
+        NSIS_CMD+=("/DSOURCE_DIR=$SOURCE_DIR_WIN")
+        NSIS_CMD+=("/DBRAND=${BRAND_NAME:-JinGo}")
+        NSIS_CMD+=("/DOUTFILE=$OUTFILE_WIN")
+
+        ICO_FILE="$PROJECT_DIR/resources/icons/app.ico"
+        if [ -f "$ICO_FILE" ]; then
+            ICO_WIN=$(cygpath -w "$ICO_FILE" 2>/dev/null || echo "$ICO_FILE")
+            NSIS_CMD+=("/DICON_FILE=$ICO_WIN")
+        fi
+        NSIS_CMD+=("$NSI_WIN")
+
+        if "${NSIS_CMD[@]}"; then
+            print_success "Installer created: $INSTALLER_NAME"
+        else
+            print_warning "NSIS installer creation failed (non-fatal)"
+        fi
+    else
+        print_warning "NSIS not found, skipping installer creation"
+        print_info "Install NSIS: pacman -S mingw-w64-x86_64-nsis (MSYS2)"
+    fi
+else
+    print_warning "NSIS script not found: $NSI_SCRIPT"
+fi
+
+# ============================================================================
+# [6/6] Release copy
 # ============================================================================
 
 if [ "$BUILD_TYPE" = "Release" ]; then
     print_info ""
-    print_info "[5/5] Copying to release directory..."
+    print_info "[6/6] Copying to release directory..."
     mkdir -p "$RELEASE_DIR"
-    [ -f "$ZIP_PATH" ] && cp "$ZIP_PATH" "$RELEASE_DIR/" && print_success "Copied to: $RELEASE_DIR/$PACKAGE_NAME"
+    [ -f "$ZIP_PATH" ] && cp "$ZIP_PATH" "$RELEASE_DIR/" && print_success "Copied ZIP to: $RELEASE_DIR/$PACKAGE_NAME"
+    [ -f "$INSTALLER_PATH" ] && cp "$INSTALLER_PATH" "$RELEASE_DIR/" && print_success "Copied installer to: $RELEASE_DIR/$INSTALLER_NAME"
 fi
 
 # ============================================================================
@@ -374,7 +434,8 @@ fi
 
 echo ""
 print_header "*** BUILD COMPLETE ***"
-echo "Build:    $BUILD_DIR/bin/JinGo.exe"
-echo "Package:  $PKG_DIR/$PACKAGE_NAME"
-[ "$BUILD_TYPE" = "Release" ] && echo "Release:  $RELEASE_DIR/$PACKAGE_NAME"
+echo "Build:      $BUILD_DIR/bin/JinGo.exe"
+echo "ZIP:        $PKG_DIR/$PACKAGE_NAME"
+[ -f "$INSTALLER_PATH" ] && echo "Installer:  $PKG_DIR/$INSTALLER_NAME"
+[ "$BUILD_TYPE" = "Release" ] && echo "Release:    $RELEASE_DIR/"
 print_header ""

@@ -41,6 +41,7 @@
 - [订阅格式](#订阅格式)
 - [授权验证](#授权验证)
 - [联系方式](#联系方式)
+- [合规使用](#合规使用)
 - [许可证](#许可证)
 
 ## 快速开始
@@ -236,6 +237,16 @@ adb logcat -s JinGo:V SuperRay-JNI:V
 
 - Telegram 频道: [@OpineWorkPublish](https://t.me/OpineWorkPublish)
 - Telegram 群组: [@OpineWorkOfficial](https://t.me/OpineWorkOfficial)
+
+## 合规使用
+
+本软件旨在保护用户隐私和网络通信安全。**严禁**将本软件用于以下用途：
+
+- 翻墙、逃避政府网络审查
+- 任何违反当地法律法规的活动
+- 未经授权访问受限网络或服务
+
+用户必须遵守所在国家或地区的法律法规。开发者对任何滥用本软件的行为不承担责任。
 
 ## 许可证
 

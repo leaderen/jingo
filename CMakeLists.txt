@@ -125,10 +125,18 @@ if(EXISTS "${JINDO_LIB_FILE}")
 
     # Set interface link libraries for JinDoCore (Go/CGO needs resolv on Linux)
     if(TARGET_LINUX)
-        # Add wrapper object file to provide __res_search symbol
-        set(RES_WRAPPER "${JINDO_LIB_DIR}/res_search_wrapper.o")
+        # Compile wrapper to provide __res_search symbol for Go/CGO
+        set(RES_WRAPPER_SRC "${CMAKE_CURRENT_SOURCE_DIR}/src/platform/linux/res_search_wrapper.c")
+        set(RES_WRAPPER_OBJ "${CMAKE_CURRENT_BINARY_DIR}/res_search_wrapper.o")
+        add_custom_command(
+            OUTPUT "${RES_WRAPPER_OBJ}"
+            COMMAND ${CMAKE_C_COMPILER} -c -o "${RES_WRAPPER_OBJ}" "${RES_WRAPPER_SRC}"
+            DEPENDS "${RES_WRAPPER_SRC}"
+            COMMENT "Compiling res_search_wrapper.c"
+        )
+        add_custom_target(res_search_wrapper DEPENDS "${RES_WRAPPER_OBJ}")
         set_target_properties(JinDoCore PROPERTIES
-            INTERFACE_LINK_LIBRARIES "${RES_WRAPPER};-Wl,--push-state,--no-as-needed;resolv;c;-Wl,--pop-state;z"
+            INTERFACE_LINK_LIBRARIES "${RES_WRAPPER_OBJ};-Wl,--push-state,--no-as-needed;resolv;c;-Wl,--pop-state;z"
         )
     endif()
 else()
@@ -395,7 +403,7 @@ endif()
 # macOS Helper executables
 if(TARGET_MACOS)
     # JinGoHelper - setuid helper for routing/DNS
-    set(JINGO_HELPER_SOURCE "${JINDO_ROOT}/src/platform/apple/JinGoHelper.cpp")
+    set(JINGO_HELPER_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/src/platform/macos/JinGoHelper.cpp")
     add_executable(JinGoHelper ${JINGO_HELPER_SOURCE})
     set_target_properties(JinGoHelper PROPERTIES
         CXX_STANDARD 17
@@ -412,7 +420,7 @@ if(TARGET_MACOS)
     add_dependencies(JinGo JinGoHelper)
 
     # JinGoCore - core service with Xray
-    set(JINGO_CORE_SOURCE "${JINDO_ROOT}/src/platform/apple/JinGoCore.mm")
+    set(JINGO_CORE_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/src/platform/macos/JinGoCore.mm")
     add_executable(JinGoCore ${JINGO_CORE_SOURCE})
     set_target_properties(JinGoCore PROPERTIES
         CXX_STANDARD 17
@@ -424,8 +432,11 @@ if(TARGET_MACOS)
 
     target_link_libraries(JinGoCore PRIVATE
         "${JINDO_LIB_FILE}"
+        Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Qml Qt6::Quick Qt6::Network Qt6::Sql Qt6::Concurrent
         "-framework Foundation" "-framework CoreFoundation" "-framework Security"
         "-framework SystemConfiguration" "-framework Network"
+        "-framework NetworkExtension" "-framework SystemExtensions" "-framework UserNotifications"
+        "-framework ServiceManagement" "-framework IOKit"
         "-lresolv" "-lz"
     )
     target_include_directories(JinGoCore PRIVATE
@@ -676,11 +687,11 @@ if(TARGET JinDoCore)
     endif()
 
     if(TARGET_LINUX)
-        # Add wrapper object to provide __res_search symbol for Go/CGO
-        set(RES_WRAPPER "${JINDO_LIB_DIR}/res_search_wrapper.o")
+        # Link wrapper object to provide __res_search symbol for Go/CGO
+        add_dependencies(JinGo res_search_wrapper)
         target_link_libraries(JinGo PRIVATE
             Qt6::Sql Qt6::Gui Qt6::Widgets ${PLATFORM_LIBS}
-            "${RES_WRAPPER}"
+            "${CMAKE_CURRENT_BINARY_DIR}/res_search_wrapper.o"
             "-lresolv" "-lz"
         )
     endif()
@@ -874,6 +885,29 @@ endif()
 # Finalize Qt target for mobile
 if(TARGET_IOS OR TARGET_ANDROID)
     qt_finalize_target(JinGo)
+endif()
+
+# CPack packaging (Linux)
+if(LINUX AND NOT TARGET_ANDROID)
+    set(CPACK_PACKAGE_NAME "jingo")
+    set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "JinGo VPN Client")
+    set(CPACK_PACKAGE_VENDOR "JinGo")
+    set(CPACK_PACKAGE_CONTACT "support@jingo.app")
+    set(CPACK_PACKAGE_HOMEPAGE_URL "https://jingo.app")
+
+    # DEB
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libqt6core6, libqt6gui6, libqt6network6, libqt6qml6, libqt6quick6, libqt6widgets6, libqt6sql6")
+    set(CPACK_DEBIAN_PACKAGE_SECTION "net")
+
+    # RPM
+    set(CPACK_RPM_PACKAGE_LICENSE "Proprietary")
+    set(CPACK_RPM_PACKAGE_GROUP "Applications/Internet")
+
+    # TGZ
+    set(CPACK_GENERATOR "TGZ")
+
+    include(CPack)
 endif()
 
 # Configuration summary

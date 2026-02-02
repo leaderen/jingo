@@ -95,12 +95,11 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !NumericParam
+      - !TextParam
         name: brand
         description: White-label brand ID (1=JinGo, 2-100=custom brands)
-        defaultValue: 1
-        minValue: 1
-        maxValue: 100
+        defaultValueProvider: !SpecifiedDefaultValue
+          value: '1'
 
     retryCondition: never
     maxRetries: 0
@@ -186,12 +185,11 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !NumericParam
+      - !TextParam
         name: brand
         description: White-label brand ID (1=JinGo, 2-100=custom brands)
-        defaultValue: 1
-        minValue: 1
-        maxValue: 100
+        defaultValueProvider: !SpecifiedDefaultValue
+          value: '1'
 
     retryCondition: never
     maxRetries: 0
@@ -285,12 +283,11 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !NumericParam
+      - !TextParam
         name: brand
         description: White-label brand ID (1=JinGo, 2-100=custom brands)
-        defaultValue: 1
-        minValue: 1
-        maxValue: 100
+        defaultValueProvider: !SpecifiedDefaultValue
+          value: '1'
 
     retryCondition: never
     maxRetries: 0
@@ -360,12 +357,11 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !NumericParam
+      - !TextParam
         name: brand
         description: White-label brand ID (1=JinGo, 2-100=custom brands)
-        defaultValue: 1
-        minValue: 1
-        maxValue: 100
+        defaultValueProvider: !SpecifiedDefaultValue
+          value: '1'
 
     retryCondition: never
     maxRetries: 0
@@ -452,12 +448,11 @@ jobs:
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
 
     paramSpecs:
-      - !NumericParam
+      - !TextParam
         name: brand
         description: White-label brand ID (1=JinGo, 2-100=custom brands)
-        defaultValue: 1
-        minValue: 1
-        maxValue: 100
+        defaultValueProvider: !SpecifiedDefaultValue
+          value: '1'
 
     retryCondition: never
     maxRetries: 0
