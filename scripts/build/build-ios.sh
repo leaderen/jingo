@@ -490,10 +490,14 @@ generate_xcode_project() {
         fi
     fi
 
-    # 授权验证开关
-    if [[ "${JINDO_ENABLE_LICENSE_CHECK:-}" == "ON" ]]; then
-        CMAKE_ARGS+=(-DJINDO_ENABLE_LICENSE_CHECK=ON)
-        print_info "CMake: 启用授权验证 (JINDO_ENABLE_LICENSE_CHECK=ON)"
+    # 安全功能开关
+    if [[ "${ENABLE_LICENSE_CHECK:-}" == "ON" ]]; then
+        CMAKE_ARGS+=(-DENABLE_LICENSE_CHECK=ON)
+        print_info "CMake: 启用授权验证 (ENABLE_LICENSE_CHECK=ON)"
+    fi
+    if [[ "${ENABLE_CONFIG_SIGNATURE_VERIFY:-}" == "ON" ]]; then
+        CMAKE_ARGS+=(-DENABLE_CONFIG_SIGNATURE_VERIFY=ON)
+        print_info "CMake: 启用配置签名验证 (ENABLE_CONFIG_SIGNATURE_VERIFY=ON)"
     fi
 
     cmake "${CMAKE_ARGS[@]}"

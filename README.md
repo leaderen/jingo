@@ -250,6 +250,10 @@ Users must comply with all applicable laws and regulations of their country or r
 
 MIT License
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=opinework/JinGo&type=Date)](https://star-history.com/#opinework/JinGo&Date)
+
 ---
 
 **Version**: 1.0.0

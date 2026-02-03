@@ -252,6 +252,10 @@ adb logcat -s JinGo:V SuperRay-JNI:V
 
 MIT License
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=opinework/JinGo&type=Date)](https://star-history.com/#opinework/JinGo&Date)
+
 ---
 
 **版本**: 1.0.0

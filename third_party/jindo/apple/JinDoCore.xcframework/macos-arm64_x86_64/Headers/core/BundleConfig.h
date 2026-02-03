@@ -119,6 +119,26 @@ public:
     bool isValid() const;
     QString configFilePath() const;
 
+    // =============================================
+    // Runtime Feature Flags (set by JinGo before loading config)
+    // =============================================
+
+    /**
+     * @brief Enable/disable signature verification at runtime
+     * @details Call before reload(). Default: false (disabled).
+     *          CI builds should call setSignatureVerifyEnabled(true).
+     */
+    static void setSignatureVerifyEnabled(bool enabled) { s_signatureVerifyEnabled = enabled; }
+    static bool signatureVerifyEnabled() { return s_signatureVerifyEnabled; }
+
+    /**
+     * @brief Enable/disable license check at runtime
+     * @details Call before VPNManager is constructed. Default: false (disabled).
+     *          CI builds should call setLicenseCheckEnabled(true).
+     */
+    static void setLicenseCheckEnabled(bool enabled) { s_licenseCheckEnabled = enabled; }
+    static bool licenseCheckEnabled() { return s_licenseCheckEnabled; }
+
 signals:
     void configChanged();
 
@@ -154,6 +174,10 @@ private:
     static const QString DEFAULT_LICENSE_SERVER_URL;
     static const int DEFAULT_LICENSE_CHECK_INTERVAL;
     static const int DEFAULT_OFFLINE_GRACE_PERIOD;
+
+    // Runtime feature flags
+    static bool s_signatureVerifyEnabled;
+    static bool s_licenseCheckEnabled;
 };
 
 #endif // BUNDLECONFIG_H

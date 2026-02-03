@@ -21,7 +21,7 @@
 #include "core/ConfigManager.h"
 #include "core/BundleConfig.h"
 #include "core/Logger.h"
-#ifdef JINDO_ENABLE_LICENSE_CHECK
+#ifdef ENABLE_LICENSE_CHECK
 #include "core/LicenseManager.h"
 #endif
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS) || defined(Q_OS_MACOS) || defined(Q_OS_LINUX) || defined(Q_OS_WIN)
@@ -223,7 +223,7 @@ bool initializeCoreComponents() {
           // VPNCore 初始化已移至连接时，确保设置生效
           LOG_INFO("VPNCore will be initialized on first connection");
 
-#ifdef JINDO_ENABLE_LICENSE_CHECK
+#ifdef ENABLE_LICENSE_CHECK
           // 后台授权验证：连接 LicenseManager 信号
           LicenseManager& lm = LicenseManager::instance();
 
@@ -526,7 +526,15 @@ int main(int argc, char *argv[])
     QQmlContext *rootContext = engine.rootContext();
 
     if (rootContext) {
-        // 注意: BundleConfig 签名验证已禁用，直接使用实例
+        // 运行时安全开关：由编译宏 ENABLE_LICENSE_CHECK 和 ENABLE_CONFIG_SIGNATURE_VERIFY 控制
+#ifdef ENABLE_CONFIG_SIGNATURE_VERIFY
+        BundleConfig::setSignatureVerifyEnabled(true);
+        LOG_INFO("Config signature verification: ENABLED");
+#endif
+#ifdef ENABLE_LICENSE_CHECK
+        BundleConfig::setLicenseCheckEnabled(true);
+        LOG_INFO("License check: ENABLED");
+#endif
 
         // ========================================================================
         // 【关键修复】Android SecureStorage 必须在创建 ViewModels 之前初始化
@@ -661,7 +669,7 @@ int main(int argc, char *argv[])
         rootContext->setContextProperty("systemConfigManager", &SystemConfigManager::instance());
         rootContext->setContextProperty("configManager", &ConfigManager::instance());
         rootContext->setContextProperty("bundleConfig", &BundleConfig::instance());
-#ifdef JINDO_ENABLE_LICENSE_CHECK
+#ifdef ENABLE_LICENSE_CHECK
         rootContext->setContextProperty("licenseManager", &LicenseManager::instance());
 #endif
         rootContext->setContextProperty("languageManager", &LanguageManager::instance());

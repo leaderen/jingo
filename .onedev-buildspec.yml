@@ -73,7 +73,8 @@ jobs:
             export QT_MACOS_PATH="/Volumes/mindata/Qt/6.10.1/macos"
             export PATH="$QT_MACOS_PATH/bin:$PATH"
             export BRAND="@param:brand@"
-            export JINDO_ENABLE_LICENSE_CHECK=ON
+            export ENABLE_LICENSE_CHECK=ON
+            export ENABLE_CONFIG_SIGNATURE_VERIFY=ON
 
             # 从 bundle_config.json 读取 Bundle ID
             BRAND_JSON="white-labeling/@param:brand@/bundle_config.json"
@@ -163,7 +164,8 @@ jobs:
             export DEVELOPER_DIR="/Volumes/mindata/Xcode.app/Contents/Developer"
             export QT_IOS_PATH="/Volumes/mindata/Qt/6.10.1/ios"
             export BRAND="@param:brand@"
-            export JINDO_ENABLE_LICENSE_CHECK=ON
+            export ENABLE_LICENSE_CHECK=ON
+            export ENABLE_CONFIG_SIGNATURE_VERIFY=ON
 
             # 从 bundle_config.json 读取 Bundle ID
             BRAND_JSON="white-labeling/@param:brand@/bundle_config.json"
@@ -272,7 +274,8 @@ jobs:
             export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-amd64"
             export PATH="$JAVA_HOME/bin:$PATH"
             export BRAND="@param:brand@"
-            export JINDO_ENABLE_LICENSE_CHECK=ON
+            export ENABLE_LICENSE_CHECK=ON
+            export ENABLE_CONFIG_SIGNATURE_VERIFY=ON
 
             ./scripts/build/build-android.sh --clean --release
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
@@ -346,7 +349,8 @@ jobs:
             export Qt6_DIR="/mnt/dev/Qt/6.10.1/gcc_64"
             export PATH="$Qt6_DIR/bin:$PATH"
             export BRAND="@param:brand@"
-            export JINDO_ENABLE_LICENSE_CHECK=ON
+            export ENABLE_LICENSE_CHECK=ON
+            export ENABLE_CONFIG_SIGNATURE_VERIFY=ON
 
             ./scripts/build/build-linux.sh --clean --release --deploy --package
         condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
@@ -434,7 +438,7 @@ jobs:
                 exit /b 1
             )
 
-            "%BASH_EXE%" --login -c "cd '%CD%' && export BRAND=@param:brand@ && export JINDO_ENABLE_LICENSE_CHECK=ON && bash scripts/build/build-windows.sh clean"
+            "%BASH_EXE%" --login -c "cd '%CD%' && export BRAND=@param:brand@ && export ENABLE_LICENSE_CHECK=ON && export ENABLE_CONFIG_SIGNATURE_VERIFY=ON && bash scripts/build/build-windows.sh clean"
 
             if errorlevel 1 (
                 echo [ERROR] JinGo build failed

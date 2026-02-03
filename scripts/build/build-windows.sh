@@ -245,9 +245,14 @@ print_info "[1/4] Configuring CMake with MinGW..."
 mkdir -p "$BUILD_DIR"
 
 LICENSE_CHECK_ARG=""
-if [ "${JINDO_ENABLE_LICENSE_CHECK:-}" = "ON" ]; then
-    LICENSE_CHECK_ARG="-DJINDO_ENABLE_LICENSE_CHECK=ON"
-    print_info "CMake: 启用授权验证 (JINDO_ENABLE_LICENSE_CHECK=ON)"
+if [ "${ENABLE_LICENSE_CHECK:-}" = "ON" ]; then
+    LICENSE_CHECK_ARG="-DENABLE_LICENSE_CHECK=ON"
+    print_info "CMake: 启用授权验证 (ENABLE_LICENSE_CHECK=ON)"
+fi
+SIGNATURE_VERIFY_ARG=""
+if [ "${ENABLE_CONFIG_SIGNATURE_VERIFY:-}" = "ON" ]; then
+    SIGNATURE_VERIFY_ARG="-DENABLE_CONFIG_SIGNATURE_VERIFY=ON"
+    print_info "CMake: 启用配置签名验证 (ENABLE_CONFIG_SIGNATURE_VERIFY=ON)"
 fi
 
 # 低内存模式优化
@@ -285,6 +290,9 @@ fi
 
 if [ -n "$LICENSE_CHECK_ARG" ]; then
     CMAKE_ARGS+=("$LICENSE_CHECK_ARG")
+fi
+if [ -n "$SIGNATURE_VERIFY_ARG" ]; then
+    CMAKE_ARGS+=("$SIGNATURE_VERIFY_ARG")
 fi
 
 cmake "${CMAKE_ARGS[@]}" || { print_error "CMake failed!"; exit 1; }

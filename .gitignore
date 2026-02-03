@@ -102,6 +102,7 @@ platform/android/libs/
 #   - third_party/**/*.a          # Static libraries
 #   - third_party/**/*.dylib      # Dynamic libraries
 #   - third_party/**/*.so         # Shared objects
+#   - third_party/**/*.dll        # Windows DLLs
 #   - third_party/**/*.xcframework # Apple frameworks
 #   - lib/**/*.a                  # Project libraries
 #   - resources/**                # All resources
@@ -110,3 +111,7 @@ platform/android/libs/
 #   - *.icns, *.ico               # Icon files
 #   - *.dat                       # Data files (geoip, geosite)
 # ==============================================================================
+
+# 明确允许提交 third_party 中的动态库文件
+!third_party/**/*.dll
+!third_party/**/*.so

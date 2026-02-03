@@ -744,13 +744,22 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_definitions(JinGo PRIVATE QT_NO_DEBUG_OUTPUT NDEBUG QT_NO_WARNING_OUTPUT)
 endif()
 
-# License check (CI 构建时启用，本地开发默认关闭)
-option(JINDO_ENABLE_LICENSE_CHECK "Enable license verification at startup" OFF)
-if(JINDO_ENABLE_LICENSE_CHECK)
-    target_compile_definitions(JinGo PRIVATE JINDO_ENABLE_LICENSE_CHECK)
+# 安全功能开关 (CI 构建时启用，本地开发默认关闭)
+option(ENABLE_LICENSE_CHECK "Enable license verification at startup" OFF)
+option(ENABLE_CONFIG_SIGNATURE_VERIFY "Enable bundle_config.json signature verification" OFF)
+
+if(ENABLE_LICENSE_CHECK)
+    target_compile_definitions(JinGo PRIVATE ENABLE_LICENSE_CHECK)
     message(STATUS "License check: ENABLED")
 else()
     message(STATUS "License check: DISABLED (development mode)")
+endif()
+
+if(ENABLE_CONFIG_SIGNATURE_VERIFY)
+    target_compile_definitions(JinGo PRIVATE ENABLE_CONFIG_SIGNATURE_VERIFY)
+    message(STATUS "Config signature verification: ENABLED")
+else()
+    message(STATUS "Config signature verification: DISABLED (development mode)")
 endif()
 
 # SuperRay integration

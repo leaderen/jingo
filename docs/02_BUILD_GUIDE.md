@@ -97,9 +97,18 @@ Configuration file is located at `resources/bundle_config.json`, defining app in
 | `ipInfoUrl` | API for current IP info |
 | `speedTestBaseUrl` | Speed test download base URL |
 
-### License Verification
+### Security Feature Toggles
 
-License verification can be enabled via the `JINDO_ENABLE_LICENSE_CHECK` environment variable at build time. It is **disabled by default** in local development and **enabled in CI builds**.
+JinGo supports two security feature toggles, controlled via environment variables at build time:
+
+| Environment Variable | Description | Local Default | CI Default |
+|---------------------|-------------|---------------|------------|
+| `ENABLE_LICENSE_CHECK` | License verification at startup | OFF | ON |
+| `ENABLE_CONFIG_SIGNATURE_VERIFY` | Config file signature verification (bundle_config.json tamper protection) | OFF | ON |
+
+These environment variables are converted to CMake definitions (`-DENABLE_LICENSE_CHECK=ON`, etc.) by build scripts. They generate compile-time macros in JinGo that set runtime flags in `BundleConfig` to control JinDo library behavior.
+
+**The JinDo library is universal** — no separate builds needed for CI vs local development. Security toggles are controlled entirely on the JinGo side.
 
 The license public key (`license_public_key.pem`) is loaded at runtime from the application resources directory. It is automatically copied from `white-labeling/{brand}/` during the build process via CMake POST_BUILD rules, deployed alongside `bundle_config.json`.
 
@@ -549,7 +558,9 @@ Platform-specific build commands:
 | Linux | Qt: `/mnt/dev/Qt/6.10.1/gcc_64` |
 | Windows | MSYS2: `D:\msys64` |
 
-All CI builds set `JINDO_ENABLE_LICENSE_CHECK=ON` to enable license verification in release artifacts.
+All CI builds set the following environment variables to enable security features:
+- `ENABLE_LICENSE_CHECK=ON` — Enable license verification
+- `ENABLE_CONFIG_SIGNATURE_VERIFY=ON` — Enable config file signature verification
 
 ### Build Artifacts
 

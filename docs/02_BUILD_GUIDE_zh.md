@@ -97,9 +97,18 @@ JinGo/
 | `ipInfoUrl` | 获取当前 IP 信息的 API |
 | `speedTestBaseUrl` | 测速下载基础 URL |
 
-### 授权验证
+### 安全功能开关
 
-授权验证可通过构建时的 `JINDO_ENABLE_LICENSE_CHECK` 环境变量启用。本地开发**默认禁用**，CI 构建中**默认启用**。
+JinGo 支持两个安全功能开关，通过环境变量在构建时控制：
+
+| 环境变量 | 说明 | 本地默认 | CI 默认 |
+|---------|------|---------|--------|
+| `ENABLE_LICENSE_CHECK` | 授权验证（启动时验证 License） | OFF | ON |
+| `ENABLE_CONFIG_SIGNATURE_VERIFY` | 配置文件签名验证（bundle_config.json 防篡改） | OFF | ON |
+
+这些环境变量会被构建脚本转换为 CMake 定义（`-DENABLE_LICENSE_CHECK=ON` 等），在 JinGo 中生成编译宏，通过 `BundleConfig` 的运行时标志控制 JinDo 库的行为。
+
+**JinDo 库是通用的**——不需要为 CI 和本地开发分别编译 JinDo。安全功能的开关完全由 JinGo 侧控制。
 
 授权公钥文件（`license_public_key.pem`）在运行时从应用资源目录加载，构建过程中通过 CMake POST_BUILD 规则自动从 `white-labeling/{brand}/` 复制，与 `bundle_config.json` 部署在同一目录。
 
@@ -562,7 +571,9 @@ sudo setcap cap_net_admin+eip build-linux/bin/JinGo
 | Linux | Qt: `/mnt/dev/Qt/6.10.1/gcc_64` |
 | Windows | MSYS2: `D:\msys64` |
 
-所有 CI 构建均设置 `JINDO_ENABLE_LICENSE_CHECK=ON` 以在发布产物中启用授权验证。
+所有 CI 构建均设置以下环境变量以启用安全功能：
+- `ENABLE_LICENSE_CHECK=ON` — 启用授权验证
+- `ENABLE_CONFIG_SIGNATURE_VERIFY=ON` — 启用配置文件签名验证
 
 ### 构建产物
 
