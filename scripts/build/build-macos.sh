@@ -907,16 +907,26 @@ sign_app() {
     # Step 2.5: 清理绝对 rpath（移除 CI 构建目录路径）
     # ============================================================================
     print_info "清理绝对 rpath..."
-    local main_executable="$APP_PATH/Contents/MacOS/JinGo"
-    if [[ -f "$main_executable" ]]; then
-        otool -l "$main_executable" 2>/dev/null | grep -A2 "LC_RPATH" | grep "path " | awk '{print $2}' | while read rpath; do
-            # 删除不以 @ 开头的绝对路径
-            if [[ "$rpath" != @* ]]; then
-                install_name_tool -delete_rpath "$rpath" "$main_executable" 2>/dev/null || true
-                print_info "  已删除: $rpath"
+
+    # 修复所有可执行文件的 rpath（JinGo, JinGoCore, JinGoHelper 等）
+    for executable in "$APP_PATH/Contents/MacOS"/*; do
+        if [[ -f "$executable" ]] && [[ -x "$executable" ]]; then
+            local exec_name=$(basename "$executable")
+            # 删除绝对路径的 rpath
+            otool -l "$executable" 2>/dev/null | grep -A2 "LC_RPATH" | grep "path " | awk '{print $2}' | while read rpath; do
+                if [[ "$rpath" != @* ]]; then
+                    install_name_tool -delete_rpath "$rpath" "$executable" 2>/dev/null || true
+                    print_info "  $exec_name: 已删除 $rpath"
+                fi
+            done
+            # 确保有正确的 rpath
+            if ! otool -l "$executable" 2>/dev/null | grep -q "@executable_path/../Frameworks"; then
+                install_name_tool -add_rpath "@executable_path/../Frameworks" "$executable" 2>/dev/null || true
+                print_info "  $exec_name: 已添加 @executable_path/../Frameworks"
             fi
-        done
-    fi
+        fi
+    done
+
     # 清理 Extensions
     for appex in "$APP_PATH/Contents/PlugIns"/*.appex; do
         if [[ -d "$appex" ]]; then
@@ -1372,6 +1382,13 @@ main() {
         sign_app
     else
         print_info "跳过签名模式：跳过 Extension 复制和代码签名"
+        # 执行自签名 (ad-hoc)，让应用可以在移除隔离标记后运行
+        print_info "执行自签名 (ad-hoc)..."
+        if codesign --force --deep --sign - "$APP_PATH" 2>&1; then
+            print_success "自签名完成"
+        else
+            print_warning "自签名失败，应用可能无法运行"
+        fi
     fi
 
     verify_app

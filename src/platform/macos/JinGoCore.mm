@@ -24,6 +24,7 @@
 #include <string>
 #include <unistd.h>
 #include <signal.h>
+#include <sys/stat.h>
 
 #include "superray.h"
 
@@ -228,6 +229,11 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "JinGoCore must run as root (setuid)\n");
         return 1;
     }
+
+    // Set umask to 0 so that log files created by SuperRay are world-writable (0666)
+    // This prevents permission conflicts when switching between TUN mode (root)
+    // and Proxy mode (normal user)
+    umask(0);
 
     char line[65536]; // Large buffer for Xray config
     while (g_running && fgets(line, sizeof(line), stdin)) {
