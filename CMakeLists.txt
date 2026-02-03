@@ -804,20 +804,7 @@ if(WIN32)
                 "$<TARGET_FILE:JinGo>"
             COMMENT "Running windeployqt"
         )
-        # Ensure sqldrivers plugin is copied (windeployqt may not detect it)
-        # Get Qt plugin directory from Qt6::Core target
-        get_target_property(QT_CORE_LOCATION Qt6::Core LOCATION)
-        get_filename_component(QT_BIN_DIR "${QT_CORE_LOCATION}" DIRECTORY)
-        get_filename_component(QT_ROOT_DIR "${QT_BIN_DIR}" DIRECTORY)
-        set(QT_PLUGIN_DIR "${QT_ROOT_DIR}/plugins")
-
-        add_custom_command(TARGET JinGo POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:JinGo>/sqldrivers"
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different
-                "${QT_PLUGIN_DIR}/sqldrivers/qsqlite.dll"
-                "$<TARGET_FILE_DIR:JinGo>/sqldrivers/qsqlite.dll"
-            COMMENT "Copying SQLite driver plugin from ${QT_PLUGIN_DIR}"
-        )
+        # sqldrivers plugin is copied by build-windows.sh
     endif()
 
     # Copy MinGW runtime DLLs

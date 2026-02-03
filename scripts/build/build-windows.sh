@@ -323,7 +323,19 @@ fi
 # ============================================================================
 
 print_info ""
-print_info "[3/4] Qt dependencies deployed automatically by CMake"
+print_info "[3/4] Copying Qt dependencies..."
+
+# Copy sqldrivers plugin (windeployqt may miss it)
+SQLDRIVERS_SRC="$QT_DIR/plugins/sqldrivers"
+SQLDRIVERS_DST="$BUILD_DIR/bin/sqldrivers"
+if [ -d "$SQLDRIVERS_SRC" ]; then
+    mkdir -p "$SQLDRIVERS_DST"
+    cp -f "$SQLDRIVERS_SRC"/*.dll "$SQLDRIVERS_DST/" 2>/dev/null && \
+        print_success "Copied sqldrivers from $SQLDRIVERS_SRC"
+else
+    print_warning "sqldrivers not found at $SQLDRIVERS_SRC"
+fi
+
 print_success "All Qt DLLs, plugins, and QML modules copied"
 echo ""
 
@@ -343,13 +355,9 @@ PKG_TEMP_DIR="$PKG_DIR/JinGo-$VERSION"
 rm -rf "$PKG_TEMP_DIR"
 mkdir -p "$PKG_TEMP_DIR"
 
-cp "$BUILD_DIR/bin/JinGo.exe" "$PKG_TEMP_DIR/"
-DLL_COUNT=$(find "$BUILD_DIR/bin" -maxdepth 1 -name "*.dll" -exec cp {} "$PKG_TEMP_DIR/" \; -print | wc -l)
-print_success "Copied $DLL_COUNT DLL files"
-
-for dir in bearer iconengines imageformats platforms styles translations tls qml dat; do
-    [ -d "$BUILD_DIR/bin/$dir" ] && cp -r "$BUILD_DIR/bin/$dir" "$PKG_TEMP_DIR/"
-done
+# Copy all files from build output directory
+cp -r "$BUILD_DIR/bin"/* "$PKG_TEMP_DIR/"
+print_success "Copied all files from $BUILD_DIR/bin"
 
 cat > "$PKG_TEMP_DIR/README.txt" << EOF
 JinGo VPN - Windows Distribution
