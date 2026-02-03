@@ -804,6 +804,14 @@ if(WIN32)
                 "$<TARGET_FILE:JinGo>"
             COMMENT "Running windeployqt"
         )
+        # Ensure sqldrivers plugin is copied (windeployqt may not detect it)
+        add_custom_command(TARGET JinGo POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:JinGo>/sqldrivers"
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                "${CMAKE_PREFIX_PATH}/plugins/sqldrivers/qsqlite.dll"
+                "$<TARGET_FILE_DIR:JinGo>/sqldrivers/qsqlite.dll"
+            COMMENT "Copying SQLite driver plugin"
+        )
     endif()
 
     # Copy MinGW runtime DLLs

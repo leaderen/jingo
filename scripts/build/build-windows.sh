@@ -384,12 +384,25 @@ NSI_SCRIPT="$PROJECT_DIR/platform/windows/installer.nsi"
 
 if [ -f "$NSI_SCRIPT" ]; then
     MAKENSIS=""
+    # Search for NSIS in multiple locations
+    NSIS_SEARCH_PATHS=(
+        "/d/Program Files (x86)/NSIS/makensis.exe"
+        "/d/Program Files/NSIS/makensis.exe"
+        "/c/Program Files (x86)/NSIS/makensis.exe"
+        "/c/Program Files/NSIS/makensis.exe"
+        "/d/msys64/mingw64/bin/makensis.exe"
+        "/c/msys64/mingw64/bin/makensis.exe"
+    )
+
     if command -v makensis &> /dev/null; then
         MAKENSIS="makensis"
-    elif [ -f "/c/Program Files (x86)/NSIS/makensis.exe" ]; then
-        MAKENSIS="/c/Program Files (x86)/NSIS/makensis.exe"
-    elif [ -f "/c/Program Files/NSIS/makensis.exe" ]; then
-        MAKENSIS="/c/Program Files/NSIS/makensis.exe"
+    else
+        for nsis_path in "${NSIS_SEARCH_PATHS[@]}"; do
+            if [ -f "$nsis_path" ]; then
+                MAKENSIS="$nsis_path"
+                break
+            fi
+        done
     fi
 
     if [ -n "$MAKENSIS" ]; then
@@ -418,7 +431,8 @@ if [ -f "$NSI_SCRIPT" ]; then
         fi
     else
         print_warning "NSIS not found, skipping installer creation"
-        print_info "Install NSIS: pacman -S mingw-w64-x86_64-nsis (MSYS2)"
+        print_info "Install NSIS: pacman -S mingw-w64-x86_64-nsis"
+        print_info "Then add to PATH: D:\\msys64\\mingw64\\bin"
     fi
 else
     print_warning "NSIS script not found: $NSI_SCRIPT"
