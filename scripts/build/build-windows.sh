@@ -407,29 +407,36 @@ if [ -f "$NSI_SCRIPT" ]; then
 
     if [ -n "$MAKENSIS" ]; then
         print_info "[5/5] Creating NSIS installer..."
-        SOURCE_DIR_WIN=$(cygpath -w "$PKG_TEMP_DIR" 2>/dev/null || echo "$PKG_TEMP_DIR")
-        OUTFILE_WIN=$(cygpath -w "$INSTALLER_PATH" 2>/dev/null || echo "$INSTALLER_PATH")
-        NSI_WIN=$(cygpath -w "$NSI_SCRIPT" 2>/dev/null || echo "$NSI_SCRIPT")
+
+        # Use cygpath -m for mixed mode (forward slashes) to avoid escape issues
+        SOURCE_DIR_WIN=$(cygpath -m "$PKG_TEMP_DIR" 2>/dev/null || echo "$PKG_TEMP_DIR")
+        OUTFILE_WIN=$(cygpath -m "$INSTALLER_PATH" 2>/dev/null || echo "$INSTALLER_PATH")
+        NSI_WIN=$(cygpath -m "$NSI_SCRIPT" 2>/dev/null || echo "$NSI_SCRIPT")
 
         ICO_FILE="$PROJECT_DIR/resources/icons/app.ico"
         ICO_WIN=""
         if [ -f "$ICO_FILE" ]; then
-            ICO_WIN=$(cygpath -w "$ICO_FILE" 2>/dev/null || echo "$ICO_FILE")
+            ICO_WIN=$(cygpath -m "$ICO_FILE" 2>/dev/null || echo "$ICO_FILE")
         fi
 
-        print_info "Running makensis with:"
-        print_info "  SOURCE_DIR: $SOURCE_DIR_WIN"
-        print_info "  OUTFILE: $OUTFILE_WIN"
-        print_info "  NSI: $NSI_WIN"
+        echo "[INFO]   SOURCE_DIR: $SOURCE_DIR_WIN"
+        echo "[INFO]   OUTFILE: $OUTFILE_WIN"
+        echo "[INFO]   NSI: $NSI_WIN"
 
-        # Run NSIS with properly quoted arguments
+        # Disable MSYS2 path conversion for NSIS arguments
+        export MSYS2_ARG_CONV_EXCL="*"
+
+        # Run NSIS
         if [ -n "$ICO_WIN" ]; then
-            "$MAKENSIS" /V2 "/DVERSION=$VERSION" "/DSOURCE_DIR=$SOURCE_DIR_WIN" "/DBRAND=${BRAND_NAME:-JinGo}" "/DOUTFILE=$OUTFILE_WIN" "/DICON_FILE=$ICO_WIN" "$NSI_WIN"
+            "$MAKENSIS" /V2 /DVERSION="$VERSION" /DSOURCE_DIR="$SOURCE_DIR_WIN" /DBRAND="${BRAND_NAME:-JinGo}" /DOUTFILE="$OUTFILE_WIN" /DICON_FILE="$ICO_WIN" "$NSI_WIN"
         else
-            "$MAKENSIS" /V2 "/DVERSION=$VERSION" "/DSOURCE_DIR=$SOURCE_DIR_WIN" "/DBRAND=${BRAND_NAME:-JinGo}" "/DOUTFILE=$OUTFILE_WIN" "$NSI_WIN"
+            "$MAKENSIS" /V2 /DVERSION="$VERSION" /DSOURCE_DIR="$SOURCE_DIR_WIN" /DBRAND="${BRAND_NAME:-JinGo}" /DOUTFILE="$OUTFILE_WIN" "$NSI_WIN"
         fi
 
-        if [ $? -eq 0 ]; then
+        NSIS_RESULT=$?
+        unset MSYS2_ARG_CONV_EXCL
+
+        if [ $NSIS_RESULT -eq 0 ]; then
             print_success "Installer created: $INSTALLER_NAME"
         else
             print_warning "NSIS installer creation failed (non-fatal)"
