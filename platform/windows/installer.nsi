@@ -107,11 +107,11 @@ Section "Install"
 
     ; Start menu shortcuts
     CreateDirectory "$SMPROGRAMS\${BRAND} VPN"
-    CreateShortCut "$SMPROGRAMS\${BRAND} VPN\${BRAND} VPN.lnk" "$INSTDIR\JinGo.exe"
-    CreateShortCut "$SMPROGRAMS\${BRAND} VPN\Uninstall.lnk" "$INSTDIR\uninstall.exe"
+    CreateShortCut "$SMPROGRAMS\${BRAND} VPN\${BRAND} VPN.lnk" "$INSTDIR\JinGo.exe" "" "$INSTDIR\JinGo.exe" 0
+    CreateShortCut "$SMPROGRAMS\${BRAND} VPN\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
 
     ; Desktop shortcut
-    CreateShortCut "$DESKTOP\${BRAND} VPN.lnk" "$INSTDIR\JinGo.exe"
+    CreateShortCut "$DESKTOP\${BRAND} VPN.lnk" "$INSTDIR\JinGo.exe" "" "$INSTDIR\JinGo.exe" 0
 SectionEnd
 
 ; ============================================================================
