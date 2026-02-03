@@ -5,6 +5,7 @@
 Cross-platform VPN client built with Qt 6 and Xray core.
 
 **Official Demo**: [https://jingoo.biz](https://jingoo.biz)
+**Online Build Service**: [https://opine.work](https://opine.work)
 
 ## Features
 

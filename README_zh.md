@@ -5,6 +5,7 @@
 跨平台 VPN 客户端，基于 Qt 6 和 Xray 核心构建。
 
 **官方演示站点**: [https://jingoo.biz](https://jingoo.biz)
+**在线付费打包**: [https://opine.work](https://opine.work)
 
 ## 特性
 
