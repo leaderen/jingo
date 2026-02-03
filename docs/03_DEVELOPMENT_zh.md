@@ -1,5 +1,7 @@
 # JinGo VPN - 开发指南
 
+[English](03_DEVELOPMENT.md)
+
 ## 开发环境
 
 ### 推荐 IDE
@@ -12,11 +14,11 @@
 
 1. 打开项目: `File → Open File or Project → CMakeLists.txt`
 2. 选择 Kit:
-   - Android: Android Qt 6.8 Clang arm64-v8a
-   - macOS: Desktop Qt 6.8 clang 64bit
-   - iOS: iOS Qt 6.8
-   - Linux: Desktop Qt 6.8 GCC 64bit
-   - Windows: Desktop Qt 6.8 MinGW 64-bit
+   - Android: Android Qt 6.10 Clang arm64-v8a
+   - macOS: Desktop Qt 6.10 clang 64bit
+   - iOS: iOS Qt 6.10
+   - Linux: Desktop Qt 6.10 GCC 64bit
+   - Windows: Desktop Qt 6.10 MinGW 64-bit
 
 ## 项目结构
 

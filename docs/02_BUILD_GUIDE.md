@@ -574,6 +574,23 @@ All platforms publish artifacts to the `release/` directory:
 | Linux | `release/*.tar.gz` / `*.deb` | Needs setcap or sudo |
 | Windows | `release/*.zip` | May trigger SmartScreen |
 
+### Update Precompiled Libraries
+
+When JinDo code is updated, you need to recompile and update the static libraries:
+
+```bash
+# 1. Build JinDo (per platform)
+cd JinDo && bash scripts/build-<platform>.sh
+
+# 2. JinDo scripts will automatically copy artifacts to JinGo/third_party/jindo/
+
+# 3. Commit to repository
+cd JinGo
+git add third_party/jindo/
+git commit -m "Update JinDoCore precompiled libraries"
+git push
+```
+
 ### CI Troubleshooting
 
 | Issue | Cause | Solution |

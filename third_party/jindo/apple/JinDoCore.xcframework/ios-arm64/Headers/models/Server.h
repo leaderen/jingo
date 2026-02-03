@@ -85,7 +85,7 @@ public:
     Q_ENUM(Protocol)
 
     // 网络类型枚举
-    enum NetworkType { TCP, KCP, WebSocket, HTTP2, QUIC, GRPC };
+    enum NetworkType { TCP, KCP, WebSocket, HTTP2, QUIC, GRPC, XHTTP };
     Q_ENUM(NetworkType)
 
     // 安全层类型枚举
@@ -176,6 +176,10 @@ public:
     QString wgLocalAddress() const;        // 本地地址
     int wgMtu() const;                     // MTU
     QString wgReserved() const;            // 保留字节
+
+    // XHTTP (SplitHTTP) getters
+    QString xhttpMode() const;             // 传输模式 (auto, packet-up, stream-up, stream-one)
+    QString xhttpExtra() const;            // 额外配置 JSON 字符串
 
     // 通用字段
     bool udpEnabled() const;               // UDP支持
@@ -287,6 +291,10 @@ public:
     void setWgLocalAddress(const QString& address);
     void setWgMtu(int mtu);
     void setWgReserved(const QString& reserved);
+
+    // XHTTP (SplitHTTP) setters
+    void setXhttpMode(const QString& mode);
+    void setXhttpExtra(const QString& extra);
 
     // 通用字段 setters
     void setUdpEnabled(bool enabled);
@@ -462,6 +470,10 @@ private:
     QString m_wgLocalAddress;        // 本地地址
     int m_wgMtu;                     // MTU
     QString m_wgReserved;            // 保留字节
+
+    // XHTTP (SplitHTTP) 参数
+    QString m_xhttpMode;             // 传输模式
+    QString m_xhttpExtra;            // 额外配置
 
     // 通用参数
     bool m_udpEnabled;               // UDP支持

@@ -8,7 +8,7 @@
 |------|------|
 | macOS | 12.0+ (Monterey) |
 | Xcode | 15.0+ |
-| Qt | 6.5+ (macOS 组件) |
+| Qt | 6.10+ (macOS 组件) |
 
 ### 支持架构
 
@@ -24,7 +24,7 @@
 xcode-select --install
 ```
 
-使用 Qt 在线安装器安装 Qt 6.5 → macOS。
+使用 Qt 在线安装器安装 Qt 6.10 → macOS。
 
 ### 构建
 
@@ -66,11 +66,11 @@ sudo open build-macos/bin/Debug/JinGo.app
 | 项目 | 要求 |
 |------|------|
 | Windows | 10/11 (64位) |
-| Qt | 6.5+ (MinGW 64-bit 组件) |
+| Qt | 6.10+ (MinGW 64-bit 组件) |
 
 ### 环境配置
 
-使用 Qt 在线安装器安装 Qt 6.5 → MinGW 64-bit。Qt 安装程序会自动安装所需的 MinGW 编译器。
+使用 Qt 在线安装器安装 Qt 6.10 → MinGW 64-bit。Qt 安装程序会自动安装所需的 MinGW 编译器。
 
 ### 构建
 
@@ -102,7 +102,7 @@ sudo open build-macos/bin/Debug/JinGo.app
 |------|------|
 | 发行版 | Ubuntu 20.04+, Debian 11+, Fedora 35+ |
 | 架构 | x86_64 (64位) |
-| Qt | 6.5+ |
+| Qt | 6.10+ |
 
 ### 依赖安装
 
@@ -165,7 +165,7 @@ sudo ./build-linux/bin/JinGo
 | Android SDK | API 28+ (Android 9.0) |
 | Android NDK | 27.2.12479018 |
 | Java | JDK 17+ |
-| Qt | 6.5+ (Android 组件) |
+| Qt | 6.10+ (Android 组件) |
 
 ### 支持架构
 
@@ -178,7 +178,7 @@ sudo ./build-linux/bin/JinGo
 2. 通过 SDK Manager 安装：
    - SDK Platform: Android 14 (API 34)
    - NDK: 27.2.12479018
-3. 使用 Qt 在线安装器安装 Qt 6.5 → Android
+3. 使用 Qt 在线安装器安装 Qt 6.10 → Android
 
 ### 构建
 
@@ -222,7 +222,7 @@ adb logcat -s JinGo:V
 | macOS | 12.0+ |
 | Xcode | 15.0+ |
 | iOS 目标 | iOS 15.0+ |
-| Qt | 6.5+ (iOS 组件) |
+| Qt | 6.10+ (iOS 组件) |
 | Apple Developer | 需要开发者账号 |
 
 ### 环境配置
@@ -235,7 +235,7 @@ xcode-select --install
 sudo xcodebuild -license accept
 ```
 
-使用 Qt 在线安装器安装 Qt 6.5 → iOS。
+使用 Qt 在线安装器安装 Qt 6.10 → iOS。
 
 ### 构建
 

@@ -16,13 +16,13 @@ CMake Error: Could not find Qt6
 Ensure Qt path is correct in build scripts:
 ```bash
 # macOS
-QT_MACOS_PATH="/path/to/Qt/6.10.0/macos"
+QT_MACOS_PATH="/path/to/Qt/6.x.x/macos"
 
 # Linux
-QT_DIR="/path/to/Qt/6.10.0/gcc_64"
+QT_DIR="/path/to/Qt/6.x.x/gcc_64"
 
 # iOS
-QT_IOS_PATH="/path/to/Qt/6.10.0/ios"
+QT_IOS_PATH="/path/to/Qt/6.x.x/ios"
 ```
 
 ### Android NDK Version Mismatch

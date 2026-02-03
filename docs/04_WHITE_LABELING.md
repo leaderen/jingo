@@ -87,10 +87,10 @@ Place brand icons in `4/icons/` directory:
 
 ```bash
 # macOS
-./scripts/build/build-macos.sh --brand 4
+./scripts/build/build-macos.sh --brand 4 --skip-sign
 
 # iOS
-./scripts/build/build-ios.sh --brand 4 --team-id YOUR_TEAM_ID
+./scripts/build/build-ios.sh --brand 4
 
 # Android
 ./scripts/build/build-android.sh --brand 4 --abi arm64-v8a

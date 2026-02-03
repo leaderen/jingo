@@ -10,7 +10,7 @@
 |------|-------------|
 | macOS | 12.0+ (Monterey) |
 | Xcode | 15.0+ |
-| Qt | 6.10.0+ (macOS component) |
+| Qt | 6.10+ (macOS component) |
 
 ### Supported Architectures
 
@@ -33,23 +33,20 @@ Use Qt Online Installer to install Qt 6.10 → macOS.
 1. Edit `scripts/build/build-macos.sh` line 28 to configure Qt path:
 
 ```bash
-QT_MACOS_PATH="/your/path/to/Qt/6.10.0/macos"
+QT_MACOS_PATH="/your/path/to/Qt/6.x.x/macos"
 ```
 
 2. Build:
 
 ```bash
-# Debug build (no signing by default)
-./scripts/build/build-macos.sh
+# Debug build
+./scripts/build/build-macos.sh --skip-sign
 
 # Release build
-./scripts/build/build-macos.sh --release
+./scripts/build/build-macos.sh --release --skip-sign
 
 # Clean and rebuild
-./scripts/build/build-macos.sh --clean
-
-# With code signing
-./scripts/build/build-macos.sh --release --sign --team-id YOUR_TEAM_ID
+./scripts/build/build-macos.sh --clean --skip-sign
 ```
 
 3. Output: `build-macos/bin/Debug/JinGo.app` or `build-macos/bin/Release/JinGo.app`
@@ -71,7 +68,7 @@ sudo open build-macos/bin/Debug/JinGo.app
 | Item | Requirement |
 |------|-------------|
 | Windows | 10/11 (64-bit) |
-| Qt | 6.10.0+ (MinGW 64-bit component) |
+| Qt | 6.10+ (MinGW 64-bit component) |
 
 ### Environment Setup
 
@@ -107,7 +104,7 @@ First run requires Administrator privileges to install WinTun driver.
 |------|-------------|
 | Distribution | Ubuntu 20.04+, Debian 11+, Fedora 35+ |
 | Architecture | x86_64 (64-bit) |
-| Qt | 6.10.0+ |
+| Qt | 6.10+ |
 
 ### Install Dependencies
 
@@ -134,7 +131,7 @@ sudo dnf install -y \
 1. Edit `scripts/build/build-linux.sh` line 28 to configure Qt path:
 
 ```bash
-QT_DIR="/your/path/to/Qt/6.10.0/gcc_64"
+QT_DIR="/your/path/to/Qt/6.x.x/gcc_64"
 ```
 
 2. Build:
@@ -170,7 +167,7 @@ sudo ./build-linux/bin/JinGo
 | Android SDK | API 28+ (Android 9.0) |
 | Android NDK | 27.2.12479018 |
 | Java | JDK 17+ |
-| Qt | 6.10.0+ (Android component) |
+| Qt | 6.10+ (Android component) |
 
 ### Supported Architectures
 
@@ -190,7 +187,7 @@ sudo ./build-linux/bin/JinGo
 1. Edit `scripts/build/build-android.sh`:
 
 ```bash
-QT_BASE_PATH="/your/path/to/Qt/6.10"
+QT_BASE_PATH="/your/path/to/Qt/6.5"
 ANDROID_SDK_ROOT="/path/to/Android/sdk"
 ANDROID_NDK_VERSION="27.2.12479018"
 ```
@@ -227,7 +224,7 @@ adb logcat -s JinGo:V
 | macOS | 12.0+ |
 | Xcode | 15.0+ |
 | iOS Target | iOS 15.0+ |
-| Qt | 6.10.0+ (iOS component) |
+| Qt | 6.10+ (iOS component) |
 | Apple Developer | Developer account required |
 
 ### Environment Setup
@@ -247,7 +244,7 @@ Use Qt Online Installer to install Qt 6.10 → iOS.
 1. Edit `scripts/build/build-ios.sh`:
 
 ```bash
-QT_IOS_PATH="/your/path/to/Qt/6.10.0/ios"
+QT_IOS_PATH="/your/path/to/Qt/6.x.x/ios"
 TEAM_ID="YOUR_TEAM_ID"
 CODE_SIGN_IDENTITY="Apple Development"
 ```
@@ -260,7 +257,7 @@ CODE_SIGN_IDENTITY="Apple Development"
 open build-ios/JinGo.xcodeproj
 
 # Command line build
-./scripts/build/build-ios.sh --release --team-id YOUR_TEAM_ID
+./scripts/build/build-ios.sh --release
 
 # Simulator build
 ./scripts/build/build-ios.sh --simulator

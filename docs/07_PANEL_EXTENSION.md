@@ -9,10 +9,11 @@ This document describes how to add new panel system support for JinGo.
 1. [Architecture Overview](#architecture-overview)
 2. [Interface Definition](#interface-definition)
 3. [Development Steps](#development-steps)
-4. [API Endpoint Mapping](#api-endpoint-mapping)
-5. [Data Format Conversion](#data-format-conversion)
-6. [Registration and Usage](#registration-and-usage)
-7. [Testing Recommendations](#testing-recommendations)
+4. [Code Examples](#code-examples)
+5. [API Endpoint Mapping](#api-endpoint-mapping)
+6. [Data Format Conversion](#data-format-conversion)
+7. [Registration and Usage](#registration-and-usage)
+8. [Testing Recommendations](#testing-recommendations)
 
 ---
 
@@ -281,6 +282,32 @@ int main(int argc, char *argv[])
 
 ---
 
+## Code Examples
+
+### API Endpoint Definition
+
+```cpp
+namespace MyPanelEndpoints {
+    const QString Login = "/api/auth/login";
+    const QString UserInfo = "/api/user/info";
+    // ... other endpoints
+}
+```
+
+### Response Handling
+
+```cpp
+// Extract Token (adjust based on your panel response format)
+QString token = response["data"].toObject()["token"].toString();
+if (!token.isEmpty()) {
+    setAuthToken(token);
+    emit authenticationChanged(true);
+    emit tokenUpdated(token);
+}
+```
+
+---
+
 ## API Endpoint Mapping
 
 Different panel systems may have different API endpoints:
@@ -292,6 +319,7 @@ Different panel systems may have different API endpoints:
 | Login | `/passport/auth/login` | `/api/v1/passport/auth/login` | `/auth/login` |
 | Register | `/passport/auth/register` | `/api/v1/passport/auth/register` | `/auth/register` |
 | Logout | `/passport/auth/logout` | `/api/v1/passport/auth/logout` | `/auth/logout` |
+| Send Verification Code | `/passport/comm/sendEmailVerify` | `/api/v1/passport/comm/sendEmailVerify` | `/auth/send` |
 
 ### User
 
@@ -299,6 +327,7 @@ Different panel systems may have different API endpoints:
 |----------|--------|---------|---------|
 | User Info | `/user/info` | `/api/v1/user/info` | `/user` |
 | Subscribe Info | `/user/getSubscribe` | `/api/v1/user/getSubscribe` | `/user/subscribe` |
+| Reset Security | `/user/resetSecurity` | `/api/v1/user/resetSecurity` | `/user/reset` |
 
 ### Orders
 
@@ -307,6 +336,7 @@ Different panel systems may have different API endpoints:
 | Plan List | `/user/plan/fetch` | `/api/v1/user/plan/fetch` | `/user/shop` |
 | Create Order | `/user/order/save` | `/api/v1/user/order/save` | `/user/order` |
 | Order List | `/user/order/fetch` | `/api/v1/user/order/fetch` | `/user/order` |
+| Payment Methods | `/user/order/getPaymentMethod` | `/api/v1/user/order/getPaymentMethod` | `/user/payment` |
 
 ### Tickets
 
@@ -314,6 +344,7 @@ Different panel systems may have different API endpoints:
 |----------|--------|---------|---------|
 | Ticket List | `/user/ticket/fetch` | `/api/v1/user/ticket/fetch` | `/user/ticket` |
 | Create Ticket | `/user/ticket/save` | `/api/v1/user/ticket/save` | `/user/ticket` |
+| Reply Ticket | `/user/ticket/reply` | `/api/v1/user/ticket/reply` | `/user/ticket/{id}` |
 
 ---
 
@@ -350,6 +381,21 @@ if (token.isEmpty()) {
 }
 ```
 
+### User Info
+
+**XBoard/V2Board Format:**
+```json
+{
+  "data": {
+    "email": "user@example.com",
+    "transfer_enable": 107374182400,
+    "u": 1073741824,
+    "d": 5368709120,
+    "expired_at": 1735689600
+  }
+}
+```
+
 ### User Info Normalization
 
 ```cpp
@@ -370,6 +416,20 @@ QJsonObject normalizeUserInfo(const QJsonObject& data)
     result["expire_time"] = data["expired_at"];
 
     return result;
+}
+```
+
+### Plan List
+
+**Unified Format:**
+```json
+{
+  "id": 1,
+  "name": "Basic Plan",
+  "price": 9.99,
+  "traffic": 107374182400,
+  "period": "month",
+  "features": ["Unlimited speed", "Multi-device"]
 }
 ```
 
@@ -409,6 +469,18 @@ ComboBox {
         PanelManager.setCurrentProvider(currentText)
     }
 }
+
+TextField {
+    id: panelUrlField
+    placeholderText: "Panel API URL"
+
+    onEditingFinished: {
+        PanelManager.setPanelUrl(
+            panelSelector.currentText,
+            text
+        )
+    }
+}
 ```
 
 ### Use Panel API
@@ -431,7 +503,31 @@ provider->fetchPlans(
 
 ## Testing Recommendations
 
-### Integration Test Checklist
+### 1. Unit Tests
+
+```cpp
+void TestMyPanelProvider::testLogin()
+{
+    MyPanelProvider provider;
+    provider.setBaseUrl("https://test.example.com");
+
+    QSignalSpy spy(&provider, &IPanelProvider::authenticationChanged);
+
+    provider.login("test@example.com", "password",
+        [](const QJsonObject& response) {
+            QVERIFY(response.contains("data"));
+        },
+        [](const QString& error) {
+            QFAIL(error.toUtf8());
+        });
+
+    // Wait for async completion
+    QTRY_COMPARE(spy.count(), 1);
+    QCOMPARE(spy.takeFirst().at(0).toBool(), true);
+}
+```
+
+### 2. Integration Test Checklist
 
 - [ ] Login/logout flow
 - [ ] Token refresh
@@ -443,13 +539,19 @@ provider->fetchPlans(
 - [ ] Create and reply tickets
 - [ ] Error handling (network errors, auth failures, etc.)
 
-### Debugging Tips
+### 3. Debugging Tips
 
 ```cpp
+// Enable network request logging
 void MyPanelProvider::request(const QString& url, const QJsonObject& data)
 {
     qDebug() << "[MyPanel] Request:" << url;
     qDebug() << "[MyPanel] Data:" << QJsonDocument(data).toJson();
+
+    // ... send request
+
+    // In response handler
+    qDebug() << "[MyPanel] Response:" << reply->readAll();
 }
 ```
 
@@ -469,6 +571,14 @@ void MyPanelProvider::request(const QString& url, const QJsonObject& data)
 Set different request headers in `setAuthToken` based on panel type:
 
 ```cpp
+void MyPanelProvider::setAuthToken(const QString& token)
+{
+    m_authToken = token;
+    // Some panels use "Bearer token"
+    // Some panels use "token"
+    // Adjust based on your panel
+}
+
 QNetworkRequest createRequest(const QString& url)
 {
     QNetworkRequest request(url);
@@ -500,5 +610,33 @@ void MyPanelProvider::fetchOrders(int page, int pageSize,
     // int offset = (page - 1) * pageSize;
     // QString url = QString("%1/orders?offset=%2&limit=%3")
     //     .arg(m_baseUrl).arg(offset).arg(pageSize);
+
+    // ...
 }
+```
+
+### Q: How to support WebSocket real-time notifications?
+
+Add WebSocket support in the provider:
+
+```cpp
+class MyPanelProvider : public IPanelProvider
+{
+    // ...
+private:
+    QWebSocket* m_webSocket;
+
+public:
+    void connectNotifications() {
+        m_webSocket = new QWebSocket();
+        connect(m_webSocket, &QWebSocket::textMessageReceived,
+                this, &MyPanelProvider::onNotification);
+        m_webSocket->open(QUrl(m_baseUrl + "/ws"));
+    }
+
+private slots:
+    void onNotification(const QString& message) {
+        // Handle real-time notifications
+    }
+};
 ```
