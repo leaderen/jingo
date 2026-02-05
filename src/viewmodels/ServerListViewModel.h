@@ -372,6 +372,9 @@ private:
     bool m_isRefreshingServers = false;    ///< 是否正在刷新服务器列表（用于禁用连接按钮）
     int m_totalTestCount;                  ///< 总测试数量
     int m_completedTestCount;              ///< 已完成测试数量
+    int m_activeTestCount;                 ///< 当前正在进行的测试数量
+    static constexpr int MAX_CONCURRENT_TESTS = 5;  ///< 最大并发测试数
+    QList<QString> m_pendingTestQueue;     ///< 待测试的服务器ID队列
     QString m_testingProgressText;         ///< 测试进度文本
     QVariantMap m_speedTestResults;        ///< 速度测试结果 {serverId -> {ip, speed, asn, isp, country}}
 

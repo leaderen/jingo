@@ -66,6 +66,7 @@ ServerListViewModel::ServerListViewModel(QObject* parent)
     , m_isBatchTesting(false)
     , m_totalTestCount(0)
     , m_completedTestCount(0)
+    , m_activeTestCount(0)
     , m_subscriptionManager(&SubscriptionManager::instance())
     , m_vpnManager(&VPNManager::instance())
 {
@@ -689,12 +690,24 @@ void ServerListViewModel::handleBatchTestProgress()
     }
 
     m_completedTestCount++;
+    m_activeTestCount--;
     m_testingProgressText = QString("Testing %1 of %2 servers...")
         .arg(m_completedTestCount)
         .arg(m_totalTestCount);
     emit testingProgressTextChanged();
 
-    LOG_INFO(QString("Batch test progress: %1/%2").arg(m_completedTestCount).arg(m_totalTestCount));
+    LOG_DEBUG(QString("Batch test progress: %1/%2 (active: %3, pending: %4)")
+        .arg(m_completedTestCount).arg(m_totalTestCount)
+        .arg(m_activeTestCount).arg(m_pendingTestQueue.size()));
+
+    // 从队列启动下一个测试
+    while (m_activeTestCount < MAX_CONCURRENT_TESTS && !m_pendingTestQueue.isEmpty()) {
+        QString serverId = m_pendingTestQueue.takeFirst();
+        m_activeTestCount++;
+        LOG_DEBUG(QString("[Batch Test] Starting next test for server ID: %1 (active: %2)")
+            .arg(serverId).arg(m_activeTestCount));
+        testServerLatency(serverId);
+    }
 
     // 如果所有测试都完成了，执行排序
     if (m_completedTestCount >= m_totalTestCount) {
@@ -731,7 +744,7 @@ void ServerListViewModel::handleBatchTestProgress()
 /**
  * @brief 批量测试所有服务器延迟
  *
- * @details 测试所有服务器的延迟，不进行排序
+ * @details 测试所有服务器的延迟，使用队列控制并发数量避免阻塞UI
  */
 void ServerListViewModel::testAllServersLatency()
 {
@@ -767,27 +780,32 @@ void ServerListViewModel::testAllServersLatency()
     m_isBatchTesting = true;
     m_totalTestCount = 0;
     m_completedTestCount = 0;
+    m_activeTestCount = 0;
+    m_pendingTestQueue.clear();
     emit isBatchTestingChanged();
 
-    // 先统计需要测试的服务器数量
+    // 构建待测试队列
     for (const auto& server : m_filteredServers) {
         if (!server.isNull()) {
+            m_pendingTestQueue.append(server->id());
             m_totalTestCount++;
         }
     }
 
-    LOG_INFO(QString("Starting batch test for %1 servers").arg(m_totalTestCount));
+    LOG_INFO(QString("Starting batch test for %1 servers (max concurrent: %2)")
+        .arg(m_totalTestCount).arg(MAX_CONCURRENT_TESTS));
 
     // 更新进度文本
     m_testingProgressText = QString("Testing 0 of %1 servers...").arg(m_totalTestCount);
     emit testingProgressTextChanged();
 
-    // 启动所有测试
-    for (const auto& server : m_filteredServers) {
-        if (!server.isNull()) {
-            LOG_INFO(QString("Testing server: %1").arg(server->name()));
-            testServerLatency(server->id());
-        }
+    // 启动初始批次的测试（最多 MAX_CONCURRENT_TESTS 个）
+    while (m_activeTestCount < MAX_CONCURRENT_TESTS && !m_pendingTestQueue.isEmpty()) {
+        QString serverId = m_pendingTestQueue.takeFirst();
+        m_activeTestCount++;
+        LOG_DEBUG(QString("[Batch Test] Starting test for server ID: %1 (active: %2)")
+            .arg(serverId).arg(m_activeTestCount));
+        testServerLatency(serverId);
     }
 }
 
