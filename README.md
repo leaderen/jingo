@@ -25,6 +25,23 @@ For details, visit our [online build service](https://opine.work) (commercial ed
 - **Multi-language**: Supports 8 languages (English, Chinese, Vietnamese, Khmer, Burmese, Russian, Persian, etc.)
 - **White-labeling**: Supports brand customization and multi-tenant deployment
 
+## Protocol Support
+
+| Protocol | Open Source | Commercial |
+|:---|:---:|:---:|
+| VMess | ✅ | ✅ |
+| VLESS | ✅ | ✅ |
+| VLESS+Reality | ⚠️ | ✅ |
+| Trojan | ✅ | ✅ |
+| Shadowsocks | ✅ | ✅ |
+| WireGuard | ❌ | ✅ |
+| SOCKS | ❌ | ✅ |
+| HTTP | ❌ | ✅ |
+| Hysteria | ❌ | ✅ |
+| Hysteria2 | ❌ | ✅ |
+| TUIC | ❌ Not supported by core | ❌ Not supported by core |
+| IPv6 | ❌ | ✅ |
+
 ## Screenshots
 
 <p align="center">
@@ -50,6 +67,7 @@ For details, visit our [online build service](https://opine.work) (commercial ed
 
 - [Notice](#notice)
 - [Features](#features)
+- [Protocol Support](#protocol-support)
 - [Screenshots](#screenshots)
 - [Quick Start](#quick-start)
 - [Platform Support](#platform-support)
