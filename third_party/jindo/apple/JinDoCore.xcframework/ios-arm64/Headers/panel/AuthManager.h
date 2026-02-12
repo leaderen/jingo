@@ -1083,6 +1083,10 @@ private:
     // 订阅信息和套餐缓存（从数据库加载）
     QVariantMap m_subscribeInfo;    ///< 用户订阅信息缓存
     QVariantList m_plans;            ///< 套餐计划列表缓存
+
+    // Token 刷新重试控制
+    int m_tokenRefreshRetryCount = 0;   ///< Token 刷新连续失败次数
+    static constexpr int MAX_TOKEN_REFRESH_RETRIES = 3; ///< 最大重试次数（超过后才 logout）
 };
 
 #endif // AUTHMANAGER_H

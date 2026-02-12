@@ -31,6 +31,7 @@ class BundleConfig : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(QString panelType READ panelType NOTIFY configChanged)
     Q_PROPERTY(QString panelUrl READ panelUrl NOTIFY configChanged)
     Q_PROPERTY(QString appName READ appName NOTIFY configChanged)
     Q_PROPERTY(QString supportEmail READ supportEmail NOTIFY configChanged)
@@ -64,6 +65,7 @@ public:
     // Application Settings
     // =============================================
 
+    QString panelType() const;
     QString panelUrl() const;
     QString appName() const;
     QString supportEmail() const;

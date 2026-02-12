@@ -35,6 +35,8 @@
 #include "panel/PaymentManager.h"
 #include "panel/TicketManager.h"
 #include "panel/SystemConfigManager.h"
+#include "panel/PanelManager.h"
+#include "panel/V2BoardProvider.h"
 
 // Storage
 #include "storage/DatabaseManager.h"
@@ -72,6 +74,12 @@
 #include <QCoreApplication>
 #include <QtCore/qnativeinterface.h>
 #include "platform/AndroidStatusBarManager.h"
+#endif
+
+// Windows 特定头文件 - 需要在main函数中使用CREATE_NO_WINDOW等常量
+#if defined(Q_OS_WIN)
+#include <windows.h>
+#include <shellapi.h>
 #endif
 
 // 应用程序常量
@@ -405,6 +413,16 @@ int main(int argc, char *argv[])
 #ifdef Q_OS_WIN
           // Windows平台：使用tasklist检测同名进程
           QProcess detectProcess;
+
+          // 隐藏控制台窗口，避免黑框闪现
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+          detectProcess.setCreateProcessArgumentsModifier([](QProcess::CreateProcessArguments *args) {
+              args->flags |= CREATE_NO_WINDOW;
+              args->startupInfo->dwFlags |= STARTF_USESHOWWINDOW;
+              args->startupInfo->wShowWindow = SW_HIDE;
+          });
+#endif
+
           detectProcess.start("tasklist", QStringList());
           detectProcess.waitForFinished(3000);
           QString output = QString::fromLocal8Bit(detectProcess.readAllStandardOutput());
@@ -489,6 +507,20 @@ int main(int argc, char *argv[])
 #elif defined(Q_OS_IOS)
           LOG_INFO("iOS platform detected");
           requestIOSPermissions();
+
+          // 读取 Extension 诊断日志（写在 App Group 共享文件中）
+          {
+              QString extLog = VPNManager::instance().getExtensionLog();
+              if (!extLog.isEmpty()) {
+                  LOG_INFO("=== Extension Diagnostic Log ===");
+                  for (const QString &line : extLog.split('\n')) {
+                      if (!line.trimmed().isEmpty()) LOG_INFO(line);
+                  }
+                  LOG_INFO("=== End Extension Log ===");
+              } else {
+                  LOG_INFO("No Extension diagnostic log found");
+              }
+          }
 #endif
 
           // 注册 QML 类型
@@ -658,6 +690,21 @@ int main(int argc, char *argv[])
         // 移除 FormatUtils 的错误实例化
         // REMOVED: FormatUtils* formatUtils = new FormatUtils(&app);
         // 它的静态方法现在应通过类名 FormatUtils.formatSpeed(...) 直接访问。
+
+        // 1.5 根据 BundleConfig 的 panelType 注册并选择面板提供者
+        {
+            QString panelType = BundleConfig::instance().panelType();
+            LOG_INFO(QString("BundleConfig panelType: %1").arg(panelType));
+
+            PanelManager& panelManager = PanelManager::instance();
+            if (panelType == "v2board") {
+                V2BoardProvider* v2board = new V2BoardProvider(&app);
+                panelManager.registerProvider("v2board", v2board);
+                panelManager.setCurrentProvider("v2board");
+                LOG_INFO("Panel provider set to V2Board");
+            }
+            // 默认 xboard 已在 PanelManager::initDefaultProviders() 中注册
+        }
 
         // 2. 暴露单例管理器
         rootContext->setContextProperty("authManager", &AuthManager::instance());
@@ -854,8 +901,8 @@ int main(int argc, char *argv[])
               rootContext->setContextProperty("backgroundDataUpdater", &BackgroundDataUpdater::instance());
           }
 
-          // 应用启动时立即触发一次数据更新（延迟1秒确保后台线程已完全启动）
-          QTimer::singleShot(1000, []() {
+          // 应用启动时延迟触发一次数据更新（延迟3秒确保 loadSession 的请求已完成）
+          QTimer::singleShot(3000, []() {
               bool isAuth = AuthManager::instance().isAuthenticated();
               LOG_INFO("========== [STARTUP] Triggering initial data update ==========");
               LOG_INFO(QString("[STARTUP] Auth status: %1").arg(isAuth ? "Authenticated" : "Not authenticated"));
@@ -934,8 +981,7 @@ int main(int argc, char *argv[])
 
 #if defined(Q_OS_WIN)
 // Windows 平台特定初始化
-#include <windows.h>
-#include <shellapi.h> // For CommandLineToArgvW
+// (Windows 头文件已在文件顶部包含)
 
 // 控制台窗口管理
 void setupWindowsConsole() {

@@ -4,14 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>О JinGoVPN</translation>
-    </message>
-    <message>
-        <source>JinGoVPN Client</source>
-        <translation>Клиент JinGoVPN</translation>
-    </message>
-    <message>
         <location filename="../qml/components/AboutDialog.qml" line="18" />
         <source>About JinGo</source>
         <translation>О JinGo</translation>
@@ -93,65 +85,6 @@
         <location filename="../qml/pages/AppSelectorPage.qml" line="341" />
         <source>Save Selection</source>
         <translation>Сохранить выбор</translation>
-    </message>
-</context>
-<context>
-    <name>AuthManager</name>
-    <message>
-        <source>Email or password cannot be empty</source>
-        <translation>Email или пароль не могут быть пустыми</translation>
-    </message>
-    <message>
-        <source>Server response format error: missing token</source>
-        <translation>Ошибка формата ответа: отсутствует токен</translation>
-    </message>
-    <message>
-        <source>User info parse failed</source>
-        <translation>Ошибка разбора данных пользователя</translation>
-    </message>
-    <message>
-        <source>User info invalid or incomplete</source>
-        <translation>Данные пользователя недействительны</translation>
-    </message>
-    <message>
-        <source>Subscription information is empty</source>
-        <translation>Информация о подписке пуста</translation>
-    </message>
-    <message>
-        <source>My Subscription</source>
-        <translation>Моя подписка</translation>
-    </message>
-    <message>
-        <source>Server response data format error</source>
-        <translation>Ошибка формата данных от сервера</translation>
-    </message>
-    <message>
-        <source>Old password is incorrect</source>
-        <translation>Старый пароль неверен</translation>
-    </message>
-    <message>
-        <source>Password change failed</source>
-        <translation>Ошибка смены пароля</translation>
-    </message>
-    <message>
-        <source>Email and password cannot be empty</source>
-        <translation>Email и пароль не могут быть пустыми</translation>
-    </message>
-    <message>
-        <source>Email cannot be empty</source>
-        <translation>Email не может быть пустым</translation>
-    </message>
-    <message>
-        <source>Email, verification code and new password cannot be empty</source>
-        <translation>Email, код и новый пароль не могут быть пустыми</translation>
-    </message>
-    <message>
-        <source>Not logged in</source>
-        <translation>Не авторизован</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>Пароль не может быть пустым</translation>
     </message>
 </context>
 <context>
@@ -383,7 +316,7 @@
         <translation>Подписка</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConnectionPage.qml" line="1349" />
+        <location filename="../qml/pages/ConnectionPage.qml" line="1354" />
         <source>* Changes to connection settings require reconnecting to take effect</source>
         <translation>* Изменения настроек соединения требуют переподключения</translation>
     </message>
@@ -391,34 +324,42 @@
 <context>
     <name>ConnectionViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="95" />
         <source>Not Connected</source>
         <translation>Не подключено</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="97" />
         <source>Connecting...</source>
         <translation>Подключение...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="99" />
         <source>Connected</source>
         <translation>Подключено</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="101" />
         <source>Disconnecting...</source>
         <translation>Отключение...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="103" />
         <source>Reconnecting...</source>
         <translation>Переподключение...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="105" />
         <source>Connection Error</source>
         <translation>Ошибка соединения</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="107" />
         <source>Unknown Status</source>
         <translation>Неизвестное состояние</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="120" />
         <source>None</source>
         <translation>Нет</translation>
     </message>
@@ -589,14 +530,6 @@
 <context>
     <name>ForgotPasswordForm</name>
     <message>
-        <source>Please enter your registered email, we will send a reset link.</source>
-        <translation>Введите зарегистрированную почту, мы отправим ссылку для сброса.</translation>
-    </message>
-    <message>
-        <source>Registration Email</source>
-        <translation>Эл. почта регистрации</translation>
-    </message>
-    <message>
         <location filename="../qml/components/ForgotPasswordForm.qml" line="32" />
         <source>Enter your email to receive a verification code, then set a new password.</source>
         <translation>Введите email для получения кода подтверждения, затем установите новый пароль.</translation>
@@ -660,10 +593,6 @@
         <location filename="../qml/components/ForgotPasswordForm.qml" line="154" />
         <source>Reset Password</source>
         <translation>Сбросить пароль</translation>
-    </message>
-    <message>
-        <source>Send Reset Link</source>
-        <translation>Отправить ссылку для сброса</translation>
     </message>
 </context>
 <context>
@@ -932,10 +861,6 @@ Third-party components:
 <context>
     <name>LoginPage</name>
     <message>
-        <source>Welcome to JinGoVPN</source>
-        <translation>Добро пожаловать в JinGoVPN</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/LoginPage.qml" line="76" />
         <source>Welcome to JinGo</source>
         <translation>Добро пожаловать в JinGo</translation>
@@ -950,32 +875,56 @@ Third-party components:
         <source>群组</source>
         <translation>Группа</translation>
     </message>
-    <message>
-        <source>Groups</source>
-        <translation>Группы</translation>
-    </message>
 </context>
 <context>
     <name>LoginViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="147" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="429" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="473" />
         <source>Enter email</source>
         <translation>Введите email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="153" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="435" />
         <source>Invalid email format</source>
         <translation>Неверный формат email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="240" />
         <source>Please enterUsername</source>
         <translation>Введите имя пользователя</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="245" />
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="326" />
         <source>Password reset email sent to %1</source>
         <translation>Письмо для сброса пароля отправлено на %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="478" />
+        <source>Enter verification code</source>
+        <translation>Введите код</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="483" />
+        <source>Enter new password</source>
+        <translation>Введите новый пароль</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="488" />
+        <source>Password must be at least 6 characters</source>
+        <translation>Пароль минимум 6 символов</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="505" />
+        <source>Password reset successfully! Please login with new password.</source>
+        <translation>Пароль успешно сброшен! Пожалуйста, войдите с новым паролем.</translation>
     </message>
 </context>
 <context>
@@ -1341,14 +1290,6 @@ Third-party components:
         <translation>ID аккаунта: </translation>
     </message>
     <message>
-        <source>Premium Member</source>
-        <translation>Премиум участник</translation>
-    </message>
-    <message>
-        <source>Basic Member</source>
-        <translation>Базовый участник</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/ProfilePage.qml" line="474" />
         <source>Monthly Traffic</source>
         <translation>Месячный трафик</translation>
@@ -1434,152 +1375,34 @@ Third-party components:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/main.cpp" line="242" />
+        <location filename="../../src/main.cpp" line="269" />
         <source>Not Connected</source>
         <translation>Не подключено</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="245" />
+        <location filename="../../src/main.cpp" line="272" />
         <source>Connecting...</source>
         <translation>Подключение...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="248" />
+        <location filename="../../src/main.cpp" line="275" />
         <source>Connected</source>
         <translation>Подключено</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="251" />
+        <location filename="../../src/main.cpp" line="278" />
         <source>Disconnecting...</source>
         <translation>Отключение...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="254" />
+        <location filename="../../src/main.cpp" line="281" />
         <source>Reconnecting...</source>
         <translation>Переподключение...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="257" />
+        <location filename="../../src/main.cpp" line="284" />
         <source>Connection Error</source>
         <translation>Ошибка соединения</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="487" />
-        <source>安全错误</source>
-        <translation>Ошибка безопасности</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="488" />
-        <source>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Отключено</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Подключение</translation>
-    </message>
-    <message>
-        <source>Disconnecting</source>
-        <translation>Отключение</translation>
-    </message>
-    <message>
-        <source>Reconnecting</source>
-        <translation>Переподключение</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Ошибка</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Неизвестно</translation>
-    </message>
-    <message>
-        <source>Server address cannot be empty</source>
-        <translation>Адрес сервера не может быть пустым</translation>
-    </message>
-    <message>
-        <source>Port not configured</source>
-        <translation>Порт не настроен</translation>
-    </message>
-    <message>
-        <source>Port number invalid (must be between 1-65535)</source>
-        <translation>Неверный номер порта (1-65535)</translation>
-    </message>
-    <message>
-        <source>Protocol type not configured</source>
-        <translation>Тип протокола не настроен</translation>
-    </message>
-    <message>
-        <source>UUID cannot be empty</source>
-        <translation>UUID не может быть пустым</translation>
-    </message>
-    <message>
-        <source>UUID format invalid</source>
-        <translation>Неверный формат UUID</translation>
-    </message>
-    <message>
-        <source>Trojan password cannot be empty</source>
-        <translation>Пароль Trojan не может быть пустым</translation>
-    </message>
-    <message>
-        <source>Shadowsocks password cannot be empty</source>
-        <translation>Пароль Shadowsocks не может быть пустым</translation>
-    </message>
-    <message>
-        <source>Shadowsocks encryption method not configured</source>
-        <translation>Метод шифрования Shadowsocks не настроен</translation>
-    </message>
-    <message>
-        <source>Unsupported protocol: %1</source>
-        <translation>Неподдерживаемый протокол: %1</translation>
-    </message>
-    <message>
-        <source>Unsupported transport protocol: %1</source>
-        <translation>Неподдерживаемый транспорт: %1</translation>
-    </message>
-    <message>
-        <source>WebSocket transport requires path configuration</source>
-        <translation>Для WebSocket требуется настройка пути</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation>Никогда</translation>
-    </message>
-    <message>
-        <source>Just now</source>
-        <translation>Только что</translation>
-    </message>
-    <message>
-        <source>%1 seconds ago</source>
-        <translation>%1 секунд назад</translation>
-    </message>
-    <message>
-        <source>%1 minutes ago</source>
-        <translation>%1 минут назад</translation>
-    </message>
-    <message>
-        <source>%1 hours ago</source>
-        <translation>%1 часов назад</translation>
-    </message>
-    <message>
-        <source>%1 days ago</source>
-        <translation>%1 дней назад</translation>
-    </message>
-    <message>
-        <source>%1 months ago</source>
-        <translation>%1 месяцев назад</translation>
-    </message>
-    <message>
-        <source>on %1</source>
-        <translation>на %1</translation>
     </message>
 </context>
 <context>
@@ -1637,7 +1460,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="123" />
         <source>Invite Code</source>
-        <translation type="unfinished" />
+        <translation>Код приглашения</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
@@ -1647,12 +1470,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
         <source>Enter invite code</source>
-        <translation type="unfinished" />
+        <translation>Введите код приглашения</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="176" />
         <source>I agree to the</source>
-        <translation type="unfinished" />
+        <translation>Я согласен с</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="184" />
@@ -1662,12 +1485,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="257" />
         <source>I'm not a robot</source>
-        <translation type="unfinished" />
+        <translation>Я не робот</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="298" />
         <source>Registration Successful</source>
-        <translation type="unfinished" />
+        <translation>Регистрация успешна</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="300" />
@@ -1683,18 +1506,23 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>RegisterViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="123" />
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="170" />
         <source>Enter email</source>
         <translation>Введите email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="129" />
         <source>Invalid email format</source>
         <translation>Неверный формат email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="174" />
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="178" />
         <source>Password must be at least 6 characters</source>
         <translation>Пароль минимум 6 символов</translation>
     </message>
@@ -1751,10 +1579,6 @@ Security Error: Configuration signature verification failed.</source>
         <location filename="../qml/components/ServerItem.qml" line="299" />
         <source>Testing...</source>
         <translation>Тестирование...</translation>
-    </message>
-    <message>
-        <source>Test Latency</source>
-        <translation>Тест задержки</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
@@ -1815,183 +1639,177 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="775" />
+        <location filename="../qml/pages/ServerListPage.qml" line="814" />
         <source>Servers</source>
         <translation>Серверы</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="813" />
+        <location filename="../qml/pages/ServerListPage.qml" line="852" />
         <source>Search servers...</source>
         <translation>Поиск серверов...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="867" />
+        <location filename="../qml/pages/ServerListPage.qml" line="906" />
         <source>All</source>
         <translation>Все</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="929" />
+        <location filename="../qml/pages/ServerListPage.qml" line="968" />
         <source>Refresh server list</source>
         <translation>Обновить список серверов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="975" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1014" />
         <source>Sort by latency</source>
         <translation>Сортировать по задержке</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1012" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1051" />
         <source>Sort by name</source>
         <translation>Сортировать по имени</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1138" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1177" />
         <source>No Servers Available</source>
         <translation>Нет доступных серверов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1146" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1185" />
         <source>Click 'Refresh' button above to load servers</source>
         <translation>Нажмите кнопку «Обновить» выше для загрузки серверов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1147" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
         <source>Please add a subscription first</source>
         <translation>Сначала добавьте подписку</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1159" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1198" />
         <source>Go to Subscriptions</source>
         <translation>Перейти к подпискам</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1225" />
         <source>Loading servers...</source>
         <translation>Загрузка серверов...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1193" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1232" />
         <source>Please wait a moment</source>
         <translation>Пожалуйста, подождите</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1344" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1383" />
         <source>Off</source>
         <translation>Откл.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1349" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1388" />
         <source>Go</source>
         <translation>Подключить</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>Копировать</translation>
-    </message>
-    <message>
-        <source>Share link copied</source>
-        <translation>Ссылка скопирована</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1584" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1623" />
         <source>Testing...</source>
         <translation>Тестирование...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1611" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1650" />
         <source>Timeout</source>
         <translation>Тайм-аут</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1385" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1424" />
         <source>Test</source>
         <translation>Тест</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2315" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2354" />
         <source>Latency Testing</source>
         <translation>Тест задержки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2340" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2379" />
         <source>Testing latency...</source>
         <translation>Тест пинга...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2384" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2423" />
         <source>Speed Testing</source>
         <translation>Тест</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2383" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
         <source>Speed Testing (%1/%2)</source>
         <translation>Тест (%1/%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2218" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2257" />
         <source>Server not found</source>
         <translation>Сервер не найден</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Connecting...</source>
         <translation>Подключение...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Testing speed...</source>
         <translation>Тест...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2461" />
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2438" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2477" />
         <source>Test cancelled</source>
         <translation>Тест отменён</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2137" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2176" />
         <source>Batch test completed</source>
         <translation>Пакетный тест завершён</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2148" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2187" />
         <source>Speed: %1 Mbps</source>
         <translation>Скорость: %1 Мбит/с</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2150" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2189" />
         <source>Speed test failed</source>
         <translation>Тест скорости не удался</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2260" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2299" />
         <source>No servers to test</source>
         <translation>Нет серверов для тестирования</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1093" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1132" />
         <source>Test All Speed</source>
         <translation>Тест скорости всех</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1111" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1150" />
         <source>Speed</source>
         <translation>Скорость</translation>
-    </message>
-    <message>
-        <source>Latency Testing (%1/%2)</source>
-        <translation type="vanished">Тест задержки (%1/%2)</translation>
     </message>
 </context>
 <context>
     <name>ServerListViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="284" />
         <source>Unknown</source>
         <translation>Неизвестно</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="527" />
+        <source>VPN not connected</source>
+        <translation>VPN не подключен</translation>
     </message>
 </context>
 <context>
@@ -2121,670 +1939,1035 @@ Security Error: Configuration signature verification failed.</source>
         <translation>Выберите тему оформления</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="320" />
+        <location filename="../qml/pages/SettingsPage.qml" line="319" />
         <source>Subscription Settings</source>
         <translation>Настройки подписки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="321" />
+        <location filename="../qml/pages/SettingsPage.qml" line="320" />
         <source>Server subscription update settings</source>
         <translation>Настройки обновления подписки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="324" />
+        <location filename="../qml/pages/SettingsPage.qml" line="323" />
         <source>Auto Update Interval</source>
         <translation>Интервал автообновления</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="325" />
+        <location filename="../qml/pages/SettingsPage.qml" line="324" />
         <source>How often to automatically update server list</source>
         <translation>Как часто автообновлять список серверов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="331" />
+        <location filename="../qml/pages/SettingsPage.qml" line="330" />
         <source>1 Hour</source>
         <translation>1 час</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="331" />
         <source>3 Hours</source>
         <translation>3 часа</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="333" />
+        <location filename="../qml/pages/SettingsPage.qml" line="332" />
         <source>6 Hours</source>
         <translation>6 часов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="333" />
         <source>12 Hours</source>
         <translation>12 часов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="335" />
+        <location filename="../qml/pages/SettingsPage.qml" line="334" />
         <source>24 Hours</source>
         <translation>24 часа</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="375" />
+        <location filename="../qml/pages/SettingsPage.qml" line="374" />
         <source>Routing Settings</source>
         <translation>Настройки маршрутизации</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="376" />
+        <location filename="../qml/pages/SettingsPage.qml" line="375" />
         <source>Control how traffic is routed and split</source>
         <translation>Управление маршрутизацией трафика</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="379" />
         <source>Domain Resolution Strategy</source>
         <translation>Стратегия разрешения доменов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="381" />
+        <location filename="../qml/pages/SettingsPage.qml" line="380" />
         <source>Control how domains are resolved</source>
         <translation>Управление разрешением доменов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="422" />
+        <location filename="../qml/pages/SettingsPage.qml" line="421" />
         <source>Bypass Countries</source>
         <translation>Обход стран</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="423" />
+        <location filename="../qml/pages/SettingsPage.qml" line="422" />
         <source>Select countries to bypass, their websites will connect directly</source>
         <translation>Выберите страны для обхода, их сайты будут подключаться напрямую</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="427" />
+        <location filename="../qml/pages/SettingsPage.qml" line="426" />
         <source>China</source>
         <translation>Китай</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="428" />
+        <location filename="../qml/pages/SettingsPage.qml" line="427" />
         <source>Russia</source>
         <translation>Россия</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="429" />
+        <location filename="../qml/pages/SettingsPage.qml" line="428" />
         <source>Iran</source>
         <translation>Иран</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="430" />
+        <location filename="../qml/pages/SettingsPage.qml" line="429" />
         <source>Vietnam</source>
         <translation>Вьетнам</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="431" />
+        <location filename="../qml/pages/SettingsPage.qml" line="430" />
         <source>Cambodia</source>
         <translation>Камбоджа</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="432" />
+        <location filename="../qml/pages/SettingsPage.qml" line="431" />
         <source>Myanmar</source>
         <translation>Мьянма</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="489" />
+        <location filename="../qml/pages/SettingsPage.qml" line="488" />
         <source>Network Interface</source>
         <translation>Сетевой интерфейс</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="490" />
+        <location filename="../qml/pages/SettingsPage.qml" line="489" />
         <source>Select the network interface for VPN outbound traffic</source>
         <translation>Выберите сетевой интерфейс для исходящего VPN-трафика</translation>
     </message>
     <message>
-        <source>Bypass LAN addresses</source>
-        <translation>Обходить LAN-адреса</translation>
-    </message>
-    <message>
-        <source>LAN traffic bypass proxy</source>
-        <translation>Трафик LAN в обход прокси</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="573" />
+        <location filename="../qml/pages/SettingsPage.qml" line="572" />
         <source>Per-App Proxy</source>
         <translation>Прокси по приложениям</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>Control which apps use VPN</source>
         <translation>Управление приложениями, использующими VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>TUN mode only</source>
         <translation>Только в режиме TUN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="578" />
+        <location filename="../qml/pages/SettingsPage.qml" line="577" />
         <source>Per-App Proxy Mode</source>
         <translation>Режим прокси по приложениям</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="582" />
+        <location filename="../qml/pages/SettingsPage.qml" line="581" />
         <source>Disabled: All apps use VPN</source>
         <translation>Отключено: все приложения используют VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="583" />
+        <location filename="../qml/pages/SettingsPage.qml" line="582" />
         <source>Allow List: Only selected apps use VPN</source>
         <translation>Белый список: только выбранные приложения используют VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="584" />
+        <location filename="../qml/pages/SettingsPage.qml" line="583" />
         <source>Block List: Selected apps bypass VPN</source>
         <translation>Черный список: выбранные приложения обходят VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="593" />
+        <location filename="../qml/pages/SettingsPage.qml" line="592" />
         <source>Allow List</source>
         <translation>Белый список</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="594" />
+        <location filename="../qml/pages/SettingsPage.qml" line="593" />
         <source>Block List</source>
         <translation>Черный список</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="621" />
+        <location filename="../qml/pages/SettingsPage.qml" line="620" />
         <source>Selected Apps</source>
         <translation>Выбранные приложения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="625" />
+        <location filename="../qml/pages/SettingsPage.qml" line="624" />
         <source>%1 app(s) selected</source>
         <translation>Выбрано приложений: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="628" />
+        <location filename="../qml/pages/SettingsPage.qml" line="627" />
         <source>Select Apps</source>
         <translation>Выбрать приложения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="644" />
+        <location filename="../qml/pages/SettingsPage.qml" line="643" />
         <source>Clear Selection</source>
         <translation>Очистить выбор</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="645" />
+        <location filename="../qml/pages/SettingsPage.qml" line="644" />
         <source>Remove all apps from the list</source>
         <translation>Удалить все приложения из списка</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="664" />
+        <location filename="../qml/pages/SettingsPage.qml" line="663" />
         <source>DNS Settings</source>
         <translation>Настройки DNS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="665" />
+        <location filename="../qml/pages/SettingsPage.qml" line="664" />
         <source>DNS server configuration</source>
         <translation>Конфигурация DNS-сервера</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="669" />
+        <location filename="../qml/pages/SettingsPage.qml" line="668" />
         <source>Domestic DNS 1</source>
         <translation>Внутренний DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="685" />
+        <location filename="../qml/pages/SettingsPage.qml" line="684" />
         <source>Domestic DNS 2</source>
         <translation>Внутренний DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="701" />
+        <location filename="../qml/pages/SettingsPage.qml" line="700" />
         <source>Overseas DNS 1</source>
         <translation>Зарубежный DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="729" />
+        <location filename="../qml/pages/SettingsPage.qml" line="728" />
         <source>Overseas DNS 2</source>
         <translation>Зарубежный DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="757" />
+        <location filename="../qml/pages/SettingsPage.qml" line="756" />
         <source>DNS Query Strategy</source>
         <translation>Стратегия DNS-запросов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="758" />
+        <location filename="../qml/pages/SettingsPage.qml" line="757" />
         <source>IPv4/IPv6 Query Strategy</source>
         <translation>Стратегия запросов IPv4/IPv6</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="799" />
+        <location filename="../qml/pages/SettingsPage.qml" line="798" />
         <source>Local Proxy</source>
         <translation>Локальный прокси</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="800" />
+        <location filename="../qml/pages/SettingsPage.qml" line="799" />
         <source>Local SOCKS/HTTP proxy server settings</source>
         <translation>Настройки локального SOCKS/HTTP прокси-сервера</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="804" />
+        <location filename="../qml/pages/SettingsPage.qml" line="803" />
         <source>SOCKS Proxy Port</source>
         <translation>Порт SOCKS-прокси</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="805" />
+        <location filename="../qml/pages/SettingsPage.qml" line="804" />
         <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
         <translation>Порт локального SOCKS5-прокси - требуется переподключение после изменения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="837" />
+        <location filename="../qml/pages/SettingsPage.qml" line="836" />
         <source>HTTP Proxy Port</source>
         <translation>Порт HTTP-прокси</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="838" />
+        <location filename="../qml/pages/SettingsPage.qml" line="837" />
         <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
         <translation>Порт локального HTTP-прокси - требуется переподключение после изменения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="870" />
+        <location filename="../qml/pages/SettingsPage.qml" line="869" />
         <source>Allow LAN Connections</source>
         <translation>Разрешить LAN-подключения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="871" />
+        <location filename="../qml/pages/SettingsPage.qml" line="870" />
         <source>Allow other devices in LAN to connect to this proxy</source>
         <translation>Разрешить другим устройствам в LAN подключаться к этому прокси</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="889" />
+        <location filename="../qml/pages/SettingsPage.qml" line="888" />
         <source>Transport Layer Settings</source>
         <translation>Настройки транспортного уровня</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="890" />
+        <location filename="../qml/pages/SettingsPage.qml" line="889" />
         <source>Protocol transport related configuration</source>
         <translation>Настройки транспорта протокола</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="894" />
+        <location filename="../qml/pages/SettingsPage.qml" line="893" />
         <source>Enable Mux multiplexing</source>
         <translation>Включить Mux-мультиплексирование</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="895" />
+        <location filename="../qml/pages/SettingsPage.qml" line="894" />
         <source>Transfer multiple data streams through single connection, may reduce latency</source>
         <translation>Передача нескольких потоков данных через одно соединение, может снизить задержку</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="906" />
+        <location filename="../qml/pages/SettingsPage.qml" line="905" />
         <source>Mux concurrent connections</source>
         <translation>Параллельные Mux-соединения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="907" />
+        <location filename="../qml/pages/SettingsPage.qml" line="906" />
         <source>Maximum concurrent multiplexed connections</source>
         <translation>Максимум параллельных мультиплексных соединений</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="939" />
+        <location filename="../qml/pages/SettingsPage.qml" line="938" />
         <source>TCP Fast Open</source>
         <translation>TCP Fast Open</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="940" />
+        <location filename="../qml/pages/SettingsPage.qml" line="939" />
         <source>Enable TFO to reduce latency (requires system support)</source>
         <translation>Включить TFO для снижения задержки (требуется поддержка системы)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="953" />
+        <location filename="../qml/pages/SettingsPage.qml" line="952" />
         <source>Enable traffic sniffing</source>
         <translation>Включить анализ трафика</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="954" />
+        <location filename="../qml/pages/SettingsPage.qml" line="953" />
         <source>Auto identify traffic type for routing</source>
         <translation>Автоматическое определение типа трафика для маршрутизации</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="969" />
+        <location filename="../qml/pages/SettingsPage.qml" line="968" />
         <source>Log Settings</source>
         <translation>Настройки журнала</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="970" />
+        <location filename="../qml/pages/SettingsPage.qml" line="969" />
         <source>Application and core log configuration</source>
         <translation>Настройки журналов приложения и ядра</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="974" />
+        <location filename="../qml/pages/SettingsPage.qml" line="973" />
         <source>Log Level</source>
         <translation>Уровень журнала</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="975" />
+        <location filename="../qml/pages/SettingsPage.qml" line="974" />
         <source>Set log verbosity level</source>
         <translation>Установить уровень детализации журнала</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1002" />
         <source>Enable access log</source>
         <translation>Включить журнал доступа</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1004" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
         <source>Log all connection requests</source>
         <translation>Записывать все запросы на подключение</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1016" />
         <source>Log retention days</source>
         <translation>Дней хранения журнала</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1018" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
         <source>Auto clean old logs</source>
         <translation>Автоматическая очистка старых журналов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1049" />
         <source>Log Size</source>
         <translation>Размер журналов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1051" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
         <source>%1 files</source>
         <translation>%1 файлов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1059" />
         <source>Export Logs</source>
         <translation>Экспорт журналов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Export all logs to a file</source>
         <translation>Экспортировать все журналы в файл</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Save to Downloads folder</source>
         <translation>Сохранить в папку Загрузки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1063" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1062" />
         <source>Export</source>
         <translation>Экспорт</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1097" />
         <source>Clear Logs</source>
         <translation>Очистить журналы</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1383" />
         <source>10MB: Quick test</source>
         <translation>10МБ: Быстрый тест</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1385" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
         <source>25MB: Standard test</source>
         <translation>25МБ: Стандартный тест</translation>
     </message>
     <message>
-        <source>Delete old log files</source>
-        <translation type="vanished">Удалить старые файлы журналов</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1128" />
         <source>View Logs</source>
         <translation>Просмотр журналов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1132" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1131" />
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1148" />
         <source>AdvancedSettings</source>
         <translation>Дополнительные настройки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1150" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
         <source>Advanced user options, modify with caution</source>
         <translation>Расширенные настройки, изменяйте с осторожностью</translation>
     </message>
     <message>
-        <source>API Port</source>
-        <translation>Порт API</translation>
-    </message>
-    <message>
-        <source>xray-core API service port</source>
-        <translation>Порт API-сервиса xray-core</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1154" />
         <source>ConnectTimeout</source>
         <translation>Тайм-аут подключения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1156" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
         <source>Connection establishment timeout</source>
         <translation>Тайм-аут установки соединения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1187" />
         <source>Test Timeout</source>
         <translation>Тайм-аут теста</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1189" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
         <source>Server latency test timeout duration</source>
         <translation>Тайм-аут теста задержки сервера</translation>
     </message>
     <message>
-        <source>Custom GeoIP Database</source>
-        <translation>Пользовательская база GeoIP</translation>
-    </message>
-    <message>
-        <source>Use custom IP geolocation database</source>
-        <translation>Использовать пользовательскую базу геолокации IP</translation>
-    </message>
-    <message>
-        <source>Custom GeoSite Database</source>
-        <translation>Пользовательская база GeoSite</translation>
-    </message>
-    <message>
-        <source>Use custom domain categorization database</source>
-        <translation>Использовать пользовательскую базу категоризации доменов</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1232" />
         <source>Account Actions</source>
         <translation>Действия с аккаунтом</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1234" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
         <source>Account management and data operations</source>
         <translation>Управление аккаунтом и операции с данными</translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation>Изменить пароль</translation>
-    </message>
-    <message>
-        <source>Change your account password</source>
-        <translation>Изменить пароль аккаунта</translation>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation>Изменить</translation>
-    </message>
-    <message>
-        <source>Order Management</source>
-        <translation>Управление заказами</translation>
-    </message>
-    <message>
-        <source>View and manage your subscription orders</source>
-        <translation>Просмотр и управление заказами подписки</translation>
-    </message>
-    <message>
-        <source>View Orders</source>
-        <translation>Просмотр заказов</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Очистить кэш</translation>
-    </message>
-    <message>
-        <source>Clear application cache data</source>
-        <translation>Очистить данные кэша приложения</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="647" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1101" />
+        <location filename="../qml/pages/SettingsPage.qml" line="646" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1100" />
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1099" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
         <source>Delete all logs except current</source>
         <translation>Удалить все журналы кроме текущего</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1130" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
         <source>Open log directory</source>
         <translation>Открыть папку журналов</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1236" />
         <source>Reset all settings</source>
         <translation>Сбросить все настройки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1238" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
         <source>Restore default settings (does not affect account data)</source>
         <translation>Восстановить настройки по умолчанию (не влияет на данные аккаунта)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1240" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1239" />
         <source>Reset</source>
         <translation>Сбросить</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1253" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1252" />
         <source>Settings reset to default</source>
-        <translation type="unfinished" />
+        <translation>Настройки сброшены по умолчанию</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1263" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1262" />
         <source>Network test</source>
         <translation>Тест сети</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1267" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1266" />
         <source>Latency Test Method</source>
         <translation>Метод тестирования задержки</translation>
     </message>
     <message>
-        <source>TCP: Direct TCP connection to server port (fast, recommended)</source>
-        <translation>TCP: Прямое TCP-подключение к серверу (быстро, рекомендуется)</translation>
-    </message>
-    <message>
-        <source>HTTP: Test via proxy HTTP request (most accurate for actual usage)</source>
-        <translation>HTTP: Тест через HTTP-запрос (точнее отражает реальное использование)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1282" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1281" />
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1303" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1302" />
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1327" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1326" />
         <source>Latency Test Interval</source>
         <translation>Интервал теста задержки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1331" />
         <source>Disabled: No periodic latency testing when connected</source>
         <translation>Отключено: нет периодического теста задержки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1333" />
         <source>Test latency every %1 seconds when connected</source>
         <translation>Тест задержки каждые %1 сек. при подключении</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="592" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1350" />
+        <location filename="../qml/pages/SettingsPage.qml" line="591" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1349" />
         <source>Disabled</source>
         <translation>Отключено</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1270" />
         <source>TCP ping, fast</source>
-        <translation type="unfinished" />
+        <translation>TCP пинг, быстрый</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1272" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
         <source>HTTP ping, accurate</source>
-        <translation type="unfinished" />
+        <translation>HTTP пинг, точный</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1379" />
         <source>Speed Test File Size</source>
         <translation>Размер файла теста скорости</translation>
     </message>
     <message>
-        <source>10MB: Quick test (~5-10 seconds)</source>
-        <translation>10MB: Быстрый тест (~5-10 сек)</translation>
-    </message>
-    <message>
-        <source>25MB: Standard test (~10-20 seconds)</source>
-        <translation>25MB: Стандартный тест (~10-20 сек)</translation>
-    </message>
-    <message>
-        <source>100MB: Accurate test (~30-60 seconds)</source>
-        <translation>100MB: Точный тест (~30-60 сек)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1442" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1441" />
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1445" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1444" />
         <source>Application Version</source>
         <translation>Версия приложения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1448" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1447" />
         <source>Check</source>
         <translation>Проверить</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1467" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1466" />
         <source>Core Version</source>
         <translation>Версия ядра</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1473" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1472" />
         <source>Open Source License</source>
         <translation>Лицензия с открытым исходным кодом</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1475" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1496" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1474" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1495" />
         <source>View</source>
         <translation>Просмотр</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1494" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1493" />
         <source>Documentation</source>
         <translation>Документация</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleBottomNavigationBar</name>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="56" />
+        <source>Dashboard</source>
+        <translation>Панель</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="69" />
+        <source>Store</source>
+        <translation>Магазин</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="82" />
+        <source>Profile</source>
+        <translation>Профиль</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleConnectionPage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="22" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="140" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="157" />
+        <source>No Server Selected</source>
+        <translation>Сервер не выбран</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="27" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="191" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="210" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="218" />
+        <source>No Plan</source>
+        <translation>Нет плана</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="71" />
+        <source>Connecting...</source>
+        <translation>Подключение...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="72" />
+        <source>Disconnecting...</source>
+        <translation>Отключение...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="73" />
+        <source>Connected</source>
+        <translation>Подключено</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="74" />
+        <source>Not Connected</source>
+        <translation>Не подключено</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="189" />
+        <source>Plan</source>
+        <translation>План</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="413" />
+        <source>Dashboard</source>
+        <translation>Панель</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="592" />
+        <source>Expires: %1</source>
+        <translation>Истекает: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="608" />
+        <source>Renew</source>
+        <translation>Продлить</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="643" />
+        <source>Traffic Used</source>
+        <translation>Использовано трафика</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="686" />
+        <source>%1% used</source>
+        <translation>Использовано %1%</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="878" />
+        <source>Global</source>
+        <translation>Глобальный</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="905" />
+        <source>Smart</source>
+        <translation>Умный</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to change server</source>
+        <translation>Нажмите для смены сервера</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to select a server</source>
+        <translation>Нажмите для выбора сервера</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleProfilePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="15" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="69" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="90" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="110" />
+        <source>Users</source>
+        <translation>Пользователи</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="121" />
+        <source>Unlimited</source>
+        <translation>Неограниченно</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="239" />
+        <source>Profile</source>
+        <translation>Профиль</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="347" />
+        <source>Account ID: </source>
+        <translation>ID аккаунта: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="379" />
+        <source>Subscription Overview</source>
+        <translation>Обзор подписки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Active</source>
+        <translation>Активен</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Inactive</source>
+        <translation>Неактивно</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="411" />
+        <source>Status</source>
+        <translation>Статус</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="438" />
+        <source>Expiry Date</source>
+        <translation>Дата истечения</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="465" />
+        <source>Used Traffic</source>
+        <translation>Использованный трафик</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="487" />
+        <source>Expired</source>
+        <translation>Истек</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="488" />
+        <source> days</source>
+        <translation> дн.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="500" />
+        <source>Remaining</source>
+        <translation>Осталось</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="519" />
+        <source>Traffic</source>
+        <translation>Трафик</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="576" />
+        <source>Account Actions</source>
+        <translation>Действия с аккаунтом</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="604" />
+        <source>Order Management</source>
+        <translation>Управление заказами</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="646" />
+        <source>Ticket System</source>
+        <translation>Система тикетов</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="688" />
+        <source>Help Center</source>
+        <translation>Справочный центр</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="730" />
+        <source>Change Password</source>
+        <translation>Изменить пароль</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="766" />
+        <source>Logout</source>
+        <translation>Выйти</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="820" />
+        <source>Password changed successfully</source>
+        <translation>Пароль изменен</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="852" />
+        <source>OK</source>
+        <translation>ОК</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleStorePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="81" />
+        <source>Monthly</source>
+        <translation>Ежемесячно</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="84" />
+        <source>Billed monthly</source>
+        <translation>Ежемесячная оплата</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="93" />
+        <source>Quarterly</source>
+        <translation>Ежеквартально</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="96" />
+        <source>Billed every 3 months</source>
+        <translation>Оплата каждые 3 месяца</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="105" />
+        <source>Semi-Annual</source>
+        <translation>Полугодовой</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="108" />
+        <source>Billed every 6 months</source>
+        <translation>Оплата каждые 6 месяцев</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="117" />
+        <source>Yearly</source>
+        <translation>Ежегодно</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="120" />
+        <source>Billed annually - Best value!</source>
+        <translation>Ежегодная оплата - лучшая цена!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="129" />
+        <source>2 Years</source>
+        <translation>2 года</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="132" />
+        <source>Billed every 2 years</source>
+        <translation>Оплата каждые 2 года</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="141" />
+        <source>3 Years</source>
+        <translation>3 года</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="144" />
+        <source>Billed every 3 years</source>
+        <translation>Оплата каждые 3 года</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="152" />
+        <source>One-time</source>
+        <translation>Единоразово</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="155" />
+        <source>One-time payment, no renewal</source>
+        <translation>Одноразовый платеж, без продления</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="189" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="939" />
+        <source>Unnamed Plan</source>
+        <translation>План без названия</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="196" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="536" />
+        <source>Unlimited</source>
+        <translation>Неограниченно</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="359" />
+        <source>Purchase successful!</source>
+        <translation>Покупка успешна!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="375" />
+        <source>Purchases restored successfully</source>
+        <translation>Покупки успешно восстановлены</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="378" />
+        <source>No purchases to restore</source>
+        <translation>Нет покупок для восстановления</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="383" />
+        <source>Restore failed: </source>
+        <translation>Ошибка восстановления: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="429" />
+        <source>No payment methods available</source>
+        <translation>Нет доступных методов оплаты</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="445" />
+        <source>Payment initiated successfully</source>
+        <translation>Оплата инициирована</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="500" />
+        <source>Unknown Plan</source>
+        <translation>Неизвестный план</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="507" />
+        <source>Plan #</source>
+        <translation>План #</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="549" />
+        <source>Please login first</source>
+        <translation>Сначала войдите</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="587" />
+        <source>IAP not available</source>
+        <translation>Покупки в приложении недоступны</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="603" />
+        <source>No matching IAP product for this plan</source>
+        <translation>Нет подходящего продукта для этого плана</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="607" />
+        <source>No subscription options available</source>
+        <translation>Нет доступных вариантов подписки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="624" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="633" />
+        <source>Order manager not available</source>
+        <translation>Менеджер заказов недоступен</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="642" />
+        <source>Invalid order</source>
+        <translation>Неверный заказ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="691" />
+        <source>Store</source>
+        <translation>Магазин</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="755" />
+        <source>Loading subscription information...</source>
+        <translation>Загрузка информации о подписке...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="786" />
+        <source>Current Subscription</source>
+        <translation>Текущая подписка</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="794" />
+        <source>No Subscription</source>
+        <translation>Нет подписки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="803" />
+        <source>Select a plan below to get started</source>
+        <translation>Выберите план ниже для начала</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="826" />
+        <source>Exp: %1</source>
+        <translation>Истекает: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="847" />
+        <source>Rem: %1</source>
+        <translation>Осталось: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="888" />
+        <source>Select Plan</source>
+        <translation>Выбрать план</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="942" />
+        <source>Month</source>
+        <translation>Месяц</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="992" />
+        <source>Restore Purchases</source>
+        <translation>Восстановить покупки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1034" />
+        <source>No Available Plans</source>
+        <translation>Нет доступных планов</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1059" />
+        <source>Loading Plans...</source>
+        <translation>Загрузка планов...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1134" />
+        <source>Select Subscription Period</source>
+        <translation>Выберите период подписки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1192" />
+        <source>This period is not available for in-app purchase</source>
+        <translation>Этот период недоступен для покупки в приложении</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1217" />
+        <source>Cancel</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -3083,45 +3266,6 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>Subscription</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>Неограниченно</translation>
-    </message>
-    <message>
-        <source>Do not auto update</source>
-        <translation>Не обновлять автоматически</translation>
-    </message>
-    <message>
-        <source>Update Required</source>
-        <translation>Требуется обновление</translation>
-    </message>
-    <message>
-        <source>%1 seconds later</source>
-        <translation>через %1 секунд</translation>
-    </message>
-    <message>
-        <source>%1 minutes later</source>
-        <translation>через %1 минут</translation>
-    </message>
-    <message>
-        <source>%1 hours later</source>
-        <translation>через %1 часов</translation>
-    </message>
-    <message>
-        <source>%1 days later</source>
-        <translation>через %1 дней</translation>
-    </message>
-    <message>
-        <source>Subscription link cannot be empty</source>
-        <translation>Ссылка подписки не может быть пустой</translation>
-    </message>
-    <message>
-        <source>Subscription link format invalid</source>
-        <translation>Неверный формат ссылки подписки</translation>
-    </message>
-</context>
-<context>
     <name>SubscriptionCard</name>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="78" />
@@ -3185,103 +3329,35 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>SubscriptionManager</name>
-    <message>
-        <source>Subscription URL cannot be empty</source>
-        <translation>URL подписки не может быть пустым</translation>
-    </message>
-    <message>
-        <source>Subscription already exists</source>
-        <translation>Подписка уже существует</translation>
-    </message>
-    <message>
-        <source>Subscription %1</source>
-        <translation>Подписка %1</translation>
-    </message>
-    <message>
-        <source>SaveSubscriptionFailed</source>
-        <translation>Ошибка сохранения подписки</translation>
-    </message>
-    <message>
-        <source>DeleteSubscriptionFailed</source>
-        <translation>Ошибка удаления подписки</translation>
-    </message>
-    <message>
-        <source>Subscription does not exist</source>
-        <translation>Подписка не существует</translation>
-    </message>
-    <message>
-        <source>Subscription is disabled</source>
-        <translation>Подписка отключена</translation>
-    </message>
-    <message>
-        <source>No subscription available for update</source>
-        <translation>Нет подписки для обновления</translation>
-    </message>
-    <message>
-        <source>Server content cannot be empty</source>
-        <translation>Содержимое сервера не может быть пустым</translation>
-    </message>
-    <message>
-        <source>Server configuration format invalid</source>
-        <translation>Неверный формат конфигурации сервера</translation>
-    </message>
-    <message>
-        <source>Manually added servers</source>
-        <translation>Серверы, добавленные вручную</translation>
-    </message>
-    <message>
-        <source>Manual server %1</source>
-        <translation>Ручной сервер %1</translation>
-    </message>
-    <message>
-        <source>SaveServersFailed</source>
-        <translation>Ошибка сохранения серверов</translation>
-    </message>
-    <message>
-        <source>JSON parse error</source>
-        <translation>Ошибка разбора JSON</translation>
-    </message>
-    <message>
-        <source>Unsupported configuration version</source>
-        <translation>Неподдерживаемая версия конфигурации</translation>
-    </message>
-    <message>
-        <source>Clash Server %1</source>
-        <translation>Сервер Clash %1</translation>
-    </message>
-    <message>
-        <source>No servers parsed</source>
-        <translation>Серверы не найдены</translation>
-    </message>
-    <message>
-        <source>Failed to update database</source>
-        <translation>Не удалось обновить базу данных</translation>
-    </message>
-</context>
-<context>
     <name>SystemTrayManager</name>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="111" />
         <source>JinGo VPN</source>
         <translation>JinGo VPN</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="130" />
         <source>Show Main Window</source>
         <translation>Показать главное окно</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="138" />
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="173" />
         <source>Quick Connect</source>
         <translation>Быстрое подключение</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="146" />
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="154" />
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="170" />
         <source>DisconnectConnect</source>
         <translation>Отключить и подключить</translation>
     </message>
@@ -3563,405 +3639,177 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>User</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>Неограниченно</translation>
-    </message>
-    <message>
-        <source>%1 / %2 (remaining %3)</source>
-        <translation>%1 / %2 (осталось %3)</translation>
-    </message>
-    <message>
-        <source>Free User</source>
-        <translation>Бесплатный пользователь</translation>
-    </message>
-    <message>
-        <source>Lifetime</source>
-        <translation type="vanished">Навсегда</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation>Истек</translation>
-    </message>
-</context>
-<context>
-    <name>VPNManager</name>
-    <message>
-        <source>Not Connected</source>
-        <translation>Не подключено</translation>
-    </message>
-    <message>
-        <source>Server configuration is empty</source>
-        <translation>Конфигурация сервера пуста</translation>
-    </message>
-    <message>
-        <source>Server object invalid</source>
-        <translation>Недействительный объект сервера</translation>
-    </message>
-    <message>
-        <source>Server configuration invalid: %1</source>
-        <translation>Неверная конфигурация сервера: %1</translation>
-    </message>
-    <message>
-        <source>Preparing to connect...</source>
-        <translation>Подготовка к подключению...</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>Подключение...</translation>
-    </message>
-    <message>
-        <source>ConnectFailed</source>
-        <translation>Ошибка подключения</translation>
-    </message>
-    <message>
-        <source>Server object has expired</source>
-        <translation>Объект сервера устарел</translation>
-    </message>
-    <message>
-        <source>Failed to start connection</source>
-        <translation>Ошибка запуска соединения</translation>
-    </message>
-    <message>
-        <source>Disconnecting...</source>
-        <translation>Отключение...</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Отключено</translation>
-    </message>
-    <message>
-        <source>Connecting to %1...</source>
-        <translation>Подключение к %1...</translation>
-    </message>
-    <message>
-        <source>Configuration generation failed</source>
-        <translation>Ошибка генерации конфигурации</translation>
-    </message>
-    <message>
-        <source>XrayCore initialization failed</source>
-        <translation>Ошибка инициализации XrayCore</translation>
-    </message>
-    <message>
-        <source>Failed to start Xray: %1</source>
-        <translation>Ошибка запуска Xray: %1</translation>
-    </message>
-    <message>
-        <source>SOCKS5 port not ready</source>
-        <translation>SOCKS5 порт не готов</translation>
-    </message>
-    <message>
-        <source>Connected to %1</source>
-        <translation>Подключено к %1</translation>
-    </message>
-    <message>
-        <source>Checking system requirements...</source>
-        <translation>Проверка системных требований...</translation>
-    </message>
-    <message>
-        <source>Checking WinTun driver...</source>
-        <translation>Проверка драйвера WinTun...</translation>
-    </message>
-    <message>
-        <source>Preparing routes...</source>
-        <translation>Подготовка маршрутов...</translation>
-    </message>
-    <message>
-        <source>Creating TUN device...</source>
-        <translation>Создание TUN-устройства...</translation>
-    </message>
-    <message>
-        <source>Waiting for TUN device...</source>
-        <translation>Ожидание TUN-устройства...</translation>
-    </message>
-    <message>
-        <source>Configuring TUN routes...</source>
-        <translation>Настройка TUN-маршрутов...</translation>
-    </message>
-    <message>
-        <source>Connected (Windows TUN Mode)</source>
-        <translation>Подключено (Windows TUN)</translation>
-    </message>
-    <message>
-        <source>VPN permission denied. Please grant VPN permission in Settings and try again.</source>
-        <translation>Доступ к VPN запрещен. Разрешите VPN в настройках и повторите.</translation>
-    </message>
-    <message>
-        <source>Connected (TUN Mode)</source>
-        <translation>Подключено (режим TUN)</translation>
-    </message>
-    <message>
-        <source>Connected (System Proxy)</source>
-        <translation>Подключено (системный прокси)</translation>
-    </message>
-    <message>
-        <source>Failed to create TUN device</source>
-        <translation>Ошибка создания TUN-устройства</translation>
-    </message>
-    <message>
-        <source>Failed to configure TUN device</source>
-        <translation>Ошибка настройки TUN-устройства</translation>
-    </message>
-    <message>
-        <source>Connection failed: maximum retry attempts exceeded</source>
-        <translation>Ошибка: превышено макс. число попыток</translation>
-    </message>
-    <message>
-        <source>Maximum retry attempts exceeded</source>
-        <translation>Превышено макс. число попыток</translation>
-    </message>
-    <message>
-        <source>Will reconnect in %1 seconds (attempt %2/%3)</source>
-        <translation>Переподключение через %1 сек (попытка %2/%3)</translation>
-    </message>
-    <message>
-        <source>Error: %1</source>
-        <translation>Ошибка: %1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: server object invalid</source>
-        <translation>Ошибка переподключения: недействительный сервер</translation>
-    </message>
-    <message>
-        <source>ConnectTimeout</source>
-        <translation>Тайм-аут подключения</translation>
-    </message>
-    <message>
-        <source>TUN device error: %1</source>
-        <translation>Ошибка TUN-устройства: %1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: no current server</source>
-        <translation>Ошибка переподключения: нет текущего сервера</translation>
-    </message>
-    <message>
-        <source>VPN not connected</source>
-        <translation>VPN не подключен</translation>
-    </message>
-    <message>
-        <source>No Server Selected</source>
-        <translation>Сервер не выбран</translation>
-    </message>
-    <message>
-        <source>No data received</source>
-        <translation>Данные не получены</translation>
-    </message>
-    <message>
-        <source>Server address is empty</source>
-        <translation>Адрес сервера пуст</translation>
-    </message>
-    <message>
-        <source>Ping not supported on this platform</source>
-        <translation>Ping не поддерживается на этой платформе</translation>
-    </message>
-    <message>
-        <source>Failed to parse ping result</source>
-        <translation>Ошибка разбора результата ping</translation>
-    </message>
-    <message>
-        <source>PingFailed</source>
-        <translation>Ping не удался</translation>
-    </message>
-    <message>
-        <source>ServersInvalid</source>
-        <translation>Серверы недействительны</translation>
-    </message>
-    <message>
-        <source>TCP connection failed</source>
-        <translation>TCP-подключение не удалось</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>HTTP-запрос не удался</translation>
-    </message>
-</context>
-<context>
-    <name>XrayCore</name>
-    <message>
-        <source>Stopped</source>
-        <translation>Остановлено</translation>
-    </message>
-    <message>
-        <source>Starting</source>
-        <translation>Запуск</translation>
-    </message>
-    <message>
-        <source>Running</source>
-        <translation>Выполняется</translation>
-    </message>
-    <message>
-        <source>Stopping</source>
-        <translation>Остановка</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Ошибка</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Неизвестно</translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
-        <location filename="../qml/main.qml" line="171" />
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="218" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Connected</source>
         <translation>Подключено</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
+        <location filename="../qml/main.qml" line="218" />
         <source>VPN ConnectSuccess</source>
         <translation>VPN подключен</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>Disconnected</source>
         <translation>Отключено</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>VPN Disconnected</source>
         <translation>VPN отключен</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="181" />
+        <location filename="../qml/main.qml" line="228" />
         <source>ConnectFailed</source>
         <translation>Ошибка подключения</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="186" />
+        <location filename="../qml/main.qml" line="233" />
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="224" />
+        <location filename="../qml/main.qml" line="271" />
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="226" />
+        <location filename="../qml/main.qml" line="273" />
         <source>Preferences</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="231" />
+        <location filename="../qml/main.qml" line="284" />
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="237" />
-        <location filename="../qml/main.qml" line="239" />
-        <location filename="../qml/main.qml" line="365" />
+        <location filename="../qml/main.qml" line="290" />
+        <location filename="../qml/main.qml" line="292" />
+        <location filename="../qml/main.qml" line="419" />
         <source>Connect</source>
         <translation>Подключить</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="239" />
+        <location filename="../qml/main.qml" line="292" />
         <source>DisconnectConnect</source>
         <translation>Отключить и подключить</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="252" />
+        <location filename="../qml/main.qml" line="305" />
         <source>Select Server</source>
         <translation>Выберите сервер</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="258" />
+        <location filename="../qml/main.qml" line="312" />
         <source>Help</source>
         <translation>Справка</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="260" />
+        <location filename="../qml/main.qml" line="314" />
         <source>Documentation</source>
         <translation>Документация</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="264" />
+        <location filename="../qml/main.qml" line="318" />
         <source>Report Issue</source>
         <translation>Сообщить о проблеме</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269" />
+        <location filename="../qml/main.qml" line="323" />
         <source>About JinGo</source>
         <translation>О JinGo</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="719" />
+        <location filename="../qml/main.qml" line="419" />
+        <location filename="../qml/main.qml" line="668" />
+        <source>Dashboard</source>
+        <translation>Панель</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Professional Mode</source>
+        <translation>Профессиональный режим</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Simple Mode</source>
+        <translation>Простой режим</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="673" />
+        <source>Store</source>
+        <translation>Магазин</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="833" />
         <source>JinGo</source>
-        <translation type="unfinished" />
+        <translation>JinGo</translation>
     </message>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>О JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="379" />
+        <location filename="../qml/main.qml" line="433" />
         <source>Servers</source>
         <translation>Серверы</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="391" />
-        <location filename="../qml/main.qml" line="579" />
+        <location filename="../qml/main.qml" line="445" />
+        <location filename="../qml/main.qml" line="673" />
         <source>Subscription</source>
         <translation>Подписка</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="403" />
-        <location filename="../qml/main.qml" line="576" />
+        <location filename="../qml/main.qml" line="457" />
+        <location filename="../qml/main.qml" line="670" />
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="574" />
+        <location filename="../qml/main.qml" line="668" />
         <source>Connection</source>
         <translation>Подключение</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="575" />
+        <location filename="../qml/main.qml" line="669" />
         <source>Server List</source>
         <translation>Список серверов</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="577" />
+        <location filename="../qml/main.qml" line="671" />
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="578" />
+        <location filename="../qml/main.qml" line="672" />
         <source>Login/Register</source>
         <translation>Вход/Регистрация</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="590" />
+        <location filename="../qml/main.qml" line="684" />
         <source>Manage your VPN connection</source>
         <translation>Управление VPN-подключением</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="591" />
+        <location filename="../qml/main.qml" line="685" />
         <source>Select the best server</source>
         <translation>Выбрать лучший сервер</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="592" />
+        <location filename="../qml/main.qml" line="686" />
         <source>Upgrade your subscription plan</source>
         <translation>Обновить план подписки</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Not Connected</source>
         <translation>Не подключено</translation>
     </message>
     <message>
-        <source>JinGoVPN</source>
-        <translation>JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="720" />
-        <source>Application minimized to system tray, double-click the tray icon to reopen</source>
-        <translation>Приложение свернуто в трей, дважды щелкните значок для открытия</translation>
+        <location filename="../qml/main.qml" line="834" />
+        <source>Application minimized to system tray, click the tray icon to reopen</source>
+        <translation>Приложение свернуто в трей, щелкните значок для открытия</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="25" />

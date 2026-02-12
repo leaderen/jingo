@@ -4,14 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>JinGoVPN အကြောင်း</translation>
-    </message>
-    <message>
-        <source>JinGoVPN Client</source>
-        <translation>JinGoVPN Client</translation>
-    </message>
-    <message>
         <location filename="../qml/components/AboutDialog.qml" line="18" />
         <source>About JinGo</source>
         <translation>JinGo အကြောင်း</translation>
@@ -93,57 +85,6 @@
         <location filename="../qml/pages/AppSelectorPage.qml" line="341" />
         <source>Save Selection</source>
         <translation>ရွေးချယ်မှုသိမ်း</translation>
-    </message>
-</context>
-<context>
-    <name>AuthManager</name>
-    <message>
-        <source>Email or password cannot be empty</source>
-        <translation>အီးမေးလ် သို့ စကားဝှက်ဖြည့်ပါ</translation>
-    </message>
-    <message>
-        <source>Server response format error: missing token</source>
-        <translation>ဆာဗာအမှား: token မရှိ</translation>
-    </message>
-    <message>
-        <source>User info parse failed</source>
-        <translation>အချက်အလက်မှား</translation>
-    </message>
-    <message>
-        <source>User info invalid or incomplete</source>
-        <translation>အချက်အလက်မမှန်</translation>
-    </message>
-    <message>
-        <source>Subscription information is empty</source>
-        <translation>စာရင်းအချက်အလက်မရှိ</translation>
-    </message>
-    <message>
-        <source>My Subscription</source>
-        <translation>ကျွန်ုပ်စာရင်း</translation>
-    </message>
-    <message>
-        <source>Server response data format error</source>
-        <translation>ဆာဗာပုံစံမှား</translation>
-    </message>
-    <message>
-        <source>Email and password cannot be empty</source>
-        <translation>အီးမေးလ်နှင့် စကားဝှက်ဖြည့်ပါ</translation>
-    </message>
-    <message>
-        <source>Email cannot be empty</source>
-        <translation>အီးမေးလ်ဖြည့်ပါ</translation>
-    </message>
-    <message>
-        <source>Email, verification code and new password cannot be empty</source>
-        <translation>အားလုံးဖြည့်ပါ</translation>
-    </message>
-    <message>
-        <source>Not logged in</source>
-        <translation>မဝင်ရသေး</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>စကားဝှက်ဖြည့်ပါ</translation>
     </message>
 </context>
 <context>
@@ -375,7 +316,7 @@
         <translation>စာရင်းသွင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConnectionPage.qml" line="1349" />
+        <location filename="../qml/pages/ConnectionPage.qml" line="1354" />
         <source>* Changes to connection settings require reconnecting to take effect</source>
         <translation>* ချိတ်ဆက်ဆက်တင်ပြောင်းလဲမှုများ အသက်ဝင်ရန် ပြန်ချိတ်ဆက်ရမည်</translation>
     </message>
@@ -383,20 +324,44 @@
 <context>
     <name>ConnectionViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="95" />
         <source>Not Connected</source>
         <translation>မချိတ်ရသေး</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="97" />
         <source>Connecting...</source>
         <translation>ချိတ်ဆက်နေ...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="99" />
         <source>Connected</source>
         <translation>ချိတ်ဆက်ပြီး</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="101" />
         <source>Disconnecting...</source>
         <translation>ဖြတ်နေ...</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="103" />
+        <source>Reconnecting...</source>
+        <translation>ပြန်ချိတ်ဆက်နေ...</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="105" />
+        <source>Connection Error</source>
+        <translation>ချိတ်ဆက်အမှား</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="107" />
+        <source>Unknown Status</source>
+        <translation>အခြေအနေမသိ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="120" />
+        <source>None</source>
+        <translation>မရှိ</translation>
     </message>
 </context>
 <context>
@@ -404,7 +369,7 @@
     <message>
         <location filename="../qml/components/CountryHelper.qml" line="14" />
         <source>Unknown</source>
-        <translation type="unfinished" />
+        <translation>မသိ</translation>
     </message>
     <message>
         <location filename="../qml/components/CountryHelper.qml" line="20" />
@@ -795,7 +760,30 @@ Third-party components:
 - Qt Framework: LGPL v3
 - OpenSSL: Apache License 2.0
 </source>
-        <translation type="unfinished" />
+        <translation>JinGo VPN - GNU General Public License v3.0
+
+Copyright (C) 2024-2025 JinGo Team
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.
+
+---
+
+Third-party components:
+- Xray-core: Mozilla Public License 2.0
+- Qt Framework: LGPL v3
+- OpenSSL: Apache License 2.0
+</translation>
     </message>
     <message>
         <location filename="../qml/dialogs/LicenseDialog.qml" line="25" />
@@ -869,7 +857,7 @@ Third-party components:
     <message>
         <location filename="../qml/components/LoginForm.qml" line="122" />
         <source>Logging in...</source>
-        <translation type="unfinished" />
+        <translation>ဝင်ရောက်နေသည်...</translation>
     </message>
     <message>
         <location filename="../qml/components/LoginForm.qml" line="122" />
@@ -898,12 +886,52 @@ Third-party components:
 <context>
     <name>LoginViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="147" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="429" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="473" />
         <source>Enter email</source>
         <translation>အီးမေးလ်ရိုက်</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="153" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="435" />
         <source>Invalid email format</source>
         <translation>အီးမေးလ်မမှန်</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="240" />
+        <source>Please enterUsername</source>
+        <translation>အသုံးပြုသူအမည်ရိုက်ထည့်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="245" />
+        <source>Enter password</source>
+        <translation>စကားဝှက်ထည့်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="326" />
+        <source>Password reset email sent to %1</source>
+        <translation>စကားဝှက်ပြန်သတ်မှတ်ရန်အီးမေးလ် %1 သို့ပေးပို့ပြီး</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="478" />
+        <source>Enter verification code</source>
+        <translation>အတည်ပြုကုဒ်ရိုက်</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="483" />
+        <source>Enter new password</source>
+        <translation>စကားဝှက်အသစ်ရိုက်ထည့်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="488" />
+        <source>Password must be at least 6 characters</source>
+        <translation>စကားဝှက်တွင် အနည်းဆုံးစာလုံး ၆ လုံးရှိရမည်</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="505" />
+        <source>Password reset successfully! Please login with new password.</source>
+        <translation>စကားဝှက်ပြန်လည်သတ်မှတ်ခြင်းအောင်မြင်ပါပြီ! စကားဝှက်အသစ်ဖြင့်ဝင်ရောက်ပါ။</translation>
     </message>
 </context>
 <context>
@@ -1027,7 +1055,7 @@ Third-party components:
         <location filename="../qml/components/OrderListDialog.qml" line="810" />
         <location filename="../qml/components/OrderListDialog.qml" line="1176" />
         <source>Unknown</source>
-        <translation type="unfinished" />
+        <translation>မသိ</translation>
     </message>
     <message>
         <location filename="../qml/components/OrderListDialog.qml" line="817" />
@@ -1303,7 +1331,7 @@ Third-party components:
         <location filename="../qml/pages/ProfilePage.qml" line="340" />
         <location filename="../qml/pages/ProfilePage.qml" line="552" />
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>မရှိ</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="347" />
@@ -1354,56 +1382,34 @@ Third-party components:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/main.cpp" line="242" />
+        <location filename="../../src/main.cpp" line="269" />
         <source>Not Connected</source>
         <translation>မချိတ်ရသေး</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="245" />
+        <location filename="../../src/main.cpp" line="272" />
         <source>Connecting...</source>
         <translation>ချိတ်ဆက်နေ...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="248" />
+        <location filename="../../src/main.cpp" line="275" />
         <source>Connected</source>
         <translation>ချိတ်ဆက်ပြီး</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="251" />
+        <location filename="../../src/main.cpp" line="278" />
         <source>Disconnecting...</source>
         <translation>ဖြတ်နေ...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="254" />
+        <location filename="../../src/main.cpp" line="281" />
         <source>Reconnecting...</source>
         <translation>ပြန်ချိတ်ဆက်နေ...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="257" />
+        <location filename="../../src/main.cpp" line="284" />
         <source>Connection Error</source>
         <translation>ချိတ်ဆက်အမှား</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="487" />
-        <source>安全错误</source>
-        <translation>လုံခြုံရေးအမှား</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="488" />
-        <source>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>ဖြတ်ပြီး</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>အမှား</translation>
     </message>
 </context>
 <context>
@@ -1416,7 +1422,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="36" />
         <source>Enter email address</source>
-        <translation type="unfinished" />
+        <translation>အီးမေးလ်လိပ်စာရိုက်ထည့်ပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="56" />
@@ -1451,7 +1457,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="106" />
         <source>Enter password (min 6 chars)</source>
-        <translation type="unfinished" />
+        <translation>စကားဝှက်ရိုက်ထည့်ပါ (အနည်းဆုံး ၆ လုံး)</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="123" />
@@ -1461,7 +1467,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="123" />
         <source>Invite Code</source>
-        <translation type="unfinished" />
+        <translation>ဖိတ်ခေါ်ကုဒ်</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
@@ -1471,12 +1477,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
         <source>Enter invite code</source>
-        <translation type="unfinished" />
+        <translation>ဖိတ်ခေါ်ကုဒ်ရိုက်ထည့်ပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="176" />
         <source>I agree to the</source>
-        <translation type="unfinished" />
+        <translation>ကျွန်ုပ်သဘောတူပါသည်</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="184" />
@@ -1486,17 +1492,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="257" />
         <source>I'm not a robot</source>
-        <translation type="unfinished" />
+        <translation>ကျွန်ုပ်ရိုဘော့မဟုတ်ပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="298" />
         <source>Registration Successful</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းသွင်းခြင်းအောင်မြင်ပါပြီ</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="300" />
         <source>Signing up...</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းသွင်းနေသည်...</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="302" />
@@ -1507,12 +1513,25 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>RegisterViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="123" />
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="170" />
         <source>Enter email</source>
         <translation>အီးမေးလ်ရိုက်</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="129" />
         <source>Invalid email format</source>
         <translation>အီးမေးလ်မမှန်</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="174" />
+        <source>Enter password</source>
+        <translation>စကားဝှက်ထည့်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="178" />
+        <source>Password must be at least 6 characters</source>
+        <translation>စကားဝှက်တွင် အနည်းဆုံးစာလုံး ၆ လုံးရှိရမည်</translation>
     </message>
 </context>
 <context>
@@ -1520,22 +1539,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="10" />
         <source>Plan Name</source>
-        <translation type="unfinished" />
+        <translation>အစီအစဉ်အမည်</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="11" />
         <source>Price / Period</source>
-        <translation type="unfinished" />
+        <translation>စျေးနှုန်း / ကာလ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="12" />
         <source>Unlimited traffic, 5 devices</source>
-        <translation type="unfinished" />
+        <translation>ဒေတာအကန့်အသတ်မရှိ, စက် ၅ လုံး</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="53" />
         <source>Purchase Now</source>
-        <translation type="unfinished" />
+        <translation>ယခုဝယ်ယူရန်</translation>
     </message>
 </context>
 <context>
@@ -1543,12 +1562,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerGroupCard.qml" line="74" />
         <source>%1 Servers</source>
-        <translation type="unfinished" />
+        <translation>ဆာဗာ %1 ခု</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerGroupCard.qml" line="189" />
         <source>UnknownServers</source>
-        <translation type="unfinished" />
+        <translation>မသိဆာဗာများ</translation>
     </message>
 </context>
 <context>
@@ -1556,21 +1575,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="78" />
         <source>UnknownServers</source>
-        <translation type="unfinished" />
+        <translation>မသိဆာဗာများ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="144" />
         <source>Load %1%</source>
-        <translation type="unfinished" />
+        <translation>ဝန် %1%</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
         <source>Testing...</source>
         <translation>စမ်းသပ်နေ...</translation>
-    </message>
-    <message>
-        <source>Test Latency</source>
-        <translation>စမ်းသပ်</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
@@ -1580,7 +1595,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="395" />
         <source>Not Tested</source>
-        <translation type="unfinished" />
+        <translation>မစမ်းသပ်ရသေး</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="396" />
@@ -1590,213 +1605,218 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="414" />
         <source>Excellent</source>
-        <translation type="unfinished" />
+        <translation>အကောင်းဆုံး</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="415" />
         <source>Good</source>
-        <translation type="unfinished" />
+        <translation>ကောင်း</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="416" />
         <source>General</source>
-        <translation type="unfinished" />
+        <translation>သာမန်</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="417" />
         <source>Poor</source>
-        <translation type="unfinished" />
+        <translation>ညံ့</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="433" />
         <source>Just now</source>
-        <translation type="unfinished" />
+        <translation>ယခုလေးတင်</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="434" />
         <source>%1 minutes ago</source>
-        <translation type="unfinished" />
+        <translation>%1 မိနစ်အကြာ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="435" />
         <source>%1 hours ago</source>
-        <translation type="unfinished" />
+        <translation>%1 နာရီအကြာ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="436" />
         <source>%1 days ago</source>
-        <translation type="unfinished" />
+        <translation>%1 ရက်အကြာ</translation>
     </message>
 </context>
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="775" />
+        <location filename="../qml/pages/ServerListPage.qml" line="814" />
         <source>Servers</source>
         <translation>ဆာဗာ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="813" />
+        <location filename="../qml/pages/ServerListPage.qml" line="852" />
         <source>Search servers...</source>
         <translation>ရှာဖွေ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="867" />
+        <location filename="../qml/pages/ServerListPage.qml" line="906" />
         <source>All</source>
         <translation>အားလုံး</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="929" />
+        <location filename="../qml/pages/ServerListPage.qml" line="968" />
         <source>Refresh server list</source>
         <translation>ပြန်ဖွင့်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="975" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1014" />
         <source>Sort by latency</source>
         <translation>ping အလိုက်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1012" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1051" />
         <source>Sort by name</source>
         <translation>အမည်အလိုက်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1093" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1132" />
         <source>Test All Speed</source>
-        <translation type="unfinished" />
+        <translation>အားလုံးအမြန်နှုန်းစမ်းသပ်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1111" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1150" />
         <source>Speed</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1138" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1177" />
         <source>No Servers Available</source>
-        <translation type="unfinished" />
+        <translation>ရရှိနိုင်သောဆာဗာမရှိပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1146" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1185" />
         <source>Click 'Refresh' button above to load servers</source>
-        <translation type="unfinished" />
+        <translation>ဆာဗာများဖတ်ရန် အထက်ရှိ 'ပြန်လည်စတင်' ခလုတ်ကိုနှိပ်ပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1147" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
         <source>Please add a subscription first</source>
-        <translation type="unfinished" />
+        <translation>ကျေးဇူးပြု၍ စာရင်းသွင်းမှုအရင်ထည့်ပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1159" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1198" />
         <source>Go to Subscriptions</source>
         <translation>စာရင်းသို့</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1225" />
         <source>Loading servers...</source>
         <translation>ဖွင့်နေ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1193" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1232" />
         <source>Please wait a moment</source>
         <translation>စောင့်ပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1344" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1383" />
         <source>Off</source>
         <translation>ပိတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1349" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1388" />
         <source>Go</source>
         <translation>ချိတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1385" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1424" />
         <source>Test</source>
-        <translation type="unfinished" />
+        <translation>စမ်းသပ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2137" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2176" />
         <source>Batch test completed</source>
-        <translation type="unfinished" />
+        <translation>အစုလိုက်စမ်းသပ်ခြင်းပြီးပါပြီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2148" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2187" />
         <source>Speed: %1 Mbps</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်း: %1 Mbps</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2150" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2189" />
         <source>Speed test failed</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်းစမ်းသပ်ခြင်းမအောင်မြင်ပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2218" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2257" />
         <source>Server not found</source>
         <translation>ဆာဗာမတွေ့</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2260" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2299" />
         <source>No servers to test</source>
-        <translation type="unfinished" />
+        <translation>စမ်းသပ်ရန်ဆာဗာမရှိပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2315" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2354" />
         <source>Latency Testing</source>
-        <translation type="unfinished" />
+        <translation>လေတင်စီစစ်နေသည်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2340" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2379" />
         <source>Testing latency...</source>
-        <translation type="unfinished" />
+        <translation>လေတင်စီစစ်နေသည်...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2383" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
         <source>Speed Testing (%1/%2)</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်းစမ်းသပ်နေသည် (%1/%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2384" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2423" />
         <source>Speed Testing</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်းစမ်းသပ်နေသည်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Connecting...</source>
         <translation>ချိတ်ဆက်နေ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Testing speed...</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်းစမ်းသပ်နေသည်...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2461" />
         <source>Cancel</source>
         <translation>ပယ်ဖျက်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2438" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2477" />
         <source>Test cancelled</source>
-        <translation type="unfinished" />
+        <translation>စမ်းသပ်ခြင်းပယ်ဖျက်ပြီး</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>ကူးယူ</translation>
-    </message>
-    <message>
-        <source>Share link copied</source>
-        <translation>ကူးပြီး</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1584" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1623" />
         <source>Testing...</source>
         <translation>စမ်းသပ်နေ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1611" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1650" />
         <source>Timeout</source>
         <translation>အချိန်ကုန်</translation>
+    </message>
+</context>
+<context>
+    <name>ServerListViewModel</name>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="284" />
+        <source>Unknown</source>
+        <translation>မသိ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="527" />
+        <source>VPN not connected</source>
+        <translation>VPN မချိတ်ဆက်ရသေး</translation>
     </message>
 </context>
 <context>
@@ -1830,22 +1850,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="418" />
         <source>No matching servers found</source>
-        <translation type="unfinished" />
+        <translation>ကိုက်ညီသောဆာဗာမတွေ့ပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="419" />
         <source>No Servers</source>
-        <translation type="unfinished" />
+        <translation>ဆာဗာမရှိပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="449" />
         <source>Refresh List</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းပြန်ဖတ်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="489" />
         <source>Total %1 servers</source>
-        <translation type="unfinished" />
+        <translation>စုစုပေါင်းဆာဗာ %1 ခု</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="497" />
@@ -1858,52 +1878,52 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="144" />
         <source>GeneralSettings</source>
-        <translation type="unfinished" />
+        <translation>အထွေထွေဆက်တင်များ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="145" />
         <source>Application Basic Configuration</source>
-        <translation type="unfinished" />
+        <translation>အက်ပ်အခြေခံဖွဲ့စည်းမှု</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="149" />
         <source>Start at Login</source>
-        <translation type="unfinished" />
+        <translation>ဝင်ရောက်သည့်အခါစတင်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="150" />
         <source>Launch at system startup</source>
-        <translation type="unfinished" />
+        <translation>စနစ်စတင်သည့်အခါဖွင့်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="162" />
         <source>Connect on Demand</source>
-        <translation type="unfinished" />
+        <translation>လိုအပ်သည့်အခါချိတ်ဆက်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="162" />
         <source>Auto-connect on startup</source>
-        <translation type="unfinished" />
+        <translation>စတင်သည့်အခါအလိုအလျောက်ချိတ်ဆက်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="164" />
         <source>Automatically connect VPN when network changes</source>
-        <translation type="unfinished" />
+        <translation>ကွန်ရက်ပြောင်းလဲသည့်အခါ VPN အလိုအလျောက်ချိတ်ဆက်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="165" />
         <source>Automatically connect to last used server on startup</source>
-        <translation type="unfinished" />
+        <translation>စတင်သည့်အခါနောက်ဆုံးသုံးခဲ့သောဆာဗာသို့အလိုအလျောက်ချိတ်ဆက်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="177" />
         <source>Minimize to System Tray</source>
-        <translation type="unfinished" />
+        <translation>စနစ်ထရေးသို့ချုံ့ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="178" />
         <source>Minimize to system tray instead of quit when closing window</source>
-        <translation type="unfinished" />
+        <translation>ဝင်းဒိုးပိတ်သည့်အခါ ထွက်မည့်အစား စနစ်ထရေးသို့ချုံ့ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="189" />
@@ -1913,7 +1933,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="190" />
         <source>Select app display language</source>
-        <translation type="unfinished" />
+        <translation>အက်ပ်ပြသမည့်ဘာသာစကားရွေးချယ်ပါ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="239" />
@@ -1923,613 +1943,1038 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="240" />
         <source>Select app theme style</source>
-        <translation type="unfinished" />
+        <translation>အက်ပ်အပြင်အဆင်ပုံစံရွေးချယ်ပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="320" />
+        <location filename="../qml/pages/SettingsPage.qml" line="319" />
         <source>Subscription Settings</source>
         <translation>စာရင်းသွင်းဆက်တင်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="321" />
+        <location filename="../qml/pages/SettingsPage.qml" line="320" />
         <source>Server subscription update settings</source>
         <translation>အပ်ဒိတ်ဆက်တင်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="324" />
+        <location filename="../qml/pages/SettingsPage.qml" line="323" />
         <source>Auto Update Interval</source>
         <translation>အလိုအလျောက်အပ်ဒိတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="325" />
+        <location filename="../qml/pages/SettingsPage.qml" line="324" />
         <source>How often to automatically update server list</source>
         <translation>မကြာခဏအပ်ဒိတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="331" />
+        <location filename="../qml/pages/SettingsPage.qml" line="330" />
         <source>1 Hour</source>
         <translation>၁နာရီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="331" />
         <source>3 Hours</source>
         <translation>၃နာရီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="333" />
+        <location filename="../qml/pages/SettingsPage.qml" line="332" />
         <source>6 Hours</source>
         <translation>၆နာရီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="333" />
         <source>12 Hours</source>
         <translation>၁၂နာရီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="335" />
+        <location filename="../qml/pages/SettingsPage.qml" line="334" />
         <source>24 Hours</source>
         <translation>၂၄နာရီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="375" />
+        <location filename="../qml/pages/SettingsPage.qml" line="374" />
         <source>Routing Settings</source>
         <translation>လမ်းကြောင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="376" />
+        <location filename="../qml/pages/SettingsPage.qml" line="375" />
         <source>Control how traffic is routed and split</source>
         <translation>လမ်းကြောင်းထိန်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="379" />
         <source>Domain Resolution Strategy</source>
         <translation>Domain ဖြေရှင်းနည်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="381" />
+        <location filename="../qml/pages/SettingsPage.qml" line="380" />
         <source>Control how domains are resolved</source>
         <translation>ဖြေရှင်းပုံ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="422" />
+        <location filename="../qml/pages/SettingsPage.qml" line="421" />
         <source>Bypass Countries</source>
-        <translation type="unfinished" />
+        <translation>ကျော်ဖြတ်မည့်နိုင်ငံများ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="423" />
+        <location filename="../qml/pages/SettingsPage.qml" line="422" />
         <source>Select countries to bypass, their websites will connect directly</source>
-        <translation type="unfinished" />
+        <translation>ကျော်ဖြတ်ရန်နိုင်ငံများရွေးချယ်ပါ၊ ၎င်းတို့၏ဝဘ်ဆိုက်များတိုက်ရိုက်ချိတ်ဆက်မည်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="427" />
+        <location filename="../qml/pages/SettingsPage.qml" line="426" />
         <source>China</source>
         <translation>တရုတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="428" />
+        <location filename="../qml/pages/SettingsPage.qml" line="427" />
         <source>Russia</source>
         <translation>ရုရှ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="429" />
+        <location filename="../qml/pages/SettingsPage.qml" line="428" />
         <source>Iran</source>
         <translation>အီရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="430" />
+        <location filename="../qml/pages/SettingsPage.qml" line="429" />
         <source>Vietnam</source>
         <translation>ဗီယက်နမ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="431" />
+        <location filename="../qml/pages/SettingsPage.qml" line="430" />
         <source>Cambodia</source>
         <translation>ကမ္ဘောဒီးယား</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="432" />
+        <location filename="../qml/pages/SettingsPage.qml" line="431" />
         <source>Myanmar</source>
         <translation>မြန်မာ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="489" />
+        <location filename="../qml/pages/SettingsPage.qml" line="488" />
         <source>Network Interface</source>
         <translation>ကွန်ရက် Interface</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="490" />
+        <location filename="../qml/pages/SettingsPage.qml" line="489" />
         <source>Select the network interface for VPN outbound traffic</source>
         <translation>ကွန်ရက် Interface ရွေး</translation>
     </message>
     <message>
-        <source>Bypass LAN addresses</source>
-        <translation>LAN ကျော်</translation>
-    </message>
-    <message>
-        <source>LAN traffic bypass proxy</source>
-        <translation>LAN အသွားအလာကျော်</translation>
+        <location filename="../qml/pages/SettingsPage.qml" line="572" />
+        <source>Per-App Proxy</source>
+        <translation>အက်ပ်အလိုက်ပရောက်စီ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="573" />
-        <source>Per-App Proxy</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
         <source>Control which apps use VPN</source>
-        <translation type="unfinished" />
+        <translation>VPN သုံးမည့်အက်ပ်များကိုထိန်းချုပ်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>TUN mode only</source>
-        <translation type="unfinished" />
+        <translation>TUN မုဒ်သာ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="578" />
+        <location filename="../qml/pages/SettingsPage.qml" line="577" />
         <source>Per-App Proxy Mode</source>
-        <translation type="unfinished" />
+        <translation>အက်ပ်အလိုက်ပရောက်စီမုဒ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="581" />
+        <source>Disabled: All apps use VPN</source>
+        <translation>ပိတ်ထားသည်: အက်ပ်အားလုံး VPN သုံးမည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="582" />
-        <source>Disabled: All apps use VPN</source>
-        <translation type="unfinished" />
+        <source>Allow List: Only selected apps use VPN</source>
+        <translation>ခွင့်ပြုစာရင်း: ရွေးချယ်ထားသောအက်ပ်များသာ VPN သုံးမည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="583" />
-        <source>Allow List: Only selected apps use VPN</source>
-        <translation type="unfinished" />
+        <source>Block List: Selected apps bypass VPN</source>
+        <translation>ပိတ်ဆို့စာရင်း: ရွေးချယ်ထားသောအက်ပ်များ VPN ကိုကျော်ဖြတ်မည်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="584" />
-        <source>Block List: Selected apps bypass VPN</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="592" />
+        <source>Allow List</source>
+        <translation>ခွင့်ပြုစာရင်း</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="593" />
-        <source>Allow List</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="594" />
         <source>Block List</source>
-        <translation type="unfinished" />
+        <translation>ပိတ်ဆို့စာရင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="621" />
+        <location filename="../qml/pages/SettingsPage.qml" line="620" />
         <source>Selected Apps</source>
-        <translation type="unfinished" />
+        <translation>ရွေးချယ်ထားသောအက်ပ်များ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="625" />
+        <location filename="../qml/pages/SettingsPage.qml" line="624" />
         <source>%1 app(s) selected</source>
-        <translation type="unfinished" />
+        <translation>အက်ပ် %1 ခုရွေးချယ်ထားသည်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="628" />
+        <location filename="../qml/pages/SettingsPage.qml" line="627" />
         <source>Select Apps</source>
         <translation>အက်ပ်ရွေး</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="644" />
+        <location filename="../qml/pages/SettingsPage.qml" line="643" />
         <source>Clear Selection</source>
-        <translation type="unfinished" />
+        <translation>ရွေးချယ်မှုရှင်းရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="645" />
+        <location filename="../qml/pages/SettingsPage.qml" line="644" />
         <source>Remove all apps from the list</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းမှအက်ပ်အားလုံးဖယ်ရှားရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="664" />
+        <location filename="../qml/pages/SettingsPage.qml" line="663" />
         <source>DNS Settings</source>
         <translation>DNS ဆက်တင်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="665" />
+        <location filename="../qml/pages/SettingsPage.qml" line="664" />
         <source>DNS server configuration</source>
         <translation>DNS ဆာဗာ ပြင်ဆင်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="669" />
+        <location filename="../qml/pages/SettingsPage.qml" line="668" />
         <source>Domestic DNS 1</source>
         <translation>ပြည်တွင်း DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="685" />
+        <location filename="../qml/pages/SettingsPage.qml" line="684" />
         <source>Domestic DNS 2</source>
         <translation>ပြည်တွင်း DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="701" />
+        <location filename="../qml/pages/SettingsPage.qml" line="700" />
         <source>Overseas DNS 1</source>
-        <translation type="unfinished" />
+        <translation>ပြည်ပ DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="729" />
+        <location filename="../qml/pages/SettingsPage.qml" line="728" />
         <source>Overseas DNS 2</source>
-        <translation type="unfinished" />
+        <translation>ပြည်ပ DNS 2</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="756" />
+        <source>DNS Query Strategy</source>
+        <translation>DNS မေးမြန်းမှုနည်းဗျူဟာ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="757" />
-        <source>DNS Query Strategy</source>
-        <translation type="unfinished" />
+        <source>IPv4/IPv6 Query Strategy</source>
+        <translation>IPv4/IPv6 မေးမြန်းမှုနည်းဗျူဟာ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="758" />
-        <source>IPv4/IPv6 Query Strategy</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="798" />
+        <source>Local Proxy</source>
+        <translation>ပြည်တွင်းပရောက်စီ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="799" />
-        <source>Local Proxy</source>
-        <translation type="unfinished" />
+        <source>Local SOCKS/HTTP proxy server settings</source>
+        <translation>ပြည်တွင်း SOCKS/HTTP ပရောက်စီဆာဗာဆက်တင်များ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="800" />
-        <source>Local SOCKS/HTTP proxy server settings</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="803" />
+        <source>SOCKS Proxy Port</source>
+        <translation>SOCKS ပရောက်စီပို့တ်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="804" />
-        <source>SOCKS Proxy Port</source>
-        <translation type="unfinished" />
+        <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
+        <translation>SOCKS5 ပရောက်စီနားထောင်ပို့တ် - ပြင်ပြီးနောက်ပြန်ချိတ်ဆက်ရန်လိုအပ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="805" />
-        <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="836" />
+        <source>HTTP Proxy Port</source>
+        <translation>HTTP ပရောက်စီပို့တ်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="837" />
-        <source>HTTP Proxy Port</source>
-        <translation type="unfinished" />
+        <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
+        <translation>HTTP ပရောက်စီနားထောင်ပို့တ် - ပြင်ပြီးနောက်ပြန်ချိတ်ဆက်ရန်လိုအပ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="838" />
-        <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="869" />
+        <source>Allow LAN Connections</source>
+        <translation>LAN ချိတ်ဆက်မှုများခွင့်ပြုရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="870" />
-        <source>Allow LAN Connections</source>
-        <translation type="unfinished" />
+        <source>Allow other devices in LAN to connect to this proxy</source>
+        <translation>LAN ရှိအခြားစက်များဤပရောက်စီသို့ချိတ်ဆက်ခွင့်ပြုရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="871" />
-        <source>Allow other devices in LAN to connect to this proxy</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="888" />
+        <source>Transport Layer Settings</source>
+        <translation>ပို့ဆောင်ရေးအလွှာဆက်တင်များ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="889" />
-        <source>Transport Layer Settings</source>
-        <translation type="unfinished" />
+        <source>Protocol transport related configuration</source>
+        <translation>ပရိုတိုကောပို့ဆောင်ရေးဆိုင်ရာဖွဲ့စည်းမှု</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="890" />
-        <source>Protocol transport related configuration</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="893" />
+        <source>Enable Mux multiplexing</source>
+        <translation>Mux multiplexing ဖွင့်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="894" />
-        <source>Enable Mux multiplexing</source>
-        <translation type="unfinished" />
+        <source>Transfer multiple data streams through single connection, may reduce latency</source>
+        <translation>ချိတ်ဆက်မှုတစ်ခုမှတဆင့်ဒေတာစီးကြောင်းများပို့ရန်၊ လေတင်စီကျဆင်းနိုင်သည်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="895" />
-        <source>Transfer multiple data streams through single connection, may reduce latency</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="905" />
+        <source>Mux concurrent connections</source>
+        <translation>Mux တစ်ပြိုင်နက်ချိတ်ဆက်မှုများ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="906" />
-        <source>Mux concurrent connections</source>
-        <translation type="unfinished" />
+        <source>Maximum concurrent multiplexed connections</source>
+        <translation>အများဆုံးတစ်ပြိုင်နက်ချိတ်ဆက်မှုများ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="907" />
-        <source>Maximum concurrent multiplexed connections</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="938" />
+        <source>TCP Fast Open</source>
+        <translation>TCP Fast Open</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="939" />
-        <source>TCP Fast Open</source>
-        <translation type="unfinished" />
+        <source>Enable TFO to reduce latency (requires system support)</source>
+        <translation>လေတင်စီကျဆင်းစေရန် TFO ဖွင့်ပါ (စနစ်ပံ့ပိုးမှုလိုအပ်)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="940" />
-        <source>Enable TFO to reduce latency (requires system support)</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="952" />
+        <source>Enable traffic sniffing</source>
+        <translation>ဒေတာအသွားအလာစစ်ဆေးခြင်းဖွင့်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="953" />
-        <source>Enable traffic sniffing</source>
-        <translation type="unfinished" />
+        <source>Auto identify traffic type for routing</source>
+        <translation>လမ်းကြောင်းသတ်မှတ်ရန်ဒေတာအမျိုးအစားအလိုအလျောက်ခွဲခြားရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="954" />
-        <source>Auto identify traffic type for routing</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="968" />
+        <source>Log Settings</source>
+        <translation>မှတ်တမ်းဆက်တင်များ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="969" />
-        <source>Log Settings</source>
-        <translation type="unfinished" />
+        <source>Application and core log configuration</source>
+        <translation>အက်ပ်နှင့်အဓိကမှတ်တမ်းဖွဲ့စည်းမှု</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="970" />
-        <source>Application and core log configuration</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="973" />
+        <source>Log Level</source>
+        <translation>မှတ်တမ်းအဆင့်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="974" />
-        <source>Log Level</source>
-        <translation type="unfinished" />
+        <source>Set log verbosity level</source>
+        <translation>မှတ်တမ်းအသေးစိတ်အဆင့်သတ်မှတ်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="975" />
-        <source>Set log verbosity level</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1002" />
+        <source>Enable access log</source>
+        <translation>ဝင်ရောက်မှုမှတ်တမ်းဖွင့်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1003" />
-        <source>Enable access log</source>
-        <translation type="unfinished" />
+        <source>Log all connection requests</source>
+        <translation>ချိတ်ဆက်မှုတောင်းဆိုမှုအားလုံးမှတ်တမ်းတင်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1004" />
-        <source>Log all connection requests</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1016" />
+        <source>Log retention days</source>
+        <translation>မှတ်တမ်းသိမ်းဆည်းရက်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1017" />
-        <source>Log retention days</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1018" />
         <source>Auto clean old logs</source>
         <translation>Auto clean old logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1049" />
         <source>Log Size</source>
         <translation>Log Size</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1051" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
         <source>%1 files</source>
         <translation>%1 files</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1059" />
         <source>Export Logs</source>
         <translation>Export Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Export all logs to a file</source>
         <translation>Export all logs to a file</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Save to Downloads folder</source>
         <translation>ဒေါင်းလုဒ်ဖိုဒါတွင်သိမ်းပါ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1063" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1062" />
         <source>Export</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1097" />
         <source>Clear Logs</source>
         <translation>Clear Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1383" />
         <source>10MB: Quick test</source>
         <translation>10MB: အမြန်စမ်းသပ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1385" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
         <source>25MB: Standard test</source>
         <translation>25MB: စံစမ်းသပ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1494" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1493" />
         <source>Documentation</source>
-        <translation type="unfinished" />
+        <translation>စာရွက်စာတမ်း</translation>
     </message>
     <message>
-        <source>Delete old log files</source>
-        <translation type="vanished">Delete old log files</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1128" />
         <source>View Logs</source>
         <translation>View Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1132" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1131" />
         <source>Open</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1148" />
         <source>AdvancedSettings</source>
         <translation>Advanced Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1150" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
         <source>Advanced user options, modify with caution</source>
         <translation>Advanced user options, modify with caution</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1154" />
         <source>ConnectTimeout</source>
-        <translation type="unfinished" />
+        <translation>ချိတ်ဆက်မှုအချိန်ကုန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1156" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
         <source>Connection establishment timeout</source>
-        <translation type="unfinished" />
+        <translation>ချိတ်ဆက်မှုတည်ဆောက်ခြင်းအချိန်ကုန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="1187" />
+        <source>Test Timeout</source>
+        <translation>စမ်းသပ်ခြင်းအချိန်ကုန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1188" />
-        <source>Test Timeout</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1189" />
         <source>Server latency test timeout duration</source>
-        <translation type="unfinished" />
+        <translation>ဆာဗာလေတင်စီစမ်းသပ်ခြင်းအချိန်ကုန်ကြာချိန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1232" />
         <source>Account Actions</source>
         <translation>အကောင့်လုပ်ဆောင်ချက်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1234" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
         <source>Account management and data operations</source>
-        <translation type="unfinished" />
+        <translation>အကောင့်စီမံခန့်ခွဲမှုနှင့်ဒေတာလုပ်ဆောင်ချက်များ</translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation>စကားဝှက်ပြောင်း</translation>
-    </message>
-    <message>
-        <source>Order Management</source>
-        <translation>အော်ဒါစီမံ</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="647" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1101" />
+        <location filename="../qml/pages/SettingsPage.qml" line="646" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1100" />
         <source>Clear</source>
         <translation>ရှင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1099" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
         <source>Delete all logs except current</source>
         <translation>လက်ရှိမှတ်တမ်းမှလွဲ၍ အားလုံးဖျက်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1130" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
         <source>Open log directory</source>
         <translation>မှတ်တမ်းဖိုဒါဖွင့်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1236" />
         <source>Reset all settings</source>
-        <translation type="unfinished" />
+        <translation>ဆက်တင်အားလုံးပြန်လည်သတ်မှတ်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1238" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
         <source>Restore default settings (does not affect account data)</source>
-        <translation type="unfinished" />
+        <translation>မူလဆက်တင်များပြန်ထားရန် (အကောင့်ဒေတာအပေါ်သက်ရောက်မှုမရှိ)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1240" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1239" />
         <source>Reset</source>
         <translation>ပြန်သတ်မှတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1253" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1252" />
         <source>Settings reset to default</source>
-        <translation type="unfinished" />
+        <translation>ဆက်တင်များကို မူလအတိုင်းပြန်ထားပြီးပါပြီ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1263" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1262" />
         <source>Network test</source>
-        <translation type="unfinished" />
+        <translation>ကွန်ရက်စမ်းသပ်ခြင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1267" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1266" />
         <source>Latency Test Method</source>
-        <translation type="unfinished" />
+        <translation>လေတင်စီစမ်းသပ်နည်း</translation>
     </message>
     <message>
-        <source>TCP: Direct TCP connection to server port (fast, recommended)</source>
-        <translation>TCP: တိုက်ရိုက်ချိတ် (မြန်, အကြံပြု)</translation>
-    </message>
-    <message>
-        <source>HTTP: Test via proxy HTTP request (most accurate for actual usage)</source>
-        <translation>HTTP: proxy ဖြင့်စမ်း (တိကျဆုံး)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1282" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1281" />
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1303" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1302" />
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1327" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1326" />
         <source>Latency Test Interval</source>
         <translation>စမ်းသပ်ကြား</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1331" />
         <source>Disabled: No periodic latency testing when connected</source>
         <translation>ပိတ်: ပုံမှန်မစမ်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1333" />
         <source>Test latency every %1 seconds when connected</source>
         <translation>ချိတ်ဆက်ချိန် %1 စက္ကန့်တိုင်းစမ်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="592" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1350" />
+        <location filename="../qml/pages/SettingsPage.qml" line="591" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1349" />
         <source>Disabled</source>
         <translation>ပိတ်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1270" />
         <source>TCP ping, fast</source>
-        <translation type="unfinished" />
+        <translation>TCP ping, မြန်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1272" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
         <source>HTTP ping, accurate</source>
-        <translation type="unfinished" />
+        <translation>HTTP ping, တိကျ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1379" />
         <source>Speed Test File Size</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်းစမ်းသပ်ဖိုင်အရွယ်အစား</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1442" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1441" />
         <source>About</source>
         <translation>အကြောင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1445" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1444" />
         <source>Application Version</source>
         <translation>ဗားရှင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1448" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1447" />
         <source>Check</source>
         <translation>စစ်ဆေး</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1467" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1466" />
         <source>Core Version</source>
-        <translation type="unfinished" />
+        <translation>အဓိကဗားရှင်း</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1473" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1472" />
         <source>Open Source License</source>
-        <translation type="unfinished" />
+        <translation>အိုပင်ဆောစ်လိုင်စင်</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1475" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1496" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1474" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1495" />
         <source>View</source>
-        <translation type="unfinished" />
+        <translation>ကြည့်ရန်</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleBottomNavigationBar</name>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="56" />
+        <source>Dashboard</source>
+        <translation>ဒက်ရှ်ဘုတ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="69" />
+        <source>Store</source>
+        <translation>စတိုး</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="82" />
+        <source>Profile</source>
+        <translation>ပရိုဖိုင်</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleConnectionPage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="22" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="140" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="157" />
+        <source>No Server Selected</source>
+        <translation>ဆာဗာမရွေးရသေး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="27" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="191" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="210" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="218" />
+        <source>No Plan</source>
+        <translation>အစီအစဉ်မရှိပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="71" />
+        <source>Connecting...</source>
+        <translation>ချိတ်ဆက်နေ...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="72" />
+        <source>Disconnecting...</source>
+        <translation>ဖြတ်နေ...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="73" />
+        <source>Connected</source>
+        <translation>ချိတ်ဆက်ပြီး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="74" />
+        <source>Not Connected</source>
+        <translation>မချိတ်ရသေး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="189" />
+        <source>Plan</source>
+        <translation>အစီအစဉ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="413" />
+        <source>Dashboard</source>
+        <translation>ဒက်ရှ်ဘုတ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="592" />
+        <source>Expires: %1</source>
+        <translation>သက်တမ်းကုန်: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="608" />
+        <source>Renew</source>
+        <translation>သက်တမ်းတိုး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="643" />
+        <source>Traffic Used</source>
+        <translation>အသုံးပြုပြီးဒေတာ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="686" />
+        <source>%1% used</source>
+        <translation>%1% အသုံးပြုပြီး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="878" />
+        <source>Global</source>
+        <translation>ကမ္ဘာလုံး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="905" />
+        <source>Smart</source>
+        <translation>စမတ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to change server</source>
+        <translation>ဆာဗာပြောင်းရန် နှိပ်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to select a server</source>
+        <translation>ဆာဗာရွေးချယ်ရန် နှိပ်ပါ</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleProfilePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="15" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="69" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="90" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="110" />
+        <source>Users</source>
+        <translation>အသုံးပြုသူများ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="121" />
+        <source>Unlimited</source>
+        <translation>အကန့်မရှိ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="239" />
+        <source>Profile</source>
+        <translation>ပရိုဖိုင်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="347" />
+        <source>Account ID: </source>
+        <translation>အကောင့် ID: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="379" />
+        <source>Subscription Overview</source>
+        <translation>စာရင်းသွင်းမှုအနှစ်ချုပ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Active</source>
+        <translation>အသက်ဝင်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Inactive</source>
+        <translation>မဖွင့်ရသေး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="411" />
+        <source>Status</source>
+        <translation>အခြေအနေ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="438" />
+        <source>Expiry Date</source>
+        <translation>သက်တမ်းကုန်ရက်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="465" />
+        <source>Used Traffic</source>
+        <translation>အသုံးပြုပြီးဒေတာ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="487" />
+        <source>Expired</source>
+        <translation>သက်တမ်းကုန်ပြီး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="488" />
+        <source> days</source>
+        <translation> ရက်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="500" />
+        <source>Remaining</source>
+        <translation>ကျန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="519" />
+        <source>Traffic</source>
+        <translation>အသွားအလာ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="576" />
+        <source>Account Actions</source>
+        <translation>အကောင့်လုပ်ဆောင်ချက်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="604" />
+        <source>Order Management</source>
+        <translation>အော်ဒါစီမံ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="646" />
+        <source>Ticket System</source>
+        <translation>လက်မှတ်စနစ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="688" />
+        <source>Help Center</source>
+        <translation>အကူအညီ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="730" />
+        <source>Change Password</source>
+        <translation>စကားဝှက်ပြောင်း</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="766" />
+        <source>Logout</source>
+        <translation>ထွက်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="820" />
+        <source>Password changed successfully</source>
+        <translation>စကားဝှက်ပြောင်းပြီး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="852" />
+        <source>OK</source>
+        <translation>အိုကေ</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleStorePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="81" />
+        <source>Monthly</source>
+        <translation>လစဉ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="84" />
+        <source>Billed monthly</source>
+        <translation>လစဉ်ငွေတောင်းခံသည်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="93" />
+        <source>Quarterly</source>
+        <translation>သုံးလတစ်ကြိမ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="96" />
+        <source>Billed every 3 months</source>
+        <translation>၃ လတစ်ကြိမ်ငွေတောင်းခံသည်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="105" />
+        <source>Semi-Annual</source>
+        <translation>နှစ်ဝက်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="108" />
+        <source>Billed every 6 months</source>
+        <translation>၆ လတစ်ကြိမ်ငွေတောင်းခံသည်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="117" />
+        <source>Yearly</source>
+        <translation>နှစ်စဉ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="120" />
+        <source>Billed annually - Best value!</source>
+        <translation>နှစ်စဉ်ငွေတောင်းခံသည် - အတန်ဆုံး!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="129" />
+        <source>2 Years</source>
+        <translation>2 နှစ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="132" />
+        <source>Billed every 2 years</source>
+        <translation>၂ နှစ်တစ်ကြိမ်ငွေတောင်းခံသည်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="141" />
+        <source>3 Years</source>
+        <translation>3 နှစ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="144" />
+        <source>Billed every 3 years</source>
+        <translation>၃ နှစ်တစ်ကြိမ်ငွေတောင်းခံသည်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="152" />
+        <source>One-time</source>
+        <translation>တစ်ကြိမ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="155" />
+        <source>One-time payment, no renewal</source>
+        <translation>တစ်ကြိမ်ငွေပေးချေမှု၊ သက်တမ်းတိုးမလို</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="189" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="939" />
+        <source>Unnamed Plan</source>
+        <translation>အမည်မရှိအစီအစဉ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="196" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="536" />
+        <source>Unlimited</source>
+        <translation>အကန့်မရှိ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="359" />
+        <source>Purchase successful!</source>
+        <translation>ဝယ်ယူမှုအောင်မြင်ပါပြီ!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="375" />
+        <source>Purchases restored successfully</source>
+        <translation>ဝယ်ယူမှုများပြန်လည်ရယူခြင်းအောင်မြင်ပါပြီ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="378" />
+        <source>No purchases to restore</source>
+        <translation>ပြန်လည်ရယူရန်ဝယ်ယူမှုမရှိပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="383" />
+        <source>Restore failed: </source>
+        <translation>ပြန်လည်ရယူခြင်းမအောင်မြင်ပါ: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="429" />
+        <source>No payment methods available</source>
+        <translation>ငွေပေးနည်းမရှိ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="445" />
+        <source>Payment initiated successfully</source>
+        <translation>ငွေပေးချေမှုစတင်ပြီ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="500" />
+        <source>Unknown Plan</source>
+        <translation>မသိအစီအစဉ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="507" />
+        <source>Plan #</source>
+        <translation>အစီအစဉ် #</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="549" />
+        <source>Please login first</source>
+        <translation>ဦးစွာဝင်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="587" />
+        <source>IAP not available</source>
+        <translation>အက်ပ်အတွင်းဝယ်ယူမှုမရရှိနိုင်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="603" />
+        <source>No matching IAP product for this plan</source>
+        <translation>ဤအစီအစဉ်အတွက် IAP ထုတ်ကုန်မတွေ့ပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="607" />
+        <source>No subscription options available</source>
+        <translation>စာရင်းသွင်းမှုရွေးချယ်စရာမရှိပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="624" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="633" />
+        <source>Order manager not available</source>
+        <translation>မရရှိနိုင်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="642" />
+        <source>Invalid order</source>
+        <translation>အော်ဒါမမှန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="691" />
+        <source>Store</source>
+        <translation>စတိုး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="755" />
+        <source>Loading subscription information...</source>
+        <translation>ဖွင့်နေ...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="786" />
+        <source>Current Subscription</source>
+        <translation>လက်ရှိစာရင်း</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="794" />
+        <source>No Subscription</source>
+        <translation>စာရင်းသွင်းမှုမရှိပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="803" />
+        <source>Select a plan below to get started</source>
+        <translation>အစီအစဉ်ရွေး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="826" />
+        <source>Exp: %1</source>
+        <translation>ကုန်: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="847" />
+        <source>Rem: %1</source>
+        <translation>ကျန်: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="888" />
+        <source>Select Plan</source>
+        <translation>အစီအစဉ်ရွေးချယ်ရန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="942" />
+        <source>Month</source>
+        <translation>လ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="992" />
+        <source>Restore Purchases</source>
+        <translation>ဝယ်ယူမှုများပြန်လည်ရယူရန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1034" />
+        <source>No Available Plans</source>
+        <translation>ရရှိနိုင်သောအစီအစဉ်မရှိပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1059" />
+        <source>Loading Plans...</source>
+        <translation>အစီအစဉ်များဖတ်နေသည်...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1134" />
+        <source>Select Subscription Period</source>
+        <translation>စာရင်းသွင်းကာလရွေး</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1192" />
+        <source>This period is not available for in-app purchase</source>
+        <translation>ဤကာလသည် အက်ပ်အတွင်းဝယ်ယူမှုအတွက်မရနိုင်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1217" />
+        <source>Cancel</source>
+        <translation>ပယ်ဖျက်</translation>
     </message>
 </context>
 <context>
@@ -2542,7 +2987,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/StatusIndicator.qml" line="64" />
         <source>Connecting</source>
-        <translation type="unfinished" />
+        <translation>ချိတ်ဆက်နေသည်</translation>
     </message>
     <message>
         <location filename="../qml/components/StatusIndicator.qml" line="65" />
@@ -2565,7 +3010,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="97" />
         <source>Billed monthly</source>
-        <translation type="unfinished" />
+        <translation>လစဉ်ငွေတောင်းခံသည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="106" />
@@ -2575,7 +3020,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="109" />
         <source>Billed every 3 months</source>
-        <translation type="unfinished" />
+        <translation>၃ လတစ်ကြိမ်ငွေတောင်းခံသည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="118" />
@@ -2585,17 +3030,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="121" />
         <source>Billed every 6 months</source>
-        <translation type="unfinished" />
+        <translation>၆ လတစ်ကြိမ်ငွေတောင်းခံသည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="130" />
         <source>Yearly</source>
-        <translation type="unfinished" />
+        <translation>နှစ်စဉ်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="133" />
         <source>Billed annually - Best value!</source>
-        <translation type="unfinished" />
+        <translation>နှစ်စဉ်ငွေတောင်းခံသည် - အတန်ဆုံး!</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="142" />
@@ -2605,7 +3050,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="145" />
         <source>Billed every 2 years</source>
-        <translation type="unfinished" />
+        <translation>၂ နှစ်တစ်ကြိမ်ငွေတောင်းခံသည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="154" />
@@ -2615,7 +3060,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="157" />
         <source>Billed every 3 years</source>
-        <translation type="unfinished" />
+        <translation>၃ နှစ်တစ်ကြိမ်ငွေတောင်းခံသည်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="165" />
@@ -2625,13 +3070,13 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="168" />
         <source>One-time payment, no renewal</source>
-        <translation type="unfinished" />
+        <translation>တစ်ကြိမ်ငွေပေးချေမှု၊ သက်တမ်းတိုးမလို</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="203" />
         <location filename="../qml/pages/StorePage.qml" line="964" />
         <source>Unnamed Plan</source>
-        <translation type="unfinished" />
+        <translation>အမည်မရှိအစီအစဉ်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="210" />
@@ -2663,12 +3108,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="547" />
         <source>Exp: %1</source>
-        <translation type="unfinished" />
+        <translation>ကုန်: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="568" />
         <source>Rem: %1</source>
-        <translation type="unfinished" />
+        <translation>ကျန်: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="628" />
@@ -2698,32 +3143,32 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="774" />
         <source>Traffic Reset Date:</source>
-        <translation type="unfinished" />
+        <translation>ဒေတာပြန်စရက်:</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="791" />
         <source>Day %1 of each month</source>
-        <translation type="unfinished" />
+        <translation>လတိုင်း %1 ရက်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="808" />
         <source>Device Limit:</source>
-        <translation type="unfinished" />
+        <translation>စက်ကန့်သတ်ချက်:</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="814" />
         <source>%1 devices</source>
-        <translation type="unfinished" />
+        <translation>စက် %1 လုံး</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="828" />
         <source>Speed Limit:</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်းကန့်သတ်:</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="834" />
         <source>%1 Mbps</source>
-        <translation type="unfinished" />
+        <translation>%1 Mbps</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="854" />
@@ -2733,42 +3178,42 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="891" />
         <source>Select Plan</source>
-        <translation type="unfinished" />
+        <translation>အစီအစဉ်ရွေးချယ်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="967" />
         <source>Month</source>
-        <translation type="unfinished" />
+        <translation>လ</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1004" />
         <source>NoneAvailablePlans</source>
-        <translation type="unfinished" />
+        <translation>ရရှိနိုင်သောအစီအစဉ်မရှိပါ</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1027" />
         <source>LoadingPlans...</source>
-        <translation type="unfinished" />
+        <translation>အစီအစဉ်များဖတ်နေသည်...</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1061" />
         <source>Copied to clipboard</source>
-        <translation type="unfinished" />
+        <translation>ကလစ်ဘုတ်သို့ကူးပြီးပါပြီ</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1103" />
         <source>Subscription link updated</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းသွင်းမှုလင့်ခ်အပ်ဒိတ်ပြီးပါပြီ</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1136" />
         <source>UnknownPlans</source>
-        <translation type="unfinished" />
+        <translation>မသိအစီအစဉ်များ</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1146" />
         <source>Plans #</source>
-        <translation type="unfinished" />
+        <translation>အစီအစဉ် #</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1309" />
@@ -2799,22 +3244,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1575" />
         <source>Update Subscription Link?</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းသွင်းမှုလင့်ခ်အပ်ဒိတ်လုပ်မလား?</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1600" />
         <source>Warning: This action cannot be undone!</source>
-        <translation type="unfinished" />
+        <translation>သတိပေးချက်: ဤလုပ်ဆောင်ချက်ကိုပြန်ဖြေမရပါ!</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1609" />
         <source>The old subscription URL will become invalid immediately.</source>
-        <translation type="unfinished" />
+        <translation>စာရင်းသွင်းမှု URL အဟောင်းသည်ချက်ချင်းအကျုံးမဝင်တော့ပါ။</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1620" />
         <source>You will need to re-import the new subscription link on all your devices after updating.</source>
-        <translation type="unfinished" />
+        <translation>အပ်ဒိတ်ပြီးနောက်သင့်စက်အားလုံးတွင်စာရင်းသွင်းမှုလင့်ခ်အသစ်ပြန်တင်ရန်လိုအပ်မည်။</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1648" />
@@ -2824,14 +3269,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1674" />
         <source>Update</source>
-        <translation type="unfinished" />
-    </message>
-</context>
-<context>
-    <name>Subscription</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>အကန့်မရှိ</translation>
+        <translation>အပ်ဒိတ်</translation>
     </message>
 </context>
 <context>
@@ -2839,27 +3277,27 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="78" />
         <source>Purchased</source>
-        <translation type="unfinished" />
+        <translation>ဝယ်ယူပြီး</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="79" />
         <source>Recommended</source>
-        <translation type="unfinished" />
+        <translation>အကြံပြုထားသည်</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="79" />
         <source>Popular</source>
-        <translation type="unfinished" />
+        <translation>လူကြိုက်များ</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="181" />
         <source>Traffic:</source>
-        <translation type="unfinished" />
+        <translation>ဒေတာ:</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="188" />
         <source>%1 GB</source>
-        <translation type="unfinished" />
+        <translation>%1 GB</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="189" />
@@ -2869,17 +3307,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="210" />
         <source>Devices:</source>
-        <translation type="unfinished" />
+        <translation>စက်များ:</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="216" />
         <source>%1 online</source>
-        <translation type="unfinished" />
+        <translation>%1 အွန်လိုင်း</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="237" />
         <source>Speed:</source>
-        <translation type="unfinished" />
+        <translation>အမြန်နှုန်း:</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="335" />
@@ -2898,17 +3336,37 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>SubscriptionManager</name>
-    <message>
-        <source>Failed to update database</source>
-        <translation>database အပ်ဒိတ်မအောင်</translation>
-    </message>
-</context>
-<context>
     <name>SystemTrayManager</name>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="111" />
+        <source>JinGo VPN</source>
+        <translation>JinGo VPN</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="130" />
+        <source>Show Main Window</source>
+        <translation>ပင်မဝင်းဒိုးပြရန်</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="138" />
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="173" />
+        <source>Quick Connect</source>
+        <translation>အမြန်ချိတ်ဆက်</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="146" />
         <source>Settings</source>
         <translation>ဆက်တင်</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="154" />
+        <source>Quit</source>
+        <translation>ထွက်ရန်</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="170" />
+        <source>DisconnectConnect</source>
+        <translation>ချိတ်ဆက်မှုဖြတ်ရန်</translation>
     </message>
 </context>
 <context>
@@ -2948,7 +3406,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="239" />
         <source>Unknown</source>
-        <translation type="unfinished" />
+        <translation>မသိ</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="255" />
@@ -3018,25 +3476,25 @@ Security Error: Configuration signature verification failed.</source>
         <location filename="../qml/components/TicketListDialog.qml" line="733" />
         <location filename="../qml/components/TicketListDialog.qml" line="1185" />
         <source>Select Attachment</source>
-        <translation type="unfinished" />
+        <translation>ပူးတွဲဖိုင်ရွေးချယ်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="734" />
         <location filename="../qml/components/TicketListDialog.qml" line="1186" />
         <source>Images</source>
-        <translation type="unfinished" />
+        <translation>ပုံများ</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="734" />
         <location filename="../qml/components/TicketListDialog.qml" line="1186" />
         <source>Documents</source>
-        <translation type="unfinished" />
+        <translation>စာရွက်စာတမ်းများ</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="734" />
         <location filename="../qml/components/TicketListDialog.qml" line="1186" />
         <source>All Files</source>
-        <translation type="unfinished" />
+        <translation>ဖိုင်အားလုံး</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="839" />
@@ -3071,17 +3529,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="990" />
         <source>Attachment</source>
-        <translation type="unfinished" />
+        <translation>ပူးတွဲဖိုင်</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="990" />
         <source>Optional</source>
-        <translation type="unfinished" />
+        <translation>ရွေးချယ်နိုင်သည်</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1022" />
         <source>Click to select file</source>
-        <translation type="unfinished" />
+        <translation>ဖိုင်ရွေးချယ်ရန်နှိပ်ပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1094" />
@@ -3101,7 +3559,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1427" />
         <source>No content</source>
-        <translation type="unfinished" />
+        <translation>အကြောင်းအရာမရှိပါ</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1471" />
@@ -3126,7 +3584,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1605" />
         <source>Add attachment</source>
-        <translation type="unfinished" />
+        <translation>ပူးတွဲဖိုင်ထည့်ရန်</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1676" />
@@ -3154,7 +3612,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="87" />
         <source>Traffic Statistics</source>
-        <translation type="unfinished" />
+        <translation>ဒေတာအသွားအလာစာရင်းအင်း</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="139" />
@@ -3169,80 +3627,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="284" />
         <source>Peak Upload</source>
-        <translation type="unfinished" />
+        <translation>အမြင့်ဆုံးအပ်လုဒ်</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="310" />
         <source>Avg Upload</source>
-        <translation type="unfinished" />
+        <translation>ပျမ်းမျှအပ်လုဒ်</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="349" />
         <source>Peak Download</source>
-        <translation type="unfinished" />
+        <translation>အမြင့်ဆုံးဒေါင်းလုဒ်</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="375" />
         <source>Avg Download</source>
-        <translation type="unfinished" />
-    </message>
-</context>
-<context>
-    <name>User</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>အကန့်မရှိ</translation>
-    </message>
-</context>
-<context>
-    <name>VPNManager</name>
-    <message>
-        <source>Not Connected</source>
-        <translation>မချိတ်ရသေး</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>ချိတ်ဆက်နေ...</translation>
-    </message>
-    <message>
-        <source>Disconnecting...</source>
-        <translation>ဖြတ်နေ...</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>ဖြတ်ပြီး</translation>
-    </message>
-    <message>
-        <source>Checking system requirements...</source>
-        <translation>စစ်ဆေးနေ...</translation>
-    </message>
-    <message>
-        <source>Checking WinTun driver...</source>
-        <translation>WinTun စစ်နေ...</translation>
-    </message>
-    <message>
-        <source>Waiting for TUN device...</source>
-        <translation>TUN စောင့်နေ...</translation>
-    </message>
-    <message>
-        <source>Connected (Windows TUN Mode)</source>
-        <translation>ချိတ်ဆက်ပြီး (Windows TUN)</translation>
-    </message>
-    <message>
-        <source>Error: %1</source>
-        <translation>အမှား: %1</translation>
-    </message>
-    <message>
-        <source>Ping not supported on this platform</source>
-        <translation>Ping မပံ့ပိုး</translation>
-    </message>
-    <message>
-        <source>TCP connection failed</source>
-        <translation>TCP ချိတ်ဆက်မအောင်</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>HTTP တောင်းဆိုမှုမအောင်</translation>
+        <translation>ပျမ်းမျှဒေါင်းလုဒ်</translation>
     </message>
 </context>
 <context>
@@ -3250,161 +3650,178 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/main.qml" line="25" />
         <source>Secure. Fast. Borderless.</source>
-        <translation type="unfinished" />
+        <translation>လုံခြုံ။ မြန်ဆန်။ နယ်နိမိတ်မဲ့။</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="218" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Connected</source>
         <translation>ချိတ်ဆက်ပြီး</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
+        <location filename="../qml/main.qml" line="218" />
         <source>VPN ConnectSuccess</source>
-        <translation type="unfinished" />
+        <translation>VPN ချိတ်ဆက်မှုအောင်မြင်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>Disconnected</source>
         <translation>ဖြတ်ပြီး</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>VPN Disconnected</source>
-        <translation type="unfinished" />
+        <translation>VPN ချိတ်ဆက်မှုဖြတ်ပြီး</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="181" />
+        <location filename="../qml/main.qml" line="228" />
         <source>ConnectFailed</source>
-        <translation type="unfinished" />
+        <translation>ချိတ်ဆက်မှုမအောင်မြင်ပါ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="186" />
+        <location filename="../qml/main.qml" line="233" />
         <source>Error</source>
         <translation>အမှား</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="224" />
+        <location filename="../qml/main.qml" line="271" />
         <source>File</source>
-        <translation type="unfinished" />
+        <translation>ဖိုင်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="226" />
+        <location filename="../qml/main.qml" line="273" />
         <source>Preferences</source>
-        <translation type="unfinished" />
+        <translation>ဦးစားပေးချက်များ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="231" />
+        <location filename="../qml/main.qml" line="284" />
         <source>Quit</source>
-        <translation type="unfinished" />
+        <translation>ထွက်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="237" />
-        <location filename="../qml/main.qml" line="239" />
-        <location filename="../qml/main.qml" line="365" />
+        <location filename="../qml/main.qml" line="290" />
+        <location filename="../qml/main.qml" line="292" />
+        <location filename="../qml/main.qml" line="419" />
         <source>Connect</source>
         <translation>ချိတ်ဆက်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="239" />
+        <location filename="../qml/main.qml" line="292" />
         <source>DisconnectConnect</source>
-        <translation type="unfinished" />
+        <translation>ချိတ်ဆက်မှုဖြတ်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="252" />
+        <location filename="../qml/main.qml" line="305" />
         <source>Select Server</source>
         <translation>ဆာဗာရွေး</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="258" />
+        <location filename="../qml/main.qml" line="312" />
         <source>Help</source>
         <translation>အကူအညီ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="260" />
+        <location filename="../qml/main.qml" line="314" />
         <source>Documentation</source>
-        <translation type="unfinished" />
+        <translation>စာရွက်စာတမ်း</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="264" />
+        <location filename="../qml/main.qml" line="318" />
         <source>Report Issue</source>
-        <translation type="unfinished" />
+        <translation>ပြဿနာတင်ပြရန်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269" />
+        <location filename="../qml/main.qml" line="323" />
         <source>About JinGo</source>
         <translation>JinGo အကြောင်း</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="719" />
+        <location filename="../qml/main.qml" line="419" />
+        <location filename="../qml/main.qml" line="668" />
+        <source>Dashboard</source>
+        <translation>ဒက်ရှ်ဘုတ်</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Professional Mode</source>
+        <translation>ပရော်ဖက်ရှင်နယ်မုဒ်သို့ပြောင်းရန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Simple Mode</source>
+        <translation>ရိုးရှင်းမုဒ်သို့ပြောင်းရန်</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="673" />
+        <source>Store</source>
+        <translation>စတိုး</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="833" />
         <source>JinGo</source>
-        <translation type="unfinished" />
+        <translation>JinGo</translation>
     </message>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>JinGoVPN အကြောင်း</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="379" />
+        <location filename="../qml/main.qml" line="433" />
         <source>Servers</source>
         <translation>ဆာဗာ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="391" />
-        <location filename="../qml/main.qml" line="579" />
+        <location filename="../qml/main.qml" line="445" />
+        <location filename="../qml/main.qml" line="673" />
         <source>Subscription</source>
         <translation>စာရင်းသွင်း</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="403" />
-        <location filename="../qml/main.qml" line="576" />
+        <location filename="../qml/main.qml" line="457" />
+        <location filename="../qml/main.qml" line="670" />
         <source>Settings</source>
         <translation>ဆက်တင်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="574" />
+        <location filename="../qml/main.qml" line="668" />
         <source>Connection</source>
         <translation>ချိတ်ဆက်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="575" />
+        <location filename="../qml/main.qml" line="669" />
         <source>Server List</source>
         <translation>စာရင်း</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="577" />
+        <location filename="../qml/main.qml" line="671" />
         <source>Profile</source>
         <translation>ပရိုဖိုင်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="578" />
+        <location filename="../qml/main.qml" line="672" />
         <source>Login/Register</source>
-        <translation type="unfinished" />
+        <translation>ဝင်ရောက်/စာရင်းသွင်း</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="590" />
+        <location filename="../qml/main.qml" line="684" />
         <source>Manage your VPN connection</source>
-        <translation type="unfinished" />
+        <translation>သင်၏ VPN ချိတ်ဆက်မှုကိုစီမံရန်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="591" />
+        <location filename="../qml/main.qml" line="685" />
         <source>Select the best server</source>
-        <translation type="unfinished" />
+        <translation>အကောင်းဆုံးဆာဗာရွေးချယ်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="592" />
+        <location filename="../qml/main.qml" line="686" />
         <source>Upgrade your subscription plan</source>
-        <translation type="unfinished" />
+        <translation>သင်၏စာရင်းသွင်းအစီအစဉ်ကိုအဆင့်မြှင့်ရန်</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Not Connected</source>
         <translation>မချိတ်ရသေး</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="720" />
-        <source>Application minimized to system tray, double-click the tray icon to reopen</source>
-        <translation type="unfinished" />
+        <location filename="../qml/main.qml" line="834" />
+        <source>Application minimized to system tray, click the tray icon to reopen</source>
+        <translation>အက်ပ်ကိုစနစ်ထရေးသို့ချုံ့ပြီး၊ ပြန်ဖွင့်ရန်ထရေးအိုင်ကွန်ကိုနှိပ်ပါ</translation>
     </message>
 </context>
 </TS>

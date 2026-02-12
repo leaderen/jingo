@@ -4,14 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>关于 JinGoVPN</translation>
-    </message>
-    <message>
-        <source>JinGoVPN Client</source>
-        <translation>JinGoVPN 客户端</translation>
-    </message>
-    <message>
         <location filename="../qml/components/AboutDialog.qml" line="18" />
         <source>About JinGo</source>
         <translation>关于 JinGo</translation>
@@ -93,65 +85,6 @@
         <location filename="../qml/pages/AppSelectorPage.qml" line="341" />
         <source>Save Selection</source>
         <translation>保存选择</translation>
-    </message>
-</context>
-<context>
-    <name>AuthManager</name>
-    <message>
-        <source>Email or password cannot be empty</source>
-        <translation>邮箱或密码不能为空</translation>
-    </message>
-    <message>
-        <source>Server response format error: missing token</source>
-        <translation>服务器响应格式错误：缺少令牌</translation>
-    </message>
-    <message>
-        <source>User info parse failed</source>
-        <translation>用户信息解析失败</translation>
-    </message>
-    <message>
-        <source>User info invalid or incomplete</source>
-        <translation>用户信息无效或不完整</translation>
-    </message>
-    <message>
-        <source>Subscription information is empty</source>
-        <translation>订阅信息为空</translation>
-    </message>
-    <message>
-        <source>My Subscription</source>
-        <translation>我的订阅</translation>
-    </message>
-    <message>
-        <source>Server response data format error</source>
-        <translation>服务器返回的数据格式错误</translation>
-    </message>
-    <message>
-        <source>Old password is incorrect</source>
-        <translation>旧密码错误</translation>
-    </message>
-    <message>
-        <source>Password change failed</source>
-        <translation>密码修改失败</translation>
-    </message>
-    <message>
-        <source>Email and password cannot be empty</source>
-        <translation>邮箱和密码不能为空</translation>
-    </message>
-    <message>
-        <source>Email cannot be empty</source>
-        <translation>邮箱不能为空</translation>
-    </message>
-    <message>
-        <source>Email, verification code and new password cannot be empty</source>
-        <translation>邮箱、验证码和新密码不能为空</translation>
-    </message>
-    <message>
-        <source>Not logged in</source>
-        <translation>未登录</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>密码不能为空</translation>
     </message>
 </context>
 <context>
@@ -383,7 +316,7 @@
         <translation>订阅</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConnectionPage.qml" line="1349" />
+        <location filename="../qml/pages/ConnectionPage.qml" line="1354" />
         <source>* Changes to connection settings require reconnecting to take effect</source>
         <translation>* 连接设置的更改需要重新连接才能生效</translation>
     </message>
@@ -391,34 +324,42 @@
 <context>
     <name>ConnectionViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="95" />
         <source>Not Connected</source>
         <translation>未连接</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="97" />
         <source>Connecting...</source>
         <translation>正在连接...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="99" />
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="101" />
         <source>Disconnecting...</source>
         <translation>正在断开...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="103" />
         <source>Reconnecting...</source>
         <translation>正在重新连接...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="105" />
         <source>Connection Error</source>
         <translation>连接错误</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="107" />
         <source>Unknown Status</source>
         <translation>未知状态</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="120" />
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -920,10 +861,6 @@ Third-party components:
 <context>
     <name>LoginPage</name>
     <message>
-        <source>Welcome to JinGoVPN</source>
-        <translation>欢迎使用 JinGoVPN</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/LoginPage.qml" line="76" />
         <source>Welcome to JinGo</source>
         <translation>欢迎使用 JinGo</translation>
@@ -938,32 +875,56 @@ Third-party components:
         <source>群组</source>
         <translation>群组</translation>
     </message>
-    <message>
-        <source>Groups</source>
-        <translation>分组</translation>
-    </message>
 </context>
 <context>
     <name>LoginViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="147" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="429" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="473" />
         <source>Enter email</source>
         <translation>输入邮箱</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="153" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="435" />
         <source>Invalid email format</source>
         <translation>邮箱格式无效</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="240" />
         <source>Please enterUsername</source>
         <translation>请输入用户名</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="245" />
         <source>Enter password</source>
         <translation>输入密码</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="326" />
         <source>Password reset email sent to %1</source>
         <translation>密码重置邮件已发送至 %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="478" />
+        <source>Enter verification code</source>
+        <translation>输入验证码</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="483" />
+        <source>Enter new password</source>
+        <translation>输入新密码</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="488" />
+        <source>Password must be at least 6 characters</source>
+        <translation>密码至少6个字符</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="505" />
+        <source>Password reset successfully! Please login with new password.</source>
+        <translation>密码重置成功！请使用新密码登录。</translation>
     </message>
 </context>
 <context>
@@ -1329,14 +1290,6 @@ Third-party components:
         <translation>账户ID：</translation>
     </message>
     <message>
-        <source>Premium Member</source>
-        <translation>高级会员</translation>
-    </message>
-    <message>
-        <source>Basic Member</source>
-        <translation>基础会员</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/ProfilePage.qml" line="474" />
         <source>Monthly Traffic</source>
         <translation>月流量</translation>
@@ -1422,152 +1375,34 @@ Third-party components:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/main.cpp" line="242" />
+        <location filename="../../src/main.cpp" line="269" />
         <source>Not Connected</source>
         <translation>未连接</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="245" />
+        <location filename="../../src/main.cpp" line="272" />
         <source>Connecting...</source>
         <translation>正在连接...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="248" />
+        <location filename="../../src/main.cpp" line="275" />
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="251" />
+        <location filename="../../src/main.cpp" line="278" />
         <source>Disconnecting...</source>
         <translation>正在断开...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="254" />
+        <location filename="../../src/main.cpp" line="281" />
         <source>Reconnecting...</source>
         <translation>正在重新连接...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="257" />
+        <location filename="../../src/main.cpp" line="284" />
         <source>Connection Error</source>
         <translation>连接错误</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="487" />
-        <source>安全错误</source>
-        <translation>安全错误</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="488" />
-        <source>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>已断开</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>正在连接</translation>
-    </message>
-    <message>
-        <source>Disconnecting</source>
-        <translation>正在断开</translation>
-    </message>
-    <message>
-        <source>Reconnecting</source>
-        <translation>重新连接中</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>错误</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>未知</translation>
-    </message>
-    <message>
-        <source>Server address cannot be empty</source>
-        <translation>服务器地址不能为空</translation>
-    </message>
-    <message>
-        <source>Port not configured</source>
-        <translation>端口未配置</translation>
-    </message>
-    <message>
-        <source>Port number invalid (must be between 1-65535)</source>
-        <translation>端口号无效（必须在1-65535之间）</translation>
-    </message>
-    <message>
-        <source>Protocol type not configured</source>
-        <translation>协议类型未配置</translation>
-    </message>
-    <message>
-        <source>UUID cannot be empty</source>
-        <translation>UUID不能为空</translation>
-    </message>
-    <message>
-        <source>UUID format invalid</source>
-        <translation>UUID格式无效</translation>
-    </message>
-    <message>
-        <source>Trojan password cannot be empty</source>
-        <translation>Trojan密码不能为空</translation>
-    </message>
-    <message>
-        <source>Shadowsocks password cannot be empty</source>
-        <translation>Shadowsocks密码不能为空</translation>
-    </message>
-    <message>
-        <source>Shadowsocks encryption method not configured</source>
-        <translation>Shadowsocks加密方式未配置</translation>
-    </message>
-    <message>
-        <source>Unsupported protocol: %1</source>
-        <translation>不支持的协议：%1</translation>
-    </message>
-    <message>
-        <source>Unsupported transport protocol: %1</source>
-        <translation>不支持的传输协议：%1</translation>
-    </message>
-    <message>
-        <source>WebSocket transport requires path configuration</source>
-        <translation>WebSocket传输需要配置路径</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation>从不</translation>
-    </message>
-    <message>
-        <source>Just now</source>
-        <translation>刚刚</translation>
-    </message>
-    <message>
-        <source>%1 seconds ago</source>
-        <translation>%1 秒前</translation>
-    </message>
-    <message>
-        <source>%1 minutes ago</source>
-        <translation>%1 分钟前</translation>
-    </message>
-    <message>
-        <source>%1 hours ago</source>
-        <translation>%1 小时前</translation>
-    </message>
-    <message>
-        <source>%1 days ago</source>
-        <translation>%1 天前</translation>
-    </message>
-    <message>
-        <source>%1 months ago</source>
-        <translation>%1 个月前</translation>
-    </message>
-    <message>
-        <source>on %1</source>
-        <translation>于 %1</translation>
     </message>
 </context>
 <context>
@@ -1671,18 +1506,23 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>RegisterViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="123" />
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="170" />
         <source>Enter email</source>
         <translation>输入邮箱</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="129" />
         <source>Invalid email format</source>
         <translation>邮箱格式无效</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="174" />
         <source>Enter password</source>
         <translation>输入密码</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="178" />
         <source>Password must be at least 6 characters</source>
         <translation>密码至少6个字符</translation>
     </message>
@@ -1739,10 +1579,6 @@ Security Error: Configuration signature verification failed.</source>
         <location filename="../qml/components/ServerItem.qml" line="299" />
         <source>Testing...</source>
         <translation>测试中...</translation>
-    </message>
-    <message>
-        <source>Test Latency</source>
-        <translation>测试延迟</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
@@ -1803,183 +1639,177 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="775" />
+        <location filename="../qml/pages/ServerListPage.qml" line="814" />
         <source>Servers</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="813" />
+        <location filename="../qml/pages/ServerListPage.qml" line="852" />
         <source>Search servers...</source>
         <translation>搜索服务器...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="867" />
+        <location filename="../qml/pages/ServerListPage.qml" line="906" />
         <source>All</source>
         <translation>全部</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="929" />
+        <location filename="../qml/pages/ServerListPage.qml" line="968" />
         <source>Refresh server list</source>
         <translation>刷新服务器列表</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="975" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1014" />
         <source>Sort by latency</source>
         <translation>按延迟排序</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1012" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1051" />
         <source>Sort by name</source>
         <translation>按名称排序</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1138" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1177" />
         <source>No Servers Available</source>
         <translation>无可用服务器</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1146" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1185" />
         <source>Click 'Refresh' button above to load servers</source>
         <translation>点击上方「刷新」按钮加载服务器</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1147" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
         <source>Please add a subscription first</source>
         <translation>请先添加订阅</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1159" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1198" />
         <source>Go to Subscriptions</source>
         <translation>前往订阅</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1225" />
         <source>Loading servers...</source>
         <translation>正在加载服务器...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1193" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1232" />
         <source>Please wait a moment</source>
         <translation>请稍候</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1344" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1383" />
         <source>Off</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1349" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1388" />
         <source>Go</source>
         <translation>连接</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>复制</translation>
-    </message>
-    <message>
-        <source>Share link copied</source>
-        <translation>分享链接已复制</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1584" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1623" />
         <source>Testing...</source>
         <translation>测试中...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1611" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1650" />
         <source>Timeout</source>
         <translation>超时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1385" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1424" />
         <source>Test</source>
         <translation>测速</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2315" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2354" />
         <source>Latency Testing</source>
         <translation>延迟测试</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2340" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2379" />
         <source>Testing latency...</source>
         <translation>正在测试延迟...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2384" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2423" />
         <source>Speed Testing</source>
         <translation>速度测试</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2383" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
         <source>Speed Testing (%1/%2)</source>
         <translation>速度测试 (%1/%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2218" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2257" />
         <source>Server not found</source>
         <translation>未找到服务器</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Connecting...</source>
         <translation>正在连接...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Testing speed...</source>
         <translation>正在测试速度...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2461" />
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2438" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2477" />
         <source>Test cancelled</source>
         <translation>测试已取消</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2137" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2176" />
         <source>Batch test completed</source>
         <translation>批量测试完成</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2148" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2187" />
         <source>Speed: %1 Mbps</source>
         <translation>速度: %1 Mbps</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2150" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2189" />
         <source>Speed test failed</source>
         <translation>速度测试失败</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2260" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2299" />
         <source>No servers to test</source>
         <translation>无服务器可测试</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1093" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1132" />
         <source>Test All Speed</source>
         <translation>全部测速</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1111" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1150" />
         <source>Speed</source>
         <translation>速度</translation>
-    </message>
-    <message>
-        <source>Latency Testing (%1/%2)</source>
-        <translation type="vanished">延迟测试 (%1/%2)</translation>
     </message>
 </context>
 <context>
     <name>ServerListViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="284" />
         <source>Unknown</source>
         <translation>未知</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="527" />
+        <source>VPN not connected</source>
+        <translation>VPN未连接</translation>
     </message>
 </context>
 <context>
@@ -2109,710 +1939,1035 @@ Security Error: Configuration signature verification failed.</source>
         <translation>选择应用主题样式</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="320" />
+        <location filename="../qml/pages/SettingsPage.qml" line="319" />
         <source>Subscription Settings</source>
         <translation>订阅设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="321" />
+        <location filename="../qml/pages/SettingsPage.qml" line="320" />
         <source>Server subscription update settings</source>
         <translation>服务器订阅更新设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="324" />
+        <location filename="../qml/pages/SettingsPage.qml" line="323" />
         <source>Auto Update Interval</source>
         <translation>自动更新间隔</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="325" />
+        <location filename="../qml/pages/SettingsPage.qml" line="324" />
         <source>How often to automatically update server list</source>
         <translation>服务器列表自动更新频率</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="331" />
+        <location filename="../qml/pages/SettingsPage.qml" line="330" />
         <source>1 Hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="331" />
         <source>3 Hours</source>
         <translation>3小时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="333" />
+        <location filename="../qml/pages/SettingsPage.qml" line="332" />
         <source>6 Hours</source>
         <translation>6小时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="333" />
         <source>12 Hours</source>
         <translation>12小时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="335" />
+        <location filename="../qml/pages/SettingsPage.qml" line="334" />
         <source>24 Hours</source>
         <translation>24小时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="375" />
+        <location filename="../qml/pages/SettingsPage.qml" line="374" />
         <source>Routing Settings</source>
         <translation>路由设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="376" />
+        <location filename="../qml/pages/SettingsPage.qml" line="375" />
         <source>Control how traffic is routed and split</source>
         <translation>控制流量路由和分流</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="379" />
         <source>Domain Resolution Strategy</source>
         <translation>域名解析策略</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="381" />
+        <location filename="../qml/pages/SettingsPage.qml" line="380" />
         <source>Control how domains are resolved</source>
         <translation>控制域名解析方式</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="422" />
+        <location filename="../qml/pages/SettingsPage.qml" line="421" />
         <source>Bypass Countries</source>
         <translation>绕过国家</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="423" />
+        <location filename="../qml/pages/SettingsPage.qml" line="422" />
         <source>Select countries to bypass, their websites will connect directly</source>
         <translation>选择要绕过的国家，其网站将直接连接</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="427" />
+        <location filename="../qml/pages/SettingsPage.qml" line="426" />
         <source>China</source>
         <translation>中国</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="428" />
+        <location filename="../qml/pages/SettingsPage.qml" line="427" />
         <source>Russia</source>
         <translation>俄罗斯</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="429" />
+        <location filename="../qml/pages/SettingsPage.qml" line="428" />
         <source>Iran</source>
         <translation>伊朗</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="489" />
+        <location filename="../qml/pages/SettingsPage.qml" line="488" />
         <source>Network Interface</source>
         <translation>网络接口</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="490" />
+        <location filename="../qml/pages/SettingsPage.qml" line="489" />
         <source>Select the network interface for VPN outbound traffic</source>
         <translation>选择VPN出站流量使用的网络接口</translation>
     </message>
     <message>
-        <source>Bypass LAN addresses</source>
-        <translation>绕过局域网地址</translation>
-    </message>
-    <message>
-        <source>LAN traffic bypass proxy</source>
-        <translation>局域网流量绕过代理</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="573" />
+        <location filename="../qml/pages/SettingsPage.qml" line="572" />
         <source>Per-App Proxy</source>
         <translation>分应用代理</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>Control which apps use VPN</source>
         <translation>控制哪些应用使用VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>TUN mode only</source>
         <translation>仅TUN模式有效</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1253" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1252" />
         <source>Settings reset to default</source>
         <translation>设置已恢复默认</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="578" />
+        <location filename="../qml/pages/SettingsPage.qml" line="577" />
         <source>Per-App Proxy Mode</source>
         <translation>分应用代理模式</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="430" />
+        <location filename="../qml/pages/SettingsPage.qml" line="429" />
         <source>Vietnam</source>
         <translation>越南</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="431" />
+        <location filename="../qml/pages/SettingsPage.qml" line="430" />
         <source>Cambodia</source>
         <translation>柬埔寨</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="432" />
+        <location filename="../qml/pages/SettingsPage.qml" line="431" />
         <source>Myanmar</source>
         <translation>缅甸</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="582" />
+        <location filename="../qml/pages/SettingsPage.qml" line="581" />
         <source>Disabled: All apps use VPN</source>
         <translation>禁用：所有应用使用VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="583" />
+        <location filename="../qml/pages/SettingsPage.qml" line="582" />
         <source>Allow List: Only selected apps use VPN</source>
         <translation>白名单：仅选中的应用使用VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="584" />
+        <location filename="../qml/pages/SettingsPage.qml" line="583" />
         <source>Block List: Selected apps bypass VPN</source>
         <translation>黑名单：选中的应用绕过VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="593" />
+        <location filename="../qml/pages/SettingsPage.qml" line="592" />
         <source>Allow List</source>
         <translation>白名单</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="594" />
+        <location filename="../qml/pages/SettingsPage.qml" line="593" />
         <source>Block List</source>
         <translation>黑名单</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="621" />
+        <location filename="../qml/pages/SettingsPage.qml" line="620" />
         <source>Selected Apps</source>
         <translation>已选应用</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="625" />
+        <location filename="../qml/pages/SettingsPage.qml" line="624" />
         <source>%1 app(s) selected</source>
         <translation>已选择 %1 个应用</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="628" />
+        <location filename="../qml/pages/SettingsPage.qml" line="627" />
         <source>Select Apps</source>
         <translation>选择应用</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="644" />
+        <location filename="../qml/pages/SettingsPage.qml" line="643" />
         <source>Clear Selection</source>
         <translation>清除选择</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="645" />
+        <location filename="../qml/pages/SettingsPage.qml" line="644" />
         <source>Remove all apps from the list</source>
         <translation>从列表中移除所有应用</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="664" />
+        <location filename="../qml/pages/SettingsPage.qml" line="663" />
         <source>DNS Settings</source>
         <translation>DNS设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="665" />
+        <location filename="../qml/pages/SettingsPage.qml" line="664" />
         <source>DNS server configuration</source>
         <translation>DNS服务器配置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="669" />
+        <location filename="../qml/pages/SettingsPage.qml" line="668" />
         <source>Domestic DNS 1</source>
         <translation>国内DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="685" />
+        <location filename="../qml/pages/SettingsPage.qml" line="684" />
         <source>Domestic DNS 2</source>
         <translation>国内DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="701" />
+        <location filename="../qml/pages/SettingsPage.qml" line="700" />
         <source>Overseas DNS 1</source>
         <translation>海外 DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="729" />
+        <location filename="../qml/pages/SettingsPage.qml" line="728" />
         <source>Overseas DNS 2</source>
         <translation>海外 DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="757" />
+        <location filename="../qml/pages/SettingsPage.qml" line="756" />
         <source>DNS Query Strategy</source>
         <translation>DNS 查询策略</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="758" />
+        <location filename="../qml/pages/SettingsPage.qml" line="757" />
         <source>IPv4/IPv6 Query Strategy</source>
         <translation>IPv4/IPv6 查询策略</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="799" />
+        <location filename="../qml/pages/SettingsPage.qml" line="798" />
         <source>Local Proxy</source>
         <translation>本地代理</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="800" />
+        <location filename="../qml/pages/SettingsPage.qml" line="799" />
         <source>Local SOCKS/HTTP proxy server settings</source>
         <translation>本地 SOCKS/HTTP 代理服务器设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="804" />
+        <location filename="../qml/pages/SettingsPage.qml" line="803" />
         <source>SOCKS Proxy Port</source>
         <translation>SOCKS 代理端口</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="805" />
+        <location filename="../qml/pages/SettingsPage.qml" line="804" />
         <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
         <translation>本地 SOCKS5 代理监听端口 - 修改后需要重新连接</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="837" />
+        <location filename="../qml/pages/SettingsPage.qml" line="836" />
         <source>HTTP Proxy Port</source>
         <translation>HTTP 代理端口</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="838" />
+        <location filename="../qml/pages/SettingsPage.qml" line="837" />
         <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
         <translation>本地 HTTP 代理监听端口 - 修改后需要重新连接</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="870" />
+        <location filename="../qml/pages/SettingsPage.qml" line="869" />
         <source>Allow LAN Connections</source>
         <translation>允许局域网连接</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="871" />
+        <location filename="../qml/pages/SettingsPage.qml" line="870" />
         <source>Allow other devices in LAN to connect to this proxy</source>
         <translation>允许局域网内其他设备连接此代理</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="889" />
+        <location filename="../qml/pages/SettingsPage.qml" line="888" />
         <source>Transport Layer Settings</source>
         <translation>传输层设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="890" />
+        <location filename="../qml/pages/SettingsPage.qml" line="889" />
         <source>Protocol transport related configuration</source>
         <translation>协议传输相关配置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="894" />
+        <location filename="../qml/pages/SettingsPage.qml" line="893" />
         <source>Enable Mux multiplexing</source>
         <translation>启用 Mux 多路复用</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="895" />
+        <location filename="../qml/pages/SettingsPage.qml" line="894" />
         <source>Transfer multiple data streams through single connection, may reduce latency</source>
         <translation>通过单个连接传输多个数据流，可能减少延迟</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="906" />
+        <location filename="../qml/pages/SettingsPage.qml" line="905" />
         <source>Mux concurrent connections</source>
         <translation>Mux 并发连接数</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="907" />
+        <location filename="../qml/pages/SettingsPage.qml" line="906" />
         <source>Maximum concurrent multiplexed connections</source>
         <translation>最大并发多路复用连接数</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="939" />
+        <location filename="../qml/pages/SettingsPage.qml" line="938" />
         <source>TCP Fast Open</source>
         <translation>TCP 快速打开</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="940" />
+        <location filename="../qml/pages/SettingsPage.qml" line="939" />
         <source>Enable TFO to reduce latency (requires system support)</source>
         <translation>启用 TFO 以减少延迟（需要系统支持）</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="953" />
+        <location filename="../qml/pages/SettingsPage.qml" line="952" />
         <source>Enable traffic sniffing</source>
         <translation>启用流量嗅探</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="954" />
+        <location filename="../qml/pages/SettingsPage.qml" line="953" />
         <source>Auto identify traffic type for routing</source>
         <translation>自动识别流量类型进行路由</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="969" />
+        <location filename="../qml/pages/SettingsPage.qml" line="968" />
         <source>Log Settings</source>
         <translation>日志设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="970" />
+        <location filename="../qml/pages/SettingsPage.qml" line="969" />
         <source>Application and core log configuration</source>
         <translation>应用和核心日志配置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="974" />
+        <location filename="../qml/pages/SettingsPage.qml" line="973" />
         <source>Log Level</source>
         <translation>日志级别</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="975" />
+        <location filename="../qml/pages/SettingsPage.qml" line="974" />
         <source>Set log verbosity level</source>
         <translation>设置日志详细级别</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1002" />
         <source>Enable access log</source>
         <translation>启用访问日志</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1004" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
         <source>Log all connection requests</source>
         <translation>记录所有连接请求</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1016" />
         <source>Log retention days</source>
         <translation>日志保留天数</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1018" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
         <source>Auto clean old logs</source>
         <translation>自动清理旧日志</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1049" />
         <source>Log Size</source>
         <translation>日志大小</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1051" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
         <source>%1 files</source>
         <translation>%1 个文件</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1059" />
         <source>Export Logs</source>
         <translation>导出日志</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Export all logs to a file</source>
         <translation>将所有日志导出到文件</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Save to Downloads folder</source>
         <translation>保存到下载文件夹</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1063" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1062" />
         <source>Export</source>
         <translation>导出</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1097" />
         <source>Clear Logs</source>
         <translation>清理日志</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1383" />
         <source>10MB: Quick test</source>
         <translation>10MB：快速测试</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1385" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
         <source>25MB: Standard test</source>
         <translation>25MB：标准测试</translation>
     </message>
     <message>
-        <source>Delete old log files</source>
-        <translation type="vanished">删除旧日志文件</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1128" />
         <source>View Logs</source>
         <translation>查看日志</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1132" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1131" />
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1148" />
         <source>AdvancedSettings</source>
         <translation>高级设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1150" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
         <source>Advanced user options, modify with caution</source>
         <translation>高级用户选项，请谨慎修改</translation>
     </message>
     <message>
-        <source>API Port</source>
-        <translation>API 端口</translation>
-    </message>
-    <message>
-        <source>xray-core API service port</source>
-        <translation>xray-core API 服务端口</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1154" />
         <source>ConnectTimeout</source>
         <translation>连接超时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1156" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
         <source>Connection establishment timeout</source>
         <translation>连接建立超时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1187" />
         <source>Test Timeout</source>
         <translation>测试超时</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1189" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
         <source>Server latency test timeout duration</source>
         <translation>服务器延迟测试超时时长</translation>
     </message>
     <message>
-        <source>Custom GeoIP Database</source>
-        <translation>自定义 GeoIP 数据库</translation>
-    </message>
-    <message>
-        <source>Use custom IP geolocation database</source>
-        <translation>使用自定义 IP 地理位置数据库</translation>
-    </message>
-    <message>
-        <source>Custom GeoSite Database</source>
-        <translation>自定义 GeoSite 数据库</translation>
-    </message>
-    <message>
-        <source>Use custom domain categorization database</source>
-        <translation>使用自定义域名分类数据库</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1232" />
         <source>Account Actions</source>
         <translation>账户操作</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1234" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
         <source>Account management and data operations</source>
         <translation>账户管理和数据操作</translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation>修改密码</translation>
-    </message>
-    <message>
-        <source>Change your account password</source>
-        <translation>更改您的账户密码</translation>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation>修改</translation>
-    </message>
-    <message>
-        <source>Order Management</source>
-        <translation>订单管理</translation>
-    </message>
-    <message>
-        <source>View and manage your subscription orders</source>
-        <translation>查看和管理您的订阅订单</translation>
-    </message>
-    <message>
-        <source>View Orders</source>
-        <translation>查看订单</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>清除缓存</translation>
-    </message>
-    <message>
-        <source>Clear application cache data</source>
-        <translation>清除应用缓存数据</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="647" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1101" />
+        <location filename="../qml/pages/SettingsPage.qml" line="646" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1100" />
         <source>Clear</source>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1099" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
         <source>Delete all logs except current</source>
         <translation>删除当前日志以外的所有日志</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1130" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
         <source>Open log directory</source>
         <translation>打开日志目录</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1236" />
         <source>Reset all settings</source>
         <translation>重置所有设置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1238" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
         <source>Restore default settings (does not affect account data)</source>
         <translation>恢复默认设置（不影响账户数据）</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1240" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1239" />
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1263" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1262" />
         <source>Network test</source>
         <translation>网络测试</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1267" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1266" />
         <source>Latency Test Method</source>
         <translation>延迟测试方法</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1270" />
         <source>TCP ping, fast</source>
         <translation>TCP测速，快速</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1272" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
         <source>HTTP ping, accurate</source>
         <translation>HTTP测速，准确</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1282" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1281" />
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1303" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1302" />
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1327" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1326" />
         <source>Latency Test Interval</source>
         <translation>延迟测试间隔</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1331" />
         <source>Disabled: No periodic latency testing when connected</source>
         <translation>禁用：连接时不进行定期延迟测试</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1333" />
         <source>Test latency every %1 seconds when connected</source>
         <translation>连接时每 %1 秒测试延迟</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="592" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1350" />
+        <location filename="../qml/pages/SettingsPage.qml" line="591" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1349" />
         <source>Disabled</source>
         <translation>已禁用</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1379" />
         <source>Speed Test File Size</source>
         <translation>测速文件大小</translation>
     </message>
     <message>
-        <source>10MB: Quick test (~5-10 seconds)</source>
-        <translation>10MB：快速测试（约5-10秒）</translation>
-    </message>
-    <message>
-        <source>25MB: Standard test (~10-20 seconds)</source>
-        <translation>25MB：标准测试（约10-20秒）</translation>
-    </message>
-    <message>
-        <source>100MB: Accurate test (~30-60 seconds)</source>
-        <translation>100MB：精确测试（约30-60秒）</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1442" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1441" />
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1445" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1444" />
         <source>Application Version</source>
         <translation>应用版本</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1448" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1447" />
         <source>Check</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1467" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1466" />
         <source>Core Version</source>
         <translation>核心版本</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1473" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1472" />
         <source>Open Source License</source>
         <translation>开源许可</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1475" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1496" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1474" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1495" />
         <source>View</source>
         <translation>查看</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1494" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1493" />
         <source>Documentation</source>
         <translation>文档</translation>
     </message>
+</context>
+<context>
+    <name>SimpleBottomNavigationBar</name>
     <message>
-        <source>License Information</source>
-        <translation type="vanished">授权信息</translation>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="56" />
+        <source>Dashboard</source>
+        <translation>仪表盘</translation>
     </message>
     <message>
-        <source>Authorization status and details</source>
-        <translation type="vanished">授权状态和详情</translation>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="69" />
+        <source>Store</source>
+        <translation>商店</translation>
     </message>
     <message>
-        <source>License ID</source>
-        <translation type="vanished">授权ID</translation>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="82" />
+        <source>Profile</source>
+        <translation>资料</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleConnectionPage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="22" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="140" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="157" />
+        <source>No Server Selected</source>
+        <translation>未选择服务器</translation>
     </message>
     <message>
-        <source>Vendor</source>
-        <translation type="vanished">供应商</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="27" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="191" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="210" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="218" />
+        <source>No Plan</source>
+        <translation>无套餐</translation>
     </message>
     <message>
-        <source>Expiration Date</source>
-        <translation type="vanished">过期时间</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="71" />
+        <source>Connecting...</source>
+        <translation>正在连接...</translation>
     </message>
     <message>
-        <source>Never</source>
-        <translation>从不</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="72" />
+        <source>Disconnecting...</source>
+        <translation>正在断开...</translation>
     </message>
     <message>
-        <source>Status</source>
-        <translation>状态</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="73" />
+        <source>Connected</source>
+        <translation>已连接</translation>
     </message>
     <message>
-        <source>Valid (Unlimited)</source>
-        <translation type="vanished">有效（无限期）</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="74" />
+        <source>Not Connected</source>
+        <translation>未连接</translation>
     </message>
     <message>
-        <source>Expires today</source>
-        <translation type="vanished">今天过期</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="189" />
+        <source>Plan</source>
+        <translation>套餐</translation>
     </message>
     <message>
-        <source>Valid (%1 days remaining)</source>
-        <translation type="vanished">有效（剩余 %1 天）</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="413" />
+        <source>Dashboard</source>
+        <translation>仪表盘</translation>
     </message>
     <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="592" />
+        <source>Expires: %1</source>
+        <translation>到期：%1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="608" />
+        <source>Renew</source>
+        <translation>续费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="643" />
+        <source>Traffic Used</source>
+        <translation>已用流量</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="686" />
+        <source>%1% used</source>
+        <translation>已使用 %1%</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="878" />
+        <source>Global</source>
+        <translation>全球</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="905" />
+        <source>Smart</source>
+        <translation>智能</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to change server</source>
+        <translation>点击切换服务器</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to select a server</source>
+        <translation>点击选择服务器</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleProfilePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="15" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="69" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="90" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="110" />
+        <source>Users</source>
+        <translation>用户</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="121" />
+        <source>Unlimited</source>
+        <translation>无限制</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="239" />
+        <source>Profile</source>
+        <translation>资料</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="347" />
+        <source>Account ID: </source>
+        <translation>账户ID：</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="379" />
+        <source>Subscription Overview</source>
+        <translation>订阅概览</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
         <source>Active</source>
         <translation>活跃</translation>
     </message>
     <message>
-        <source>Max Devices</source>
-        <translation type="vanished">最大设备数</translation>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Inactive</source>
+        <translation>未激活</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="411" />
+        <source>Status</source>
+        <translation>状态</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="438" />
+        <source>Expiry Date</source>
+        <translation>到期日期</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="465" />
+        <source>Used Traffic</source>
+        <translation>已用流量</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="487" />
+        <source>Expired</source>
+        <translation>已过期</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="488" />
+        <source> days</source>
+        <translation> 天</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="500" />
+        <source>Remaining</source>
+        <translation>剩余</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="519" />
+        <source>Traffic</source>
+        <translation>流量</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="576" />
+        <source>Account Actions</source>
+        <translation>账户操作</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="604" />
+        <source>Order Management</source>
+        <translation>订单管理</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="646" />
+        <source>Ticket System</source>
+        <translation>工单系统</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="688" />
+        <source>Help Center</source>
+        <translation>帮助中心</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="730" />
+        <source>Change Password</source>
+        <translation>修改密码</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="766" />
+        <source>Logout</source>
+        <translation>退出登录</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="820" />
+        <source>Password changed successfully</source>
+        <translation>密码修改成功</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="852" />
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleStorePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="81" />
+        <source>Monthly</source>
+        <translation>月付</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="84" />
+        <source>Billed monthly</source>
+        <translation>按月计费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="93" />
+        <source>Quarterly</source>
+        <translation>季付</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="96" />
+        <source>Billed every 3 months</source>
+        <translation>每3个月计费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="105" />
+        <source>Semi-Annual</source>
+        <translation>半年付</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="108" />
+        <source>Billed every 6 months</source>
+        <translation>每6个月计费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="117" />
+        <source>Yearly</source>
+        <translation>年付</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="120" />
+        <source>Billed annually - Best value!</source>
+        <translation>按年计费 - 最超值！</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="129" />
+        <source>2 Years</source>
+        <translation>两年</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="132" />
+        <source>Billed every 2 years</source>
+        <translation>每2年计费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="141" />
+        <source>3 Years</source>
+        <translation>三年</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="144" />
+        <source>Billed every 3 years</source>
+        <translation>每3年计费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="152" />
+        <source>One-time</source>
+        <translation>一次性</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="155" />
+        <source>One-time payment, no renewal</source>
+        <translation>一次性付款，无需续费</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="189" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="939" />
+        <source>Unnamed Plan</source>
+        <translation>未命名套餐</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="196" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="536" />
+        <source>Unlimited</source>
+        <translation>无限制</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="359" />
+        <source>Purchase successful!</source>
+        <translation>购买成功！</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="375" />
+        <source>Purchases restored successfully</source>
+        <translation>恢复购买成功</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="378" />
+        <source>No purchases to restore</source>
+        <translation>没有可恢复的购买</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="383" />
+        <source>Restore failed: </source>
+        <translation>恢复失败：</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="429" />
+        <source>No payment methods available</source>
+        <translation>暂无可用支付方式</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="445" />
+        <source>Payment initiated successfully</source>
+        <translation>支付已发起</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="500" />
+        <source>Unknown Plan</source>
+        <translation>未知套餐</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="507" />
+        <source>Plan #</source>
+        <translation>套餐 #</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="549" />
+        <source>Please login first</source>
+        <translation>请先登录</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="587" />
+        <source>IAP not available</source>
+        <translation>应用内购买不可用</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="603" />
+        <source>No matching IAP product for this plan</source>
+        <translation>此套餐没有匹配的应用内购买产品</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="607" />
+        <source>No subscription options available</source>
+        <translation>没有可用的订阅选项</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="624" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="633" />
+        <source>Order manager not available</source>
+        <translation>订单管理器不可用</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="642" />
+        <source>Invalid order</source>
+        <translation>无效订单</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="691" />
+        <source>Store</source>
+        <translation>商店</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="755" />
+        <source>Loading subscription information...</source>
+        <translation>正在加载订阅信息...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="786" />
+        <source>Current Subscription</source>
+        <translation>当前订阅</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="794" />
+        <source>No Subscription</source>
+        <translation>无订阅</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="803" />
+        <source>Select a plan below to get started</source>
+        <translation>选择下方套餐开始使用</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="826" />
+        <source>Exp: %1</source>
+        <translation>到期：%1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="847" />
+        <source>Rem: %1</source>
+        <translation>剩余：%1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="888" />
+        <source>Select Plan</source>
+        <translation>选择套餐</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="942" />
+        <source>Month</source>
+        <translation>月</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="992" />
+        <source>Restore Purchases</source>
+        <translation>恢复购买</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1034" />
+        <source>No Available Plans</source>
+        <translation>没有可用套餐</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1059" />
+        <source>Loading Plans...</source>
+        <translation>加载套餐中...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1134" />
+        <source>Select Subscription Period</source>
+        <translation>选择订阅周期</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1192" />
+        <source>This period is not available for in-app purchase</source>
+        <translation>此周期不支持应用内购买</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1217" />
+        <source>Cancel</source>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -3111,45 +3266,6 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>Subscription</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>无限制</translation>
-    </message>
-    <message>
-        <source>Do not auto update</source>
-        <translation>不自动更新</translation>
-    </message>
-    <message>
-        <source>Update Required</source>
-        <translation>需要更新</translation>
-    </message>
-    <message>
-        <source>%1 seconds later</source>
-        <translation>%1 秒后</translation>
-    </message>
-    <message>
-        <source>%1 minutes later</source>
-        <translation>%1 分钟后</translation>
-    </message>
-    <message>
-        <source>%1 hours later</source>
-        <translation>%1 小时后</translation>
-    </message>
-    <message>
-        <source>%1 days later</source>
-        <translation>%1 天后</translation>
-    </message>
-    <message>
-        <source>Subscription link cannot be empty</source>
-        <translation>订阅链接不能为空</translation>
-    </message>
-    <message>
-        <source>Subscription link format invalid</source>
-        <translation>订阅链接格式无效</translation>
-    </message>
-</context>
-<context>
     <name>SubscriptionCard</name>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="78" />
@@ -3213,103 +3329,35 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>SubscriptionManager</name>
-    <message>
-        <source>Subscription URL cannot be empty</source>
-        <translation>订阅URL不能为空</translation>
-    </message>
-    <message>
-        <source>Subscription already exists</source>
-        <translation>订阅已存在</translation>
-    </message>
-    <message>
-        <source>Subscription %1</source>
-        <translation>订阅 %1</translation>
-    </message>
-    <message>
-        <source>SaveSubscriptionFailed</source>
-        <translation>保存订阅失败</translation>
-    </message>
-    <message>
-        <source>DeleteSubscriptionFailed</source>
-        <translation>删除订阅失败</translation>
-    </message>
-    <message>
-        <source>Subscription does not exist</source>
-        <translation>订阅不存在</translation>
-    </message>
-    <message>
-        <source>Subscription is disabled</source>
-        <translation>订阅已禁用</translation>
-    </message>
-    <message>
-        <source>No subscription available for update</source>
-        <translation>没有可更新的订阅</translation>
-    </message>
-    <message>
-        <source>Server content cannot be empty</source>
-        <translation>服务器内容不能为空</translation>
-    </message>
-    <message>
-        <source>Server configuration format invalid</source>
-        <translation>服务器配置格式无效</translation>
-    </message>
-    <message>
-        <source>Manually added servers</source>
-        <translation>手动添加的服务器</translation>
-    </message>
-    <message>
-        <source>Manual server %1</source>
-        <translation>手动服务器 %1</translation>
-    </message>
-    <message>
-        <source>SaveServersFailed</source>
-        <translation>保存服务器失败</translation>
-    </message>
-    <message>
-        <source>JSON parse error</source>
-        <translation>JSON解析错误</translation>
-    </message>
-    <message>
-        <source>Unsupported configuration version</source>
-        <translation>不支持的配置版本</translation>
-    </message>
-    <message>
-        <source>Clash Server %1</source>
-        <translation>Clash服务器 %1</translation>
-    </message>
-    <message>
-        <source>No servers parsed</source>
-        <translation>未解析到服务器</translation>
-    </message>
-    <message>
-        <source>Failed to update database</source>
-        <translation>更新数据库失败</translation>
-    </message>
-</context>
-<context>
     <name>SystemTrayManager</name>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="111" />
         <source>JinGo VPN</source>
         <translation>JinGo VPN</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="130" />
         <source>Show Main Window</source>
         <translation>显示主窗口</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="138" />
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="173" />
         <source>Quick Connect</source>
         <translation>快速连接</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="146" />
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="154" />
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="170" />
         <source>DisconnectConnect</source>
         <translation>断开并重连</translation>
     </message>
@@ -3591,413 +3639,177 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>User</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>无限制</translation>
-    </message>
-    <message>
-        <source>%1 / %2 (remaining %3)</source>
-        <translation>%1 / %2 (剩余 %3)</translation>
-    </message>
-    <message>
-        <source>Free User</source>
-        <translation>免费用户</translation>
-    </message>
-    <message>
-        <source>Lifetime Member</source>
-        <translation>终身会员</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation>已过期</translation>
-    </message>
-</context>
-<context>
-    <name>VPNManager</name>
-    <message>
-        <source>Not Connected</source>
-        <translation>未连接</translation>
-    </message>
-    <message>
-        <source>Server configuration is empty</source>
-        <translation>服务器配置为空</translation>
-    </message>
-    <message>
-        <source>Server object invalid</source>
-        <translation>服务器对象无效</translation>
-    </message>
-    <message>
-        <source>Server configuration invalid: %1</source>
-        <translation>服务器配置无效：%1</translation>
-    </message>
-    <message>
-        <source>Preparing to connect...</source>
-        <translation>准备连接...</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>正在连接...</translation>
-    </message>
-    <message>
-        <source>ConnectFailed</source>
-        <translation>连接失败</translation>
-    </message>
-    <message>
-        <source>Server object has expired</source>
-        <translation>服务器对象已过期</translation>
-    </message>
-    <message>
-        <source>Failed to start connection</source>
-        <translation>启动连接失败</translation>
-    </message>
-    <message>
-        <source>Disconnecting...</source>
-        <translation>正在断开...</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>已断开</translation>
-    </message>
-    <message>
-        <source>Connecting to %1...</source>
-        <translation>正在连接到 %1...</translation>
-    </message>
-    <message>
-        <source>Configuration generation failed</source>
-        <translation>配置生成失败</translation>
-    </message>
-    <message>
-        <source>XrayCore initialization failed</source>
-        <translation>XrayCore初始化失败</translation>
-    </message>
-    <message>
-        <source>Failed to start Xray: %1</source>
-        <translation>启动Xray失败：%1</translation>
-    </message>
-    <message>
-        <source>SOCKS5 port not ready</source>
-        <translation>SOCKS5端口未就绪</translation>
-    </message>
-    <message>
-        <source>Connected to %1</source>
-        <translation>已连接到 %1</translation>
-    </message>
-    <message>
-        <source>Checking system requirements...</source>
-        <translation>正在检查系统要求...</translation>
-    </message>
-    <message>
-        <source>Checking WinTun driver...</source>
-        <translation>正在检查WinTun驱动...</translation>
-    </message>
-    <message>
-        <source>Preparing routes...</source>
-        <translation>正在准备路由...</translation>
-    </message>
-    <message>
-        <source>Creating TUN device...</source>
-        <translation>正在创建TUN设备...</translation>
-    </message>
-    <message>
-        <source>Waiting for TUN device...</source>
-        <translation>正在等待TUN设备...</translation>
-    </message>
-    <message>
-        <source>Configuring TUN routes...</source>
-        <translation>正在配置TUN路由...</translation>
-    </message>
-    <message>
-        <source>Connected (Windows TUN Mode)</source>
-        <translation>已连接（Windows TUN模式）</translation>
-    </message>
-    <message>
-        <source>VPN permission denied. Please grant VPN permission in Settings and try again.</source>
-        <translation>VPN权限被拒绝。请在设置中授予VPN权限后重试。</translation>
-    </message>
-    <message>
-        <source>Connected (TUN Mode)</source>
-        <translation>已连接（TUN模式）</translation>
-    </message>
-    <message>
-        <source>Connected (System Proxy)</source>
-        <translation>已连接（系统代理）</translation>
-    </message>
-    <message>
-        <source>Failed to create TUN device</source>
-        <translation>创建TUN设备失败</translation>
-    </message>
-    <message>
-        <source>Failed to configure TUN device</source>
-        <translation>配置TUN设备失败</translation>
-    </message>
-    <message>
-        <source>Connection failed: maximum retry attempts exceeded</source>
-        <translation>连接失败：超过最大重试次数</translation>
-    </message>
-    <message>
-        <source>Maximum retry attempts exceeded</source>
-        <translation>超过最大重试次数</translation>
-    </message>
-    <message>
-        <source>Will reconnect in %1 seconds (attempt %2/%3)</source>
-        <translation>将在 %1 秒后重连（尝试 %2/%3）</translation>
-    </message>
-    <message>
-        <source>Error: %1</source>
-        <translation>错误：%1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: server object invalid</source>
-        <translation>重连失败：服务器对象无效</translation>
-    </message>
-    <message>
-        <source>ConnectTimeout</source>
-        <translation>连接超时</translation>
-    </message>
-    <message>
-        <source>TUN device error: %1</source>
-        <translation>TUN设备错误：%1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: no current server</source>
-        <translation>重连失败：没有当前服务器</translation>
-    </message>
-    <message>
-        <source>VPN not connected</source>
-        <translation>VPN未连接</translation>
-    </message>
-    <message>
-        <source>No Server Selected</source>
-        <translation>未选择服务器</translation>
-    </message>
-    <message>
-        <source>No data received</source>
-        <translation>未收到数据</translation>
-    </message>
-    <message>
-        <source>Server address is empty</source>
-        <translation>服务器地址为空</translation>
-    </message>
-    <message>
-        <source>Ping not supported on this platform</source>
-        <translation>此平台不支持Ping</translation>
-    </message>
-    <message>
-        <source>Failed to parse ping result</source>
-        <translation>解析ping结果失败</translation>
-    </message>
-    <message>
-        <source>PingFailed</source>
-        <translation>Ping失败</translation>
-    </message>
-    <message>
-        <source>ServersInvalid</source>
-        <translation>服务器无效</translation>
-    </message>
-    <message>
-        <source>TCP connection failed</source>
-        <translation>TCP连接失败</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>HTTP请求失败</translation>
-    </message>
-    <message>
-        <source>License has expired. Please contact your vendor to renew.</source>
-        <translation type="vanished">授权已过期，请联系供应商续费。</translation>
-    </message>
-    <message>
-        <source>License is invalid. Please check your configuration.</source>
-        <translation type="vanished">授权无效，请检查配置文件。</translation>
-    </message>
-</context>
-<context>
-    <name>XrayCore</name>
-    <message>
-        <source>Stopped</source>
-        <translation>已停止</translation>
-    </message>
-    <message>
-        <source>Starting</source>
-        <translation>正在启动</translation>
-    </message>
-    <message>
-        <source>Running</source>
-        <translation>运行中</translation>
-    </message>
-    <message>
-        <source>Stopping</source>
-        <translation>正在停止</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>错误</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>未知</translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
-        <location filename="../qml/main.qml" line="171" />
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="218" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
+        <location filename="../qml/main.qml" line="218" />
         <source>VPN ConnectSuccess</source>
         <translation>VPN 连接成功</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>Disconnected</source>
         <translation>已断开</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>VPN Disconnected</source>
         <translation>VPN 已断开</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="181" />
+        <location filename="../qml/main.qml" line="228" />
         <source>ConnectFailed</source>
         <translation>连接失败</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="186" />
+        <location filename="../qml/main.qml" line="233" />
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="224" />
+        <location filename="../qml/main.qml" line="271" />
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="226" />
+        <location filename="../qml/main.qml" line="273" />
         <source>Preferences</source>
         <translation>偏好设置</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="231" />
+        <location filename="../qml/main.qml" line="284" />
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="237" />
-        <location filename="../qml/main.qml" line="239" />
-        <location filename="../qml/main.qml" line="365" />
+        <location filename="../qml/main.qml" line="290" />
+        <location filename="../qml/main.qml" line="292" />
+        <location filename="../qml/main.qml" line="419" />
         <source>Connect</source>
         <translation>连接</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="239" />
+        <location filename="../qml/main.qml" line="292" />
         <source>DisconnectConnect</source>
         <translation>断开并重连</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="252" />
+        <location filename="../qml/main.qml" line="305" />
         <source>Select Server</source>
         <translation>选择服务器</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="258" />
+        <location filename="../qml/main.qml" line="312" />
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="260" />
+        <location filename="../qml/main.qml" line="314" />
         <source>Documentation</source>
         <translation>文档</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="264" />
+        <location filename="../qml/main.qml" line="318" />
         <source>Report Issue</source>
         <translation>报告问题</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269" />
+        <location filename="../qml/main.qml" line="323" />
         <source>About JinGo</source>
         <translation>关于 JinGo</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="719" />
+        <location filename="../qml/main.qml" line="419" />
+        <location filename="../qml/main.qml" line="668" />
+        <source>Dashboard</source>
+        <translation>仪表盘</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Professional Mode</source>
+        <translation>切换到专业模式</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Simple Mode</source>
+        <translation>切换到简洁模式</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="673" />
+        <source>Store</source>
+        <translation>商店</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="833" />
         <source>JinGo</source>
-        <translation type="unfinished" />
+        <translation>JinGo</translation>
     </message>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>关于 JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="379" />
+        <location filename="../qml/main.qml" line="433" />
         <source>Servers</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="391" />
-        <location filename="../qml/main.qml" line="579" />
+        <location filename="../qml/main.qml" line="445" />
+        <location filename="../qml/main.qml" line="673" />
         <source>Subscription</source>
         <translation>订阅</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="403" />
-        <location filename="../qml/main.qml" line="576" />
+        <location filename="../qml/main.qml" line="457" />
+        <location filename="../qml/main.qml" line="670" />
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="574" />
+        <location filename="../qml/main.qml" line="668" />
         <source>Connection</source>
         <translation>连接</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="575" />
+        <location filename="../qml/main.qml" line="669" />
         <source>Server List</source>
         <translation>服务器列表</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="577" />
+        <location filename="../qml/main.qml" line="671" />
         <source>Profile</source>
         <translation>资料</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="578" />
+        <location filename="../qml/main.qml" line="672" />
         <source>Login/Register</source>
         <translation>登录/注册</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="590" />
+        <location filename="../qml/main.qml" line="684" />
         <source>Manage your VPN connection</source>
         <translation>管理您的 VPN 连接</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="591" />
+        <location filename="../qml/main.qml" line="685" />
         <source>Select the best server</source>
         <translation>选择最佳服务器</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="592" />
+        <location filename="../qml/main.qml" line="686" />
         <source>Upgrade your subscription plan</source>
         <translation>升级您的订阅套餐</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Not Connected</source>
         <translation>未连接</translation>
     </message>
     <message>
-        <source>JinGoVPN</source>
-        <translation>JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="720" />
-        <source>Application minimized to system tray, double-click the tray icon to reopen</source>
-        <translation>应用已最小化到系统托盘，双击托盘图标重新打开</translation>
+        <location filename="../qml/main.qml" line="834" />
+        <source>Application minimized to system tray, click the tray icon to reopen</source>
+        <translation>应用已最小化到系统托盘，点击托盘图标重新打开</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="25" />

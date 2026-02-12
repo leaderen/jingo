@@ -21,6 +21,7 @@
 #include <QPointer>
 #include <QFuture>
 #include <QProcess>
+#include <QNetworkAccessManager>
 #include "../models/Server.h"
 
 // ============================================================================
@@ -1234,6 +1235,7 @@ private slots:
      * - 连续失败3次后自动重连
      */
     void checkConnectionHealth();
+    void handleHealthCheckResult(bool healthCheckPassed);
 
     // ========================================================================
     // 槽函数 - VPNCore信号处理
@@ -1406,6 +1408,10 @@ private:
     quint64 m_downloadSpeed;    ///< 当前下载速度（字节/秒）
     qint64 m_connectedTime;     ///< 已连接时长（秒）
 
+    // TUN 模式本地速度计算（用于 SuperRay 未返回速率时的回退计算）
+    quint64 m_lastTunTxBytes = 0;   ///< 上次 TUN 统计的上传字节数
+    quint64 m_lastTunRxBytes = 0;   ///< 上次 TUN 统计的下载字节数
+
     // 定期保存统计数据使用（防止崩溃丢失数据）
     quint64 m_lastSavedUploadBytes;    ///< 上次保存时的上传字节数
     quint64 m_lastSavedDownloadBytes;  ///< 上次保存时的下载字节数
@@ -1417,6 +1423,7 @@ private:
     int m_ipDetectionRetryCount;    ///< IP检测重试次数
     int m_delayDetectionRetryCount; ///< 延时检测重试次数
     int m_statsQueryCount;          ///< 统计查询计数（用于控制 IP/延迟查询频率）
+    QNetworkAccessManager* m_ipDetectionNAM = nullptr;  ///< IP检测用的网络管理器（复用避免资源泄漏）
 
     // ========================================================================
     // 成员变量 - 配置选项
@@ -1437,10 +1444,10 @@ private:
     QTimer* m_connectionTimeoutTimer;   ///< 连接超时定时器
     QTimer* m_healthCheckTimer;         ///< 健康检查定时器
     QTimer* m_tunnelStatsTimer;         ///< TUN模式统计数据定时器（macOS/iOS）
-    QTimer* m_connectionInfoTestTimer;  ///< 连接信息测试定时器（延迟和IP）
-    QTimer* m_latencyTestTimer;         ///< 延时测试定时器（用户配置间隔）
+    QTimer* m_connectionInfoTestTimer;  ///< 连接信息测试定时器（统一的延迟和IP检测）
     QTimer* m_statsSaveTimer;           ///< 统计数据定期保存定时器（每60秒，防止崩溃丢失数据）
-    bool m_initialTestDone;             ///< 初始测试是否完成（连接后30秒）
+    bool m_initialTestDone;             ///< 初始测试是否完成
+    int m_tickCount;                    ///< 定时器计数器（用于控制IP检测和延迟测试频率）
 
     // ========================================================================
     // 成员变量 - 异步任务

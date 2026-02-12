@@ -60,8 +60,8 @@ ConnectionViewModel::ConnectionViewModel(QObject* parent)
                          m_timeTimer->stop();
                      });
 
-    // 设置统计更新定时器 (每秒)
-    m_statsTimer->setInterval(1000);
+    // 设置统计更新定时器 (每5秒，与VPNCore统计采集频率一致)
+    m_statsTimer->setInterval(5000);
     QObject::connect(m_statsTimer, &QTimer::timeout,
                      this, &ConnectionViewModel::updateStatistics);
 

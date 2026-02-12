@@ -131,10 +131,8 @@ int Xray_Start(const char* configJSON)
             LOG_DEBUG("[XrayCBridge] Stopping existing Xray instance...");
             Xray_Stop();
 
-            // 等待一段时间让Go runtime完全清理
-            // 这是为了避免expvar的"Reuse of exported var name: stats"错误
-            LOG_DEBUG("[XrayCBridge] Waiting 2 seconds for Go runtime cleanup...");
-            [NSThread sleepForTimeInterval:2.0];
+            // Go runtime 清理由 SuperRay 内部处理，不再在主线程 sleep
+            LOG_DEBUG("[XrayCBridge] Xray stopped, proceeding to restart");
         }
 
         // 现在重新获取锁来启动
@@ -450,11 +448,6 @@ int Xray_Stop(void)
                     g_isRunning = false;
                     g_lastError = nil;
 
-                    // 添加等待时间确保Go runtime完全清理，包括 expvar 变量
-                    LOG_INFO("[XrayCBridge] Waiting 2 seconds for Go runtime cleanup (expvar, metrics, etc.)...");
-                    [NSThread sleepForTimeInterval:2.0];
-                    LOG_INFO("[XrayCBridge] Cleanup complete, ready for next start");
-
                     return 0;
                 } else {
                     // 停止失败
@@ -488,11 +481,6 @@ int Xray_Stop(void)
         LOG_INFO("[XrayCBridge] Xray core stopped successfully");
         g_isRunning = false;
         g_lastError = nil;
-
-        // 添加等待时间确保Go runtime完全清理，包括 expvar 变量
-        LOG_INFO("[XrayCBridge] Waiting 2 seconds for Go runtime cleanup (expvar, metrics, etc.)...");
-        [NSThread sleepForTimeInterval:2.0];
-        LOG_INFO("[XrayCBridge] Cleanup complete, ready for next start");
 
         return 0;
     }

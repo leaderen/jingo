@@ -45,6 +45,7 @@ class ConfigManager : public QObject
     Q_PROPERTY(bool minimizeToTray READ minimizeToTray WRITE setMinimizeToTray NOTIFY minimizeToTrayChanged)
     Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY languageChanged)
     Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
+    Q_PROPERTY(QString uiMode READ uiMode WRITE setUiMode NOTIFY uiModeChanged)
     Q_PROPERTY(int localSocksPort READ localSocksPort WRITE setLocalSocksPort NOTIFY localSocksPortChanged)
     Q_PROPERTY(int localHttpPort READ localHttpPort WRITE setLocalHttpPort NOTIFY localHttpPortChanged)
     Q_PROPERTY(bool allowLAN READ allowLAN WRITE setAllowLAN NOTIFY allowLANChanged)
@@ -750,6 +751,18 @@ public:
      */
     QString theme() const;
 
+    /**
+     * @brief 设置 UI 模式
+     * @param mode 模式名称 ("simple", "professional")
+     */
+    void setUiMode(const QString& mode);
+
+    /**
+     * @brief 获取 UI 模式
+     * @return QString 当前模式名称
+     */
+    QString uiMode() const;
+
     // ========================================================================
     // 公共方法 - TUN 虚拟网卡参数
     // ========================================================================
@@ -904,6 +917,7 @@ signals:
     void allowLANChanged();
     void languageChanged();
     void themeChanged();
+    void uiModeChanged();
 
     // 传输层设置变更信号
     void enableMuxChanged();
@@ -1068,6 +1082,7 @@ private:
     bool m_autoConnect;            ///< 是否自动连接
     QString m_language;            ///< 界面语言
     QString m_theme;               ///< UI主题
+    QString m_uiMode;             ///< UI模式 ("simple" 或 "professional")
 
     // ========================================================================
     // 私有成员变量 - 网络设置

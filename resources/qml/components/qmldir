@@ -30,6 +30,7 @@ ChangePasswordDialog 1.0 ChangePasswordDialog.qml
 TicketListDialog 1.0 TicketListDialog.qml
 HelpCenterDialog 1.0 HelpCenterDialog.qml
 BottomNavigationBar 1.0 BottomNavigationBar.qml
+SimpleBottomNavigationBar 1.0 SimpleBottomNavigationBar.qml
 BottomNavButton 1.0 BottomNavButton.qml
 CustomSwitch 1.0 CustomSwitch.qml
 CustomRadioButton 1.0 CustomRadioButton.qml

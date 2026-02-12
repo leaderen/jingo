@@ -9,11 +9,13 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "JinDoBundleHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 // XPC Service name - must match NEMachServiceName in Info.plist
-static NSString * const kJinGoXPCServiceName = @"group.work.opine.jingo";
+// 从 bundle ID 动态推导（兼容 Extension 进程）: group. + mainAppBundleID
+#define kJinGoXPCServiceName (JinDo_AppGroupID())
 
 /**
  * Protocol for the XPC service exposed by the System Extension

@@ -222,6 +222,14 @@ private slots:
      */
     void onTimerTimeout();
 
+    /**
+     * @brief 批量更新完成回调
+     * @details 在 SubscriptionManager 批量更新完成后标记更新结束
+     * @param successCount 成功更新的订阅数
+     * @param failedCount 失败的订阅数
+     */
+    void onBatchUpdateCompleted(int successCount, int failedCount);
+
 private:
     static BackgroundDataUpdater* s_instance;  ///< 单例实例指针
     static QMutex s_instanceMutex;             ///< 单例创建互斥锁
@@ -231,6 +239,7 @@ private:
     bool m_isUpdating;                         ///< 是否正在更新
     int m_updateInterval;                      ///< 更新间隔（秒）
     bool m_shouldStop;                         ///< 是否应该停止
+    bool m_waitingForBatchUpdate = false;      ///< 是否在等待批量更新完成
 };
 
 #endif // BACKGROUNDDATAUPDATER_H

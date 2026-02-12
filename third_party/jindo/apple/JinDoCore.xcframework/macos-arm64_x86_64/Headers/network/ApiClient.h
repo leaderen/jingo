@@ -161,6 +161,13 @@ public:
     void clearAuthToken();
 
     /**
+     * @brief 获取最近一次失败请求的 HTTP 状态码
+     * @return int HTTP 状态码，0 表示网络层错误（未收到 HTTP 响应）
+     * @note 用于区分网络连接错误（0）和服务器拒绝（401/403 等）
+     */
+    int lastHttpStatusCode() const;
+
+    /**
      * @brief 更新备用 URL 列表（从 API 响应中获取）
      * @param urls 备用 URL 列表
      */
@@ -528,6 +535,7 @@ private:
     QString m_baseUrl;                       ///< API 基础 URL
     QString m_authToken;                     ///< 身份验证 Token
     int m_timeout;                           ///< 请求超时时间（毫秒）
+    int m_lastHttpStatusCode = 0;            ///< 最近一次失败请求的 HTTP 状态码（0=网络错误）
 
     // Fallback URL 支持
     QStringList m_allUrls;                   ///< 所有可用 URL（主 URL + 备用 URL）

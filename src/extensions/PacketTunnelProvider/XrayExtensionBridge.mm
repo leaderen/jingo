@@ -4,14 +4,19 @@
  */
 
 #import "XrayExtensionBridge.h"
+#import "platform/apple/JinDoBundleHelper.h"
 
 #ifdef HAVE_SUPERRAY
 // Include XrayCBridge C API
 #import "core/XrayCBridge.h"
 #endif
 
-// App Group ID (must match main app)
-static NSString * const kAppGroupIdentifier = @"group.work.opine.jingo";
+// 使用 JinDo 库的 BundleHelper 从 plist 动态推导
+#define kAppGroupIdentifier (JinDo_AppGroupID())
+
+static NSString * DeriveErrorDomain() {
+    return [JinDo_MainAppBundleID() stringByAppendingString:@".xray"];
+}
 
 // Helper function to write logs to both NSLog and file
 static void XrayLogMessage(NSString *format, ...) {
@@ -69,7 +74,8 @@ static void XrayLogMessage(NSString *format, ...) {
     self = [super init];
     if (self) {
         _isRunning = NO;
-        _xrayQueue = dispatch_queue_create("work.opine.jingo.extension.xray", DISPATCH_QUEUE_SERIAL);
+        NSString *queueName = [JinDo_MainAppBundleID() stringByAppendingString:@".extension.xray"];
+        _xrayQueue = dispatch_queue_create([queueName UTF8String], DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -108,12 +114,12 @@ static void XrayLogMessage(NSString *format, ...) {
             if (Xray_GetLastError(errorBuffer, sizeof(errorBuffer)) == 0) {
                 NSString *errorMsg = [NSString stringWithUTF8String:errorBuffer];
                 XrayLogMessage(@"[XrayExtensionBridge] ❌ Xray start failed: %@", errorMsg);
-                blockError = [NSError errorWithDomain:@"work.opine.jingo.xray"
+                blockError = [NSError errorWithDomain:DeriveErrorDomain()
                                                   code:result
                                               userInfo:@{NSLocalizedDescriptionKey: errorMsg}];
             } else {
                 XrayLogMessage(@"[XrayExtensionBridge] ❌ Xray start failed with code: %d", result);
-                blockError = [NSError errorWithDomain:@"work.opine.jingo.xray"
+                blockError = [NSError errorWithDomain:DeriveErrorDomain()
                                                   code:result
                                               userInfo:@{NSLocalizedDescriptionKey: @"Xray start failed"}];
             }
@@ -129,7 +135,7 @@ static void XrayLogMessage(NSString *format, ...) {
 #else
     XrayLogMessage(@"[XrayExtensionBridge] ⚠️ SuperRay not available - compiled without HAVE_SUPERRAY");
     if (error) {
-        *error = [NSError errorWithDomain:@"work.opine.jingo.xray"
+        *error = [NSError errorWithDomain:DeriveErrorDomain()
                                       code:-1
                                   userInfo:@{NSLocalizedDescriptionKey: @"SuperRay not available"}];
     }

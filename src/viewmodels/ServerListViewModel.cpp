@@ -70,28 +70,37 @@ ServerListViewModel::ServerListViewModel(QObject* parent)
     , m_subscriptionManager(&SubscriptionManager::instance())
     , m_vpnManager(&VPNManager::instance())
 {
-    // 连接模型的更新完成信号
-    connect(m_serverModel, &ServerListModel::updateCompleted,
-            this, [this](int added, int removed, int updated) {
-        Q_UNUSED(added);
-        Q_UNUSED(removed);
-        Q_UNUSED(updated);
-        // 通知 QML 服务器列表已更新（兼容旧接口）
-        emit serversChanged();
-    });
+    // 注意：不在此处连接 updateCompleted → serversChanged，
+    // 因为 loadServersFromManager() 末尾的 applyFilter() 已经会 emit serversChanged()。
+    // 双重 emit 会导致 QML 端服务器列表刷新 2 次。
     // 初始加载 - 从本地数据库加载已有的服务器
     loadServersFromManager();
 
     // 加载之前保存的测速结果
     loadSpeedTestResults();
 
-    // ⭐ 监听订阅更新信号（增量更新模式）
-    // 每次订阅更新后立即刷新，确保 UI 显示最新服务器
+    // 创建防抖计时器（300ms 防抖，避免 N 个订阅触发 N 次重载）
+    m_reloadDebounceTimer = new QTimer(this);
+    m_reloadDebounceTimer->setSingleShot(true);
+    m_reloadDebounceTimer->setInterval(300);
+    connect(m_reloadDebounceTimer, &QTimer::timeout, this, &ServerListViewModel::loadServersFromManager);
+
+    // 监听单个订阅更新 — 防抖处理
     if (m_subscriptionManager) {
         connect(m_subscriptionManager, &SubscriptionManager::subscriptionUpdated,
                 this, [this](Subscription* subscription) {
             Q_UNUSED(subscription);
-            LOG_DEBUG("Subscription updated, reloading servers from manager");
+            LOG_DEBUG("Subscription updated, debouncing server reload");
+            m_reloadDebounceTimer->start();  // restart 防抖
+        }, Qt::QueuedConnection);
+
+        // 监听批量更新完成 — 立即重载一次
+        connect(m_subscriptionManager, &SubscriptionManager::batchUpdateCompleted,
+                this, [this](int successCount, int failedCount) {
+            Q_UNUSED(successCount);
+            Q_UNUSED(failedCount);
+            LOG_INFO("Batch update completed, reloading servers from manager");
+            m_reloadDebounceTimer->stop();  // 取消待执行的防抖
             loadServersFromManager();
         }, Qt::QueuedConnection);
     }
@@ -149,14 +158,14 @@ void ServerListViewModel::setIsLoading(bool loading)
  */
 void ServerListViewModel::refreshServers()
 {
-    LOG_INFO("Manual refresh triggered - reloading from manager");
+    LOG_INFO("Manual refresh triggered - updating subscriptions from network");
 
     setIsLoading(true);
 
-    // 直接从 SubscriptionManager 重新加载服务器
-    // 注意：信号连接已在构造函数中建立，这里无需重复连接
+    // 从网络更新所有订阅，而不是只从内存缓存重载
+    // batchUpdateCompleted 信号已在构造函数中连接到 loadServersFromManager()
     if (m_subscriptionManager) {
-        loadServersFromManager();
+        m_subscriptionManager->updateAllSubscriptions();
     } else {
         LOG_ERROR("SubscriptionManager is null");
         setIsLoading(false);

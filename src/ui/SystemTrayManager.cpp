@@ -183,10 +183,11 @@ void SystemTrayManager::onActivated(QSystemTrayIcon::ActivationReason reason)
 {
     switch (reason) {
         case QSystemTrayIcon::Trigger:
-            // 单击 (Windows/Linux 左键点击)
+            // 单击 - 显示主窗口 (macOS 上双击不常见)
+            emit showWindowRequested();
             emit activated();
             break;
-            
+
         case QSystemTrayIcon::DoubleClick:
             // 双击 - 显示主窗口
             emit showWindowRequested();
@@ -195,7 +196,7 @@ void SystemTrayManager::onActivated(QSystemTrayIcon::ActivationReason reason)
         case QSystemTrayIcon::MiddleClick:
             // 中键点击
             break;
-            
+
         default:
             break;
     }

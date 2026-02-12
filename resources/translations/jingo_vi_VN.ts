@@ -4,14 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>Về JinGoVPN</translation>
-    </message>
-    <message>
-        <source>JinGoVPN Client</source>
-        <translation>JinGoVPN Client</translation>
-    </message>
-    <message>
         <location filename="../qml/components/AboutDialog.qml" line="18" />
         <source>About JinGo</source>
         <translation>Về JinGo</translation>
@@ -93,57 +85,6 @@
         <location filename="../qml/pages/AppSelectorPage.qml" line="341" />
         <source>Save Selection</source>
         <translation>Lưu lựa chọn</translation>
-    </message>
-</context>
-<context>
-    <name>AuthManager</name>
-    <message>
-        <source>Email or password cannot be empty</source>
-        <translation>Email hoặc mật khẩu trống</translation>
-    </message>
-    <message>
-        <source>Server response format error: missing token</source>
-        <translation>Lỗi máy chủ: thiếu token</translation>
-    </message>
-    <message>
-        <source>User info parse failed</source>
-        <translation>Lỗi phân tích thông tin</translation>
-    </message>
-    <message>
-        <source>User info invalid or incomplete</source>
-        <translation>Thông tin không hợp lệ</translation>
-    </message>
-    <message>
-        <source>Subscription information is empty</source>
-        <translation>Thông tin đăng ký trống</translation>
-    </message>
-    <message>
-        <source>My Subscription</source>
-        <translation>Đăng ký của tôi</translation>
-    </message>
-    <message>
-        <source>Server response data format error</source>
-        <translation>Lỗi định dạng máy chủ</translation>
-    </message>
-    <message>
-        <source>Email and password cannot be empty</source>
-        <translation>Email và mật khẩu trống</translation>
-    </message>
-    <message>
-        <source>Email cannot be empty</source>
-        <translation>Email không được trống</translation>
-    </message>
-    <message>
-        <source>Email, verification code and new password cannot be empty</source>
-        <translation>Điền đầy đủ thông tin</translation>
-    </message>
-    <message>
-        <source>Not logged in</source>
-        <translation>Chưa đăng nhập</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>Mật khẩu không được trống</translation>
     </message>
 </context>
 <context>
@@ -375,7 +316,7 @@
         <translation>Đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConnectionPage.qml" line="1349" />
+        <location filename="../qml/pages/ConnectionPage.qml" line="1354" />
         <source>* Changes to connection settings require reconnecting to take effect</source>
         <translation>* Thay đổi cài đặt kết nối cần kết nối lại</translation>
     </message>
@@ -383,20 +324,44 @@
 <context>
     <name>ConnectionViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="95" />
         <source>Not Connected</source>
         <translation>Chưa kết nối</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="97" />
         <source>Connecting...</source>
         <translation>Đang kết nối...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="99" />
         <source>Connected</source>
         <translation>Đã kết nối</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="101" />
         <source>Disconnecting...</source>
         <translation>Đang ngắt...</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="103" />
+        <source>Reconnecting...</source>
+        <translation>Đang kết nối lại...</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="105" />
+        <source>Connection Error</source>
+        <translation>Lỗi kết nối</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="107" />
+        <source>Unknown Status</source>
+        <translation>Trạng thái không xác định</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="120" />
+        <source>None</source>
+        <translation>Không có</translation>
     </message>
 </context>
 <context>
@@ -404,7 +369,7 @@
     <message>
         <location filename="../qml/components/CountryHelper.qml" line="14" />
         <source>Unknown</source>
-        <translation type="unfinished" />
+        <translation>Không xác định</translation>
     </message>
     <message>
         <location filename="../qml/components/CountryHelper.qml" line="20" />
@@ -795,7 +760,30 @@ Third-party components:
 - Qt Framework: LGPL v3
 - OpenSSL: Apache License 2.0
 </source>
-        <translation type="unfinished" />
+        <translation>JinGo VPN - GNU General Public License v3.0
+
+Copyright (C) 2024-2025 JinGo Team
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.
+
+---
+
+Third-party components:
+- Xray-core: Mozilla Public License 2.0
+- Qt Framework: LGPL v3
+- OpenSSL: Apache License 2.0
+</translation>
     </message>
     <message>
         <location filename="../qml/dialogs/LicenseDialog.qml" line="25" />
@@ -869,7 +857,7 @@ Third-party components:
     <message>
         <location filename="../qml/components/LoginForm.qml" line="122" />
         <source>Logging in...</source>
-        <translation type="unfinished" />
+        <translation>Đang đăng nhập...</translation>
     </message>
     <message>
         <location filename="../qml/components/LoginForm.qml" line="122" />
@@ -898,12 +886,52 @@ Third-party components:
 <context>
     <name>LoginViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="147" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="429" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="473" />
         <source>Enter email</source>
         <translation>Nhập email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="153" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="435" />
         <source>Invalid email format</source>
         <translation>Email không hợp lệ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="240" />
+        <source>Please enterUsername</source>
+        <translation>Vui lòng nhập tên đăng nhập</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="245" />
+        <source>Enter password</source>
+        <translation>Nhập mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="326" />
+        <source>Password reset email sent to %1</source>
+        <translation>Email đặt lại mật khẩu đã gửi đến %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="478" />
+        <source>Enter verification code</source>
+        <translation>Nhập mã xác nhận</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="483" />
+        <source>Enter new password</source>
+        <translation>Nhập mật khẩu mới</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="488" />
+        <source>Password must be at least 6 characters</source>
+        <translation>Mật khẩu phải có ít nhất 6 ký tự</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="505" />
+        <source>Password reset successfully! Please login with new password.</source>
+        <translation>Đặt lại mật khẩu thành công! Vui lòng đăng nhập bằng mật khẩu mới.</translation>
     </message>
 </context>
 <context>
@@ -1027,7 +1055,7 @@ Third-party components:
         <location filename="../qml/components/OrderListDialog.qml" line="810" />
         <location filename="../qml/components/OrderListDialog.qml" line="1176" />
         <source>Unknown</source>
-        <translation type="unfinished" />
+        <translation>Không xác định</translation>
     </message>
     <message>
         <location filename="../qml/components/OrderListDialog.qml" line="817" />
@@ -1303,7 +1331,7 @@ Third-party components:
         <location filename="../qml/pages/ProfilePage.qml" line="340" />
         <location filename="../qml/pages/ProfilePage.qml" line="552" />
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>Không có</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="347" />
@@ -1354,56 +1382,34 @@ Third-party components:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/main.cpp" line="242" />
+        <location filename="../../src/main.cpp" line="269" />
         <source>Not Connected</source>
         <translation>Chưa kết nối</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="245" />
+        <location filename="../../src/main.cpp" line="272" />
         <source>Connecting...</source>
         <translation>Đang kết nối...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="248" />
+        <location filename="../../src/main.cpp" line="275" />
         <source>Connected</source>
         <translation>Đã kết nối</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="251" />
+        <location filename="../../src/main.cpp" line="278" />
         <source>Disconnecting...</source>
         <translation>Đang ngắt...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="254" />
+        <location filename="../../src/main.cpp" line="281" />
         <source>Reconnecting...</source>
         <translation>Đang kết nối lại...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="257" />
+        <location filename="../../src/main.cpp" line="284" />
         <source>Connection Error</source>
         <translation>Lỗi kết nối</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="487" />
-        <source>安全错误</source>
-        <translation>Lỗi bảo mật</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="488" />
-        <source>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Đã ngắt</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Lỗi</translation>
     </message>
 </context>
 <context>
@@ -1416,7 +1422,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="36" />
         <source>Enter email address</source>
-        <translation type="unfinished" />
+        <translation>Nhập địa chỉ email</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="56" />
@@ -1451,7 +1457,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="106" />
         <source>Enter password (min 6 chars)</source>
-        <translation type="unfinished" />
+        <translation>Nhập mật khẩu (tối thiểu 6 ký tự)</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="123" />
@@ -1461,7 +1467,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="123" />
         <source>Invite Code</source>
-        <translation type="unfinished" />
+        <translation>Mã mời</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
@@ -1471,12 +1477,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
         <source>Enter invite code</source>
-        <translation type="unfinished" />
+        <translation>Nhập mã mời</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="176" />
         <source>I agree to the</source>
-        <translation type="unfinished" />
+        <translation>Tôi đồng ý với</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="184" />
@@ -1486,17 +1492,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="257" />
         <source>I'm not a robot</source>
-        <translation type="unfinished" />
+        <translation>Tôi không phải robot</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="298" />
         <source>Registration Successful</source>
-        <translation type="unfinished" />
+        <translation>Đăng ký thành công</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="300" />
         <source>Signing up...</source>
-        <translation type="unfinished" />
+        <translation>Đang đăng ký...</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="302" />
@@ -1507,12 +1513,25 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>RegisterViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="123" />
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="170" />
         <source>Enter email</source>
         <translation>Nhập email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="129" />
         <source>Invalid email format</source>
         <translation>Email không hợp lệ</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="174" />
+        <source>Enter password</source>
+        <translation>Nhập mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="178" />
+        <source>Password must be at least 6 characters</source>
+        <translation>Mật khẩu phải có ít nhất 6 ký tự</translation>
     </message>
 </context>
 <context>
@@ -1520,22 +1539,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="10" />
         <source>Plan Name</source>
-        <translation type="unfinished" />
+        <translation>Tên gói</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="11" />
         <source>Price / Period</source>
-        <translation type="unfinished" />
+        <translation>Giá / Thời hạn</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="12" />
         <source>Unlimited traffic, 5 devices</source>
-        <translation type="unfinished" />
+        <translation>Lưu lượng không giới hạn, 5 thiết bị</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerCard.qml" line="53" />
         <source>Purchase Now</source>
-        <translation type="unfinished" />
+        <translation>Mua ngay</translation>
     </message>
 </context>
 <context>
@@ -1543,12 +1562,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerGroupCard.qml" line="74" />
         <source>%1 Servers</source>
-        <translation type="unfinished" />
+        <translation>%1 máy chủ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerGroupCard.qml" line="189" />
         <source>UnknownServers</source>
-        <translation type="unfinished" />
+        <translation>Máy chủ không xác định</translation>
     </message>
 </context>
 <context>
@@ -1556,21 +1575,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="78" />
         <source>UnknownServers</source>
-        <translation type="unfinished" />
+        <translation>Máy chủ không xác định</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="144" />
         <source>Load %1%</source>
-        <translation type="unfinished" />
+        <translation>Tải %1%</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
         <source>Testing...</source>
         <translation>Đang test...</translation>
-    </message>
-    <message>
-        <source>Test Latency</source>
-        <translation>Test ping</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
@@ -1580,7 +1595,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="395" />
         <source>Not Tested</source>
-        <translation type="unfinished" />
+        <translation>Chưa kiểm tra</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="396" />
@@ -1590,213 +1605,218 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="414" />
         <source>Excellent</source>
-        <translation type="unfinished" />
+        <translation>Xuất sắc</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="415" />
         <source>Good</source>
-        <translation type="unfinished" />
+        <translation>Tốt</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="416" />
         <source>General</source>
-        <translation type="unfinished" />
+        <translation>Bình thường</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="417" />
         <source>Poor</source>
-        <translation type="unfinished" />
+        <translation>Kém</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="433" />
         <source>Just now</source>
-        <translation type="unfinished" />
+        <translation>Vừa xong</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="434" />
         <source>%1 minutes ago</source>
-        <translation type="unfinished" />
+        <translation>%1 phút trước</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="435" />
         <source>%1 hours ago</source>
-        <translation type="unfinished" />
+        <translation>%1 giờ trước</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="436" />
         <source>%1 days ago</source>
-        <translation type="unfinished" />
+        <translation>%1 ngày trước</translation>
     </message>
 </context>
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="775" />
+        <location filename="../qml/pages/ServerListPage.qml" line="814" />
         <source>Servers</source>
         <translation>Máy chủ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="813" />
+        <location filename="../qml/pages/ServerListPage.qml" line="852" />
         <source>Search servers...</source>
         <translation>Tìm kiếm...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="867" />
+        <location filename="../qml/pages/ServerListPage.qml" line="906" />
         <source>All</source>
         <translation>Tất cả</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="929" />
+        <location filename="../qml/pages/ServerListPage.qml" line="968" />
         <source>Refresh server list</source>
         <translation>Làm mới</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="975" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1014" />
         <source>Sort by latency</source>
         <translation>Theo ping</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1012" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1051" />
         <source>Sort by name</source>
         <translation>Theo tên</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1093" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1132" />
         <source>Test All Speed</source>
-        <translation type="unfinished" />
+        <translation>Kiểm tra tốc độ tất cả</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1111" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1150" />
         <source>Speed</source>
-        <translation type="unfinished" />
+        <translation>Tốc độ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1138" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1177" />
         <source>No Servers Available</source>
-        <translation type="unfinished" />
+        <translation>Không có máy chủ khả dụng</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1146" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1185" />
         <source>Click 'Refresh' button above to load servers</source>
-        <translation type="unfinished" />
+        <translation>Nhấn nút 'Làm mới' phía trên để tải máy chủ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1147" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
         <source>Please add a subscription first</source>
-        <translation type="unfinished" />
+        <translation>Vui lòng thêm đăng ký trước</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1159" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1198" />
         <source>Go to Subscriptions</source>
         <translation>Đến đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1225" />
         <source>Loading servers...</source>
         <translation>Đang tải...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1193" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1232" />
         <source>Please wait a moment</source>
         <translation>Vui lòng đợi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1344" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1383" />
         <source>Off</source>
         <translation>Ngắt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1349" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1388" />
         <source>Go</source>
         <translation>Kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1385" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1424" />
         <source>Test</source>
-        <translation type="unfinished" />
+        <translation>Kiểm tra</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2137" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2176" />
         <source>Batch test completed</source>
-        <translation type="unfinished" />
+        <translation>Kiểm tra hàng loạt hoàn tất</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2148" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2187" />
         <source>Speed: %1 Mbps</source>
-        <translation type="unfinished" />
+        <translation>Tốc độ: %1 Mbps</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2150" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2189" />
         <source>Speed test failed</source>
-        <translation type="unfinished" />
+        <translation>Kiểm tra tốc độ thất bại</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2218" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2257" />
         <source>Server not found</source>
         <translation>Không tìm thấy máy chủ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2260" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2299" />
         <source>No servers to test</source>
-        <translation type="unfinished" />
+        <translation>Không có máy chủ để kiểm tra</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2315" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2354" />
         <source>Latency Testing</source>
-        <translation type="unfinished" />
+        <translation>Đang kiểm tra độ trễ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2340" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2379" />
         <source>Testing latency...</source>
-        <translation type="unfinished" />
+        <translation>Đang kiểm tra độ trễ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2383" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
         <source>Speed Testing (%1/%2)</source>
-        <translation type="unfinished" />
+        <translation>Kiểm tra tốc độ (%1/%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2384" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2423" />
         <source>Speed Testing</source>
-        <translation type="unfinished" />
+        <translation>Đang kiểm tra tốc độ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Connecting...</source>
         <translation>Đang kết nối...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Testing speed...</source>
-        <translation type="unfinished" />
+        <translation>Đang kiểm tra tốc độ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2461" />
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2438" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2477" />
         <source>Test cancelled</source>
-        <translation type="unfinished" />
+        <translation>Đã hủy kiểm tra</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>Sao chép</translation>
-    </message>
-    <message>
-        <source>Share link copied</source>
-        <translation>Đã sao chép</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1584" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1623" />
         <source>Testing...</source>
         <translation>Đang test...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1611" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1650" />
         <source>Timeout</source>
         <translation>Hết giờ</translation>
+    </message>
+</context>
+<context>
+    <name>ServerListViewModel</name>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="284" />
+        <source>Unknown</source>
+        <translation>Không xác định</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="527" />
+        <source>VPN not connected</source>
+        <translation>VPN chưa kết nối</translation>
     </message>
 </context>
 <context>
@@ -1830,22 +1850,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="418" />
         <source>No matching servers found</source>
-        <translation type="unfinished" />
+        <translation>Không tìm thấy máy chủ phù hợp</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="419" />
         <source>No Servers</source>
-        <translation type="unfinished" />
+        <translation>Không có máy chủ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="449" />
         <source>Refresh List</source>
-        <translation type="unfinished" />
+        <translation>Làm mới danh sách</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="489" />
         <source>Total %1 servers</source>
-        <translation type="unfinished" />
+        <translation>Tổng cộng %1 máy chủ</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerSelectDialog.qml" line="497" />
@@ -1858,52 +1878,52 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="144" />
         <source>GeneralSettings</source>
-        <translation type="unfinished" />
+        <translation>Cài đặt chung</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="145" />
         <source>Application Basic Configuration</source>
-        <translation type="unfinished" />
+        <translation>Cấu hình cơ bản ứng dụng</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="149" />
         <source>Start at Login</source>
-        <translation type="unfinished" />
+        <translation>Khởi động cùng hệ thống</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="150" />
         <source>Launch at system startup</source>
-        <translation type="unfinished" />
+        <translation>Khởi chạy khi hệ thống khởi động</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="162" />
         <source>Connect on Demand</source>
-        <translation type="unfinished" />
+        <translation>Kết nối theo yêu cầu</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="162" />
         <source>Auto-connect on startup</source>
-        <translation type="unfinished" />
+        <translation>Tự kết nối khi khởi động</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="164" />
         <source>Automatically connect VPN when network changes</source>
-        <translation type="unfinished" />
+        <translation>Tự động kết nối VPN khi mạng thay đổi</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="165" />
         <source>Automatically connect to last used server on startup</source>
-        <translation type="unfinished" />
+        <translation>Tự động kết nối đến máy chủ gần nhất khi khởi động</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="177" />
         <source>Minimize to System Tray</source>
-        <translation type="unfinished" />
+        <translation>Thu nhỏ vào khay hệ thống</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="178" />
         <source>Minimize to system tray instead of quit when closing window</source>
-        <translation type="unfinished" />
+        <translation>Thu nhỏ vào khay hệ thống thay vì thoát khi đóng cửa sổ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="189" />
@@ -1913,7 +1933,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="190" />
         <source>Select app display language</source>
-        <translation type="unfinished" />
+        <translation>Chọn ngôn ngữ hiển thị</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="239" />
@@ -1923,613 +1943,1038 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="240" />
         <source>Select app theme style</source>
-        <translation type="unfinished" />
+        <translation>Chọn kiểu giao diện</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="320" />
+        <location filename="../qml/pages/SettingsPage.qml" line="319" />
         <source>Subscription Settings</source>
         <translation>Cài đặt đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="321" />
+        <location filename="../qml/pages/SettingsPage.qml" line="320" />
         <source>Server subscription update settings</source>
         <translation>Cập nhật đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="324" />
+        <location filename="../qml/pages/SettingsPage.qml" line="323" />
         <source>Auto Update Interval</source>
         <translation>Khoảng cập nhật</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="325" />
+        <location filename="../qml/pages/SettingsPage.qml" line="324" />
         <source>How often to automatically update server list</source>
         <translation>Tần suất cập nhật</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="331" />
+        <location filename="../qml/pages/SettingsPage.qml" line="330" />
         <source>1 Hour</source>
         <translation>1 giờ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="331" />
         <source>3 Hours</source>
         <translation>3 giờ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="333" />
+        <location filename="../qml/pages/SettingsPage.qml" line="332" />
         <source>6 Hours</source>
         <translation>6 giờ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="333" />
         <source>12 Hours</source>
         <translation>12 giờ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="335" />
+        <location filename="../qml/pages/SettingsPage.qml" line="334" />
         <source>24 Hours</source>
         <translation>24 giờ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="375" />
+        <location filename="../qml/pages/SettingsPage.qml" line="374" />
         <source>Routing Settings</source>
         <translation>Định tuyến</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="376" />
+        <location filename="../qml/pages/SettingsPage.qml" line="375" />
         <source>Control how traffic is routed and split</source>
         <translation>Kiểm soát định tuyến</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="379" />
         <source>Domain Resolution Strategy</source>
         <translation>Phân giải tên miền</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="381" />
+        <location filename="../qml/pages/SettingsPage.qml" line="380" />
         <source>Control how domains are resolved</source>
         <translation>Cách phân giải</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="422" />
+        <location filename="../qml/pages/SettingsPage.qml" line="421" />
         <source>Bypass Countries</source>
-        <translation type="unfinished" />
+        <translation>Quốc gia bỏ qua</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="423" />
+        <location filename="../qml/pages/SettingsPage.qml" line="422" />
         <source>Select countries to bypass, their websites will connect directly</source>
-        <translation type="unfinished" />
+        <translation>Chọn quốc gia để bỏ qua, trang web của họ sẽ kết nối trực tiếp</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="427" />
+        <location filename="../qml/pages/SettingsPage.qml" line="426" />
         <source>China</source>
         <translation>Trung Quốc</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="428" />
+        <location filename="../qml/pages/SettingsPage.qml" line="427" />
         <source>Russia</source>
         <translation>Nga</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="429" />
+        <location filename="../qml/pages/SettingsPage.qml" line="428" />
         <source>Iran</source>
         <translation>Iran</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="430" />
+        <location filename="../qml/pages/SettingsPage.qml" line="429" />
         <source>Vietnam</source>
         <translation>Việt Nam</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="431" />
+        <location filename="../qml/pages/SettingsPage.qml" line="430" />
         <source>Cambodia</source>
         <translation>Campuchia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="432" />
+        <location filename="../qml/pages/SettingsPage.qml" line="431" />
         <source>Myanmar</source>
         <translation>Myanmar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="489" />
+        <location filename="../qml/pages/SettingsPage.qml" line="488" />
         <source>Network Interface</source>
         <translation>Giao diện mạng</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="490" />
+        <location filename="../qml/pages/SettingsPage.qml" line="489" />
         <source>Select the network interface for VPN outbound traffic</source>
         <translation>Chọn giao diện mạng</translation>
     </message>
     <message>
-        <source>Bypass LAN addresses</source>
-        <translation>Bỏ qua LAN</translation>
-    </message>
-    <message>
-        <source>LAN traffic bypass proxy</source>
-        <translation>Bỏ qua LAN</translation>
+        <location filename="../qml/pages/SettingsPage.qml" line="572" />
+        <source>Per-App Proxy</source>
+        <translation>Proxy theo ứng dụng</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="573" />
-        <source>Per-App Proxy</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
         <source>Control which apps use VPN</source>
-        <translation type="unfinished" />
+        <translation>Kiểm soát ứng dụng nào sử dụng VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>TUN mode only</source>
-        <translation type="unfinished" />
+        <translation>Chỉ chế độ TUN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="578" />
+        <location filename="../qml/pages/SettingsPage.qml" line="577" />
         <source>Per-App Proxy Mode</source>
-        <translation type="unfinished" />
+        <translation>Chế độ Proxy theo ứng dụng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="581" />
+        <source>Disabled: All apps use VPN</source>
+        <translation>Tắt: Tất cả ứng dụng sử dụng VPN</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="582" />
-        <source>Disabled: All apps use VPN</source>
-        <translation type="unfinished" />
+        <source>Allow List: Only selected apps use VPN</source>
+        <translation>Danh sách cho phép: Chỉ ứng dụng được chọn sử dụng VPN</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="583" />
-        <source>Allow List: Only selected apps use VPN</source>
-        <translation type="unfinished" />
+        <source>Block List: Selected apps bypass VPN</source>
+        <translation>Danh sách chặn: Ứng dụng được chọn bỏ qua VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="584" />
-        <source>Block List: Selected apps bypass VPN</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="592" />
+        <source>Allow List</source>
+        <translation>Danh sách cho phép</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="593" />
-        <source>Allow List</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="594" />
         <source>Block List</source>
-        <translation type="unfinished" />
+        <translation>Danh sách chặn</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="621" />
+        <location filename="../qml/pages/SettingsPage.qml" line="620" />
         <source>Selected Apps</source>
-        <translation type="unfinished" />
+        <translation>Ứng dụng đã chọn</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="625" />
+        <location filename="../qml/pages/SettingsPage.qml" line="624" />
         <source>%1 app(s) selected</source>
-        <translation type="unfinished" />
+        <translation>Đã chọn %1 ứng dụng</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="628" />
+        <location filename="../qml/pages/SettingsPage.qml" line="627" />
         <source>Select Apps</source>
         <translation>Chọn ứng dụng</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="644" />
+        <location filename="../qml/pages/SettingsPage.qml" line="643" />
         <source>Clear Selection</source>
-        <translation type="unfinished" />
+        <translation>Xóa lựa chọn</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="645" />
+        <location filename="../qml/pages/SettingsPage.qml" line="644" />
         <source>Remove all apps from the list</source>
-        <translation type="unfinished" />
+        <translation>Xóa tất cả ứng dụng khỏi danh sách</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="664" />
+        <location filename="../qml/pages/SettingsPage.qml" line="663" />
         <source>DNS Settings</source>
         <translation>Cài đặt DNS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="665" />
+        <location filename="../qml/pages/SettingsPage.qml" line="664" />
         <source>DNS server configuration</source>
         <translation>Cấu hình DNS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="669" />
+        <location filename="../qml/pages/SettingsPage.qml" line="668" />
         <source>Domestic DNS 1</source>
         <translation>DNS nội địa 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="685" />
+        <location filename="../qml/pages/SettingsPage.qml" line="684" />
         <source>Domestic DNS 2</source>
         <translation>DNS nội địa 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="701" />
+        <location filename="../qml/pages/SettingsPage.qml" line="700" />
         <source>Overseas DNS 1</source>
-        <translation type="unfinished" />
+        <translation>DNS nước ngoài 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="729" />
+        <location filename="../qml/pages/SettingsPage.qml" line="728" />
         <source>Overseas DNS 2</source>
-        <translation type="unfinished" />
+        <translation>DNS nước ngoài 2</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="756" />
+        <source>DNS Query Strategy</source>
+        <translation>Chiến lược truy vấn DNS</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="757" />
-        <source>DNS Query Strategy</source>
-        <translation type="unfinished" />
+        <source>IPv4/IPv6 Query Strategy</source>
+        <translation>Chiến lược truy vấn IPv4/IPv6</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="758" />
-        <source>IPv4/IPv6 Query Strategy</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="798" />
+        <source>Local Proxy</source>
+        <translation>Proxy cục bộ</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="799" />
-        <source>Local Proxy</source>
-        <translation type="unfinished" />
+        <source>Local SOCKS/HTTP proxy server settings</source>
+        <translation>Cài đặt máy chủ proxy SOCKS/HTTP cục bộ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="800" />
-        <source>Local SOCKS/HTTP proxy server settings</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="803" />
+        <source>SOCKS Proxy Port</source>
+        <translation>Cổng Proxy SOCKS</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="804" />
-        <source>SOCKS Proxy Port</source>
-        <translation type="unfinished" />
+        <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
+        <translation>Cổng lắng nghe proxy SOCKS5 - cần kết nối lại sau khi thay đổi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="805" />
-        <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="836" />
+        <source>HTTP Proxy Port</source>
+        <translation>Cổng Proxy HTTP</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="837" />
-        <source>HTTP Proxy Port</source>
-        <translation type="unfinished" />
+        <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
+        <translation>Cổng lắng nghe proxy HTTP - cần kết nối lại sau khi thay đổi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="838" />
-        <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="869" />
+        <source>Allow LAN Connections</source>
+        <translation>Cho phép kết nối LAN</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="870" />
-        <source>Allow LAN Connections</source>
-        <translation type="unfinished" />
+        <source>Allow other devices in LAN to connect to this proxy</source>
+        <translation>Cho phép các thiết bị khác trong LAN kết nối đến proxy này</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="871" />
-        <source>Allow other devices in LAN to connect to this proxy</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="888" />
+        <source>Transport Layer Settings</source>
+        <translation>Cài đặt tầng vận chuyển</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="889" />
-        <source>Transport Layer Settings</source>
-        <translation type="unfinished" />
+        <source>Protocol transport related configuration</source>
+        <translation>Cấu hình liên quan đến vận chuyển giao thức</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="890" />
-        <source>Protocol transport related configuration</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="893" />
+        <source>Enable Mux multiplexing</source>
+        <translation>Bật ghép kênh Mux</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="894" />
-        <source>Enable Mux multiplexing</source>
-        <translation type="unfinished" />
+        <source>Transfer multiple data streams through single connection, may reduce latency</source>
+        <translation>Truyền nhiều luồng dữ liệu qua một kết nối, có thể giảm độ trễ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="895" />
-        <source>Transfer multiple data streams through single connection, may reduce latency</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="905" />
+        <source>Mux concurrent connections</source>
+        <translation>Kết nối đồng thời Mux</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="906" />
-        <source>Mux concurrent connections</source>
-        <translation type="unfinished" />
+        <source>Maximum concurrent multiplexed connections</source>
+        <translation>Số kết nối ghép kênh đồng thời tối đa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="907" />
-        <source>Maximum concurrent multiplexed connections</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="938" />
+        <source>TCP Fast Open</source>
+        <translation>TCP Fast Open</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="939" />
-        <source>TCP Fast Open</source>
-        <translation type="unfinished" />
+        <source>Enable TFO to reduce latency (requires system support)</source>
+        <translation>Bật TFO để giảm độ trễ (yêu cầu hệ thống hỗ trợ)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="940" />
-        <source>Enable TFO to reduce latency (requires system support)</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="952" />
+        <source>Enable traffic sniffing</source>
+        <translation>Bật phát hiện lưu lượng</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="953" />
-        <source>Enable traffic sniffing</source>
-        <translation type="unfinished" />
+        <source>Auto identify traffic type for routing</source>
+        <translation>Tự động nhận dạng loại lưu lượng để định tuyến</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="954" />
-        <source>Auto identify traffic type for routing</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="968" />
+        <source>Log Settings</source>
+        <translation>Cài đặt nhật ký</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="969" />
-        <source>Log Settings</source>
-        <translation type="unfinished" />
+        <source>Application and core log configuration</source>
+        <translation>Cấu hình nhật ký ứng dụng và lõi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="970" />
-        <source>Application and core log configuration</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="973" />
+        <source>Log Level</source>
+        <translation>Mức nhật ký</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="974" />
-        <source>Log Level</source>
-        <translation type="unfinished" />
+        <source>Set log verbosity level</source>
+        <translation>Đặt mức chi tiết nhật ký</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="975" />
-        <source>Set log verbosity level</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1002" />
+        <source>Enable access log</source>
+        <translation>Bật nhật ký truy cập</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1003" />
-        <source>Enable access log</source>
-        <translation type="unfinished" />
+        <source>Log all connection requests</source>
+        <translation>Ghi lại tất cả yêu cầu kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1004" />
-        <source>Log all connection requests</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1016" />
+        <source>Log retention days</source>
+        <translation>Số ngày lưu nhật ký</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1017" />
-        <source>Log retention days</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1018" />
         <source>Auto clean old logs</source>
         <translation>Auto clean old logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1049" />
         <source>Log Size</source>
         <translation>Log Size</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1051" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
         <source>%1 files</source>
         <translation>%1 files</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1059" />
         <source>Export Logs</source>
         <translation>Export Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Export all logs to a file</source>
         <translation>Export all logs to a file</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Save to Downloads folder</source>
         <translation>Lưu vào thư mục Tải xuống</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1063" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1062" />
         <source>Export</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1097" />
         <source>Clear Logs</source>
         <translation>Clear Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1383" />
         <source>10MB: Quick test</source>
         <translation>10MB: Test nhanh</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1385" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
         <source>25MB: Standard test</source>
         <translation>25MB: Test tiêu chuẩn</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1494" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1493" />
         <source>Documentation</source>
-        <translation type="unfinished" />
+        <translation>Tài liệu</translation>
     </message>
     <message>
-        <source>Delete old log files</source>
-        <translation type="vanished">Delete old log files</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1128" />
         <source>View Logs</source>
         <translation>View Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1132" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1131" />
         <source>Open</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1148" />
         <source>AdvancedSettings</source>
         <translation>Advanced Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1150" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
         <source>Advanced user options, modify with caution</source>
         <translation>Advanced user options, modify with caution</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1154" />
         <source>ConnectTimeout</source>
-        <translation type="unfinished" />
+        <translation>Thời gian chờ kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1156" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
         <source>Connection establishment timeout</source>
-        <translation type="unfinished" />
+        <translation>Thời gian chờ thiết lập kết nối</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="1187" />
+        <source>Test Timeout</source>
+        <translation>Thời gian chờ kiểm tra</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1188" />
-        <source>Test Timeout</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1189" />
         <source>Server latency test timeout duration</source>
-        <translation type="unfinished" />
+        <translation>Thời gian chờ kiểm tra độ trễ máy chủ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1232" />
         <source>Account Actions</source>
         <translation>Thao tác tài khoản</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1234" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
         <source>Account management and data operations</source>
-        <translation type="unfinished" />
+        <translation>Quản lý tài khoản và thao tác dữ liệu</translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation>Đổi mật khẩu</translation>
-    </message>
-    <message>
-        <source>Order Management</source>
-        <translation>Quản lý đơn hàng</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="647" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1101" />
+        <location filename="../qml/pages/SettingsPage.qml" line="646" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1100" />
         <source>Clear</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1099" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
         <source>Delete all logs except current</source>
         <translation>Xóa tất cả nhật ký trừ hiện tại</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1130" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
         <source>Open log directory</source>
         <translation>Mở thư mục nhật ký</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1236" />
         <source>Reset all settings</source>
-        <translation type="unfinished" />
+        <translation>Đặt lại tất cả cài đặt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1238" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
         <source>Restore default settings (does not affect account data)</source>
-        <translation type="unfinished" />
+        <translation>Khôi phục cài đặt mặc định (không ảnh hưởng dữ liệu tài khoản)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1240" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1239" />
         <source>Reset</source>
         <translation>Đặt lại</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1253" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1252" />
         <source>Settings reset to default</source>
-        <translation type="unfinished" />
+        <translation>Đã đặt lại cài đặt về mặc định</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1263" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1262" />
         <source>Network test</source>
-        <translation type="unfinished" />
+        <translation>Kiểm tra mạng</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1267" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1266" />
         <source>Latency Test Method</source>
-        <translation type="unfinished" />
+        <translation>Phương pháp kiểm tra độ trễ</translation>
     </message>
     <message>
-        <source>TCP: Direct TCP connection to server port (fast, recommended)</source>
-        <translation>TCP: Kết nối trực tiếp (nhanh, khuyến nghị)</translation>
-    </message>
-    <message>
-        <source>HTTP: Test via proxy HTTP request (most accurate for actual usage)</source>
-        <translation>HTTP: Test qua proxy (chính xác nhất)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1282" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1281" />
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1303" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1302" />
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1327" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1326" />
         <source>Latency Test Interval</source>
         <translation>Khoảng test</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1331" />
         <source>Disabled: No periodic latency testing when connected</source>
         <translation>Tắt: Không test định kỳ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1333" />
         <source>Test latency every %1 seconds when connected</source>
         <translation>Test mỗi %1 giây khi kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="592" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1350" />
+        <location filename="../qml/pages/SettingsPage.qml" line="591" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1349" />
         <source>Disabled</source>
         <translation>Tắt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1270" />
         <source>TCP ping, fast</source>
-        <translation type="unfinished" />
+        <translation>TCP ping, nhanh</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1272" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
         <source>HTTP ping, accurate</source>
-        <translation type="unfinished" />
+        <translation>HTTP ping, chính xác</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1379" />
         <source>Speed Test File Size</source>
-        <translation type="unfinished" />
+        <translation>Kích thước file kiểm tra tốc độ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1442" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1441" />
         <source>About</source>
         <translation>Giới thiệu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1445" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1444" />
         <source>Application Version</source>
         <translation>Phiên bản</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1448" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1447" />
         <source>Check</source>
         <translation>Kiểm tra</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1467" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1466" />
         <source>Core Version</source>
-        <translation type="unfinished" />
+        <translation>Phiên bản lõi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1473" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1472" />
         <source>Open Source License</source>
-        <translation type="unfinished" />
+        <translation>Giấy phép mã nguồn mở</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1475" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1496" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1474" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1495" />
         <source>View</source>
-        <translation type="unfinished" />
+        <translation>Xem</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleBottomNavigationBar</name>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="56" />
+        <source>Dashboard</source>
+        <translation>Bảng điều khiển</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="69" />
+        <source>Store</source>
+        <translation>Cửa hàng</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="82" />
+        <source>Profile</source>
+        <translation>Hồ sơ</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleConnectionPage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="22" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="140" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="157" />
+        <source>No Server Selected</source>
+        <translation>Chưa chọn máy chủ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="27" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="191" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="210" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="218" />
+        <source>No Plan</source>
+        <translation>Không có gói</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="71" />
+        <source>Connecting...</source>
+        <translation>Đang kết nối...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="72" />
+        <source>Disconnecting...</source>
+        <translation>Đang ngắt...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="73" />
+        <source>Connected</source>
+        <translation>Đã kết nối</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="74" />
+        <source>Not Connected</source>
+        <translation>Chưa kết nối</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="189" />
+        <source>Plan</source>
+        <translation>Gói</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="413" />
+        <source>Dashboard</source>
+        <translation>Bảng điều khiển</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="592" />
+        <source>Expires: %1</source>
+        <translation>Hết hạn: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="608" />
+        <source>Renew</source>
+        <translation>Gia hạn</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="643" />
+        <source>Traffic Used</source>
+        <translation>Lưu lượng đã dùng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="686" />
+        <source>%1% used</source>
+        <translation>Đã dùng %1%</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="878" />
+        <source>Global</source>
+        <translation>Toàn cầu</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="905" />
+        <source>Smart</source>
+        <translation>Thông minh</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to change server</source>
+        <translation>Nhấn để đổi máy chủ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to select a server</source>
+        <translation>Nhấn để chọn máy chủ</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleProfilePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="15" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="69" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="90" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="110" />
+        <source>Users</source>
+        <translation>Người dùng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="121" />
+        <source>Unlimited</source>
+        <translation>Không giới hạn</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="239" />
+        <source>Profile</source>
+        <translation>Hồ sơ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="347" />
+        <source>Account ID: </source>
+        <translation>ID tài khoản: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="379" />
+        <source>Subscription Overview</source>
+        <translation>Tổng quan đăng ký</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Active</source>
+        <translation>Hoạt động</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Inactive</source>
+        <translation>Chưa kích hoạt</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="411" />
+        <source>Status</source>
+        <translation>Trạng thái</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="438" />
+        <source>Expiry Date</source>
+        <translation>Ngày hết hạn</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="465" />
+        <source>Used Traffic</source>
+        <translation>Lưu lượng đã dùng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="487" />
+        <source>Expired</source>
+        <translation>Đã hết hạn</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="488" />
+        <source> days</source>
+        <translation> ngày</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="500" />
+        <source>Remaining</source>
+        <translation>Còn lại</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="519" />
+        <source>Traffic</source>
+        <translation>Lưu lượng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="576" />
+        <source>Account Actions</source>
+        <translation>Thao tác tài khoản</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="604" />
+        <source>Order Management</source>
+        <translation>Quản lý đơn hàng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="646" />
+        <source>Ticket System</source>
+        <translation>Hệ thống hỗ trợ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="688" />
+        <source>Help Center</source>
+        <translation>Trợ giúp</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="730" />
+        <source>Change Password</source>
+        <translation>Đổi mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="766" />
+        <source>Logout</source>
+        <translation>Đăng xuất</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="820" />
+        <source>Password changed successfully</source>
+        <translation>Đổi mật khẩu thành công</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="852" />
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleStorePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="81" />
+        <source>Monthly</source>
+        <translation>Hàng tháng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="84" />
+        <source>Billed monthly</source>
+        <translation>Thanh toán hàng tháng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="93" />
+        <source>Quarterly</source>
+        <translation>Hàng quý</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="96" />
+        <source>Billed every 3 months</source>
+        <translation>Thanh toán mỗi 3 tháng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="105" />
+        <source>Semi-Annual</source>
+        <translation>Nửa năm</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="108" />
+        <source>Billed every 6 months</source>
+        <translation>Thanh toán mỗi 6 tháng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="117" />
+        <source>Yearly</source>
+        <translation>Hàng năm</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="120" />
+        <source>Billed annually - Best value!</source>
+        <translation>Thanh toán hàng năm - Giá trị tốt nhất!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="129" />
+        <source>2 Years</source>
+        <translation>2 năm</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="132" />
+        <source>Billed every 2 years</source>
+        <translation>Thanh toán mỗi 2 năm</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="141" />
+        <source>3 Years</source>
+        <translation>3 năm</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="144" />
+        <source>Billed every 3 years</source>
+        <translation>Thanh toán mỗi 3 năm</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="152" />
+        <source>One-time</source>
+        <translation>Một lần</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="155" />
+        <source>One-time payment, no renewal</source>
+        <translation>Thanh toán một lần, không gia hạn</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="189" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="939" />
+        <source>Unnamed Plan</source>
+        <translation>Gói chưa đặt tên</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="196" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="536" />
+        <source>Unlimited</source>
+        <translation>Không giới hạn</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="359" />
+        <source>Purchase successful!</source>
+        <translation>Mua thành công!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="375" />
+        <source>Purchases restored successfully</source>
+        <translation>Khôi phục mua hàng thành công</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="378" />
+        <source>No purchases to restore</source>
+        <translation>Không có giao dịch mua để khôi phục</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="383" />
+        <source>Restore failed: </source>
+        <translation>Khôi phục thất bại: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="429" />
+        <source>No payment methods available</source>
+        <translation>Không có phương thức</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="445" />
+        <source>Payment initiated successfully</source>
+        <translation>Đã khởi tạo thanh toán</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="500" />
+        <source>Unknown Plan</source>
+        <translation>Gói không xác định</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="507" />
+        <source>Plan #</source>
+        <translation>Gói #</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="549" />
+        <source>Please login first</source>
+        <translation>Vui lòng đăng nhập</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="587" />
+        <source>IAP not available</source>
+        <translation>Mua hàng trong ứng dụng không khả dụng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="603" />
+        <source>No matching IAP product for this plan</source>
+        <translation>Không có sản phẩm IAP phù hợp cho gói này</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="607" />
+        <source>No subscription options available</source>
+        <translation>Không có tùy chọn đăng ký</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="624" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="633" />
+        <source>Order manager not available</source>
+        <translation>Không khả dụng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="642" />
+        <source>Invalid order</source>
+        <translation>Đơn hàng không hợp lệ</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="691" />
+        <source>Store</source>
+        <translation>Cửa hàng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="755" />
+        <source>Loading subscription information...</source>
+        <translation>Đang tải...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="786" />
+        <source>Current Subscription</source>
+        <translation>Gói hiện tại</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="794" />
+        <source>No Subscription</source>
+        <translation>Không có đăng ký</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="803" />
+        <source>Select a plan below to get started</source>
+        <translation>Chọn gói bên dưới</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="826" />
+        <source>Exp: %1</source>
+        <translation>HH: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="847" />
+        <source>Rem: %1</source>
+        <translation>Còn: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="888" />
+        <source>Select Plan</source>
+        <translation>Chọn gói</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="942" />
+        <source>Month</source>
+        <translation>Tháng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="992" />
+        <source>Restore Purchases</source>
+        <translation>Khôi phục mua hàng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1034" />
+        <source>No Available Plans</source>
+        <translation>Không có gói khả dụng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1059" />
+        <source>Loading Plans...</source>
+        <translation>Đang tải gói...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1134" />
+        <source>Select Subscription Period</source>
+        <translation>Chọn chu kỳ đăng ký</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1192" />
+        <source>This period is not available for in-app purchase</source>
+        <translation>Kỳ hạn này không khả dụng cho mua hàng trong ứng dụng</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1217" />
+        <source>Cancel</source>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -2542,7 +2987,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/StatusIndicator.qml" line="64" />
         <source>Connecting</source>
-        <translation type="unfinished" />
+        <translation>Đang kết nối</translation>
     </message>
     <message>
         <location filename="../qml/components/StatusIndicator.qml" line="65" />
@@ -2565,7 +3010,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="97" />
         <source>Billed monthly</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán hàng tháng</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="106" />
@@ -2575,7 +3020,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="109" />
         <source>Billed every 3 months</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán mỗi 3 tháng</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="118" />
@@ -2585,17 +3030,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="121" />
         <source>Billed every 6 months</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán mỗi 6 tháng</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="130" />
         <source>Yearly</source>
-        <translation type="unfinished" />
+        <translation>Hàng năm</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="133" />
         <source>Billed annually - Best value!</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán hàng năm - Giá trị tốt nhất!</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="142" />
@@ -2605,7 +3050,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="145" />
         <source>Billed every 2 years</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán mỗi 2 năm</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="154" />
@@ -2615,7 +3060,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="157" />
         <source>Billed every 3 years</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán mỗi 3 năm</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="165" />
@@ -2625,13 +3070,13 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="168" />
         <source>One-time payment, no renewal</source>
-        <translation type="unfinished" />
+        <translation>Thanh toán một lần, không gia hạn</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="203" />
         <location filename="../qml/pages/StorePage.qml" line="964" />
         <source>Unnamed Plan</source>
-        <translation type="unfinished" />
+        <translation>Gói chưa đặt tên</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="210" />
@@ -2663,12 +3108,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="547" />
         <source>Exp: %1</source>
-        <translation type="unfinished" />
+        <translation>HH: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="568" />
         <source>Rem: %1</source>
-        <translation type="unfinished" />
+        <translation>Còn: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="628" />
@@ -2698,32 +3143,32 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="774" />
         <source>Traffic Reset Date:</source>
-        <translation type="unfinished" />
+        <translation>Ngày đặt lại lưu lượng:</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="791" />
         <source>Day %1 of each month</source>
-        <translation type="unfinished" />
+        <translation>Ngày %1 mỗi tháng</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="808" />
         <source>Device Limit:</source>
-        <translation type="unfinished" />
+        <translation>Giới hạn thiết bị:</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="814" />
         <source>%1 devices</source>
-        <translation type="unfinished" />
+        <translation>%1 thiết bị</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="828" />
         <source>Speed Limit:</source>
-        <translation type="unfinished" />
+        <translation>Giới hạn tốc độ:</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="834" />
         <source>%1 Mbps</source>
-        <translation type="unfinished" />
+        <translation>%1 Mbps</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="854" />
@@ -2733,42 +3178,42 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="891" />
         <source>Select Plan</source>
-        <translation type="unfinished" />
+        <translation>Chọn gói</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="967" />
         <source>Month</source>
-        <translation type="unfinished" />
+        <translation>Tháng</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1004" />
         <source>NoneAvailablePlans</source>
-        <translation type="unfinished" />
+        <translation>Không có gói khả dụng</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1027" />
         <source>LoadingPlans...</source>
-        <translation type="unfinished" />
+        <translation>Đang tải gói...</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1061" />
         <source>Copied to clipboard</source>
-        <translation type="unfinished" />
+        <translation>Đã sao chép vào clipboard</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1103" />
         <source>Subscription link updated</source>
-        <translation type="unfinished" />
+        <translation>Đã cập nhật liên kết đăng ký</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1136" />
         <source>UnknownPlans</source>
-        <translation type="unfinished" />
+        <translation>Gói không xác định</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1146" />
         <source>Plans #</source>
-        <translation type="unfinished" />
+        <translation>Gói #</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1309" />
@@ -2799,22 +3244,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1575" />
         <source>Update Subscription Link?</source>
-        <translation type="unfinished" />
+        <translation>Cập nhật liên kết đăng ký?</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1600" />
         <source>Warning: This action cannot be undone!</source>
-        <translation type="unfinished" />
+        <translation>Cảnh báo: Hành động này không thể hoàn tác!</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1609" />
         <source>The old subscription URL will become invalid immediately.</source>
-        <translation type="unfinished" />
+        <translation>URL đăng ký cũ sẽ hết hiệu lực ngay lập tức.</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1620" />
         <source>You will need to re-import the new subscription link on all your devices after updating.</source>
-        <translation type="unfinished" />
+        <translation>Bạn sẽ cần nhập lại liên kết đăng ký mới trên tất cả thiết bị sau khi cập nhật.</translation>
     </message>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1648" />
@@ -2824,14 +3269,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/pages/StorePage.qml" line="1674" />
         <source>Update</source>
-        <translation type="unfinished" />
-    </message>
-</context>
-<context>
-    <name>Subscription</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>Không giới hạn</translation>
+        <translation>Cập nhật</translation>
     </message>
 </context>
 <context>
@@ -2839,27 +3277,27 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="78" />
         <source>Purchased</source>
-        <translation type="unfinished" />
+        <translation>Đã mua</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="79" />
         <source>Recommended</source>
-        <translation type="unfinished" />
+        <translation>Được đề xuất</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="79" />
         <source>Popular</source>
-        <translation type="unfinished" />
+        <translation>Phổ biến</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="181" />
         <source>Traffic:</source>
-        <translation type="unfinished" />
+        <translation>Lưu lượng:</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="188" />
         <source>%1 GB</source>
-        <translation type="unfinished" />
+        <translation>%1 GB</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="189" />
@@ -2869,17 +3307,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="210" />
         <source>Devices:</source>
-        <translation type="unfinished" />
+        <translation>Thiết bị:</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="216" />
         <source>%1 online</source>
-        <translation type="unfinished" />
+        <translation>%1 trực tuyến</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="237" />
         <source>Speed:</source>
-        <translation type="unfinished" />
+        <translation>Tốc độ:</translation>
     </message>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="335" />
@@ -2898,17 +3336,37 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>SubscriptionManager</name>
-    <message>
-        <source>Failed to update database</source>
-        <translation>Cập nhật database thất bại</translation>
-    </message>
-</context>
-<context>
     <name>SystemTrayManager</name>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="111" />
+        <source>JinGo VPN</source>
+        <translation>JinGo VPN</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="130" />
+        <source>Show Main Window</source>
+        <translation>Hiển thị cửa sổ chính</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="138" />
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="173" />
+        <source>Quick Connect</source>
+        <translation>Kết nối nhanh</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="146" />
         <source>Settings</source>
         <translation>Cài đặt</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="154" />
+        <source>Quit</source>
+        <translation>Thoát</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="170" />
+        <source>DisconnectConnect</source>
+        <translation>Ngắt kết nối</translation>
     </message>
 </context>
 <context>
@@ -2948,7 +3406,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="239" />
         <source>Unknown</source>
-        <translation type="unfinished" />
+        <translation>Không xác định</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="255" />
@@ -3018,25 +3476,25 @@ Security Error: Configuration signature verification failed.</source>
         <location filename="../qml/components/TicketListDialog.qml" line="733" />
         <location filename="../qml/components/TicketListDialog.qml" line="1185" />
         <source>Select Attachment</source>
-        <translation type="unfinished" />
+        <translation>Chọn tệp đính kèm</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="734" />
         <location filename="../qml/components/TicketListDialog.qml" line="1186" />
         <source>Images</source>
-        <translation type="unfinished" />
+        <translation>Hình ảnh</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="734" />
         <location filename="../qml/components/TicketListDialog.qml" line="1186" />
         <source>Documents</source>
-        <translation type="unfinished" />
+        <translation>Tài liệu</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="734" />
         <location filename="../qml/components/TicketListDialog.qml" line="1186" />
         <source>All Files</source>
-        <translation type="unfinished" />
+        <translation>Tất cả tệp</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="839" />
@@ -3071,17 +3529,17 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="990" />
         <source>Attachment</source>
-        <translation type="unfinished" />
+        <translation>Tệp đính kèm</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="990" />
         <source>Optional</source>
-        <translation type="unfinished" />
+        <translation>Tùy chọn</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1022" />
         <source>Click to select file</source>
-        <translation type="unfinished" />
+        <translation>Nhấn để chọn tệp</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1094" />
@@ -3101,7 +3559,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1427" />
         <source>No content</source>
-        <translation type="unfinished" />
+        <translation>Không có nội dung</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1471" />
@@ -3126,7 +3584,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1605" />
         <source>Add attachment</source>
-        <translation type="unfinished" />
+        <translation>Thêm tệp đính kèm</translation>
     </message>
     <message>
         <location filename="../qml/components/TicketListDialog.qml" line="1676" />
@@ -3154,7 +3612,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="87" />
         <source>Traffic Statistics</source>
-        <translation type="unfinished" />
+        <translation>Thống kê lưu lượng</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="139" />
@@ -3169,80 +3627,22 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="284" />
         <source>Peak Upload</source>
-        <translation type="unfinished" />
+        <translation>Tải lên cao nhất</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="310" />
         <source>Avg Upload</source>
-        <translation type="unfinished" />
+        <translation>Tải lên trung bình</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="349" />
         <source>Peak Download</source>
-        <translation type="unfinished" />
+        <translation>Tải xuống cao nhất</translation>
     </message>
     <message>
         <location filename="../qml/components/TrafficDisplay.qml" line="375" />
         <source>Avg Download</source>
-        <translation type="unfinished" />
-    </message>
-</context>
-<context>
-    <name>User</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>Không giới hạn</translation>
-    </message>
-</context>
-<context>
-    <name>VPNManager</name>
-    <message>
-        <source>Not Connected</source>
-        <translation>Chưa kết nối</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>Đang kết nối...</translation>
-    </message>
-    <message>
-        <source>Disconnecting...</source>
-        <translation>Đang ngắt...</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Đã ngắt</translation>
-    </message>
-    <message>
-        <source>Checking system requirements...</source>
-        <translation>Đang kiểm tra...</translation>
-    </message>
-    <message>
-        <source>Checking WinTun driver...</source>
-        <translation>Kiểm tra WinTun...</translation>
-    </message>
-    <message>
-        <source>Waiting for TUN device...</source>
-        <translation>Đợi TUN...</translation>
-    </message>
-    <message>
-        <source>Connected (Windows TUN Mode)</source>
-        <translation>Đã kết nối (Windows TUN)</translation>
-    </message>
-    <message>
-        <source>Error: %1</source>
-        <translation>Lỗi: %1</translation>
-    </message>
-    <message>
-        <source>Ping not supported on this platform</source>
-        <translation>Không hỗ trợ Ping</translation>
-    </message>
-    <message>
-        <source>TCP connection failed</source>
-        <translation>Kết nối TCP thất bại</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>Yêu cầu HTTP thất bại</translation>
+        <translation>Tải xuống trung bình</translation>
     </message>
 </context>
 <context>
@@ -3250,161 +3650,178 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/main.qml" line="25" />
         <source>Secure. Fast. Borderless.</source>
-        <translation type="unfinished" />
+        <translation>An toàn. Nhanh chóng. Không biên giới.</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="218" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Connected</source>
         <translation>Đã kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
+        <location filename="../qml/main.qml" line="218" />
         <source>VPN ConnectSuccess</source>
-        <translation type="unfinished" />
+        <translation>Kết nối VPN thành công</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>Disconnected</source>
         <translation>Đã ngắt</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>VPN Disconnected</source>
-        <translation type="unfinished" />
+        <translation>VPN đã ngắt kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="181" />
+        <location filename="../qml/main.qml" line="228" />
         <source>ConnectFailed</source>
-        <translation type="unfinished" />
+        <translation>Kết nối thất bại</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="186" />
+        <location filename="../qml/main.qml" line="233" />
         <source>Error</source>
         <translation>Lỗi</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="224" />
+        <location filename="../qml/main.qml" line="271" />
         <source>File</source>
-        <translation type="unfinished" />
+        <translation>Tệp</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="226" />
+        <location filename="../qml/main.qml" line="273" />
         <source>Preferences</source>
-        <translation type="unfinished" />
+        <translation>Tùy chọn</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="231" />
+        <location filename="../qml/main.qml" line="284" />
         <source>Quit</source>
-        <translation type="unfinished" />
+        <translation>Thoát</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="237" />
-        <location filename="../qml/main.qml" line="239" />
-        <location filename="../qml/main.qml" line="365" />
+        <location filename="../qml/main.qml" line="290" />
+        <location filename="../qml/main.qml" line="292" />
+        <location filename="../qml/main.qml" line="419" />
         <source>Connect</source>
         <translation>Kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="239" />
+        <location filename="../qml/main.qml" line="292" />
         <source>DisconnectConnect</source>
-        <translation type="unfinished" />
+        <translation>Ngắt kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="252" />
+        <location filename="../qml/main.qml" line="305" />
         <source>Select Server</source>
         <translation>Chọn máy chủ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="258" />
+        <location filename="../qml/main.qml" line="312" />
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="260" />
+        <location filename="../qml/main.qml" line="314" />
         <source>Documentation</source>
-        <translation type="unfinished" />
+        <translation>Tài liệu</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="264" />
+        <location filename="../qml/main.qml" line="318" />
         <source>Report Issue</source>
-        <translation type="unfinished" />
+        <translation>Báo cáo sự cố</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269" />
+        <location filename="../qml/main.qml" line="323" />
         <source>About JinGo</source>
         <translation>Về JinGo</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="719" />
+        <location filename="../qml/main.qml" line="419" />
+        <location filename="../qml/main.qml" line="668" />
+        <source>Dashboard</source>
+        <translation>Bảng điều khiển</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Professional Mode</source>
+        <translation>Chuyển sang chế độ chuyên nghiệp</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Simple Mode</source>
+        <translation>Chuyển sang chế độ đơn giản</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="673" />
+        <source>Store</source>
+        <translation>Cửa hàng</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="833" />
         <source>JinGo</source>
-        <translation type="unfinished" />
+        <translation>JinGo</translation>
     </message>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>Về JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="379" />
+        <location filename="../qml/main.qml" line="433" />
         <source>Servers</source>
         <translation>Máy chủ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="391" />
-        <location filename="../qml/main.qml" line="579" />
+        <location filename="../qml/main.qml" line="445" />
+        <location filename="../qml/main.qml" line="673" />
         <source>Subscription</source>
         <translation>Đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="403" />
-        <location filename="../qml/main.qml" line="576" />
+        <location filename="../qml/main.qml" line="457" />
+        <location filename="../qml/main.qml" line="670" />
         <source>Settings</source>
         <translation>Cài đặt</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="574" />
+        <location filename="../qml/main.qml" line="668" />
         <source>Connection</source>
         <translation>Kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="575" />
+        <location filename="../qml/main.qml" line="669" />
         <source>Server List</source>
         <translation>Danh sách</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="577" />
+        <location filename="../qml/main.qml" line="671" />
         <source>Profile</source>
         <translation>Hồ sơ</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="578" />
+        <location filename="../qml/main.qml" line="672" />
         <source>Login/Register</source>
-        <translation type="unfinished" />
+        <translation>Đăng nhập/Đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="590" />
+        <location filename="../qml/main.qml" line="684" />
         <source>Manage your VPN connection</source>
-        <translation type="unfinished" />
+        <translation>Quản lý kết nối VPN của bạn</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="591" />
+        <location filename="../qml/main.qml" line="685" />
         <source>Select the best server</source>
-        <translation type="unfinished" />
+        <translation>Chọn máy chủ tốt nhất</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="592" />
+        <location filename="../qml/main.qml" line="686" />
         <source>Upgrade your subscription plan</source>
-        <translation type="unfinished" />
+        <translation>Nâng cấp gói đăng ký</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Not Connected</source>
         <translation>Chưa kết nối</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="720" />
-        <source>Application minimized to system tray, double-click the tray icon to reopen</source>
-        <translation type="unfinished" />
+        <location filename="../qml/main.qml" line="834" />
+        <source>Application minimized to system tray, click the tray icon to reopen</source>
+        <translation>Ứng dụng đã thu nhỏ vào khay hệ thống, nhấp biểu tượng để mở lại</translation>
     </message>
 </context>
 </TS>

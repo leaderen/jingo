@@ -39,12 +39,23 @@ ApplicationWindow {
     readonly property bool isTablet: width >= 768 && width < 1024
     readonly property bool isDesktop: width >= 1024
 
-    // 安全区域 - 底部导航栏/手势区域高度
-    // Android: 根据屏幕密度计算，通常为 48dp (约 144px @ 3x density)
-    // iOS: Home Indicator 约 34px
-    // 如果导航栏底部紧贴系统导航区，则设为 0
-    readonly property real safeAreaTop: Qt.platform.os === "ios" ? 47 : 0
-    readonly property real safeAreaBottom: 0  // 导航栏直接贴底，不需要额外间距
+    // 安全区域 - 系统状态栏/导航栏高度（逻辑像素 dp）
+    readonly property real safeAreaTop: {
+        if (Qt.platform.os === "ios") return 47
+        if (Qt.platform.os === "android" && typeof androidStatusBarManager !== 'undefined' && androidStatusBarManager) {
+            var h = androidStatusBarManager.statusBarHeight || 0
+            return h
+        }
+        return 0
+    }
+    readonly property real safeAreaBottom: {
+        if (Qt.platform.os === "ios") return 34
+        if (Qt.platform.os === "android" && typeof androidStatusBarManager !== 'undefined' && androidStatusBarManager) {
+            var h = androidStatusBarManager.navigationBarHeight || 0
+            return h
+        }
+        return 0
+    }
 
     // 侧边栏状态
     property bool sidebarCollapsed: isMobile
@@ -71,6 +82,20 @@ ApplicationWindow {
         function onThemeChanged() {
             if (configManager && typeof configManager.theme !== 'undefined') {
                 Theme.currentTheme = Theme.themes[configManager.theme] || Theme.jingoTheme
+            }
+        }
+    }
+
+    // UI 模式
+    property bool isSimpleMode: configManager ? (configManager.uiMode === "simple") : true
+
+    // 监听 UI 模式变化
+    Connections {
+        target: configManager
+        function onUiModeChanged() {
+            isSimpleMode = (configManager.uiMode === "simple")
+            if (isAuthenticated) {
+                navigateTo("connection", getPagePath("connection"))
             }
         }
     }
@@ -115,6 +140,35 @@ ApplicationWindow {
         }
     }
 
+    // 页面路径解析函数 - 根据当前 UI 模式返回正确的页面路径
+    function getPagePath(pageName) {
+        if (pageName === "login") return "pages/LoginPage.qml"
+        if (isSimpleMode) {
+            switch (pageName) {
+                case "connection": return "pages/simple/SimpleConnectionPage.qml"
+                case "store":      return "pages/simple/SimpleStorePage.qml"
+                case "profile":    return "pages/simple/SimpleProfilePage.qml"
+                default:           return "pages/simple/SimpleConnectionPage.qml"
+            }
+        } else {
+            switch (pageName) {
+                case "connection": return "pages/ConnectionPage.qml"
+                case "servers":    return "pages/ServerListPage.qml"
+                case "store":      return "pages/StorePage.qml"
+                case "settings":   return "pages/SettingsPage.qml"
+                case "profile":    return "pages/ProfilePage.qml"
+                default:           return "pages/ConnectionPage.qml"
+            }
+        }
+    }
+
+    // 切换 UI 模式
+    function switchUiMode() {
+        if (configManager) {
+            configManager.uiMode = isSimpleMode ? "professional" : "simple"
+        }
+    }
+
     // 显示 Toast 提示
     function showToast(message) {
         toastLabel.text = message
@@ -133,7 +187,7 @@ ApplicationWindow {
         target: systemTrayManager
 
         function onShowWindowRequested() {
-            mainWindow.show()
+            mainWindow.showNormal()
             mainWindow.raise()
             mainWindow.requestActivate()
         }
@@ -151,14 +205,32 @@ ApplicationWindow {
         }
 
         function onSettingsRequested() {
-            mainWindow.show()
+            mainWindow.showNormal()
             mainWindow.raise()
             mainWindow.requestActivate()
-            navigateTo("settings", "pages/SettingsPage.qml")
+            if (isSimpleMode) {
+                navigateTo("profile", getPagePath("profile"))
+            } else {
+                navigateTo("settings", getPagePath("settings"))
+            }
         }
 
         function onQuitRequested() {
             Qt.quit()
+        }
+    }
+
+    // macOS: 点击 Dock 图标恢复窗口
+    Connections {
+        target: Qt.application
+        function onStateChanged() {
+            if (Qt.platform.os === "osx" && Qt.application.state === Qt.ApplicationActive) {
+                if (mainWindow.visibility === Window.Minimized || mainWindow.visibility === Window.Hidden || !mainWindow.visible) {
+                    mainWindow.showNormal()
+                    mainWindow.raise()
+                    mainWindow.requestActivate()
+                }
+            }
         }
     }
 
@@ -208,8 +280,8 @@ ApplicationWindow {
                 hasLoadedInitialData = false
                 navigateTo("login", "pages/LoginPage.qml")
             } else {
-                // 用户登录，加载数据并导航到个人中心
-                navigateTo("profile", "pages/ProfilePage.qml")
+                // 用户登录，导航到首页
+                navigateTo("connection", getPagePath("connection"))
                 // 延迟加载数据，确保页面已准备好
                 Qt.callLater(loadInitialData)
             }
@@ -222,9 +294,15 @@ ApplicationWindow {
 
         Menu {
             title: qsTr("File")
-            MenuItem { 
+            MenuItem {
                 text: qsTr("Preferences")
-                onTriggered: navigateTo("settings", "pages/SettingsPage.qml")
+                onTriggered: {
+                    if (isSimpleMode) {
+                        navigateTo("profile", getPagePath("profile"))
+                    } else {
+                        navigateTo("settings", getPagePath("settings"))
+                    }
+                }
             }
             MenuSeparator {}
             MenuItem { 
@@ -250,7 +328,8 @@ ApplicationWindow {
             }
             MenuItem {
                 text: qsTr("Select Server")
-                onTriggered: navigateTo("servers", "pages/ServerListPage.qml")
+                visible: !isSimpleMode
+                onTriggered: navigateTo("servers", getPagePath("servers"))
             }
         }
 
@@ -362,7 +441,7 @@ ApplicationWindow {
                             // 连接页面
                             SidebarDelegate {
                                 pageName: "connection"
-                                labelText: qsTr("Connect")
+                                labelText: isSimpleMode ? qsTr("Dashboard") : qsTr("Connect")
                                 iconSource: mainWindow.isConnected ?
                                     "qrc:/icons/connected.png" : "qrc:/icons/disconnected.png"
                                 collapsed: true
@@ -370,19 +449,19 @@ ApplicationWindow {
                                 isCurrentPage: mainWindow.currentPage === "connection"
                                 enabled: mainWindow.isAuthenticated
 
-                                onClicked: navigateTo("connection", "pages/ConnectionPage.qml")
+                                onClicked: navigateTo("connection", getPagePath("connection"))
                             }
 
-                            // 服务器列表
+                            // 服务器列表（简约模式隐藏）
                             SidebarDelegate {
                                 pageName: "servers"
                                 labelText: qsTr("Servers")
                                 iconSource: "qrc:/icons/services.png"
                                 collapsed: true
-                                visible: isAuthenticated
+                                visible: isAuthenticated && !isSimpleMode
                                 isCurrentPage: mainWindow.currentPage === "servers"
 
-                                onClicked: navigateTo("servers", "pages/ServerListPage.qml")
+                                onClicked: navigateTo("servers", getPagePath("servers"))
                             }
 
                             // 订阅
@@ -394,19 +473,19 @@ ApplicationWindow {
                                 visible: isAuthenticated
                                 isCurrentPage: mainWindow.currentPage === "store"
 
-                                onClicked: navigateTo("store", "pages/StorePage.qml")
+                                onClicked: navigateTo("store", getPagePath("store"))
                             }
 
-                            // 设置
+                            // 设置（简约模式隐藏）
                             SidebarDelegate {
                                 pageName: "settings"
                                 labelText: qsTr("Settings")
                                 iconSource: "qrc:/icons/settings.png"
                                 collapsed: true
-                                visible: isAuthenticated
+                                visible: isAuthenticated && !isSimpleMode
                                 isCurrentPage: mainWindow.currentPage === "settings"
 
-                                onClicked: navigateTo("settings", "pages/SettingsPage.qml")
+                                onClicked: navigateTo("settings", getPagePath("settings"))
                             }
 
                             // 填充空间
@@ -423,6 +502,47 @@ ApplicationWindow {
                         Layout.rightMargin: 12
                         height: 0
                         color: Qt.darker(Theme.colors.navButtonBackground, 1.05)
+                    }
+
+                    // 模式切换按钮
+                    ItemDelegate {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 70
+                        visible: isAuthenticated
+
+                        background: Rectangle {
+                            color: parent.hovered ?
+                                (isDarkMode ? "#252525" : "#F8F8F8") : "transparent"
+                            Behavior on color {
+                                ColorAnimation { duration: 150 }
+                            }
+                        }
+
+                        contentItem: Item {
+                            anchors.fill: parent
+
+                            Rectangle {
+                                anchors.centerIn: parent
+                                width: 44
+                                height: 44
+                                radius: 22
+                                color: Qt.rgba(Theme.colors.primary.r, Theme.colors.primary.g, Theme.colors.primary.b, 0.15)
+
+                                Label {
+                                    text: isSimpleMode ? "S" : "P"
+                                    anchors.centerIn: parent
+                                    color: Theme.colors.primary
+                                    font.pixelSize: 18
+                                    font.bold: true
+                                }
+                            }
+                        }
+
+                        ToolTip.visible: hovered
+                        ToolTip.text: isSimpleMode ? qsTr("Switch to Professional Mode") : qsTr("Switch to Simple Mode")
+                        ToolTip.delay: 500
+
+                        onClicked: switchUiMode()
                     }
 
                     // 底部用户信息区域
@@ -486,7 +606,7 @@ ApplicationWindow {
                             if (authManager && !authManager.isAuthenticated) {
                                 navigateTo("login", "pages/LoginPage.qml")
                             } else {
-                                navigateTo("profile", "pages/ProfilePage.qml")
+                                navigateTo("profile", getPagePath("profile"))
                             }
                         }
                     }
@@ -502,24 +622,23 @@ ApplicationWindow {
                 color: Theme.colors.pageBackground
 
                 // 状态栏区域背景（与导航按钮块背景色一致）
-                // iOS 使用系统自带的安全区域处理，无需额外的顶部背景
                 Rectangle {
                     width: parent.width
-                    height: Qt.platform.os === "ios" ? 0 : 30
-                    y: Qt.platform.os === "ios" ? 0 : -30
+                    height: mainWindow.safeAreaTop > 0 ? mainWindow.safeAreaTop : 0
+                    y: -(mainWindow.safeAreaTop > 0 ? mainWindow.safeAreaTop : 0)
                     color: Theme.colors.navButtonBackground
-                    visible: Qt.platform.os === "android" && currentPage !== "login"
+                    visible: (Qt.platform.os === "android" || Qt.platform.os === "ios") && currentPage !== "login" && mainWindow.safeAreaTop > 0
                     z: 100
                 }
 
                 // 底部导航栏区域背景（与导航按钮块背景色一致）
                 Rectangle {
                     width: parent.width
-                    height: 40
+                    height: mainWindow.safeAreaBottom > 0 ? mainWindow.safeAreaBottom : 0
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: -40
+                    anchors.bottomMargin: -(mainWindow.safeAreaBottom > 0 ? mainWindow.safeAreaBottom : 0)
                     color: Theme.colors.navButtonBackground
-                    visible: Qt.platform.os === "android" || Qt.platform.os === "ios"
+                    visible: (Qt.platform.os === "android" || Qt.platform.os === "ios") && mainWindow.safeAreaBottom > 0
                     z: 100
                 }
 
@@ -527,13 +646,12 @@ ApplicationWindow {
                     anchors.fill: parent
                     spacing: 0
 
-                    // 顶部栏（移动端简化版，桌面端完整版）
-                    // iOS 使用系统自带的安全区域，Qt 会自动处理
+                    // 顶部栏（简约模式移动端隐藏，让页面自己管理顶部空间）
                     Rectangle {
                         Layout.fillWidth: true
                         Layout.preferredHeight: isMobile ? 60 : 70
                         color: Theme.colors.navButtonBackground
-                        visible: currentPage !== "login"
+                        visible: currentPage !== "login" && !(isMobile && isSimpleMode)
 
                         Component.onCompleted: {
                         }
@@ -562,21 +680,21 @@ ApplicationWindow {
                             anchors.rightMargin: isMobile ? 16 : 20
                             spacing: 15
 
-                            // 页面标题（移动端居中，桌面端靠左）
+                            // 页面标题（左对齐）
                             ColumnLayout {
                                 Layout.fillWidth: true
-                                Layout.alignment: isMobile ? Qt.AlignHCenter : Qt.AlignLeft
+                                Layout.alignment: Qt.AlignLeft
                                 spacing: 2
 
                                 Label {
-                                    Layout.alignment: isMobile ? Qt.AlignHCenter : Qt.AlignLeft
+                                    Layout.alignment: Qt.AlignLeft
                                     text: {
-                                        if (currentPage === "connection") return qsTr("Connection")
+                                        if (currentPage === "connection") return isSimpleMode ? qsTr("Dashboard") : qsTr("Connection")
                                         if (currentPage === "servers") return qsTr("Server List")
                                         if (currentPage === "settings") return qsTr("Settings")
                                         if (currentPage === "profile") return qsTr("Profile")
                                         if (currentPage === "login") return qsTr("Login/Register")
-                                        if (currentPage === "store") return qsTr("Subscription")
+                                        if (currentPage === "store") return isSimpleMode ? qsTr("Store") : qsTr("Subscription")
                                         return "JinGo"
                                     }
                                     font.pixelSize: isMobile ? 18 : 20
@@ -585,7 +703,7 @@ ApplicationWindow {
                                 }
 
                                 Label {
-                                    Layout.alignment: isMobile ? Qt.AlignHCenter : Qt.AlignLeft
+                                    Layout.alignment: Qt.AlignLeft
                                     text: {
                                         if (currentPage === "connection") return qsTr("Manage your VPN connection")
                                         if (currentPage === "servers") return qsTr("Select the best server")
@@ -597,6 +715,31 @@ ApplicationWindow {
                                     color: isDarkMode ? "#999999" : Theme.colors.textSecondary
                                     visible: text !== "" && !isMobile
                                 }
+                            }
+
+                            // 模式切换按钮（仅移动端专业模式显示）
+                            AbstractButton {
+                                Layout.alignment: Qt.AlignRight
+                                Layout.preferredWidth: 36
+                                Layout.preferredHeight: 36
+                                visible: isMobile && isAuthenticated
+
+                                background: Rectangle {
+                                    radius: 18
+                                    color: parent.pressed ? Qt.rgba(Theme.colors.primary.r, Theme.colors.primary.g, Theme.colors.primary.b, 0.25)
+                                         : Qt.rgba(Theme.colors.primary.r, Theme.colors.primary.g, Theme.colors.primary.b, 0.12)
+                                }
+
+                                contentItem: Label {
+                                    text: isSimpleMode ? "S" : "P"
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    color: Theme.colors.primary
+                                    font.pixelSize: 14
+                                    font.bold: true
+                                }
+
+                                onClicked: switchUiMode()
                             }
 
                             // 连接状态指示器（仅桌面端显示）
@@ -644,8 +787,10 @@ ApplicationWindow {
                         id: stackView
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        // 为底部导航栏预留空间（导航栏高度68px）
-                        Layout.bottomMargin: isMobile && currentPage !== "login" && currentPage !== "loading" ? 68 : 0
+                        // 为底部导航栏预留空间
+                        // 简约模式：浮动胶囊有自己的定位，页面自己预留空间
+                        // 专业模式：导航栏高度68px
+                        Layout.bottomMargin: isMobile && currentPage !== "login" && currentPage !== "loading" ? (isSimpleMode ? 0 : 68) : 0
 
                         // Android页面切换时重新设置状态栏
                         onCurrentItemChanged: {
@@ -682,20 +827,39 @@ ApplicationWindow {
                     }
                 }
 
-                // 移动端底部导航栏 - 直接锚定到屏幕底部
-                BottomNavigationBar {
-                    id: bottomNavBar
+                // 移动端底部导航栏 - 根据模式切换组件
+                Loader {
+                    id: bottomNavLoader
                     width: parent.width
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 0  // 直接贴底
                     visible: isMobile && currentPage !== "login" && currentPage !== "loading"
+                    sourceComponent: isSimpleMode ? simpleNavComp : proNavComp
+                }
 
-                    currentPage: mainWindow.currentPage
-                    isDarkMode: mainWindow.isDarkMode
-                    isConnected: mainWindow.isConnected
+                Component {
+                    id: proNavComp
+                    BottomNavigationBar {
+                        width: bottomNavLoader.width
+                        currentPage: mainWindow.currentPage
+                        isDarkMode: mainWindow.isDarkMode
+                        isConnected: mainWindow.isConnected
+                        onNavigateToPage: function(page, qmlFile) {
+                            mainWindow.navigateTo(page, qmlFile)
+                        }
+                    }
+                }
 
-                    onNavigateToPage: function(page, qmlFile) {
-                        mainWindow.navigateTo(page, qmlFile)
+                Component {
+                    id: simpleNavComp
+                    SimpleBottomNavigationBar {
+                        width: bottomNavLoader.width
+                        currentPage: mainWindow.currentPage
+                        isDarkMode: mainWindow.isDarkMode
+                        isConnected: mainWindow.isConnected
+                        bottomPadding: mainWindow.safeAreaBottom / 5
+                        onNavigateToPage: function(page, qmlFile) {
+                            mainWindow.navigateTo(page, qmlFile)
+                        }
                     }
                 }
             }
@@ -717,7 +881,7 @@ ApplicationWindow {
                 if (!hasShownTrayHint && systemTrayManager) {
                     systemTrayManager.showMessage(
                         qsTr("JinGo"),
-                        qsTr("Application minimized to system tray, double-click the tray icon to reopen")
+                        qsTr("Application minimized to system tray, click the tray icon to reopen")
                     )
                     hasShownTrayHint = true
                 }
@@ -757,30 +921,13 @@ ApplicationWindow {
 
         hasLoadedInitialData = true
 
-        // 1. 加载用户信息
+        // 1. 加载用户信息（loadSession 不调用此方法，保留）
         if (authManager && typeof authManager.loadUserInfo === 'function') {
             authManager.loadUserInfo()
         }
 
-        // 2. 加载订阅信息
-        if (authManager && typeof authManager.getUserSubscribe === 'function') {
-            authManager.getUserSubscribe()
-        }
-
-        // 3. 加载套餐列表
-        if (authManager && typeof authManager.fetchPlans === 'function') {
-            authManager.fetchPlans()
-        }
-
-        // 4. 从数据库加载服务器列表到内存
-        if (serverListViewModel && typeof serverListViewModel.loadServersFromDatabase === 'function') {
-            serverListViewModel.loadServersFromDatabase()
-        }
-
-        // 注意：服务器列表的更新已移至 BackgroundDataUpdater
-        // 不在此处主动更新，避免与后台更新冲突
-        // 服务器列表会在应用启动时从数据库加载已缓存的数据
-        // 并由 BackgroundDataUpdater 定期从服务器更新
+        // 2-3. getUserSubscribe 和 fetchPlans 已由 AuthManager::loadSession() 调用，不再重复
+        // 4. 服务器列表已在 ServerListViewModel 构造函数中加载，不再重复调用
 
     }
 
@@ -818,7 +965,7 @@ ApplicationWindow {
 
         // 设置初始页面
         if (isAuthenticated) {
-            navigateTo("profile", "pages/ProfilePage.qml")
+            navigateTo("connection", getPagePath("connection"))
             // 应用启动时预加载所有数据
             Qt.callLater(loadInitialData)
         } else {

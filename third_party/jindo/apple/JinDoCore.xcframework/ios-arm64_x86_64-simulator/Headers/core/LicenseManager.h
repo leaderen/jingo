@@ -201,6 +201,10 @@ private:
     QString m_cachedDeviceId;
     qint64 m_serverTimeOffset = 0;  // 服务器时间与本地时间的偏移量（秒）
 
+    // 离线重试
+    int m_offlineRetryCount = 0;                ///< 离线宽限期超时后的重试次数
+    static constexpr int MAX_OFFLINE_RETRIES = 3;  ///< 最大重试次数（超时后强制退出）
+
     // 网络
     QNetworkAccessManager* m_networkManager = nullptr;
     QNetworkReply* m_currentReply = nullptr;

@@ -654,9 +654,11 @@ target_link_libraries(JinGo PRIVATE
 
 # Link JinDoCore
 if(TARGET JinDoCore)
-    # Use --whole-archive to force linking all symbols from static library
+    # Force linking all symbols from static library to preserve Go init() registrations
     if(WIN32 AND MINGW)
         target_link_libraries(JinGo PRIVATE -Wl,--whole-archive JinDoCore -Wl,--no-whole-archive)
+    elseif(APPLE)
+        target_link_libraries(JinGo PRIVATE -Wl,-force_load,$<TARGET_FILE:JinDoCore>)
     else()
         target_link_libraries(JinGo PRIVATE JinDoCore)
     endif()

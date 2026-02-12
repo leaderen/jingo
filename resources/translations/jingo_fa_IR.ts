@@ -4,14 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>درباره JinGoVPN</translation>
-    </message>
-    <message>
-        <source>JinGoVPN Client</source>
-        <translation>کلاینت JinGoVPN</translation>
-    </message>
-    <message>
         <location filename="../qml/components/AboutDialog.qml" line="18" />
         <source>About JinGo</source>
         <translation>درباره JinGo</translation>
@@ -93,65 +85,6 @@
         <location filename="../qml/pages/AppSelectorPage.qml" line="341" />
         <source>Save Selection</source>
         <translation>ذخیره انتخاب</translation>
-    </message>
-</context>
-<context>
-    <name>AuthManager</name>
-    <message>
-        <source>Email or password cannot be empty</source>
-        <translation>ایمیل یا رمز عبور نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Server response format error: missing token</source>
-        <translation>خطای فرمت پاسخ سرور: توکن وجود ندارد</translation>
-    </message>
-    <message>
-        <source>User info parse failed</source>
-        <translation>خطا در تحلیل اطلاعات کاربر</translation>
-    </message>
-    <message>
-        <source>User info invalid or incomplete</source>
-        <translation>اطلاعات کاربر نامعتبر یا ناقص است</translation>
-    </message>
-    <message>
-        <source>Subscription information is empty</source>
-        <translation>اطلاعات اشتراک خالی است</translation>
-    </message>
-    <message>
-        <source>My Subscription</source>
-        <translation>اشتراک من</translation>
-    </message>
-    <message>
-        <source>Server response data format error</source>
-        <translation>خطای فرمت داده‌های سرور</translation>
-    </message>
-    <message>
-        <source>Old password is incorrect</source>
-        <translation>رمز قدیمی نادرست است</translation>
-    </message>
-    <message>
-        <source>Password change failed</source>
-        <translation>تغییر رمز ناموفق بود</translation>
-    </message>
-    <message>
-        <source>Email and password cannot be empty</source>
-        <translation>ایمیل و رمز عبور نمی‌توانند خالی باشند</translation>
-    </message>
-    <message>
-        <source>Email cannot be empty</source>
-        <translation>ایمیل نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Email, verification code and new password cannot be empty</source>
-        <translation>ایمیل، کد تایید و رمز جدید نمی‌توانند خالی باشند</translation>
-    </message>
-    <message>
-        <source>Not logged in</source>
-        <translation>وارد نشده‌اید</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>رمز عبور نمی‌تواند خالی باشد</translation>
     </message>
 </context>
 <context>
@@ -383,7 +316,7 @@
         <translation>اشتراک</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConnectionPage.qml" line="1349" />
+        <location filename="../qml/pages/ConnectionPage.qml" line="1354" />
         <source>* Changes to connection settings require reconnecting to take effect</source>
         <translation>* تغییرات تنظیمات اتصال نیاز به اتصال مجدد دارد</translation>
     </message>
@@ -391,34 +324,42 @@
 <context>
     <name>ConnectionViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="95" />
         <source>Not Connected</source>
         <translation>متصل نیست</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="97" />
         <source>Connecting...</source>
         <translation>در حال اتصال...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="99" />
         <source>Connected</source>
         <translation>متصل</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="101" />
         <source>Disconnecting...</source>
         <translation>در حال قطع اتصال...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="103" />
         <source>Reconnecting...</source>
         <translation>در حال اتصال مجدد...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="105" />
         <source>Connection Error</source>
         <translation>خطای اتصال</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="107" />
         <source>Unknown Status</source>
         <translation>وضعیت نامشخص</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="120" />
         <source>None</source>
         <translation>هیچ</translation>
     </message>
@@ -589,14 +530,6 @@
 <context>
     <name>ForgotPasswordForm</name>
     <message>
-        <source>Please enter your registered email, we will send a reset link.</source>
-        <translation>ایمیل ثبت‌نام خود را وارد کنید، لینک بازنشانی برایتان ارسال می‌شود.</translation>
-    </message>
-    <message>
-        <source>Registration Email</source>
-        <translation>ایمیل ثبت‌نام</translation>
-    </message>
-    <message>
         <location filename="../qml/components/ForgotPasswordForm.qml" line="32" />
         <source>Enter your email to receive a verification code, then set a new password.</source>
         <translation>ایمیل خود را برای دریافت کد تأیید وارد کنید، سپس رمز عبور جدید تنظیم کنید.</translation>
@@ -660,10 +593,6 @@
         <location filename="../qml/components/ForgotPasswordForm.qml" line="154" />
         <source>Reset Password</source>
         <translation>بازیابی رمز عبور</translation>
-    </message>
-    <message>
-        <source>Send Reset Link</source>
-        <translation>ارسال لینک بازنشانی</translation>
     </message>
 </context>
 <context>
@@ -932,10 +861,6 @@ Third-party components:
 <context>
     <name>LoginPage</name>
     <message>
-        <source>Welcome to JinGoVPN</source>
-        <translation>به JinGoVPN خوش آمدید</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/LoginPage.qml" line="76" />
         <source>Welcome to JinGo</source>
         <translation>به JinGo خوش آمدید</translation>
@@ -950,32 +875,56 @@ Third-party components:
         <source>群组</source>
         <translation>گروه</translation>
     </message>
-    <message>
-        <source>Groups</source>
-        <translation>گروه‌ها</translation>
-    </message>
 </context>
 <context>
     <name>LoginViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="147" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="429" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="473" />
         <source>Enter email</source>
         <translation>ایمیل را وارد کنید</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="153" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="435" />
         <source>Invalid email format</source>
         <translation>فرمت ایمیل نامعتبر است</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="240" />
         <source>Please enterUsername</source>
         <translation>لطفا نام کاربری را وارد کنید</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="245" />
         <source>Enter password</source>
         <translation>رمز عبور را وارد کنید</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="326" />
         <source>Password reset email sent to %1</source>
         <translation>ایمیل بازیابی رمز به %1 ارسال شد</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="478" />
+        <source>Enter verification code</source>
+        <translation>کد تایید را وارد کنید</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="483" />
+        <source>Enter new password</source>
+        <translation>رمز عبور جدید را وارد کنید</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="488" />
+        <source>Password must be at least 6 characters</source>
+        <translation>رمز باید حداقل 6 کاراکتر باشد</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="505" />
+        <source>Password reset successfully! Please login with new password.</source>
+        <translation>رمز عبور با موفقیت بازنشانی شد! لطفاً با رمز عبور جدید وارد شوید.</translation>
     </message>
 </context>
 <context>
@@ -1341,14 +1290,6 @@ Third-party components:
         <translation>شناسه حساب: </translation>
     </message>
     <message>
-        <source>Premium Member</source>
-        <translation>عضو ویژه</translation>
-    </message>
-    <message>
-        <source>Basic Member</source>
-        <translation>عضو پایه</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/ProfilePage.qml" line="474" />
         <source>Monthly Traffic</source>
         <translation>ترافیک ماهانه</translation>
@@ -1434,152 +1375,34 @@ Third-party components:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/main.cpp" line="242" />
+        <location filename="../../src/main.cpp" line="269" />
         <source>Not Connected</source>
         <translation>متصل نیست</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="245" />
+        <location filename="../../src/main.cpp" line="272" />
         <source>Connecting...</source>
         <translation>در حال اتصال...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="248" />
+        <location filename="../../src/main.cpp" line="275" />
         <source>Connected</source>
         <translation>متصل</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="251" />
+        <location filename="../../src/main.cpp" line="278" />
         <source>Disconnecting...</source>
         <translation>در حال قطع اتصال...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="254" />
+        <location filename="../../src/main.cpp" line="281" />
         <source>Reconnecting...</source>
         <translation>در حال اتصال مجدد...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="257" />
+        <location filename="../../src/main.cpp" line="284" />
         <source>Connection Error</source>
         <translation>خطای اتصال</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="487" />
-        <source>安全错误</source>
-        <translation>خطای امنیتی</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="488" />
-        <source>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>قطع شده</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>در حال اتصال</translation>
-    </message>
-    <message>
-        <source>Disconnecting</source>
-        <translation>در حال قطع اتصال</translation>
-    </message>
-    <message>
-        <source>Reconnecting</source>
-        <translation>در حال اتصال مجدد</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>خطا</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>نامشخص</translation>
-    </message>
-    <message>
-        <source>Server address cannot be empty</source>
-        <translation>آدرس سرور نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Port not configured</source>
-        <translation>پورت پیکربندی نشده</translation>
-    </message>
-    <message>
-        <source>Port number invalid (must be between 1-65535)</source>
-        <translation>شماره پورت نامعتبر (باید بین 1-65535 باشد)</translation>
-    </message>
-    <message>
-        <source>Protocol type not configured</source>
-        <translation>نوع پروتکل پیکربندی نشده</translation>
-    </message>
-    <message>
-        <source>UUID cannot be empty</source>
-        <translation>UUID نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>UUID format invalid</source>
-        <translation>فرمت UUID نامعتبر</translation>
-    </message>
-    <message>
-        <source>Trojan password cannot be empty</source>
-        <translation>رمز Trojan نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Shadowsocks password cannot be empty</source>
-        <translation>رمز Shadowsocks نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Shadowsocks encryption method not configured</source>
-        <translation>روش رمزنگاری Shadowsocks پیکربندی نشده</translation>
-    </message>
-    <message>
-        <source>Unsupported protocol: %1</source>
-        <translation>پروتکل پشتیبانی نمی‌شود: %1</translation>
-    </message>
-    <message>
-        <source>Unsupported transport protocol: %1</source>
-        <translation>پروتکل انتقال پشتیبانی نمی‌شود: %1</translation>
-    </message>
-    <message>
-        <source>WebSocket transport requires path configuration</source>
-        <translation>انتقال WebSocket نیاز به پیکربندی مسیر دارد</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation>هرگز</translation>
-    </message>
-    <message>
-        <source>Just now</source>
-        <translation>همین الان</translation>
-    </message>
-    <message>
-        <source>%1 seconds ago</source>
-        <translation>%1 ثانیه پیش</translation>
-    </message>
-    <message>
-        <source>%1 minutes ago</source>
-        <translation>%1 دقیقه پیش</translation>
-    </message>
-    <message>
-        <source>%1 hours ago</source>
-        <translation>%1 ساعت پیش</translation>
-    </message>
-    <message>
-        <source>%1 days ago</source>
-        <translation>%1 روز پیش</translation>
-    </message>
-    <message>
-        <source>%1 months ago</source>
-        <translation>%1 ماه پیش</translation>
-    </message>
-    <message>
-        <source>on %1</source>
-        <translation>در %1</translation>
     </message>
 </context>
 <context>
@@ -1637,7 +1460,7 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="123" />
         <source>Invite Code</source>
-        <translation type="unfinished" />
+        <translation>کد دعوت</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
@@ -1647,12 +1470,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="124" />
         <source>Enter invite code</source>
-        <translation type="unfinished" />
+        <translation>کد دعوت را وارد کنید</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="176" />
         <source>I agree to the</source>
-        <translation type="unfinished" />
+        <translation>من موافقم با</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="184" />
@@ -1662,12 +1485,12 @@ Security Error: Configuration signature verification failed.</source>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="257" />
         <source>I'm not a robot</source>
-        <translation type="unfinished" />
+        <translation>من ربات نیستم</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="298" />
         <source>Registration Successful</source>
-        <translation type="unfinished" />
+        <translation>ثبت‌نام موفقیت‌آمیز</translation>
     </message>
     <message>
         <location filename="../qml/components/RegisterForm.qml" line="300" />
@@ -1683,18 +1506,23 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>RegisterViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="123" />
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="170" />
         <source>Enter email</source>
         <translation>ایمیل را وارد کنید</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="129" />
         <source>Invalid email format</source>
         <translation>فرمت ایمیل نامعتبر است</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="174" />
         <source>Enter password</source>
         <translation>رمز عبور را وارد کنید</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="178" />
         <source>Password must be at least 6 characters</source>
         <translation>رمز باید حداقل 6 کاراکتر باشد</translation>
     </message>
@@ -1751,10 +1579,6 @@ Security Error: Configuration signature verification failed.</source>
         <location filename="../qml/components/ServerItem.qml" line="299" />
         <source>Testing...</source>
         <translation>در حال آزمایش...</translation>
-    </message>
-    <message>
-        <source>Test Latency</source>
-        <translation>تست تاخیر</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
@@ -1815,170 +1639,162 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="775" />
+        <location filename="../qml/pages/ServerListPage.qml" line="814" />
         <source>Servers</source>
         <translation>سرورها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="813" />
+        <location filename="../qml/pages/ServerListPage.qml" line="852" />
         <source>Search servers...</source>
         <translation>جستجوی سرورها...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="867" />
+        <location filename="../qml/pages/ServerListPage.qml" line="906" />
         <source>All</source>
         <translation>همه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="929" />
+        <location filename="../qml/pages/ServerListPage.qml" line="968" />
         <source>Refresh server list</source>
         <translation>بازخوانی لیست سرورها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="975" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1014" />
         <source>Sort by latency</source>
         <translation>مرتب سازی بر اساس تاخیر</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1012" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1051" />
         <source>Sort by name</source>
         <translation>مرتب سازی بر اساس نام</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1093" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1132" />
         <source>Test All Speed</source>
-        <translation type="unfinished" />
+        <translation>تست سرعت همه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1111" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1150" />
         <source>Speed</source>
-        <translation type="unfinished" />
+        <translation>سرعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1138" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1177" />
         <source>No Servers Available</source>
         <translation>سروری در دسترس نیست</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1146" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1185" />
         <source>Click 'Refresh' button above to load servers</source>
         <translation>روی دکمه «بازخوانی» بالا کلیک کنید</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1147" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
         <source>Please add a subscription first</source>
         <translation>ابتدا یک اشتراک اضافه کنید</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1159" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1198" />
         <source>Go to Subscriptions</source>
         <translation>رفتن به اشتراک‌ها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1225" />
         <source>Loading servers...</source>
         <translation>در حال بارگذاری سرورها...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1193" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1232" />
         <source>Please wait a moment</source>
         <translation>لطفا صبر کنید</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1344" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1383" />
         <source>Off</source>
         <translation>قطع</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1349" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1388" />
         <source>Go</source>
         <translation>اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1385" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1424" />
         <source>Test</source>
-        <translation type="unfinished" />
+        <translation>تست</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2137" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2176" />
         <source>Batch test completed</source>
-        <translation type="unfinished" />
+        <translation>تست دسته‌ای تکمیل شد</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2148" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2187" />
         <source>Speed: %1 Mbps</source>
-        <translation type="unfinished" />
+        <translation>سرعت: %1 مگابیت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2150" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2189" />
         <source>Speed test failed</source>
-        <translation type="unfinished" />
+        <translation>تست سرعت ناموفق</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2218" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2257" />
         <source>Server not found</source>
         <translation>سرور یافت نشد</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2260" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2299" />
         <source>No servers to test</source>
-        <translation type="unfinished" />
+        <translation>سروری برای تست وجود ندارد</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2315" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2354" />
         <source>Latency Testing</source>
-        <translation type="unfinished" />
+        <translation>تست تأخیر</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2340" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2379" />
         <source>Testing latency...</source>
-        <translation type="unfinished" />
+        <translation>در حال تست تأخیر...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2383" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
         <source>Speed Testing (%1/%2)</source>
-        <translation type="unfinished" />
+        <translation>تست سرعت (%1/%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2384" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2423" />
         <source>Speed Testing</source>
-        <translation type="unfinished" />
+        <translation>تست سرعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Connecting...</source>
         <translation>در حال اتصال...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Testing speed...</source>
-        <translation type="unfinished" />
+        <translation>در حال تست سرعت...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2461" />
         <source>Cancel</source>
         <translation>لغو</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2438" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2477" />
         <source>Test cancelled</source>
-        <translation type="unfinished" />
+        <translation>تست لغو شد</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>کپی</translation>
-    </message>
-    <message>
-        <source>Share link copied</source>
-        <translation>لینک اشتراک کپی شد</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1584" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1623" />
         <source>Testing...</source>
         <translation>در حال آزمایش...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1611" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1650" />
         <source>Timeout</source>
         <translation>زمان تمام شد</translation>
     </message>
@@ -1986,8 +1802,14 @@ Security Error: Configuration signature verification failed.</source>
 <context>
     <name>ServerListViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="284" />
         <source>Unknown</source>
         <translation>نامشخص</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="527" />
+        <source>VPN not connected</source>
+        <translation>VPN متصل نیست</translation>
     </message>
 </context>
 <context>
@@ -2117,670 +1939,1035 @@ Security Error: Configuration signature verification failed.</source>
         <translation>سبک تم برنامه را انتخاب کنید</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="320" />
+        <location filename="../qml/pages/SettingsPage.qml" line="319" />
         <source>Subscription Settings</source>
         <translation>تنظیمات اشتراک</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="321" />
+        <location filename="../qml/pages/SettingsPage.qml" line="320" />
         <source>Server subscription update settings</source>
         <translation>تنظیمات به‌روزرسانی اشتراک</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="324" />
+        <location filename="../qml/pages/SettingsPage.qml" line="323" />
         <source>Auto Update Interval</source>
         <translation>فاصله به‌روزرسانی خودکار</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="325" />
+        <location filename="../qml/pages/SettingsPage.qml" line="324" />
         <source>How often to automatically update server list</source>
         <translation>هر چند وقت لیست سرورها به‌روز شود</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="331" />
+        <location filename="../qml/pages/SettingsPage.qml" line="330" />
         <source>1 Hour</source>
         <translation>1 ساعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="331" />
         <source>3 Hours</source>
         <translation>3 ساعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="333" />
+        <location filename="../qml/pages/SettingsPage.qml" line="332" />
         <source>6 Hours</source>
         <translation>6 ساعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="333" />
         <source>12 Hours</source>
         <translation>12 ساعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="335" />
+        <location filename="../qml/pages/SettingsPage.qml" line="334" />
         <source>24 Hours</source>
         <translation>24 ساعت</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="375" />
+        <location filename="../qml/pages/SettingsPage.qml" line="374" />
         <source>Routing Settings</source>
         <translation>تنظیمات مسیریابی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="376" />
+        <location filename="../qml/pages/SettingsPage.qml" line="375" />
         <source>Control how traffic is routed and split</source>
         <translation>کنترل نحوه مسیریابی ترافیک</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="379" />
         <source>Domain Resolution Strategy</source>
         <translation>استراتژی حل دامنه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="381" />
+        <location filename="../qml/pages/SettingsPage.qml" line="380" />
         <source>Control how domains are resolved</source>
         <translation>نحوه حل دامنه‌ها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="422" />
+        <location filename="../qml/pages/SettingsPage.qml" line="421" />
         <source>Bypass Countries</source>
         <translation>کشورهای دور زدن</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="423" />
+        <location filename="../qml/pages/SettingsPage.qml" line="422" />
         <source>Select countries to bypass, their websites will connect directly</source>
         <translation>کشورهایی را برای دور زدن انتخاب کنید، وب‌سایت‌های آن‌ها مستقیم متصل می‌شوند</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="427" />
+        <location filename="../qml/pages/SettingsPage.qml" line="426" />
         <source>China</source>
         <translation>چین</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="428" />
+        <location filename="../qml/pages/SettingsPage.qml" line="427" />
         <source>Russia</source>
         <translation>روسیه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="429" />
+        <location filename="../qml/pages/SettingsPage.qml" line="428" />
         <source>Iran</source>
         <translation>ایران</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="430" />
+        <location filename="../qml/pages/SettingsPage.qml" line="429" />
         <source>Vietnam</source>
         <translation>ویتنام</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="431" />
+        <location filename="../qml/pages/SettingsPage.qml" line="430" />
         <source>Cambodia</source>
         <translation>کامبوج</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="432" />
+        <location filename="../qml/pages/SettingsPage.qml" line="431" />
         <source>Myanmar</source>
         <translation>میانمار</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="489" />
+        <location filename="../qml/pages/SettingsPage.qml" line="488" />
         <source>Network Interface</source>
         <translation>رابط شبکه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="490" />
+        <location filename="../qml/pages/SettingsPage.qml" line="489" />
         <source>Select the network interface for VPN outbound traffic</source>
         <translation>رابط شبکه برای ترافیک خروجی VPN را انتخاب کنید</translation>
     </message>
     <message>
-        <source>Bypass LAN addresses</source>
-        <translation>دور زدن آدرس‌های شبکه محلی</translation>
-    </message>
-    <message>
-        <source>LAN traffic bypass proxy</source>
-        <translation>ترافیک شبکه محلی از پروکسی عبور نمی‌کند</translation>
+        <location filename="../qml/pages/SettingsPage.qml" line="572" />
+        <source>Per-App Proxy</source>
+        <translation>پراکسی هر برنامه</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="573" />
-        <source>Per-App Proxy</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
         <source>Control which apps use VPN</source>
-        <translation type="unfinished" />
+        <translation>کنترل برنامه‌هایی که از VPN استفاده می‌کنند</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>TUN mode only</source>
-        <translation type="unfinished" />
+        <translation>فقط حالت TUN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="578" />
+        <location filename="../qml/pages/SettingsPage.qml" line="577" />
         <source>Per-App Proxy Mode</source>
-        <translation type="unfinished" />
+        <translation>حالت پراکسی هر برنامه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="581" />
+        <source>Disabled: All apps use VPN</source>
+        <translation>غیرفعال: همه برنامه‌ها از VPN استفاده می‌کنند</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="582" />
-        <source>Disabled: All apps use VPN</source>
-        <translation type="unfinished" />
+        <source>Allow List: Only selected apps use VPN</source>
+        <translation>لیست مجاز: فقط برنامه‌های انتخاب‌شده از VPN استفاده کنند</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="583" />
-        <source>Allow List: Only selected apps use VPN</source>
-        <translation type="unfinished" />
+        <source>Block List: Selected apps bypass VPN</source>
+        <translation>لیست مسدود: برنامه‌های انتخاب‌شده از VPN عبور کنند</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="584" />
-        <source>Block List: Selected apps bypass VPN</source>
-        <translation type="unfinished" />
+        <location filename="../qml/pages/SettingsPage.qml" line="592" />
+        <source>Allow List</source>
+        <translation>لیست مجاز</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="593" />
-        <source>Allow List</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="594" />
         <source>Block List</source>
-        <translation type="unfinished" />
+        <translation>لیست مسدود</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="621" />
+        <location filename="../qml/pages/SettingsPage.qml" line="620" />
         <source>Selected Apps</source>
-        <translation type="unfinished" />
+        <translation>برنامه‌های انتخاب‌شده</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="625" />
+        <location filename="../qml/pages/SettingsPage.qml" line="624" />
         <source>%1 app(s) selected</source>
-        <translation type="unfinished" />
+        <translation>%1 برنامه انتخاب شده</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="628" />
+        <location filename="../qml/pages/SettingsPage.qml" line="627" />
         <source>Select Apps</source>
         <translation>انتخاب برنامه‌ها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="644" />
+        <location filename="../qml/pages/SettingsPage.qml" line="643" />
         <source>Clear Selection</source>
-        <translation type="unfinished" />
+        <translation>پاک کردن انتخاب</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="645" />
+        <location filename="../qml/pages/SettingsPage.qml" line="644" />
         <source>Remove all apps from the list</source>
-        <translation type="unfinished" />
+        <translation>حذف همه برنامه‌ها از لیست</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="664" />
+        <location filename="../qml/pages/SettingsPage.qml" line="663" />
         <source>DNS Settings</source>
         <translation>تنظیمات DNS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="665" />
+        <location filename="../qml/pages/SettingsPage.qml" line="664" />
         <source>DNS server configuration</source>
         <translation>پیکربندی سرور DNS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="669" />
+        <location filename="../qml/pages/SettingsPage.qml" line="668" />
         <source>Domestic DNS 1</source>
         <translation>DNS داخلی 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="685" />
+        <location filename="../qml/pages/SettingsPage.qml" line="684" />
         <source>Domestic DNS 2</source>
         <translation>DNS داخلی 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="701" />
+        <location filename="../qml/pages/SettingsPage.qml" line="700" />
         <source>Overseas DNS 1</source>
         <translation>DNS خارجی 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="729" />
+        <location filename="../qml/pages/SettingsPage.qml" line="728" />
         <source>Overseas DNS 2</source>
         <translation>DNS خارجی 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="757" />
+        <location filename="../qml/pages/SettingsPage.qml" line="756" />
         <source>DNS Query Strategy</source>
         <translation>استراتژی پرس‌وجوی DNS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="758" />
+        <location filename="../qml/pages/SettingsPage.qml" line="757" />
         <source>IPv4/IPv6 Query Strategy</source>
         <translation>استراتژی پرس‌وجوی IPv4/IPv6</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="799" />
+        <location filename="../qml/pages/SettingsPage.qml" line="798" />
         <source>Local Proxy</source>
         <translation>پروکسی محلی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="800" />
+        <location filename="../qml/pages/SettingsPage.qml" line="799" />
         <source>Local SOCKS/HTTP proxy server settings</source>
         <translation>تنظیمات سرور پروکسی SOCKS/HTTP محلی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="804" />
+        <location filename="../qml/pages/SettingsPage.qml" line="803" />
         <source>SOCKS Proxy Port</source>
         <translation>پورت پروکسی SOCKS</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="805" />
+        <location filename="../qml/pages/SettingsPage.qml" line="804" />
         <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
         <translation>پورت گوش‌دهی پروکسی SOCKS5 محلی - نیاز به اتصال مجدد پس از تغییر</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="837" />
+        <location filename="../qml/pages/SettingsPage.qml" line="836" />
         <source>HTTP Proxy Port</source>
         <translation>پورت پروکسی HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="838" />
+        <location filename="../qml/pages/SettingsPage.qml" line="837" />
         <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
         <translation>پورت گوش‌دهی پروکسی HTTP محلی - نیاز به اتصال مجدد پس از تغییر</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="870" />
+        <location filename="../qml/pages/SettingsPage.qml" line="869" />
         <source>Allow LAN Connections</source>
         <translation>اجازه اتصالات LAN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="871" />
+        <location filename="../qml/pages/SettingsPage.qml" line="870" />
         <source>Allow other devices in LAN to connect to this proxy</source>
         <translation>اجازه اتصال سایر دستگاه‌های LAN به این پروکسی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="889" />
+        <location filename="../qml/pages/SettingsPage.qml" line="888" />
         <source>Transport Layer Settings</source>
         <translation>تنظیمات لایه انتقال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="890" />
+        <location filename="../qml/pages/SettingsPage.qml" line="889" />
         <source>Protocol transport related configuration</source>
         <translation>پیکربندی مربوط به انتقال پروتکل</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="894" />
+        <location filename="../qml/pages/SettingsPage.qml" line="893" />
         <source>Enable Mux multiplexing</source>
         <translation>فعال کردن چندگانه‌سازی Mux</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="895" />
+        <location filename="../qml/pages/SettingsPage.qml" line="894" />
         <source>Transfer multiple data streams through single connection, may reduce latency</source>
         <translation>انتقال چندین جریان داده از طریق یک اتصال، ممکن است تأخیر را کاهش دهد</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="906" />
+        <location filename="../qml/pages/SettingsPage.qml" line="905" />
         <source>Mux concurrent connections</source>
         <translation>اتصالات همزمان Mux</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="907" />
+        <location filename="../qml/pages/SettingsPage.qml" line="906" />
         <source>Maximum concurrent multiplexed connections</source>
         <translation>حداکثر اتصالات چندگانه همزمان</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="939" />
+        <location filename="../qml/pages/SettingsPage.qml" line="938" />
         <source>TCP Fast Open</source>
         <translation>TCP Fast Open</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="940" />
+        <location filename="../qml/pages/SettingsPage.qml" line="939" />
         <source>Enable TFO to reduce latency (requires system support)</source>
         <translation>فعال کردن TFO برای کاهش تأخیر (نیاز به پشتیبانی سیستم)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="953" />
+        <location filename="../qml/pages/SettingsPage.qml" line="952" />
         <source>Enable traffic sniffing</source>
         <translation>فعال کردن شنود ترافیک</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="954" />
+        <location filename="../qml/pages/SettingsPage.qml" line="953" />
         <source>Auto identify traffic type for routing</source>
         <translation>شناسایی خودکار نوع ترافیک برای مسیریابی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="969" />
+        <location filename="../qml/pages/SettingsPage.qml" line="968" />
         <source>Log Settings</source>
         <translation>تنظیمات لاگ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="970" />
+        <location filename="../qml/pages/SettingsPage.qml" line="969" />
         <source>Application and core log configuration</source>
         <translation>پیکربندی لاگ برنامه و هسته</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="974" />
+        <location filename="../qml/pages/SettingsPage.qml" line="973" />
         <source>Log Level</source>
         <translation>سطح لاگ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="975" />
+        <location filename="../qml/pages/SettingsPage.qml" line="974" />
         <source>Set log verbosity level</source>
         <translation>تنظیم سطح جزئیات لاگ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1002" />
         <source>Enable access log</source>
         <translation>فعال کردن لاگ دسترسی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1004" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
         <source>Log all connection requests</source>
         <translation>ثبت تمام درخواست‌های اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1016" />
         <source>Log retention days</source>
         <translation>روزهای نگهداری لاگ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1018" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
         <source>Auto clean old logs</source>
         <translation>پاکسازی خودکار لاگ‌های قدیمی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1049" />
         <source>Log Size</source>
         <translation>اندازه لاگ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1051" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
         <source>%1 files</source>
         <translation>%1 فایل</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1059" />
         <source>Export Logs</source>
         <translation>خروجی لاگ‌ها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Export all logs to a file</source>
         <translation>خروجی تمام لاگ‌ها به یک فایل</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Save to Downloads folder</source>
         <translation>ذخیره در پوشه دانلودها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1063" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1062" />
         <source>Export</source>
         <translation>خروجی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1097" />
         <source>Clear Logs</source>
         <translation>پاکسازی لاگ‌ها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1383" />
         <source>10MB: Quick test</source>
         <translation>10 مگابایت: تست سریع</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1385" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
         <source>25MB: Standard test</source>
         <translation>25 مگابایت: تست استاندارد</translation>
     </message>
     <message>
-        <source>Delete old log files</source>
-        <translation type="vanished">حذف فایل‌های لاگ قدیمی</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1128" />
         <source>View Logs</source>
         <translation>مشاهده لاگ‌ها</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1132" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1131" />
         <source>Open</source>
         <translation>باز کردن</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1148" />
         <source>AdvancedSettings</source>
         <translation>تنظیمات پیشرفته</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1150" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
         <source>Advanced user options, modify with caution</source>
         <translation>گزینه‌های پیشرفته، با احتیاط تغییر دهید</translation>
     </message>
     <message>
-        <source>API Port</source>
-        <translation>پورت API</translation>
-    </message>
-    <message>
-        <source>xray-core API service port</source>
-        <translation>پورت سرویس API xray-core</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1154" />
         <source>ConnectTimeout</source>
         <translation>زمان اتصال تمام شد</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1156" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
         <source>Connection establishment timeout</source>
         <translation>زمان انتظار برقراری اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1187" />
         <source>Test Timeout</source>
         <translation>زمان انتظار تست</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1189" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
         <source>Server latency test timeout duration</source>
         <translation>مدت زمان انتظار تست تأخیر سرور</translation>
     </message>
     <message>
-        <source>Custom GeoIP Database</source>
-        <translation>پایگاه داده GeoIP سفارشی</translation>
-    </message>
-    <message>
-        <source>Use custom IP geolocation database</source>
-        <translation>استفاده از پایگاه داده موقعیت جغرافیایی IP سفارشی</translation>
-    </message>
-    <message>
-        <source>Custom GeoSite Database</source>
-        <translation>پایگاه داده GeoSite سفارشی</translation>
-    </message>
-    <message>
-        <source>Use custom domain categorization database</source>
-        <translation>استفاده از پایگاه داده دسته‌بندی دامنه سفارشی</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1232" />
         <source>Account Actions</source>
         <translation>عملیات حساب</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1234" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
         <source>Account management and data operations</source>
         <translation>مدیریت حساب و عملیات داده</translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation>تغییر رمز عبور</translation>
-    </message>
-    <message>
-        <source>Change your account password</source>
-        <translation>تغییر رمز عبور حساب</translation>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation>تغییر</translation>
-    </message>
-    <message>
-        <source>Order Management</source>
-        <translation>مدیریت سفارشات</translation>
-    </message>
-    <message>
-        <source>View and manage your subscription orders</source>
-        <translation>مشاهده و مدیریت سفارش‌های اشتراک</translation>
-    </message>
-    <message>
-        <source>View Orders</source>
-        <translation>مشاهده سفارش‌ها</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>پاک کردن کش</translation>
-    </message>
-    <message>
-        <source>Clear application cache data</source>
-        <translation>پاک کردن داده‌های کش برنامه</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="647" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1101" />
+        <location filename="../qml/pages/SettingsPage.qml" line="646" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1100" />
         <source>Clear</source>
         <translation>پاک کردن</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1099" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
         <source>Delete all logs except current</source>
         <translation>حذف همه لاگ‌ها به جز لاگ فعلی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1130" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
         <source>Open log directory</source>
         <translation>باز کردن پوشه لاگ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1236" />
         <source>Reset all settings</source>
         <translation>بازنشانی تمام تنظیمات</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1238" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
         <source>Restore default settings (does not affect account data)</source>
         <translation>بازگرداندن تنظیمات پیش‌فرض (داده‌های حساب تأثیر نمی‌گیرد)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1240" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1239" />
         <source>Reset</source>
         <translation>بازنشانی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1253" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1252" />
         <source>Settings reset to default</source>
-        <translation type="unfinished" />
+        <translation>تنظیمات به حالت پیش‌فرض بازنشانی شد</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1263" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1262" />
         <source>Network test</source>
         <translation>تست شبکه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1267" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1266" />
         <source>Latency Test Method</source>
         <translation>روش تست تأخیر</translation>
     </message>
     <message>
-        <source>TCP: Direct TCP connection to server port (fast, recommended)</source>
-        <translation>TCP: اتصال مستقیم TCP به پورت سرور (سریع، توصیه شده)</translation>
-    </message>
-    <message>
-        <source>HTTP: Test via proxy HTTP request (most accurate for actual usage)</source>
-        <translation>HTTP: تست از طریق درخواست HTTP پروکسی (دقیق‌ترین برای استفاده واقعی)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1282" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1281" />
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1303" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1302" />
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1327" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1326" />
         <source>Latency Test Interval</source>
         <translation>فاصله آزمایش تاخیر</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1331" />
         <source>Disabled: No periodic latency testing when connected</source>
         <translation>غیرفعال: بدون تست تاخیر دوره‌ای هنگام اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1333" />
         <source>Test latency every %1 seconds when connected</source>
         <translation>تست تاخیر هر %1 ثانیه هنگام اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="592" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1350" />
+        <location filename="../qml/pages/SettingsPage.qml" line="591" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1349" />
         <source>Disabled</source>
         <translation>غیرفعال</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1270" />
         <source>TCP ping, fast</source>
-        <translation type="unfinished" />
+        <translation>پینگ TCP، سریع</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1272" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
         <source>HTTP ping, accurate</source>
-        <translation type="unfinished" />
+        <translation>پینگ HTTP، دقیق</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1379" />
         <source>Speed Test File Size</source>
         <translation>اندازه فایل تست سرعت</translation>
     </message>
     <message>
-        <source>10MB: Quick test (~5-10 seconds)</source>
-        <translation>10MB: تست سریع (~5-10 ثانیه)</translation>
-    </message>
-    <message>
-        <source>25MB: Standard test (~10-20 seconds)</source>
-        <translation>25MB: تست استاندارد (~10-20 ثانیه)</translation>
-    </message>
-    <message>
-        <source>100MB: Accurate test (~30-60 seconds)</source>
-        <translation>100MB: تست دقیق (~30-60 ثانیه)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1442" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1441" />
         <source>About</source>
         <translation>درباره</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1445" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1444" />
         <source>Application Version</source>
         <translation>نسخه برنامه</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1448" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1447" />
         <source>Check</source>
         <translation>بررسی</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1467" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1466" />
         <source>Core Version</source>
         <translation>نسخه هسته</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1473" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1472" />
         <source>Open Source License</source>
         <translation>مجوز متن‌باز</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1475" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1496" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1474" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1495" />
         <source>View</source>
         <translation>مشاهده</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1494" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1493" />
         <source>Documentation</source>
         <translation>مستندات</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleBottomNavigationBar</name>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="56" />
+        <source>Dashboard</source>
+        <translation>داشبورد</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="69" />
+        <source>Store</source>
+        <translation>فروشگاه</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="82" />
+        <source>Profile</source>
+        <translation>پروفایل</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleConnectionPage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="22" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="140" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="157" />
+        <source>No Server Selected</source>
+        <translation>سروری انتخاب نشده</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="27" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="191" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="210" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="218" />
+        <source>No Plan</source>
+        <translation>بدون پلن</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="71" />
+        <source>Connecting...</source>
+        <translation>در حال اتصال...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="72" />
+        <source>Disconnecting...</source>
+        <translation>در حال قطع اتصال...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="73" />
+        <source>Connected</source>
+        <translation>متصل</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="74" />
+        <source>Not Connected</source>
+        <translation>متصل نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="189" />
+        <source>Plan</source>
+        <translation>پلن</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="413" />
+        <source>Dashboard</source>
+        <translation>داشبورد</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="592" />
+        <source>Expires: %1</source>
+        <translation>انقضا: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="608" />
+        <source>Renew</source>
+        <translation>تمدید</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="643" />
+        <source>Traffic Used</source>
+        <translation>ترافیک مصرفی</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="686" />
+        <source>%1% used</source>
+        <translation>%1% استفاده شده</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="878" />
+        <source>Global</source>
+        <translation>جهانی</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="905" />
+        <source>Smart</source>
+        <translation>هوشمند</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to change server</source>
+        <translation>برای تغییر سرور ضربه بزنید</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to select a server</source>
+        <translation>برای انتخاب سرور ضربه بزنید</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleProfilePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="15" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="69" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="90" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="110" />
+        <source>Users</source>
+        <translation>کاربران</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="121" />
+        <source>Unlimited</source>
+        <translation>نامحدود</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="239" />
+        <source>Profile</source>
+        <translation>پروفایل</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="347" />
+        <source>Account ID: </source>
+        <translation>شناسه حساب: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="379" />
+        <source>Subscription Overview</source>
+        <translation>نمای کلی اشتراک</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Active</source>
+        <translation>فعال</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Inactive</source>
+        <translation>غیرفعال</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="411" />
+        <source>Status</source>
+        <translation>وضعیت</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="438" />
+        <source>Expiry Date</source>
+        <translation>تاریخ انقضا</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="465" />
+        <source>Used Traffic</source>
+        <translation>ترافیک مصرف شده</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="487" />
+        <source>Expired</source>
+        <translation>منقضی شده</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="488" />
+        <source> days</source>
+        <translation> روز</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="500" />
+        <source>Remaining</source>
+        <translation>باقی‌مانده</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="519" />
+        <source>Traffic</source>
+        <translation>ترافیک</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="576" />
+        <source>Account Actions</source>
+        <translation>عملیات حساب</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="604" />
+        <source>Order Management</source>
+        <translation>مدیریت سفارشات</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="646" />
+        <source>Ticket System</source>
+        <translation>سیستم تیکت</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="688" />
+        <source>Help Center</source>
+        <translation>مرکز راهنما</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="730" />
+        <source>Change Password</source>
+        <translation>تغییر رمز عبور</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="766" />
+        <source>Logout</source>
+        <translation>خروج</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="820" />
+        <source>Password changed successfully</source>
+        <translation>رمز عبور با موفقیت تغییر کرد</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="852" />
+        <source>OK</source>
+        <translation>تایید</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleStorePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="81" />
+        <source>Monthly</source>
+        <translation>ماهانه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="84" />
+        <source>Billed monthly</source>
+        <translation>صورتحساب ماهانه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="93" />
+        <source>Quarterly</source>
+        <translation>سه ماهه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="96" />
+        <source>Billed every 3 months</source>
+        <translation>صورتحساب هر 3 ماه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="105" />
+        <source>Semi-Annual</source>
+        <translation>شش ماهه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="108" />
+        <source>Billed every 6 months</source>
+        <translation>صورتحساب هر 6 ماه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="117" />
+        <source>Yearly</source>
+        <translation>سالانه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="120" />
+        <source>Billed annually - Best value!</source>
+        <translation>صورتحساب سالانه - بهترین ارزش!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="129" />
+        <source>2 Years</source>
+        <translation>2 سال</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="132" />
+        <source>Billed every 2 years</source>
+        <translation>صورتحساب هر 2 سال</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="141" />
+        <source>3 Years</source>
+        <translation>3 سال</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="144" />
+        <source>Billed every 3 years</source>
+        <translation>صورتحساب هر 3 سال</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="152" />
+        <source>One-time</source>
+        <translation>یک‌بار</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="155" />
+        <source>One-time payment, no renewal</source>
+        <translation>پرداخت یک‌بار، بدون تمدید</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="189" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="939" />
+        <source>Unnamed Plan</source>
+        <translation>طرح بدون نام</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="196" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="536" />
+        <source>Unlimited</source>
+        <translation>نامحدود</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="359" />
+        <source>Purchase successful!</source>
+        <translation>خرید موفقیت‌آمیز!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="375" />
+        <source>Purchases restored successfully</source>
+        <translation>خریدها با موفقیت بازیابی شدند</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="378" />
+        <source>No purchases to restore</source>
+        <translation>خریدی برای بازیابی وجود ندارد</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="383" />
+        <source>Restore failed: </source>
+        <translation>خطا در بازیابی: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="429" />
+        <source>No payment methods available</source>
+        <translation>روش پرداختی موجود نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="445" />
+        <source>Payment initiated successfully</source>
+        <translation>پرداخت با موفقیت آغاز شد</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="500" />
+        <source>Unknown Plan</source>
+        <translation>طرح نامشخص</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="507" />
+        <source>Plan #</source>
+        <translation>پلن #</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="549" />
+        <source>Please login first</source>
+        <translation>لطفا ابتدا وارد شوید</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="587" />
+        <source>IAP not available</source>
+        <translation>خرید درون‌برنامه‌ای در دسترس نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="603" />
+        <source>No matching IAP product for this plan</source>
+        <translation>محصول مطابقی برای این پلن وجود ندارد</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="607" />
+        <source>No subscription options available</source>
+        <translation>گزینه اشتراکی در دسترس نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="624" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="633" />
+        <source>Order manager not available</source>
+        <translation>مدیریت سفارش در دسترس نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="642" />
+        <source>Invalid order</source>
+        <translation>سفارش نامعتبر</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="691" />
+        <source>Store</source>
+        <translation>فروشگاه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="755" />
+        <source>Loading subscription information...</source>
+        <translation>در حال بارگذاری اطلاعات اشتراک...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="786" />
+        <source>Current Subscription</source>
+        <translation>اشتراک فعلی</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="794" />
+        <source>No Subscription</source>
+        <translation>بدون اشتراک</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="803" />
+        <source>Select a plan below to get started</source>
+        <translation>برای شروع یک طرح انتخاب کنید</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="826" />
+        <source>Exp: %1</source>
+        <translation>انقضا: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="847" />
+        <source>Rem: %1</source>
+        <translation>باقیمانده: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="888" />
+        <source>Select Plan</source>
+        <translation>انتخاب طرح</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="942" />
+        <source>Month</source>
+        <translation>ماه</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="992" />
+        <source>Restore Purchases</source>
+        <translation>بازیابی خریدها</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1034" />
+        <source>No Available Plans</source>
+        <translation>پلنی در دسترس نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1059" />
+        <source>Loading Plans...</source>
+        <translation>در حال بارگذاری پلن‌ها...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1134" />
+        <source>Select Subscription Period</source>
+        <translation>دوره اشتراک را انتخاب کنید</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1192" />
+        <source>This period is not available for in-app purchase</source>
+        <translation>این دوره برای خرید درون‌برنامه‌ای در دسترس نیست</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1217" />
+        <source>Cancel</source>
+        <translation>لغو</translation>
     </message>
 </context>
 <context>
@@ -3079,45 +3266,6 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>Subscription</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>نامحدود</translation>
-    </message>
-    <message>
-        <source>Do not auto update</source>
-        <translation>به‌روزرسانی خودکار نکن</translation>
-    </message>
-    <message>
-        <source>Update Required</source>
-        <translation>به‌روزرسانی لازم است</translation>
-    </message>
-    <message>
-        <source>%1 seconds later</source>
-        <translation>%1 ثانیه بعد</translation>
-    </message>
-    <message>
-        <source>%1 minutes later</source>
-        <translation>%1 دقیقه بعد</translation>
-    </message>
-    <message>
-        <source>%1 hours later</source>
-        <translation>%1 ساعت بعد</translation>
-    </message>
-    <message>
-        <source>%1 days later</source>
-        <translation>%1 روز بعد</translation>
-    </message>
-    <message>
-        <source>Subscription link cannot be empty</source>
-        <translation>لینک اشتراک نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Subscription link format invalid</source>
-        <translation>فرمت لینک اشتراک نامعتبر</translation>
-    </message>
-</context>
-<context>
     <name>SubscriptionCard</name>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="78" />
@@ -3181,103 +3329,35 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>SubscriptionManager</name>
-    <message>
-        <source>Subscription URL cannot be empty</source>
-        <translation>آدرس اشتراک نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Subscription already exists</source>
-        <translation>اشتراک قبلا وجود دارد</translation>
-    </message>
-    <message>
-        <source>Subscription %1</source>
-        <translation>اشتراک %1</translation>
-    </message>
-    <message>
-        <source>SaveSubscriptionFailed</source>
-        <translation>ذخیره اشتراک ناموفق بود</translation>
-    </message>
-    <message>
-        <source>DeleteSubscriptionFailed</source>
-        <translation>حذف اشتراک ناموفق بود</translation>
-    </message>
-    <message>
-        <source>Subscription does not exist</source>
-        <translation>اشتراک وجود ندارد</translation>
-    </message>
-    <message>
-        <source>Subscription is disabled</source>
-        <translation>اشتراک غیرفعال است</translation>
-    </message>
-    <message>
-        <source>No subscription available for update</source>
-        <translation>اشتراکی برای به‌روزرسانی موجود نیست</translation>
-    </message>
-    <message>
-        <source>Server content cannot be empty</source>
-        <translation>محتوای سرور نمی‌تواند خالی باشد</translation>
-    </message>
-    <message>
-        <source>Server configuration format invalid</source>
-        <translation>فرمت پیکربندی سرور نامعتبر</translation>
-    </message>
-    <message>
-        <source>Manually added servers</source>
-        <translation>سرورهای اضافه شده دستی</translation>
-    </message>
-    <message>
-        <source>Manual server %1</source>
-        <translation>سرور دستی %1</translation>
-    </message>
-    <message>
-        <source>SaveServersFailed</source>
-        <translation>ذخیره سرورها ناموفق بود</translation>
-    </message>
-    <message>
-        <source>JSON parse error</source>
-        <translation>خطای تجزیه JSON</translation>
-    </message>
-    <message>
-        <source>Unsupported configuration version</source>
-        <translation>نسخه پیکربندی پشتیبانی نمی‌شود</translation>
-    </message>
-    <message>
-        <source>Clash Server %1</source>
-        <translation>سرور Clash %1</translation>
-    </message>
-    <message>
-        <source>No servers parsed</source>
-        <translation>سروری تجزیه نشد</translation>
-    </message>
-    <message>
-        <source>Failed to update database</source>
-        <translation>به‌روزرسانی پایگاه داده ناموفق بود</translation>
-    </message>
-</context>
-<context>
     <name>SystemTrayManager</name>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="111" />
         <source>JinGo VPN</source>
         <translation>JinGo VPN</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="130" />
         <source>Show Main Window</source>
         <translation>نمایش پنجره اصلی</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="138" />
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="173" />
         <source>Quick Connect</source>
         <translation>اتصال سریع</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="146" />
         <source>Settings</source>
         <translation>تنظیمات</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="154" />
         <source>Quit</source>
         <translation>خروج</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="170" />
         <source>DisconnectConnect</source>
         <translation>قطع و اتصال مجدد</translation>
     </message>
@@ -3559,405 +3639,177 @@ Security Error: Configuration signature verification failed.</source>
     </message>
 </context>
 <context>
-    <name>User</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>نامحدود</translation>
-    </message>
-    <message>
-        <source>%1 / %2 (remaining %3)</source>
-        <translation>%1 / %2 (باقی‌مانده %3)</translation>
-    </message>
-    <message>
-        <source>Free User</source>
-        <translation>کاربر رایگان</translation>
-    </message>
-    <message>
-        <source>Lifetime Member</source>
-        <translation>عضو مادام‌العمر</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation>منقضی شده</translation>
-    </message>
-</context>
-<context>
-    <name>VPNManager</name>
-    <message>
-        <source>Not Connected</source>
-        <translation>متصل نیست</translation>
-    </message>
-    <message>
-        <source>Server configuration is empty</source>
-        <translation>پیکربندی سرور خالی است</translation>
-    </message>
-    <message>
-        <source>Server object invalid</source>
-        <translation>شی سرور نامعتبر</translation>
-    </message>
-    <message>
-        <source>Server configuration invalid: %1</source>
-        <translation>پیکربندی سرور نامعتبر: %1</translation>
-    </message>
-    <message>
-        <source>Preparing to connect...</source>
-        <translation>آماده‌سازی برای اتصال...</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>در حال اتصال...</translation>
-    </message>
-    <message>
-        <source>ConnectFailed</source>
-        <translation>اتصال ناموفق</translation>
-    </message>
-    <message>
-        <source>Server object has expired</source>
-        <translation>شی سرور منقضی شده</translation>
-    </message>
-    <message>
-        <source>Failed to start connection</source>
-        <translation>شروع اتصال ناموفق بود</translation>
-    </message>
-    <message>
-        <source>Disconnecting...</source>
-        <translation>در حال قطع اتصال...</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>قطع شده</translation>
-    </message>
-    <message>
-        <source>Connecting to %1...</source>
-        <translation>در حال اتصال به %1...</translation>
-    </message>
-    <message>
-        <source>Configuration generation failed</source>
-        <translation>تولید پیکربندی ناموفق بود</translation>
-    </message>
-    <message>
-        <source>XrayCore initialization failed</source>
-        <translation>راه‌اندازی XrayCore ناموفق بود</translation>
-    </message>
-    <message>
-        <source>Failed to start Xray: %1</source>
-        <translation>شروع Xray ناموفق بود: %1</translation>
-    </message>
-    <message>
-        <source>SOCKS5 port not ready</source>
-        <translation>پورت SOCKS5 آماده نیست</translation>
-    </message>
-    <message>
-        <source>Connected to %1</source>
-        <translation>متصل به %1</translation>
-    </message>
-    <message>
-        <source>Checking system requirements...</source>
-        <translation>در حال بررسی نیازمندی‌های سیستم...</translation>
-    </message>
-    <message>
-        <source>Checking WinTun driver...</source>
-        <translation>در حال بررسی درایور WinTun...</translation>
-    </message>
-    <message>
-        <source>Preparing routes...</source>
-        <translation>در حال آماده‌سازی مسیرها...</translation>
-    </message>
-    <message>
-        <source>Creating TUN device...</source>
-        <translation>در حال ایجاد دستگاه TUN...</translation>
-    </message>
-    <message>
-        <source>Waiting for TUN device...</source>
-        <translation>در انتظار دستگاه TUN...</translation>
-    </message>
-    <message>
-        <source>Configuring TUN routes...</source>
-        <translation>در حال پیکربندی مسیرهای TUN...</translation>
-    </message>
-    <message>
-        <source>Connected (Windows TUN Mode)</source>
-        <translation>متصل (حالت TUN ویندوز)</translation>
-    </message>
-    <message>
-        <source>VPN permission denied. Please grant VPN permission in Settings and try again.</source>
-        <translation>دسترسی VPN رد شد. لطفا در تنظیمات مجوز VPN را بدهید و دوباره تلاش کنید.</translation>
-    </message>
-    <message>
-        <source>Connected (TUN Mode)</source>
-        <translation>متصل (حالت TUN)</translation>
-    </message>
-    <message>
-        <source>Connected (System Proxy)</source>
-        <translation>متصل (پروکسی سیستم)</translation>
-    </message>
-    <message>
-        <source>Failed to create TUN device</source>
-        <translation>ایجاد دستگاه TUN ناموفق بود</translation>
-    </message>
-    <message>
-        <source>Failed to configure TUN device</source>
-        <translation>پیکربندی دستگاه TUN ناموفق بود</translation>
-    </message>
-    <message>
-        <source>Connection failed: maximum retry attempts exceeded</source>
-        <translation>اتصال ناموفق: تلاش‌های مجدد به حداکثر رسید</translation>
-    </message>
-    <message>
-        <source>Maximum retry attempts exceeded</source>
-        <translation>تلاش‌های مجدد به حداکثر رسید</translation>
-    </message>
-    <message>
-        <source>Will reconnect in %1 seconds (attempt %2/%3)</source>
-        <translation>اتصال مجدد در %1 ثانیه (تلاش %2/%3)</translation>
-    </message>
-    <message>
-        <source>Error: %1</source>
-        <translation>خطا: %1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: server object invalid</source>
-        <translation>اتصال مجدد ناموفق: شی سرور نامعتبر</translation>
-    </message>
-    <message>
-        <source>ConnectTimeout</source>
-        <translation>زمان اتصال تمام شد</translation>
-    </message>
-    <message>
-        <source>TUN device error: %1</source>
-        <translation>خطای دستگاه TUN: %1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: no current server</source>
-        <translation>اتصال مجدد ناموفق: سرور فعلی وجود ندارد</translation>
-    </message>
-    <message>
-        <source>VPN not connected</source>
-        <translation>VPN متصل نیست</translation>
-    </message>
-    <message>
-        <source>No Server Selected</source>
-        <translation>سروری انتخاب نشده</translation>
-    </message>
-    <message>
-        <source>No data received</source>
-        <translation>داده‌ای دریافت نشد</translation>
-    </message>
-    <message>
-        <source>Server address is empty</source>
-        <translation>آدرس سرور خالی است</translation>
-    </message>
-    <message>
-        <source>Ping not supported on this platform</source>
-        <translation>Ping در این پلتفرم پشتیبانی نمی‌شود</translation>
-    </message>
-    <message>
-        <source>Failed to parse ping result</source>
-        <translation>تحلیل نتیجه پینگ ناموفق بود</translation>
-    </message>
-    <message>
-        <source>PingFailed</source>
-        <translation>پینگ ناموفق</translation>
-    </message>
-    <message>
-        <source>ServersInvalid</source>
-        <translation>سرورها نامعتبر</translation>
-    </message>
-    <message>
-        <source>TCP connection failed</source>
-        <translation>اتصال TCP ناموفق بود</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>درخواست HTTP ناموفق بود</translation>
-    </message>
-</context>
-<context>
-    <name>XrayCore</name>
-    <message>
-        <source>Stopped</source>
-        <translation>متوقف شده</translation>
-    </message>
-    <message>
-        <source>Starting</source>
-        <translation>در حال شروع</translation>
-    </message>
-    <message>
-        <source>Running</source>
-        <translation>در حال اجرا</translation>
-    </message>
-    <message>
-        <source>Stopping</source>
-        <translation>در حال توقف</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>خطا</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>نامشخص</translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
-        <location filename="../qml/main.qml" line="171" />
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="218" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Connected</source>
         <translation>متصل</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
+        <location filename="../qml/main.qml" line="218" />
         <source>VPN ConnectSuccess</source>
         <translation>اتصال VPN موفق</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>Disconnected</source>
         <translation>قطع شده</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>VPN Disconnected</source>
         <translation>VPN قطع شد</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="181" />
+        <location filename="../qml/main.qml" line="228" />
         <source>ConnectFailed</source>
         <translation>اتصال ناموفق</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="186" />
+        <location filename="../qml/main.qml" line="233" />
         <source>Error</source>
         <translation>خطا</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="224" />
+        <location filename="../qml/main.qml" line="271" />
         <source>File</source>
         <translation>فایل</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="226" />
+        <location filename="../qml/main.qml" line="273" />
         <source>Preferences</source>
         <translation>ترجیحات</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="231" />
+        <location filename="../qml/main.qml" line="284" />
         <source>Quit</source>
         <translation>خروج</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="237" />
-        <location filename="../qml/main.qml" line="239" />
-        <location filename="../qml/main.qml" line="365" />
+        <location filename="../qml/main.qml" line="290" />
+        <location filename="../qml/main.qml" line="292" />
+        <location filename="../qml/main.qml" line="419" />
         <source>Connect</source>
         <translation>اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="239" />
+        <location filename="../qml/main.qml" line="292" />
         <source>DisconnectConnect</source>
         <translation>قطع و اتصال مجدد</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="252" />
+        <location filename="../qml/main.qml" line="305" />
         <source>Select Server</source>
         <translation>انتخاب سرور</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="258" />
+        <location filename="../qml/main.qml" line="312" />
         <source>Help</source>
         <translation>کمک</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="260" />
+        <location filename="../qml/main.qml" line="314" />
         <source>Documentation</source>
         <translation>مستندات</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="264" />
+        <location filename="../qml/main.qml" line="318" />
         <source>Report Issue</source>
         <translation>گزارش مشکل</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269" />
+        <location filename="../qml/main.qml" line="323" />
         <source>About JinGo</source>
         <translation>درباره JinGo</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="719" />
+        <location filename="../qml/main.qml" line="419" />
+        <location filename="../qml/main.qml" line="668" />
+        <source>Dashboard</source>
+        <translation>داشبورد</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Professional Mode</source>
+        <translation>تغییر به حالت حرفه‌ای</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Simple Mode</source>
+        <translation>تغییر به حالت ساده</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="673" />
+        <source>Store</source>
+        <translation>فروشگاه</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="833" />
         <source>JinGo</source>
-        <translation type="unfinished" />
+        <translation>JinGo</translation>
     </message>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>درباره JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="379" />
+        <location filename="../qml/main.qml" line="433" />
         <source>Servers</source>
         <translation>سرورها</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="391" />
-        <location filename="../qml/main.qml" line="579" />
+        <location filename="../qml/main.qml" line="445" />
+        <location filename="../qml/main.qml" line="673" />
         <source>Subscription</source>
         <translation>اشتراک</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="403" />
-        <location filename="../qml/main.qml" line="576" />
+        <location filename="../qml/main.qml" line="457" />
+        <location filename="../qml/main.qml" line="670" />
         <source>Settings</source>
         <translation>تنظیمات</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="574" />
+        <location filename="../qml/main.qml" line="668" />
         <source>Connection</source>
         <translation>اتصال</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="575" />
+        <location filename="../qml/main.qml" line="669" />
         <source>Server List</source>
         <translation>لیست سرورها</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="577" />
+        <location filename="../qml/main.qml" line="671" />
         <source>Profile</source>
         <translation>پروفایل</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="578" />
+        <location filename="../qml/main.qml" line="672" />
         <source>Login/Register</source>
         <translation>ورود/ثبت‌نام</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="590" />
+        <location filename="../qml/main.qml" line="684" />
         <source>Manage your VPN connection</source>
         <translation>مدیریت اتصال VPN</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="591" />
+        <location filename="../qml/main.qml" line="685" />
         <source>Select the best server</source>
         <translation>انتخاب بهترین سرور</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="592" />
+        <location filename="../qml/main.qml" line="686" />
         <source>Upgrade your subscription plan</source>
         <translation>ارتقای طرح اشتراک</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Not Connected</source>
         <translation>متصل نیست</translation>
     </message>
     <message>
-        <source>JinGoVPN</source>
-        <translation>JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="720" />
-        <source>Application minimized to system tray, double-click the tray icon to reopen</source>
-        <translation>برنامه به سینی سیستم کوچک شد، برای باز کردن دوبار کلیک کنید</translation>
+        <location filename="../qml/main.qml" line="834" />
+        <source>Application minimized to system tray, click the tray icon to reopen</source>
+        <translation>برنامه به سینی سیستم کوچک شد، برای باز کردن کلیک کنید</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="25" />

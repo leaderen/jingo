@@ -28,9 +28,21 @@ if(NOT (TARGET_MACOS OR TARGET_IOS))
     return()
 endif()
 
+# ============================================================================
+# EXTENSION_MINIMAL: Build minimal Extension without SuperRay for debugging
+# ============================================================================
+# When ON: only PacketTunnelProvider.mm + XrayExtensionBridge.mm (stub)
+#          no SuperRay, no XrayCBridge, no GeoIP files
+# Usage: cmake -DEXTENSION_MINIMAL=ON ...
+option(EXTENSION_MINIMAL "Build minimal Extension for debugging (no SuperRay/Go runtime)" OFF)
+
 message(STATUS "")
 message(STATUS "========================================")
-message(STATUS "Building PacketTunnelProvider Extension (TUN Mode)")
+if(EXTENSION_MINIMAL)
+    message(STATUS "Building PacketTunnelProvider Extension (MINIMAL - no SuperRay)")
+else()
+    message(STATUS "Building PacketTunnelProvider Extension (TUN Mode)")
+endif()
 message(STATUS "========================================")
 
 # ============================================================================
@@ -53,21 +65,39 @@ else()
     set(EXT_SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 endif()
 
-if(TARGET_IOS)
-    # iOS: No main.m needed - system uses _NSExtensionMain entry point
-    set(EXTENSION_SOURCES
-        ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/PacketTunnelProvider.mm
-        ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/XrayExtensionBridge.mm
-        ${EXT_SRC_DIR}/core/XrayCBridge_Apple.mm
-    )
+if(EXTENSION_MINIMAL)
+    # Minimal build: only PacketTunnelProvider + XrayExtensionBridge (stub)
+    # No XrayCBridge_Apple.mm (depends on SuperRay headers)
+    if(TARGET_IOS)
+        set(EXTENSION_SOURCES
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/PacketTunnelProvider.mm
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/XrayExtensionBridge.mm
+        )
+    else()
+        set(EXTENSION_SOURCES
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/main.m
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/PacketTunnelProvider.mm
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/XrayExtensionBridge.mm
+        )
+    endif()
+    message(STATUS "EXTENSION_MINIMAL=ON: skipping XrayCBridge_Apple.mm")
 else()
-    # macOS: Needs main.m for System Extension mode
-    set(EXTENSION_SOURCES
-        ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/main.m
-        ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/PacketTunnelProvider.mm
-        ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/XrayExtensionBridge.mm
-        ${EXT_SRC_DIR}/core/XrayCBridge_Apple.mm
-    )
+    if(TARGET_IOS)
+        # iOS: No main.m needed - system uses _NSExtensionMain entry point
+        set(EXTENSION_SOURCES
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/PacketTunnelProvider.mm
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/XrayExtensionBridge.mm
+            ${EXT_SRC_DIR}/core/XrayCBridge_Apple.mm
+        )
+    else()
+        # macOS: Needs main.m for System Extension mode
+        set(EXTENSION_SOURCES
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/main.m
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/PacketTunnelProvider.mm
+            ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/XrayExtensionBridge.mm
+            ${EXT_SRC_DIR}/core/XrayCBridge_Apple.mm
+        )
+    endif()
 endif()
 
 message(STATUS "Extension source files:")
@@ -148,6 +178,7 @@ else()
             MACOSX_BUNDLE TRUE
             MACOSX_BUNDLE_INFO_PLIST ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info.plist
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${PACKET_TUNNEL_BUNDLE_ID}"
+            XCODE_ATTRIBUTE_APP_BUNDLE_ID "${APP_BUNDLE_ID}"
             XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "-"
             XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED NO
             XCODE_ATTRIBUTE_CODE_SIGNING_REQUIRED NO
@@ -161,6 +192,7 @@ else()
             MACOSX_BUNDLE TRUE
             MACOSX_BUNDLE_INFO_PLIST ${EXT_SRC_DIR}/extensions/PacketTunnelProvider/Info.plist
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${PACKET_TUNNEL_BUNDLE_ID}"
+            XCODE_ATTRIBUTE_APP_BUNDLE_ID "${APP_BUNDLE_ID}"
             XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_CURRENT_SOURCE_DIR}/platform/macos/PacketTunnelProvider.entitlements"
             XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "Developer ID Application"
             XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "${MACOS_TEAM_ID}"
@@ -251,30 +283,39 @@ endif()
 # Extension contains complete Xray instance listening on 127.0.0.1:10808
 # TUN mode: SuperRay handles TUN device creation and packet processing
 
-# Extension only needs SuperRay (not full JinDoCore which depends on Qt)
-# SuperRay standalone lib is located alongside JinDoCore in the xcframework
-set(SUPERRAY_XCFW_DIR "${CMAKE_SOURCE_DIR}/third_party/jindo/apple/SuperRay.xcframework")
-if(TARGET_IOS)
-    set(SUPERRAY_LIB "${SUPERRAY_XCFW_DIR}/ios-arm64/libsuperray.a")
-else()
-    set(SUPERRAY_LIB "${SUPERRAY_XCFW_DIR}/macos-arm64_x86_64/libsuperray.a")
-endif()
-
-if(EXISTS "${SUPERRAY_LIB}")
-    message(STATUS "Linking SuperRay to Extension: ${SUPERRAY_LIB}")
-    target_link_libraries(PacketTunnelProvider PRIVATE
-        "${SUPERRAY_LIB}"
-        "-lresolv"
-        "-lz"
-    )
+if(EXTENSION_MINIMAL)
+    message(STATUS "EXTENSION_MINIMAL=ON: skipping SuperRay linking")
     target_compile_definitions(PacketTunnelProvider PRIVATE
-        HAVE_SUPERRAY
+        NO_SUPERRAY
         NETWORK_EXTENSION_TARGET
-        APPLE_XRAY_BRIDGE
+        EXTENSION_MINIMAL
     )
 else()
-    message(WARNING "SuperRay not available for Extension: ${SUPERRAY_LIB}")
-    target_compile_definitions(PacketTunnelProvider PRIVATE NO_SUPERRAY)
+    # Extension only needs SuperRay (not full JinDoCore which depends on Qt)
+    # SuperRay standalone lib is located alongside JinDoCore in the xcframework
+    set(SUPERRAY_XCFW_DIR "${CMAKE_SOURCE_DIR}/third_party/jindo/apple/SuperRay.xcframework")
+    if(TARGET_IOS)
+        set(SUPERRAY_LIB "${SUPERRAY_XCFW_DIR}/ios-arm64/libsuperray.a")
+    else()
+        set(SUPERRAY_LIB "${SUPERRAY_XCFW_DIR}/macos-arm64_x86_64/libsuperray.a")
+    endif()
+
+    if(EXISTS "${SUPERRAY_LIB}")
+        message(STATUS "Linking SuperRay to Extension: ${SUPERRAY_LIB}")
+        target_link_libraries(PacketTunnelProvider PRIVATE
+            "${SUPERRAY_LIB}"
+            "-lresolv"
+            "-lz"
+        )
+        target_compile_definitions(PacketTunnelProvider PRIVATE
+            HAVE_SUPERRAY
+            NETWORK_EXTENSION_TARGET
+            APPLE_XRAY_BRIDGE
+        )
+    else()
+        message(WARNING "SuperRay not available for Extension: ${SUPERRAY_LIB}")
+        target_compile_definitions(PacketTunnelProvider PRIVATE NO_SUPERRAY)
+    endif()
 endif()
 
 # ============================================================================
@@ -354,33 +395,38 @@ if(TARGET_IOS)
     # ========================================================================
     # iOS Post-Build: Copy GeoIP Files to Extension
     # ========================================================================
-    # IMPORTANT: iOS Extension DOES need GeoIP files because Xray runs inside
-    # the extension process via SuperRay. Without these files, Xray routing
-    # will not work properly.
-    #
-    # Note: This increases extension size by ~21MB but is required for proper
-    # operation of the TUN-based VPN.
+    if(NOT EXTENSION_MINIMAL)
+        # IMPORTANT: iOS Extension DOES need GeoIP files because Xray runs inside
+        # the extension process via SuperRay. Without these files, Xray routing
+        # will not work properly.
+        #
+        # Note: This increases extension size by ~21MB but is required for proper
+        # operation of the TUN-based VPN.
 
-    add_custom_command(TARGET PacketTunnelProvider POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E echo "Copying GeoIP data files to iOS PacketTunnelProvider Extension..."
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_CURRENT_SOURCE_DIR}/resources/geoip/geoip.dat"
-            "$<TARGET_BUNDLE_DIR:PacketTunnelProvider>/geoip.dat"
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_CURRENT_SOURCE_DIR}/resources/geoip/geosite.dat"
-            "$<TARGET_BUNDLE_DIR:PacketTunnelProvider>/geosite.dat"
-        COMMAND ${CMAKE_COMMAND} -E echo "✓ GeoIP files copied to iOS Extension bundle root"
-        COMMENT "Copying GeoIP data files to iOS PacketTunnelProvider Extension"
-    )
+        add_custom_command(TARGET PacketTunnelProvider POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E echo "Copying GeoIP data files to iOS PacketTunnelProvider Extension..."
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                "${CMAKE_CURRENT_SOURCE_DIR}/resources/geoip/geoip.dat"
+                "$<TARGET_BUNDLE_DIR:PacketTunnelProvider>/geoip.dat"
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                "${CMAKE_CURRENT_SOURCE_DIR}/resources/geoip/geosite.dat"
+                "$<TARGET_BUNDLE_DIR:PacketTunnelProvider>/geosite.dat"
+            COMMAND ${CMAKE_COMMAND} -E echo "✓ GeoIP files copied to iOS Extension bundle root"
+            COMMENT "Copying GeoIP data files to iOS PacketTunnelProvider Extension"
+        )
+        message(STATUS "  GeoIP files: copied to extension bundle root")
+    else()
+        message(STATUS "  GeoIP files: SKIPPED (EXTENSION_MINIMAL)")
+    endif()
 
     message(STATUS "iOS Network Extension configured")
     message(STATUS "  Build-time copy to: JinGo.app/PlugIns")
-    message(STATUS "  GeoIP files: copied to extension bundle root")
 
 else()
     # ========================================================================
     # macOS Post-Build: Copy GeoIP Files
     # ========================================================================
+    if(NOT EXTENSION_MINIMAL)
     # IMPORTANT: Copy GeoIP files during Extension's own build
     # This ensures files exist in Extension before it's copied to JinGo.app and signed
 
@@ -397,6 +443,9 @@ else()
         COMMAND ${CMAKE_COMMAND} -E echo " GeoIP files copied to PacketTunnelProvider Extension"
         COMMENT "Copying GeoIP data files to PacketTunnelProvider Extension Resources"
     )
+    else()
+        message(STATUS "  macOS GeoIP files: SKIPPED (EXTENSION_MINIMAL)")
+    endif()
 
     # ========================================================================
     # macOS Post-Build: Copy System Extension to App Bundle

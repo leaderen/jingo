@@ -16,6 +16,7 @@
 #include "models/Server.h"
 #include "ServerListModel.h"
 
+class QTimer;
 class SubscriptionManager;
 class VPNManager;
 
@@ -380,6 +381,7 @@ private:
 
     SubscriptionManager* m_subscriptionManager; ///< 订阅管理器指针
     VPNManager* m_vpnManager;                   ///< VPN管理器指针
+    QTimer* m_reloadDebounceTimer = nullptr;    ///< 服务器列表重载防抖计时器
 };
 
 #endif // SERVERLISTVIEWMODEL_H

@@ -4,14 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>About JinGoVPN</translation>
-    </message>
-    <message>
-        <source>JinGoVPN Client</source>
-        <translation>JinGoVPN Client</translation>
-    </message>
-    <message>
         <location filename="../qml/components/AboutDialog.qml" line="18" />
         <source>About JinGo</source>
         <translation>About JinGo</translation>
@@ -93,65 +85,6 @@
         <location filename="../qml/pages/AppSelectorPage.qml" line="341" />
         <source>Save Selection</source>
         <translation>Save Selection</translation>
-    </message>
-</context>
-<context>
-    <name>AuthManager</name>
-    <message>
-        <source>Email or password cannot be empty</source>
-        <translation>Email or password cannot be empty</translation>
-    </message>
-    <message>
-        <source>Server response format error: missing token</source>
-        <translation>Server response format error: missing token</translation>
-    </message>
-    <message>
-        <source>User info parse failed</source>
-        <translation>User info parse failed</translation>
-    </message>
-    <message>
-        <source>User info invalid or incomplete</source>
-        <translation>User info invalid or incomplete</translation>
-    </message>
-    <message>
-        <source>Subscription information is empty</source>
-        <translation>Subscription information is empty</translation>
-    </message>
-    <message>
-        <source>My Subscription</source>
-        <translation>My Subscription</translation>
-    </message>
-    <message>
-        <source>Server response data format error</source>
-        <translation>Server response data format error</translation>
-    </message>
-    <message>
-        <source>Old password is incorrect</source>
-        <translation>Old password is incorrect</translation>
-    </message>
-    <message>
-        <source>Password change failed</source>
-        <translation>Password change failed</translation>
-    </message>
-    <message>
-        <source>Email and password cannot be empty</source>
-        <translation>Email and password cannot be empty</translation>
-    </message>
-    <message>
-        <source>Email cannot be empty</source>
-        <translation>Email cannot be empty</translation>
-    </message>
-    <message>
-        <source>Email, verification code and new password cannot be empty</source>
-        <translation>Email, verification code and new password cannot be empty</translation>
-    </message>
-    <message>
-        <source>Not logged in</source>
-        <translation>Not logged in</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>Password cannot be empty</translation>
     </message>
 </context>
 <context>
@@ -383,7 +316,7 @@
         <translation>Subscription</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConnectionPage.qml" line="1349" />
+        <location filename="../qml/pages/ConnectionPage.qml" line="1354" />
         <source>* Changes to connection settings require reconnecting to take effect</source>
         <translation>* Changes to connection settings require reconnecting to take effect</translation>
     </message>
@@ -391,34 +324,42 @@
 <context>
     <name>ConnectionViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="95" />
         <source>Not Connected</source>
         <translation>Not Connected</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="97" />
         <source>Connecting...</source>
         <translation>Connecting...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="99" />
         <source>Connected</source>
         <translation>Connected</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="101" />
         <source>Disconnecting...</source>
         <translation>Disconnecting...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="103" />
         <source>Reconnecting...</source>
         <translation>Reconnecting...</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="105" />
         <source>Connection Error</source>
         <translation>Connection Error</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="107" />
         <source>Unknown Status</source>
         <translation>Unknown Status</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/ConnectionViewModel.cpp" line="120" />
         <source>None</source>
         <translation>None</translation>
     </message>
@@ -589,14 +530,6 @@
 <context>
     <name>ForgotPasswordForm</name>
     <message>
-        <source>Please enter your registered email, we will send a reset link.</source>
-        <translation>Please enter your registered email, we will send a reset link.</translation>
-    </message>
-    <message>
-        <source>Registration Email</source>
-        <translation>Registration Email</translation>
-    </message>
-    <message>
         <location filename="../qml/components/ForgotPasswordForm.qml" line="32" />
         <source>Enter your email to receive a verification code, then set a new password.</source>
         <translation>Enter your email to receive a verification code, then set a new password.</translation>
@@ -660,10 +593,6 @@
         <location filename="../qml/components/ForgotPasswordForm.qml" line="154" />
         <source>Reset Password</source>
         <translation>Reset Password</translation>
-    </message>
-    <message>
-        <source>Send Reset Link</source>
-        <translation>Send Reset Link</translation>
     </message>
 </context>
 <context>
@@ -899,29 +828,6 @@ Third-party components:
     </message>
 </context>
 <context>
-    <name>LogManager</name>
-    <message>
-        <source>No log files to export</source>
-        <translation>No log files to export</translation>
-    </message>
-    <message>
-        <source>Failed to create file: %1</source>
-        <translation>Failed to create file: %1</translation>
-    </message>
-    <message>
-        <source>Exported %1 log files</source>
-        <translation>Exported %1 log files</translation>
-    </message>
-    <message>
-        <source>Deleted %1 old log files</source>
-        <translation>Deleted %1 old log files</translation>
-    </message>
-    <message>
-        <source>Deleted %1 log files</source>
-        <translation>Deleted %1 log files</translation>
-    </message>
-</context>
-<context>
     <name>LoginForm</name>
     <message>
         <location filename="../qml/components/LoginForm.qml" line="24" />
@@ -962,10 +868,6 @@ Third-party components:
 <context>
     <name>LoginPage</name>
     <message>
-        <source>Welcome to JinGoVPN</source>
-        <translation>Welcome to JinGoVPN</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/LoginPage.qml" line="76" />
         <source>Welcome to JinGo</source>
         <translation>Welcome to JinGo</translation>
@@ -980,32 +882,56 @@ Third-party components:
         <source>群组</source>
         <translation>群组</translation>
     </message>
-    <message>
-        <source>Groups</source>
-        <translation>Groups</translation>
-    </message>
 </context>
 <context>
     <name>LoginViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="147" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="429" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="473" />
         <source>Enter email</source>
         <translation>Enter email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="153" />
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="435" />
         <source>Invalid email format</source>
         <translation>Invalid email format</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="240" />
         <source>Please enterUsername</source>
         <translation>Please enterUsername</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="245" />
         <source>Enter password</source>
         <translation>Enter password</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="326" />
         <source>Password reset email sent to %1</source>
         <translation>Password reset email sent to %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="478" />
+        <source>Enter verification code</source>
+        <translation>Enter verification code</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="483" />
+        <source>Enter new password</source>
+        <translation>Enter new password</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="488" />
+        <source>Password must be at least 6 characters</source>
+        <translation>Password must be at least 6 characters</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/LoginViewModel.cpp" line="505" />
+        <source>Password reset successfully! Please login with new password.</source>
+        <translation>Password reset successfully! Please login with new password.</translation>
     </message>
 </context>
 <context>
@@ -1371,14 +1297,6 @@ Third-party components:
         <translation>Account ID: </translation>
     </message>
     <message>
-        <source>Premium Member</source>
-        <translation>Premium Member</translation>
-    </message>
-    <message>
-        <source>Basic Member</source>
-        <translation>Basic Member</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/ProfilePage.qml" line="474" />
         <source>Monthly Traffic</source>
         <translation>Monthly Traffic</translation>
@@ -1464,156 +1382,34 @@ Third-party components:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/main.cpp" line="242" />
+        <location filename="../../src/main.cpp" line="269" />
         <source>Not Connected</source>
         <translation>Not Connected</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="245" />
+        <location filename="../../src/main.cpp" line="272" />
         <source>Connecting...</source>
         <translation>Connecting...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="248" />
+        <location filename="../../src/main.cpp" line="275" />
         <source>Connected</source>
         <translation>Connected</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="251" />
+        <location filename="../../src/main.cpp" line="278" />
         <source>Disconnecting...</source>
         <translation>Disconnecting...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="254" />
+        <location filename="../../src/main.cpp" line="281" />
         <source>Reconnecting...</source>
         <translation>Reconnecting...</translation>
     </message>
     <message>
-        <location filename="../../src/main.cpp" line="257" />
+        <location filename="../../src/main.cpp" line="284" />
         <source>Connection Error</source>
         <translation>Connection Error</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="487" />
-        <source>安全错误</source>
-        <translation>安全错误</translation>
-    </message>
-    <message>
-        <location filename="../../src/main.cpp" line="488" />
-        <source>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</source>
-        <translation>配置文件签名验证失败，可能已被篡改。
-
-请重新安装应用或联系技术支持。
-
-Security Error: Configuration signature verification failed.</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Disconnected</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Connecting</translation>
-    </message>
-    <message>
-        <source>Disconnecting</source>
-        <translation>Disconnecting</translation>
-    </message>
-    <message>
-        <source>Reconnecting</source>
-        <translation>Reconnecting</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Error</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Unknown</translation>
-    </message>
-    <message>
-        <source>Server address cannot be empty</source>
-        <translation>Server address cannot be empty</translation>
-    </message>
-    <message>
-        <source>Port not configured</source>
-        <translation>Port not configured</translation>
-    </message>
-    <message>
-        <source>Port number invalid (must be between 1-65535)</source>
-        <translation>Port number invalid (must be between 1-65535)</translation>
-    </message>
-    <message>
-        <source>Protocol type not configured</source>
-        <translation>Protocol type not configured</translation>
-    </message>
-    <message>
-        <source>UUID cannot be empty</source>
-        <translation>UUID cannot be empty</translation>
-    </message>
-    <message>
-        <source>UUID format invalid</source>
-        <translation>UUID format invalid</translation>
-    </message>
-    <message>
-        <source>Trojan password cannot be empty</source>
-        <translation>Trojan password cannot be empty</translation>
-    </message>
-    <message>
-        <source>Shadowsocks password cannot be empty</source>
-        <translation>Shadowsocks password cannot be empty</translation>
-    </message>
-    <message>
-        <source>Shadowsocks encryption method not configured</source>
-        <translation>Shadowsocks encryption method not configured</translation>
-    </message>
-    <message>
-        <source>Unsupported protocol: %1</source>
-        <translation>Unsupported protocol: %1</translation>
-    </message>
-    <message>
-        <source>Unsupported transport protocol: %1</source>
-        <translation>Unsupported transport protocol: %1</translation>
-    </message>
-    <message>
-        <source>WebSocket transport requires path configuration</source>
-        <translation>WebSocket transport requires path configuration</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation>Never</translation>
-    </message>
-    <message>
-        <source>Just now</source>
-        <translation>Just now</translation>
-    </message>
-    <message>
-        <source>%1 seconds ago</source>
-        <translation>%1 seconds ago</translation>
-    </message>
-    <message>
-        <source>%1 minutes ago</source>
-        <translation>%1 minutes ago</translation>
-    </message>
-    <message>
-        <source>%1 hours ago</source>
-        <translation>%1 hours ago</translation>
-    </message>
-    <message>
-        <source>%1 days ago</source>
-        <translation>%1 days ago</translation>
-    </message>
-    <message>
-        <source>%1 months ago</source>
-        <translation>%1 months ago</translation>
-    </message>
-    <message>
-        <source>on %1</source>
-        <translation>on %1</translation>
     </message>
 </context>
 <context>
@@ -1717,18 +1513,23 @@ Security Error: Configuration signature verification failed.</translation>
 <context>
     <name>RegisterViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="123" />
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="170" />
         <source>Enter email</source>
         <translation>Enter email</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="129" />
         <source>Invalid email format</source>
         <translation>Invalid email format</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="174" />
         <source>Enter password</source>
         <translation>Enter password</translation>
     </message>
     <message>
+        <location filename="../../src/viewmodels/RegisterViewModel.cpp" line="178" />
         <source>Password must be at least 6 characters</source>
         <translation>Password must be at least 6 characters</translation>
     </message>
@@ -1785,10 +1586,6 @@ Security Error: Configuration signature verification failed.</translation>
         <location filename="../qml/components/ServerItem.qml" line="299" />
         <source>Testing...</source>
         <translation>Testing...</translation>
-    </message>
-    <message>
-        <source>Test Latency</source>
-        <translation>Test Latency</translation>
     </message>
     <message>
         <location filename="../qml/components/ServerItem.qml" line="299" />
@@ -1849,170 +1646,162 @@ Security Error: Configuration signature verification failed.</translation>
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="775" />
+        <location filename="../qml/pages/ServerListPage.qml" line="814" />
         <source>Servers</source>
         <translation>Servers</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="813" />
+        <location filename="../qml/pages/ServerListPage.qml" line="852" />
         <source>Search servers...</source>
         <translation>Search servers...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="867" />
+        <location filename="../qml/pages/ServerListPage.qml" line="906" />
         <source>All</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="929" />
+        <location filename="../qml/pages/ServerListPage.qml" line="968" />
         <source>Refresh server list</source>
         <translation>Refresh server list</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="975" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1014" />
         <source>Sort by latency</source>
         <translation>Sort by latency</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1012" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1051" />
         <source>Sort by name</source>
         <translation>Sort by name</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1093" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1132" />
         <source>Test All Speed</source>
         <translation>Test All Speed</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1111" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1150" />
         <source>Speed</source>
         <translation>Speed</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1138" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1177" />
         <source>No Servers Available</source>
         <translation>No Servers Available</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1146" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1185" />
         <source>Click 'Refresh' button above to load servers</source>
         <translation>Click 'Refresh' button above to load servers</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1147" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
         <source>Please add a subscription first</source>
         <translation>Please add a subscription first</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1159" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1198" />
         <source>Go to Subscriptions</source>
         <translation>Go to Subscriptions</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1186" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1225" />
         <source>Loading servers...</source>
         <translation>Loading servers...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1193" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1232" />
         <source>Please wait a moment</source>
         <translation>Please wait a moment</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1344" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1383" />
         <source>Off</source>
         <translation>Off</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1349" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1388" />
         <source>Go</source>
         <translation>Go</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1385" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1424" />
         <source>Test</source>
         <translation>Test</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2137" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2176" />
         <source>Batch test completed</source>
         <translation>Batch test completed</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2148" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2187" />
         <source>Speed: %1 Mbps</source>
         <translation>Speed: %1 Mbps</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2150" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2189" />
         <source>Speed test failed</source>
         <translation>Speed test failed</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2218" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2257" />
         <source>Server not found</source>
         <translation>Server not found</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2260" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2299" />
         <source>No servers to test</source>
         <translation>No servers to test</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2315" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2354" />
         <source>Latency Testing</source>
         <translation>Latency Testing</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2340" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2379" />
         <source>Testing latency...</source>
         <translation>Testing latency...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2383" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
         <source>Speed Testing (%1/%2)</source>
         <translation>Speed Testing (%1/%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2384" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2423" />
         <source>Speed Testing</source>
         <translation>Speed Testing</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Connecting...</source>
         <translation>Connecting...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2413" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2452" />
         <source>Testing speed...</source>
         <translation>Testing speed...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2422" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2461" />
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="2438" />
+        <location filename="../qml/pages/ServerListPage.qml" line="2477" />
         <source>Test cancelled</source>
         <translation>Test cancelled</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>Copy</translation>
-    </message>
-    <message>
-        <source>Share link copied</source>
-        <translation>Share link copied</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1584" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1623" />
         <source>Testing...</source>
         <translation>Testing...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ServerListPage.qml" line="1611" />
+        <location filename="../qml/pages/ServerListPage.qml" line="1650" />
         <source>Timeout</source>
         <translation>Timeout</translation>
     </message>
@@ -2020,8 +1809,14 @@ Security Error: Configuration signature verification failed.</translation>
 <context>
     <name>ServerListViewModel</name>
     <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="284" />
         <source>Unknown</source>
         <translation>Unknown</translation>
+    </message>
+    <message>
+        <location filename="../../src/viewmodels/ServerListViewModel.cpp" line="527" />
+        <source>VPN not connected</source>
+        <translation>VPN not connected</translation>
     </message>
 </context>
 <context>
@@ -2151,718 +1946,1035 @@ Security Error: Configuration signature verification failed.</translation>
         <translation>Select app theme style</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="320" />
+        <location filename="../qml/pages/SettingsPage.qml" line="319" />
         <source>Subscription Settings</source>
         <translation>Subscription Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="321" />
+        <location filename="../qml/pages/SettingsPage.qml" line="320" />
         <source>Server subscription update settings</source>
         <translation>Server subscription update settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="324" />
+        <location filename="../qml/pages/SettingsPage.qml" line="323" />
         <source>Auto Update Interval</source>
         <translation>Auto Update Interval</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="325" />
+        <location filename="../qml/pages/SettingsPage.qml" line="324" />
         <source>How often to automatically update server list</source>
         <translation>How often to automatically update server list</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="331" />
+        <location filename="../qml/pages/SettingsPage.qml" line="330" />
         <source>1 Hour</source>
         <translation>1 Hour</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="331" />
         <source>3 Hours</source>
         <translation>3 Hours</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="333" />
+        <location filename="../qml/pages/SettingsPage.qml" line="332" />
         <source>6 Hours</source>
         <translation>6 Hours</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="333" />
         <source>12 Hours</source>
         <translation>12 Hours</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="335" />
+        <location filename="../qml/pages/SettingsPage.qml" line="334" />
         <source>24 Hours</source>
         <translation>24 Hours</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="375" />
+        <location filename="../qml/pages/SettingsPage.qml" line="374" />
         <source>Routing Settings</source>
         <translation>Routing Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="376" />
+        <location filename="../qml/pages/SettingsPage.qml" line="375" />
         <source>Control how traffic is routed and split</source>
         <translation>Control how traffic is routed and split</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="379" />
         <source>Domain Resolution Strategy</source>
         <translation>Domain Resolution Strategy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="381" />
+        <location filename="../qml/pages/SettingsPage.qml" line="380" />
         <source>Control how domains are resolved</source>
         <translation>Control how domains are resolved</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="422" />
+        <location filename="../qml/pages/SettingsPage.qml" line="421" />
         <source>Bypass Countries</source>
         <translation>Bypass Countries</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="423" />
+        <location filename="../qml/pages/SettingsPage.qml" line="422" />
         <source>Select countries to bypass, their websites will connect directly</source>
         <translation>Select countries to bypass, their websites will connect directly</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="427" />
+        <location filename="../qml/pages/SettingsPage.qml" line="426" />
         <source>China</source>
         <translation>China</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="428" />
+        <location filename="../qml/pages/SettingsPage.qml" line="427" />
         <source>Russia</source>
         <translation>Russia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="429" />
+        <location filename="../qml/pages/SettingsPage.qml" line="428" />
         <source>Iran</source>
         <translation>Iran</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="430" />
+        <location filename="../qml/pages/SettingsPage.qml" line="429" />
         <source>Vietnam</source>
         <translation>Vietnam</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="431" />
+        <location filename="../qml/pages/SettingsPage.qml" line="430" />
         <source>Cambodia</source>
         <translation>Cambodia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="432" />
+        <location filename="../qml/pages/SettingsPage.qml" line="431" />
         <source>Myanmar</source>
         <translation>Myanmar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="489" />
+        <location filename="../qml/pages/SettingsPage.qml" line="488" />
         <source>Network Interface</source>
         <translation>Network Interface</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="490" />
+        <location filename="../qml/pages/SettingsPage.qml" line="489" />
         <source>Select the network interface for VPN outbound traffic</source>
         <translation>Select the network interface for VPN outbound traffic</translation>
     </message>
     <message>
-        <source>Bypass LAN addresses</source>
-        <translation>Bypass LAN addresses</translation>
-    </message>
-    <message>
-        <source>LAN traffic bypass proxy</source>
-        <translation>LAN traffic bypass proxy</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="573" />
+        <location filename="../qml/pages/SettingsPage.qml" line="572" />
         <source>Per-App Proxy</source>
         <translation>Per-App Proxy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>Control which apps use VPN</source>
         <translation>Control which apps use VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="574" />
+        <location filename="../qml/pages/SettingsPage.qml" line="573" />
         <source>TUN mode only</source>
         <translation>TUN mode only</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="578" />
+        <location filename="../qml/pages/SettingsPage.qml" line="577" />
         <source>Per-App Proxy Mode</source>
         <translation>Per-App Proxy Mode</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="582" />
+        <location filename="../qml/pages/SettingsPage.qml" line="581" />
         <source>Disabled: All apps use VPN</source>
         <translation>Disabled: All apps use VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="583" />
+        <location filename="../qml/pages/SettingsPage.qml" line="582" />
         <source>Allow List: Only selected apps use VPN</source>
         <translation>Allow List: Only selected apps use VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="584" />
+        <location filename="../qml/pages/SettingsPage.qml" line="583" />
         <source>Block List: Selected apps bypass VPN</source>
         <translation>Block List: Selected apps bypass VPN</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="593" />
+        <location filename="../qml/pages/SettingsPage.qml" line="592" />
         <source>Allow List</source>
         <translation>Allow List</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="594" />
+        <location filename="../qml/pages/SettingsPage.qml" line="593" />
         <source>Block List</source>
         <translation>Block List</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="621" />
+        <location filename="../qml/pages/SettingsPage.qml" line="620" />
         <source>Selected Apps</source>
         <translation>Selected Apps</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="625" />
+        <location filename="../qml/pages/SettingsPage.qml" line="624" />
         <source>%1 app(s) selected</source>
         <translation>%1 app(s) selected</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="628" />
+        <location filename="../qml/pages/SettingsPage.qml" line="627" />
         <source>Select Apps</source>
         <translation>Select Apps</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="644" />
+        <location filename="../qml/pages/SettingsPage.qml" line="643" />
         <source>Clear Selection</source>
         <translation>Clear Selection</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="645" />
+        <location filename="../qml/pages/SettingsPage.qml" line="644" />
         <source>Remove all apps from the list</source>
         <translation>Remove all apps from the list</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="664" />
+        <location filename="../qml/pages/SettingsPage.qml" line="663" />
         <source>DNS Settings</source>
         <translation>DNS Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="665" />
+        <location filename="../qml/pages/SettingsPage.qml" line="664" />
         <source>DNS server configuration</source>
         <translation>DNS server configuration</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="669" />
+        <location filename="../qml/pages/SettingsPage.qml" line="668" />
         <source>Domestic DNS 1</source>
         <translation>Domestic DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="685" />
+        <location filename="../qml/pages/SettingsPage.qml" line="684" />
         <source>Domestic DNS 2</source>
         <translation>Domestic DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="701" />
+        <location filename="../qml/pages/SettingsPage.qml" line="700" />
         <source>Overseas DNS 1</source>
         <translation>Overseas DNS 1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="729" />
+        <location filename="../qml/pages/SettingsPage.qml" line="728" />
         <source>Overseas DNS 2</source>
         <translation>Overseas DNS 2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="757" />
+        <location filename="../qml/pages/SettingsPage.qml" line="756" />
         <source>DNS Query Strategy</source>
         <translation>DNS Query Strategy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="758" />
+        <location filename="../qml/pages/SettingsPage.qml" line="757" />
         <source>IPv4/IPv6 Query Strategy</source>
         <translation>IPv4/IPv6 Query Strategy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="799" />
+        <location filename="../qml/pages/SettingsPage.qml" line="798" />
         <source>Local Proxy</source>
         <translation>Local Proxy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="800" />
+        <location filename="../qml/pages/SettingsPage.qml" line="799" />
         <source>Local SOCKS/HTTP proxy server settings</source>
         <translation>Local SOCKS/HTTP proxy server settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="804" />
+        <location filename="../qml/pages/SettingsPage.qml" line="803" />
         <source>SOCKS Proxy Port</source>
         <translation>SOCKS Proxy Port</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="805" />
+        <location filename="../qml/pages/SettingsPage.qml" line="804" />
         <source>Local SOCKS5 proxy listen port - requires reconnecting after modification</source>
         <translation>Local SOCKS5 proxy listen port - requires reconnecting after modification</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="837" />
+        <location filename="../qml/pages/SettingsPage.qml" line="836" />
         <source>HTTP Proxy Port</source>
         <translation>HTTP Proxy Port</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="838" />
+        <location filename="../qml/pages/SettingsPage.qml" line="837" />
         <source>Local HTTP proxy listen port - requires reconnecting after modification</source>
         <translation>Local HTTP proxy listen port - requires reconnecting after modification</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="870" />
+        <location filename="../qml/pages/SettingsPage.qml" line="869" />
         <source>Allow LAN Connections</source>
         <translation>Allow LAN Connections</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="871" />
+        <location filename="../qml/pages/SettingsPage.qml" line="870" />
         <source>Allow other devices in LAN to connect to this proxy</source>
         <translation>Allow other devices in LAN to connect to this proxy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="889" />
+        <location filename="../qml/pages/SettingsPage.qml" line="888" />
         <source>Transport Layer Settings</source>
         <translation>Transport Layer Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="890" />
+        <location filename="../qml/pages/SettingsPage.qml" line="889" />
         <source>Protocol transport related configuration</source>
         <translation>Protocol transport related configuration</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="894" />
+        <location filename="../qml/pages/SettingsPage.qml" line="893" />
         <source>Enable Mux multiplexing</source>
         <translation>Enable Mux multiplexing</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="895" />
+        <location filename="../qml/pages/SettingsPage.qml" line="894" />
         <source>Transfer multiple data streams through single connection, may reduce latency</source>
         <translation>Transfer multiple data streams through single connection, may reduce latency</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="906" />
+        <location filename="../qml/pages/SettingsPage.qml" line="905" />
         <source>Mux concurrent connections</source>
         <translation>Mux concurrent connections</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="907" />
+        <location filename="../qml/pages/SettingsPage.qml" line="906" />
         <source>Maximum concurrent multiplexed connections</source>
         <translation>Maximum concurrent multiplexed connections</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="939" />
+        <location filename="../qml/pages/SettingsPage.qml" line="938" />
         <source>TCP Fast Open</source>
         <translation>TCP Fast Open</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="940" />
+        <location filename="../qml/pages/SettingsPage.qml" line="939" />
         <source>Enable TFO to reduce latency (requires system support)</source>
         <translation>Enable TFO to reduce latency (requires system support)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="953" />
+        <location filename="../qml/pages/SettingsPage.qml" line="952" />
         <source>Enable traffic sniffing</source>
         <translation>Enable traffic sniffing</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="954" />
+        <location filename="../qml/pages/SettingsPage.qml" line="953" />
         <source>Auto identify traffic type for routing</source>
         <translation>Auto identify traffic type for routing</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="969" />
+        <location filename="../qml/pages/SettingsPage.qml" line="968" />
         <source>Log Settings</source>
         <translation>Log Settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="970" />
+        <location filename="../qml/pages/SettingsPage.qml" line="969" />
         <source>Application and core log configuration</source>
         <translation>Application and core log configuration</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="974" />
+        <location filename="../qml/pages/SettingsPage.qml" line="973" />
         <source>Log Level</source>
         <translation>Log Level</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="975" />
+        <location filename="../qml/pages/SettingsPage.qml" line="974" />
         <source>Set log verbosity level</source>
         <translation>Set log verbosity level</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1002" />
         <source>Enable access log</source>
         <translation>Enable access log</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1004" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1003" />
         <source>Log all connection requests</source>
         <translation>Log all connection requests</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1016" />
         <source>Log retention days</source>
         <translation>Log retention days</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1018" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1017" />
         <source>Auto clean old logs</source>
         <translation>Auto clean old logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1049" />
         <source>Log Size</source>
         <translation>Log Size</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1051" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1050" />
         <source>%1 files</source>
         <translation>%1 files</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1059" />
         <source>Export Logs</source>
         <translation>Export Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Export all logs to a file</source>
         <translation>Export all logs to a file</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1061" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1060" />
         <source>Save to Downloads folder</source>
         <translation>Save to Downloads folder</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1063" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1062" />
         <source>Export</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1097" />
         <source>Clear Logs</source>
         <translation>Clear Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1383" />
         <source>10MB: Quick test</source>
         <translation>10MB: Quick test</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1385" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1384" />
         <source>25MB: Standard test</source>
         <translation>25MB: Standard test</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1494" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1493" />
         <source>Documentation</source>
         <translation>Documentation</translation>
     </message>
     <message>
-        <source>Delete old log files</source>
-        <translation>Delete old log files</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1128" />
         <source>View Logs</source>
         <translation>View Logs</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1132" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1131" />
         <source>Open</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1148" />
         <source>AdvancedSettings</source>
         <translation>AdvancedSettings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1150" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1149" />
         <source>Advanced user options, modify with caution</source>
         <translation>Advanced user options, modify with caution</translation>
     </message>
     <message>
-        <source>API Port</source>
-        <translation>API Port</translation>
-    </message>
-    <message>
-        <source>xray-core API service port</source>
-        <translation>xray-core API service port</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1154" />
         <source>ConnectTimeout</source>
         <translation>ConnectTimeout</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1156" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1155" />
         <source>Connection establishment timeout</source>
         <translation>Connection establishment timeout</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1187" />
         <source>Test Timeout</source>
         <translation>Test Timeout</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1189" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1188" />
         <source>Server latency test timeout duration</source>
         <translation>Server latency test timeout duration</translation>
     </message>
     <message>
-        <source>Custom GeoIP Database</source>
-        <translation>Custom GeoIP Database</translation>
-    </message>
-    <message>
-        <source>Use custom IP geolocation database</source>
-        <translation>Use custom IP geolocation database</translation>
-    </message>
-    <message>
-        <source>Custom GeoSite Database</source>
-        <translation>Custom GeoSite Database</translation>
-    </message>
-    <message>
-        <source>Use custom domain categorization database</source>
-        <translation>Use custom domain categorization database</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1232" />
         <source>Account Actions</source>
         <translation>Account Actions</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1234" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1233" />
         <source>Account management and data operations</source>
         <translation>Account management and data operations</translation>
     </message>
     <message>
-        <source>Change Password</source>
-        <translation>Change Password</translation>
-    </message>
-    <message>
-        <source>Change your account password</source>
-        <translation>Change your account password</translation>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation>Modify</translation>
-    </message>
-    <message>
-        <source>Order Management</source>
-        <translation>Order Management</translation>
-    </message>
-    <message>
-        <source>View and manage your subscription orders</source>
-        <translation>View and manage your subscription orders</translation>
-    </message>
-    <message>
-        <source>View Orders</source>
-        <translation>View Orders</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Clear Cache</translation>
-    </message>
-    <message>
-        <source>Clear application cache data</source>
-        <translation>Clear application cache data</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="647" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1101" />
+        <location filename="../qml/pages/SettingsPage.qml" line="646" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1100" />
         <source>Clear</source>
         <translation>Clear</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1099" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1098" />
         <source>Delete all logs except current</source>
         <translation>Delete all logs except current</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1130" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1129" />
         <source>Open log directory</source>
         <translation>Open log directory</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1236" />
         <source>Reset all settings</source>
         <translation>Reset all settings</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1238" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1237" />
         <source>Restore default settings (does not affect account data)</source>
         <translation>Restore default settings (does not affect account data)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1240" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1239" />
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1253" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1252" />
         <source>Settings reset to default</source>
         <translation>Settings reset to default</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1263" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1262" />
         <source>Network test</source>
         <translation>Network test</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1267" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1266" />
         <source>Latency Test Method</source>
         <translation>Latency Test Method</translation>
     </message>
     <message>
-        <source>TCP: Direct TCP connection to server port (fast, recommended)</source>
-        <translation>TCP: Direct TCP connection to server port (fast, recommended)</translation>
-    </message>
-    <message>
-        <source>HTTP: Test via proxy HTTP request (most accurate for actual usage)</source>
-        <translation>HTTP: Test via proxy HTTP request (most accurate for actual usage)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1282" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1281" />
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1303" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1302" />
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1327" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1326" />
         <source>Latency Test Interval</source>
         <translation>Latency Test Interval</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1332" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1331" />
         <source>Disabled: No periodic latency testing when connected</source>
         <translation>Disabled: No periodic latency testing when connected</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1334" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1333" />
         <source>Test latency every %1 seconds when connected</source>
         <translation>Test latency every %1 seconds when connected</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="592" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1350" />
+        <location filename="../qml/pages/SettingsPage.qml" line="591" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1349" />
         <source>Disabled</source>
         <translation>Disabled</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1270" />
         <source>TCP ping, fast</source>
         <translation>TCP ping, fast</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1272" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1271" />
         <source>HTTP ping, accurate</source>
         <translation>HTTP ping, accurate</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1380" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1379" />
         <source>Speed Test File Size</source>
         <translation>Speed Test File Size</translation>
     </message>
     <message>
-        <source>10MB: Quick test (~5-10 seconds)</source>
-        <translation>10MB: Quick test (~5-10 seconds)</translation>
-    </message>
-    <message>
-        <source>25MB: Standard test (~10-20 seconds)</source>
-        <translation>25MB: Standard test (~10-20 seconds)</translation>
-    </message>
-    <message>
-        <source>100MB: Accurate test (~30-60 seconds)</source>
-        <translation>100MB: Accurate test (~30-60 seconds)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1442" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1441" />
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1445" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1444" />
         <source>Application Version</source>
         <translation>Application Version</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1448" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1447" />
         <source>Check</source>
         <translation>Check</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1467" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1466" />
         <source>Core Version</source>
         <translation>Core Version</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1473" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1472" />
         <source>Open Source License</source>
         <translation>Open Source License</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="1475" />
-        <location filename="../qml/pages/SettingsPage.qml" line="1496" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1474" />
+        <location filename="../qml/pages/SettingsPage.qml" line="1495" />
         <source>View</source>
         <translation>View</translation>
     </message>
+</context>
+<context>
+    <name>SimpleBottomNavigationBar</name>
     <message>
-        <source>License Information</source>
-        <translation>License Information</translation>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="56" />
+        <source>Dashboard</source>
+        <translation>Dashboard</translation>
     </message>
     <message>
-        <source>Authorization status and details</source>
-        <translation>Authorization status and details</translation>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="69" />
+        <source>Store</source>
+        <translation>Store</translation>
     </message>
     <message>
-        <source>License ID</source>
-        <translation>License ID</translation>
+        <location filename="../qml/components/SimpleBottomNavigationBar.qml" line="82" />
+        <source>Profile</source>
+        <translation>Profile</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleConnectionPage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="22" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="140" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="157" />
+        <source>No Server Selected</source>
+        <translation>No Server Selected</translation>
     </message>
     <message>
-        <source>Vendor</source>
-        <translation>Vendor</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="27" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="191" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="210" />
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="218" />
+        <source>No Plan</source>
+        <translation>No Plan</translation>
     </message>
     <message>
-        <source>Expiration Date</source>
-        <translation>Expiration Date</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="71" />
+        <source>Connecting...</source>
+        <translation>Connecting...</translation>
     </message>
     <message>
-        <source>Never</source>
-        <translation>Never</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="72" />
+        <source>Disconnecting...</source>
+        <translation>Disconnecting...</translation>
     </message>
     <message>
-        <source>Status</source>
-        <translation>Status</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="73" />
+        <source>Connected</source>
+        <translation>Connected</translation>
     </message>
     <message>
-        <source>Valid (Unlimited)</source>
-        <translation>Valid (Unlimited)</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="74" />
+        <source>Not Connected</source>
+        <translation>Not Connected</translation>
     </message>
     <message>
-        <source>Expires today</source>
-        <translation>Expires today</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="189" />
+        <source>Plan</source>
+        <translation>Plan</translation>
     </message>
     <message>
-        <source>Valid (%1 days remaining)</source>
-        <translation>Valid (%1 days remaining)</translation>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="413" />
+        <source>Dashboard</source>
+        <translation>Dashboard</translation>
     </message>
     <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="592" />
+        <source>Expires: %1</source>
+        <translation>Expires: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="608" />
+        <source>Renew</source>
+        <translation>Renew</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="643" />
+        <source>Traffic Used</source>
+        <translation>Traffic Used</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="686" />
+        <source>%1% used</source>
+        <translation>%1% used</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="878" />
+        <source>Global</source>
+        <translation>Global</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="905" />
+        <source>Smart</source>
+        <translation>Smart</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to change server</source>
+        <translation>Tap to change server</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleConnectionPage.qml" line="967" />
+        <source>Tap to select a server</source>
+        <translation>Tap to select a server</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleProfilePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="15" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="69" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="90" />
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="110" />
+        <source>Users</source>
+        <translation>Users</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="121" />
+        <source>Unlimited</source>
+        <translation>Unlimited</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="239" />
+        <source>Profile</source>
+        <translation>Profile</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="347" />
+        <source>Account ID: </source>
+        <translation>Account ID: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="379" />
+        <source>Subscription Overview</source>
+        <translation>Subscription Overview</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
         <source>Active</source>
         <translation>Active</translation>
     </message>
     <message>
-        <source>Max Devices</source>
-        <translation>Max Devices</translation>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="404" />
+        <source>Inactive</source>
+        <translation>Inactive</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="411" />
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="438" />
+        <source>Expiry Date</source>
+        <translation>Expiry Date</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="465" />
+        <source>Used Traffic</source>
+        <translation>Used Traffic</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="487" />
+        <source>Expired</source>
+        <translation>Expired</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="488" />
+        <source> days</source>
+        <translation> days</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="500" />
+        <source>Remaining</source>
+        <translation>Remaining</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="519" />
+        <source>Traffic</source>
+        <translation>Traffic</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="576" />
+        <source>Account Actions</source>
+        <translation>Account Actions</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="604" />
+        <source>Order Management</source>
+        <translation>Order Management</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="646" />
+        <source>Ticket System</source>
+        <translation>Ticket System</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="688" />
+        <source>Help Center</source>
+        <translation>Help Center</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="730" />
+        <source>Change Password</source>
+        <translation>Change Password</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="766" />
+        <source>Logout</source>
+        <translation>Logout</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="820" />
+        <source>Password changed successfully</source>
+        <translation>Password changed successfully</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleProfilePage.qml" line="852" />
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>SimpleStorePage</name>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="81" />
+        <source>Monthly</source>
+        <translation>Monthly</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="84" />
+        <source>Billed monthly</source>
+        <translation>Billed monthly</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="93" />
+        <source>Quarterly</source>
+        <translation>Quarterly</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="96" />
+        <source>Billed every 3 months</source>
+        <translation>Billed every 3 months</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="105" />
+        <source>Semi-Annual</source>
+        <translation>Semi-Annual</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="108" />
+        <source>Billed every 6 months</source>
+        <translation>Billed every 6 months</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="117" />
+        <source>Yearly</source>
+        <translation>Yearly</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="120" />
+        <source>Billed annually - Best value!</source>
+        <translation>Billed annually - Best value!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="129" />
+        <source>2 Years</source>
+        <translation>2 Years</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="132" />
+        <source>Billed every 2 years</source>
+        <translation>Billed every 2 years</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="141" />
+        <source>3 Years</source>
+        <translation>3 Years</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="144" />
+        <source>Billed every 3 years</source>
+        <translation>Billed every 3 years</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="152" />
+        <source>One-time</source>
+        <translation>One-time</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="155" />
+        <source>One-time payment, no renewal</source>
+        <translation>One-time payment, no renewal</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="189" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="939" />
+        <source>Unnamed Plan</source>
+        <translation>Unnamed Plan</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="196" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="536" />
+        <source>Unlimited</source>
+        <translation>Unlimited</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="359" />
+        <source>Purchase successful!</source>
+        <translation>Purchase successful!</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="375" />
+        <source>Purchases restored successfully</source>
+        <translation>Purchases restored successfully</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="378" />
+        <source>No purchases to restore</source>
+        <translation>No purchases to restore</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="383" />
+        <source>Restore failed: </source>
+        <translation>Restore failed: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="429" />
+        <source>No payment methods available</source>
+        <translation>No payment methods available</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="445" />
+        <source>Payment initiated successfully</source>
+        <translation>Payment initiated successfully</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="500" />
+        <source>Unknown Plan</source>
+        <translation>Unknown Plan</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="507" />
+        <source>Plan #</source>
+        <translation>Plan #</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="549" />
+        <source>Please login first</source>
+        <translation>Please login first</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="587" />
+        <source>IAP not available</source>
+        <translation>IAP not available</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="603" />
+        <source>No matching IAP product for this plan</source>
+        <translation>No matching IAP product for this plan</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="607" />
+        <source>No subscription options available</source>
+        <translation>No subscription options available</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="624" />
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="633" />
+        <source>Order manager not available</source>
+        <translation>Order manager not available</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="642" />
+        <source>Invalid order</source>
+        <translation>Invalid order</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="691" />
+        <source>Store</source>
+        <translation>Store</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="755" />
+        <source>Loading subscription information...</source>
+        <translation>Loading subscription information...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="786" />
+        <source>Current Subscription</source>
+        <translation>Current Subscription</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="794" />
+        <source>No Subscription</source>
+        <translation>No Subscription</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="803" />
+        <source>Select a plan below to get started</source>
+        <translation>Select a plan below to get started</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="826" />
+        <source>Exp: %1</source>
+        <translation>Exp: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="847" />
+        <source>Rem: %1</source>
+        <translation>Rem: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="888" />
+        <source>Select Plan</source>
+        <translation>Select Plan</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="942" />
+        <source>Month</source>
+        <translation>Month</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="992" />
+        <source>Restore Purchases</source>
+        <translation>Restore Purchases</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1034" />
+        <source>No Available Plans</source>
+        <translation>No Available Plans</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1059" />
+        <source>Loading Plans...</source>
+        <translation>Loading Plans...</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1134" />
+        <source>Select Subscription Period</source>
+        <translation>Select Subscription Period</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1192" />
+        <source>This period is not available for in-app purchase</source>
+        <translation>This period is not available for in-app purchase</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/simple/SimpleStorePage.qml" line="1217" />
+        <source>Cancel</source>
+        <translation>Cancel</translation>
     </message>
 </context>
 <context>
@@ -3161,45 +3273,6 @@ Security Error: Configuration signature verification failed.</translation>
     </message>
 </context>
 <context>
-    <name>Subscription</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>Unlimited</translation>
-    </message>
-    <message>
-        <source>Do not auto update</source>
-        <translation>Do not auto update</translation>
-    </message>
-    <message>
-        <source>Update Required</source>
-        <translation>Update Required</translation>
-    </message>
-    <message>
-        <source>%1 seconds later</source>
-        <translation>%1 seconds later</translation>
-    </message>
-    <message>
-        <source>%1 minutes later</source>
-        <translation>%1 minutes later</translation>
-    </message>
-    <message>
-        <source>%1 hours later</source>
-        <translation>%1 hours later</translation>
-    </message>
-    <message>
-        <source>%1 days later</source>
-        <translation>%1 days later</translation>
-    </message>
-    <message>
-        <source>Subscription link cannot be empty</source>
-        <translation>Subscription link cannot be empty</translation>
-    </message>
-    <message>
-        <source>Subscription link format invalid</source>
-        <translation>Subscription link format invalid</translation>
-    </message>
-</context>
-<context>
     <name>SubscriptionCard</name>
     <message>
         <location filename="../qml/components/SubscriptionCard.qml" line="78" />
@@ -3263,103 +3336,35 @@ Security Error: Configuration signature verification failed.</translation>
     </message>
 </context>
 <context>
-    <name>SubscriptionManager</name>
-    <message>
-        <source>Subscription URL cannot be empty</source>
-        <translation>Subscription URL cannot be empty</translation>
-    </message>
-    <message>
-        <source>Subscription already exists</source>
-        <translation>Subscription already exists</translation>
-    </message>
-    <message>
-        <source>Subscription %1</source>
-        <translation>Subscription %1</translation>
-    </message>
-    <message>
-        <source>SaveSubscriptionFailed</source>
-        <translation>SaveSubscriptionFailed</translation>
-    </message>
-    <message>
-        <source>DeleteSubscriptionFailed</source>
-        <translation>DeleteSubscriptionFailed</translation>
-    </message>
-    <message>
-        <source>Subscription does not exist</source>
-        <translation>Subscription does not exist</translation>
-    </message>
-    <message>
-        <source>Subscription is disabled</source>
-        <translation>Subscription is disabled</translation>
-    </message>
-    <message>
-        <source>No subscription available for update</source>
-        <translation>No subscription available for update</translation>
-    </message>
-    <message>
-        <source>Server content cannot be empty</source>
-        <translation>Server content cannot be empty</translation>
-    </message>
-    <message>
-        <source>Server configuration format invalid</source>
-        <translation>Server configuration format invalid</translation>
-    </message>
-    <message>
-        <source>Manually added servers</source>
-        <translation>Manually added servers</translation>
-    </message>
-    <message>
-        <source>Manual server %1</source>
-        <translation>Manual server %1</translation>
-    </message>
-    <message>
-        <source>SaveServersFailed</source>
-        <translation>SaveServersFailed</translation>
-    </message>
-    <message>
-        <source>JSON parse error</source>
-        <translation>JSON parse error</translation>
-    </message>
-    <message>
-        <source>Unsupported configuration version</source>
-        <translation>Unsupported configuration version</translation>
-    </message>
-    <message>
-        <source>Clash Server %1</source>
-        <translation>Clash Server %1</translation>
-    </message>
-    <message>
-        <source>No servers parsed</source>
-        <translation>No servers parsed</translation>
-    </message>
-    <message>
-        <source>Failed to update database</source>
-        <translation>Failed to update database</translation>
-    </message>
-</context>
-<context>
     <name>SystemTrayManager</name>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="111" />
         <source>JinGo VPN</source>
         <translation>JinGo VPN</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="130" />
         <source>Show Main Window</source>
         <translation>Show Main Window</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="138" />
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="173" />
         <source>Quick Connect</source>
         <translation>Quick Connect</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="146" />
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="154" />
         <source>Quit</source>
         <translation>Quit</translation>
     </message>
     <message>
+        <location filename="../../src/ui/SystemTrayManager.cpp" line="170" />
         <source>DisconnectConnect</source>
         <translation>DisconnectConnect</translation>
     </message>
@@ -3641,267 +3646,6 @@ Security Error: Configuration signature verification failed.</translation>
     </message>
 </context>
 <context>
-    <name>User</name>
-    <message>
-        <source>Unlimited</source>
-        <translation>Unlimited</translation>
-    </message>
-    <message>
-        <source>%1 / %2 (remaining %3)</source>
-        <translation>%1 / %2 (remaining %3)</translation>
-    </message>
-    <message>
-        <source>Free User</source>
-        <translation>Free User</translation>
-    </message>
-    <message>
-        <source>Lifetime Member</source>
-        <translation>Lifetime Member</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation>Expired</translation>
-    </message>
-</context>
-<context>
-    <name>VPNCore</name>
-    <message>
-        <source>已停止</source>
-        <translation>已停止</translation>
-    </message>
-    <message>
-        <source>正在启动</source>
-        <translation>正在启动</translation>
-    </message>
-    <message>
-        <source>运行中</source>
-        <translation>运行中</translation>
-    </message>
-    <message>
-        <source>正在停止</source>
-        <translation>正在停止</translation>
-    </message>
-    <message>
-        <source>错误</source>
-        <translation>错误</translation>
-    </message>
-    <message>
-        <source>未知</source>
-        <translation>未知</translation>
-    </message>
-</context>
-<context>
-    <name>VPNManager</name>
-    <message>
-        <source>Not Connected</source>
-        <translation>Not Connected</translation>
-    </message>
-    <message>
-        <source>Server configuration is empty</source>
-        <translation>Server configuration is empty</translation>
-    </message>
-    <message>
-        <source>Server object invalid</source>
-        <translation>Server object invalid</translation>
-    </message>
-    <message>
-        <source>Server configuration invalid: %1</source>
-        <translation>Server configuration invalid: %1</translation>
-    </message>
-    <message>
-        <source>Preparing to connect...</source>
-        <translation>Preparing to connect...</translation>
-    </message>
-    <message>
-        <source>Connecting...</source>
-        <translation>Connecting...</translation>
-    </message>
-    <message>
-        <source>ConnectFailed</source>
-        <translation>ConnectFailed</translation>
-    </message>
-    <message>
-        <source>Server object has expired</source>
-        <translation>Server object has expired</translation>
-    </message>
-    <message>
-        <source>Failed to start connection</source>
-        <translation>Failed to start connection</translation>
-    </message>
-    <message>
-        <source>Disconnecting...</source>
-        <translation>Disconnecting...</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Disconnected</translation>
-    </message>
-    <message>
-        <source>Connecting to %1...</source>
-        <translation>Connecting to %1...</translation>
-    </message>
-    <message>
-        <source>Configuration generation failed</source>
-        <translation>Configuration generation failed</translation>
-    </message>
-    <message>
-        <source>VPNCore initialization failed</source>
-        <translation>VPNCore initialization failed</translation>
-    </message>
-    <message>
-        <source>Failed to start Xray: %1</source>
-        <translation>Failed to start Xray: %1</translation>
-    </message>
-    <message>
-        <source>SOCKS5 port not ready</source>
-        <translation>SOCKS5 port not ready</translation>
-    </message>
-    <message>
-        <source>Connected to %1</source>
-        <translation>Connected to %1</translation>
-    </message>
-    <message>
-        <source>Checking system requirements...</source>
-        <translation>Checking system requirements...</translation>
-    </message>
-    <message>
-        <source>Checking WinTun driver...</source>
-        <translation>Checking WinTun driver...</translation>
-    </message>
-    <message>
-        <source>Getting system gateway...</source>
-        <translation>Getting system gateway...</translation>
-    </message>
-    <message>
-        <source>Preparing TUN device...</source>
-        <translation>Preparing TUN device...</translation>
-    </message>
-    <message>
-        <source>Waiting for TUN device...</source>
-        <translation>Waiting for TUN device...</translation>
-    </message>
-    <message>
-        <source>Configuring TUN device IP address...</source>
-        <translation>Configuring TUN device IP address...</translation>
-    </message>
-    <message>
-        <source>Connecting TUN to Xray...</source>
-        <translation>Connecting TUN to Xray...</translation>
-    </message>
-    <message>
-        <source>Configuring system routes...</source>
-        <translation>Configuring system routes...</translation>
-    </message>
-    <message>
-        <source>Initializing DNS...</source>
-        <translation>Initializing DNS...</translation>
-    </message>
-    <message>
-        <source>Connected (Windows TUN Mode)</source>
-        <translation>Connected (Windows TUN Mode)</translation>
-    </message>
-    <message>
-        <source>VPN permission denied. Please grant VPN permission in Settings and try again.</source>
-        <translation>VPN permission denied. Please grant VPN permission in Settings and try again.</translation>
-    </message>
-    <message>
-        <source>Connected (TUN Mode)</source>
-        <translation>Connected (TUN Mode)</translation>
-    </message>
-    <message>
-        <source>Connected (System Proxy)</source>
-        <translation>Connected (System Proxy)</translation>
-    </message>
-    <message>
-        <source>Failed to create TUN device</source>
-        <translation>Failed to create TUN device</translation>
-    </message>
-    <message>
-        <source>Failed to configure TUN device</source>
-        <translation>Failed to configure TUN device</translation>
-    </message>
-    <message>
-        <source>Connection failed: maximum retry attempts exceeded</source>
-        <translation>Connection failed: maximum retry attempts exceeded</translation>
-    </message>
-    <message>
-        <source>Maximum retry attempts exceeded</source>
-        <translation>Maximum retry attempts exceeded</translation>
-    </message>
-    <message>
-        <source>Will reconnect in %1 seconds (attempt %2/%3)</source>
-        <translation>Will reconnect in %1 seconds (attempt %2/%3)</translation>
-    </message>
-    <message>
-        <source>Error: %1</source>
-        <translation>Error: %1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: server object invalid</source>
-        <translation>Reconnect failed: server object invalid</translation>
-    </message>
-    <message>
-        <source>ConnectTimeout</source>
-        <translation>ConnectTimeout</translation>
-    </message>
-    <message>
-        <source>TUN device error: %1</source>
-        <translation>TUN device error: %1</translation>
-    </message>
-    <message>
-        <source>Reconnect failed: no current server</source>
-        <translation>Reconnect failed: no current server</translation>
-    </message>
-    <message>
-        <source>VPN not connected</source>
-        <translation>VPN not connected</translation>
-    </message>
-    <message>
-        <source>No Server Selected</source>
-        <translation>No Server Selected</translation>
-    </message>
-    <message>
-        <source>No data received</source>
-        <translation>No data received</translation>
-    </message>
-    <message>
-        <source>Server address is empty</source>
-        <translation>Server address is empty</translation>
-    </message>
-    <message>
-        <source>Ping not supported on this platform</source>
-        <translation>Ping not supported on this platform</translation>
-    </message>
-    <message>
-        <source>Failed to parse ping result</source>
-        <translation>Failed to parse ping result</translation>
-    </message>
-    <message>
-        <source>PingFailed</source>
-        <translation>PingFailed</translation>
-    </message>
-    <message>
-        <source>ServersInvalid</source>
-        <translation>ServersInvalid</translation>
-    </message>
-    <message>
-        <source>TCP connection failed</source>
-        <translation>TCP connection failed</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>HTTP request failed</translation>
-    </message>
-    <message>
-        <source>License has expired. Please contact your vendor to renew.</source>
-        <translation>License has expired. Please contact your vendor to renew.</translation>
-    </message>
-    <message>
-        <source>License is invalid. Please check your configuration.</source>
-        <translation>License is invalid. Please check your configuration.</translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
         <location filename="../qml/main.qml" line="25" />
@@ -3909,162 +3653,175 @@ Security Error: Configuration signature verification failed.</translation>
         <translation>Secure. Fast. Borderless.</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="218" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Connected</source>
         <translation>Connected</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171" />
+        <location filename="../qml/main.qml" line="218" />
         <source>VPN ConnectSuccess</source>
         <translation>VPN ConnectSuccess</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>Disconnected</source>
         <translation>Disconnected</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176" />
+        <location filename="../qml/main.qml" line="223" />
         <source>VPN Disconnected</source>
         <translation>VPN Disconnected</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="181" />
+        <location filename="../qml/main.qml" line="228" />
         <source>ConnectFailed</source>
         <translation>ConnectFailed</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="186" />
+        <location filename="../qml/main.qml" line="233" />
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="224" />
+        <location filename="../qml/main.qml" line="271" />
         <source>File</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="226" />
+        <location filename="../qml/main.qml" line="273" />
         <source>Preferences</source>
         <translation>Preferences</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="231" />
+        <location filename="../qml/main.qml" line="284" />
         <source>Quit</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="237" />
-        <location filename="../qml/main.qml" line="239" />
-        <location filename="../qml/main.qml" line="365" />
+        <location filename="../qml/main.qml" line="290" />
+        <location filename="../qml/main.qml" line="292" />
+        <location filename="../qml/main.qml" line="419" />
         <source>Connect</source>
         <translation>Connect</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="239" />
+        <location filename="../qml/main.qml" line="292" />
         <source>DisconnectConnect</source>
         <translation>DisconnectConnect</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="252" />
+        <location filename="../qml/main.qml" line="305" />
         <source>Select Server</source>
         <translation>Select Server</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="258" />
+        <location filename="../qml/main.qml" line="312" />
         <source>Help</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="260" />
+        <location filename="../qml/main.qml" line="314" />
         <source>Documentation</source>
         <translation>Documentation</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="264" />
+        <location filename="../qml/main.qml" line="318" />
         <source>Report Issue</source>
         <translation>Report Issue</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269" />
+        <location filename="../qml/main.qml" line="323" />
         <source>About JinGo</source>
         <translation>About JinGo</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="719" />
+        <location filename="../qml/main.qml" line="419" />
+        <location filename="../qml/main.qml" line="668" />
+        <source>Dashboard</source>
+        <translation>Dashboard</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Professional Mode</source>
+        <translation>Switch to Professional Mode</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="517" />
+        <source>Switch to Simple Mode</source>
+        <translation>Switch to Simple Mode</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="673" />
+        <source>Store</source>
+        <translation>Store</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="833" />
         <source>JinGo</source>
         <translation>JinGo</translation>
     </message>
     <message>
-        <source>About JinGoVPN</source>
-        <translation>About JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="379" />
+        <location filename="../qml/main.qml" line="433" />
         <source>Servers</source>
         <translation>Servers</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="391" />
-        <location filename="../qml/main.qml" line="579" />
+        <location filename="../qml/main.qml" line="445" />
+        <location filename="../qml/main.qml" line="673" />
         <source>Subscription</source>
         <translation>Subscription</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="403" />
-        <location filename="../qml/main.qml" line="576" />
+        <location filename="../qml/main.qml" line="457" />
+        <location filename="../qml/main.qml" line="670" />
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="574" />
+        <location filename="../qml/main.qml" line="668" />
         <source>Connection</source>
         <translation>Connection</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="575" />
+        <location filename="../qml/main.qml" line="669" />
         <source>Server List</source>
         <translation>Server List</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="577" />
+        <location filename="../qml/main.qml" line="671" />
         <source>Profile</source>
         <translation>Profile</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="578" />
+        <location filename="../qml/main.qml" line="672" />
         <source>Login/Register</source>
         <translation>Login/Register</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="590" />
+        <location filename="../qml/main.qml" line="684" />
         <source>Manage your VPN connection</source>
         <translation>Manage your VPN connection</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="591" />
+        <location filename="../qml/main.qml" line="685" />
         <source>Select the best server</source>
         <translation>Select the best server</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="592" />
+        <location filename="../qml/main.qml" line="686" />
         <source>Upgrade your subscription plan</source>
         <translation>Upgrade your subscription plan</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="632" />
+        <location filename="../qml/main.qml" line="726" />
         <source>Not Connected</source>
         <translation>Not Connected</translation>
     </message>
     <message>
-        <source>JinGoVPN</source>
-        <translation>JinGoVPN</translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="720" />
-        <source>Application minimized to system tray, double-click the tray icon to reopen</source>
-        <translation>Application minimized to system tray, double-click the tray icon to reopen</translation>
+        <location filename="../qml/main.qml" line="834" />
+        <source>Application minimized to system tray, click the tray icon to reopen</source>
+        <translation>Application minimized to system tray, click the tray icon to reopen</translation>
     </message>
 </context>
 </TS>

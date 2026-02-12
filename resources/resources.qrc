@@ -7,6 +7,9 @@
         <file>qml/pages/SettingsPage.qml</file>
         <file>qml/pages/ProfilePage.qml</file>
         <file>qml/pages/StorePage.qml</file>
+        <file>qml/pages/simple/SimpleConnectionPage.qml</file>
+        <file>qml/pages/simple/SimpleStorePage.qml</file>
+        <file>qml/pages/simple/SimpleProfilePage.qml</file>
         <file>qml/components/StatusIndicator.qml</file>
         <file>qml/components/TrafficDisplay.qml</file>
         <file>qml/components/CustomButton.qml</file>
@@ -61,6 +64,7 @@
         <file>qml/components/ServerSelectDialog.qml</file>
         <file>qml/components/PeriodSelectDialog.qml</file>
         <file>qml/components/BottomNavigationBar.qml</file>
+        <file>qml/components/SimpleBottomNavigationBar.qml</file>
         <file>qml/components/BottomNavButton.qml</file>
         <file>qml/components/CustomSwitch.qml</file>
         <file>qml/components/CustomRadioButton.qml</file>
@@ -182,7 +186,10 @@
         <!-- <file>geoip/geosite.dat</file> -->
         <file>translations/jingo_en_US.qm</file>
         <file>translations/jingo_fa_IR.qm</file>
+        <file>translations/jingo_km_KH.qm</file>
+        <file>translations/jingo_my_MM.qm</file>
         <file>translations/jingo_ru_RU.qm</file>
+        <file>translations/jingo_vi_VN.qm</file>
         <file>translations/jingo_zh_CN.qm</file>
         <file>translations/jingo_zh_TW.qm</file>
     </qresource>

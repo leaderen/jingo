@@ -54,7 +54,7 @@ Rectangle {
     // 定时更新流量数据
     Timer {
         id: trafficUpdateTimer
-        interval: 1000
+        interval: 5000
         running: false
         repeat: true
         onTriggered: updateTrafficData()
